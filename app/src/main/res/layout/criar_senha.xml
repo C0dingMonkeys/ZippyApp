@@ -36,7 +36,7 @@
         android:textCursorDrawable="@drawable/cursor_color"
         android:inputType="textPassword"
         android:paddingStart="16dp"
-        android:padding="12dp"
+        android:padding="15dp"
         android:textColor="@color/black"
         android:textColorHint="@color/gray"
         android:textSize="16sp"
@@ -46,17 +46,14 @@
 
     <TextView
         android:id="@+id/lblEntrar"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginTop="70dp"
-        android:layout_marginEnd="170dp"
         android:fontFamily="@font/krona"
         android:text="@string/criar_senha"
         android:textColor="@color/white"
-        android:textSize="22sp
-"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:textSize="22sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -72,7 +69,7 @@
         android:fontFamily="@font/krona"
         android:hint="@string/confirmar_senha"
         android:inputType="textPassword"
-        android:padding="12dp"
+        android:padding="15dp"
         android:paddingStart="16dp"
         android:textColor="@color/black"
         android:textColorHint="@color/gray"

@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">ジッピー0.001</string>
+    <string name="welcome">ジッピーへようこそ</string>
+    <string name="email_hint" translatable="false">Email</string>
+    <string name="logodescricao" translatable="false">Zippy Logo</string>
+    <string name="terms_conditions">続行すると、利用規約に同意し、プライバシー ポリシーを読んだことを確認したことになります。</string>
+    <string name="criar_senha">パスワードを作成してください</string>
+    <string name="confirmar_senha">あなたのパスワードを確認</string>
+    <string name="quase_la">私たちは、ほぼ、そこにいる..</string>
+    <string name="cpf">CPFを入力してください</string>
+    <string name="fim">仕上げる</string>
+    <string name="entrar">こんにちは!\n続行するにはサインインしてください!</string>
+    <string name="senha_hint">パスワード</string>
+    <string name="btn_entrar">入る</string>
+    <string name="cpf_hint">CPF</string>
+    <string name="btn_continuar">続く</string>
+</resources>

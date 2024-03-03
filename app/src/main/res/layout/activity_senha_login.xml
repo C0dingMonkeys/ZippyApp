@@ -57,7 +57,7 @@
         android:fontFamily="@font/krona"
         android:hint="@string/senha_hint"
         android:inputType="textPassword"
-        android:padding="12dp"
+        android:padding="15dp"
         android:paddingStart="16dp"
         android:textColor="@color/black"
         android:textColorHint="@color/gray"
