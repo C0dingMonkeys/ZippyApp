@@ -1,0 +1,110 @@
+package com.example.zippy0001;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.view.WindowManager;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+
+import com.google.gson.JsonObject;
+import com.koushikdutta.async.future.FutureCallback;
+import com.koushikdutta.ion.Ion;
+
+public class InserirEmail extends AppCompatActivity {
+
+
+    private EditText txtemail;
+
+    public static final String EXTRA_EMAIL = "email";
+
+    private Button btnContinuar;
+    String ret;
+
+    private static final String URL_CHECK_EMAIL = "https://zippyinternacional.000webhostapp.com/testeLuix/login01.php";
+
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+        setContentView(R.layout.inserir_email);
+
+
+        txtemail = (EditText) findViewById(R.id.txtEmail);
+        btnContinuar = (Button) findViewById(R.id.btnContinuar);
+
+        findViewById(R.id.btnContinuar).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String email = txtemail.getText().toString().trim();
+
+                if (email.isEmpty()) {
+                // Mostrar uma mensagem de erro
+                Toast.makeText(InserirEmail.this, "Por favor, insira o seu email", Toast.LENGTH_SHORT).show();
+            } else {
+                // Verificar se o email existe no banco de dados
+                checkEmail(email);
+            }
+
+            }
+        });
+
+    }
+
+    private void checkEmail(String email) {
+        // Usar a API Ion para fazer uma requisição HTTP POST para o script PHP
+        Ion.with(this)
+                .load(URL_CHECK_EMAIL)
+                .setBodyParameter("email", email) // Enviar o email como parâmetro
+                .asJsonObject() // Obter a resposta como uma Json
+                .setCallback(new FutureCallback<JsonObject>() {
+                    @Override
+                    public void onCompleted(Exception e, JsonObject result) {
+                        ret=result.get("status").getAsString ();
+
+                        // Verificar se a requisição foi bem-sucedida
+
+                        if (e == null) {
+                            // Verificar se o resultado é válido
+                            if (ret != null) {
+                                // Verificar se o resultado é "true" ou "false"
+                                if (ret.equals("true")) {
+                                    // O email existe no banco de dados
+                                    // Ir para a tela de inserir senha
+                                    Intent intent = new Intent(InserirEmail.this, SenhaLogin.class);
+                                    intent.putExtra(EXTRA_EMAIL, email); // Passar o email como extra
+                                    startActivity(intent);
+                                    overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left);
+                                } else if ("false".equals(ret)) {
+                                    // O email não existe no banco de dados
+                                    // Ir para a tela de criar senha
+                                    Intent intent = new Intent(InserirEmail.this, CriarSenha.class);
+                                    intent.putExtra(EXTRA_EMAIL, email); // Passar o email como extra
+                                    startActivity(intent);
+                                } else {
+                                    // O resultado é inválido
+                                    // Mostrar uma mensagem de erro
+                                    Toast.makeText(InserirEmail.this, "Erro: resultado inválido", Toast.LENGTH_SHORT).show();
+                                }
+                            } else {
+                                // O resultado é nulo
+                                // Mostrar uma mensagem de erro
+                                Toast.makeText(InserirEmail.this, "Erro: resultado nulo", Toast.LENGTH_SHORT).show();
+                            }
+                        } else {
+                            // A requisição falhou
+                            // Mostrar uma mensagem de erro
+                            Toast.makeText(InserirEmail.this, "Erro: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+    }
+}
+
+

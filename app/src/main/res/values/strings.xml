@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Zippy0.001</string>
+    <string name="welcome">Bem vindo(a) ao Zippy</string>
+    <string name="email_hint">Email</string>
+    <string name="logodescricao">Zippy Logo</string>
+    <string name="terms_conditions">Ao continuar, você concorda com nossos Termos de Serviço e cofirma que leu nossa Politica de Privacidade</string>
+    <string name="criar_senha">Crie sua senha</string>
+    <string name="confirmar_senha">Confirme sua senha</string>
+    <string name="quase_la">Estamos quase lá..</string>
+    <string name="cpf">Insira seu CPF</string>
+    <string name="fim">Finalizar</string>
+    <string name="entrar">Olá novamente!\nEntre para prosseguir!</string>
+    <string name="senha_hint">Senha</string>
+    <string name="btn_entrar">Entrar</string>
+    <string name="cpf_hint">CPF</string>
+    <string name="btn_continuar">Continuar</string>
+</resources>
