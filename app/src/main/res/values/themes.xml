@@ -1,15 +1,14 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.Zippy0001" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Base application theme. -->
 
-            <!-- Customize your theme here. -->
-            <item name="android:windowFullscreen">true</item>
-            <item name="android:windowTranslucentStatus">false</item>
-            <item name="android:statusBarColor">@android:color/transparent</item>
 
     </style>
 
-    <style name="Theme.Zippy0001" parent="Base.Theme.Zippy0001" />
+    <style name="Theme.Zippy0001" parent="Base.Theme.Zippy0001">
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+    </style>
+
 
 </resources>
