@@ -41,16 +41,21 @@ public class InserirEmail extends AppCompatActivity {
 
         findViewById(R.id.btnContinuar).setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                String email = txtemail.getText().toString().trim();
+            public void onClick(View v)
+            {
 
-                if (email.isEmpty()) {
-                // Mostrar uma mensagem de erro
-                Toast.makeText(InserirEmail.this, "Por favor, insira o seu email", Toast.LENGTH_SHORT).show();
-            } else {
-                // Verificar se o email existe no banco de dados
-                checkEmail(email);
-            }
+
+                    String email = txtemail.getText().toString().trim();
+
+                    if (email.isEmpty()) {
+                        // Mostrar uma mensagem de erro
+                        Toast.makeText(InserirEmail.this, "Por favor, insira o seu email", Toast.LENGTH_SHORT).show();
+                    } else {
+
+                        // Verificar se o email existe no banco de dados
+                        checkEmail(email);
+                    }
+
 
             }
         });
@@ -58,53 +63,48 @@ public class InserirEmail extends AppCompatActivity {
     }
 
     private void checkEmail(String email) {
-        // Usar a API Ion para fazer uma requisição HTTP POST para o script PHP
         Ion.with(this)
                 .load(URL_CHECK_EMAIL)
-                .setBodyParameter("email", email) // Enviar o email como parâmetro
-                .asJsonObject() // Obter a resposta como uma Json
+                .setBodyParameter("email", email)
+                .asJsonObject()
                 .setCallback(new FutureCallback<JsonObject>() {
                     @Override
                     public void onCompleted(Exception e, JsonObject result) {
-                        ret=result.get("status").getAsString ();
-
-                        // Verificar se a requisição foi bem-sucedida
-
-                        if (e == null) {
-                            // Verificar se o resultado é válido
-                            if (ret != null) {
-                                // Verificar se o resultado é "true" ou "false"
-                                if (ret.equals("true")) {
-                                    // O email existe no banco de dados
+                        if (e != null) {
+                            // Ocorreu um erro de conexão ou outra exceção
+                            Toast.makeText(InserirEmail.this, "Erro ao verificar e-mail. Verifique sua conexão com a internet.", Toast.LENGTH_SHORT).show();
+                        } else {
+                            // Verifique se o resultado é válido
+                            if (result != null && result.has("status")) {
+                                String status = result.get("status").getAsString();
+                                if ("true".equals(status)) {
+                                    // O e-mail existe no banco de dados
                                     // Ir para a tela de inserir senha
                                     Intent intent = new Intent(InserirEmail.this, SenhaLogin.class);
-                                    intent.putExtra(EXTRA_EMAIL, email); // Passar o email como extra
+                                    intent.putExtra(EXTRA_EMAIL, email);
                                     startActivity(intent);
-                                    overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left);
-                                } else if ("false".equals(ret)) {
-                                    // O email não existe no banco de dados
+                                    overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                                } else if ("false".equals(status)) {
+                                    // O e-mail não existe no banco de dados
                                     // Ir para a tela de criar senha
                                     Intent intent = new Intent(InserirEmail.this, CriarSenha.class);
-                                    intent.putExtra(EXTRA_EMAIL, email); // Passar o email como extra
+                                    intent.putExtra(EXTRA_EMAIL, email);
                                     startActivity(intent);
+                                    overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                                 } else {
-                                    // O resultado é inválido
-                                    // Mostrar uma mensagem de erro
-                                    Toast.makeText(InserirEmail.this, "Erro: resultado inválido", Toast.LENGTH_SHORT).show();
+                                    // Resposta inválida do servidor
+                                    Toast.makeText(InserirEmail.this, "Erro desconhecido ao verificar e-mail.", Toast.LENGTH_SHORT).show();
                                 }
                             } else {
-                                // O resultado é nulo
-                                // Mostrar uma mensagem de erro
-                                Toast.makeText(InserirEmail.this, "Erro: resultado nulo", Toast.LENGTH_SHORT).show();
+                                // Resposta inválida do servidor
+                                Toast.makeText(InserirEmail.this, "Erro desconhecido ao verificar e-mail.", Toast.LENGTH_SHORT).show();
                             }
-                        } else {
-                            // A requisição falhou
-                            // Mostrar uma mensagem de erro
-                            Toast.makeText(InserirEmail.this, "Erro: " + e.getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
     }
 }
+
+
 
 
