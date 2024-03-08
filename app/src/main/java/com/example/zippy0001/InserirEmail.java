@@ -13,10 +13,11 @@ import com.koushikdutta.ion.Ion;
 
 import java.util.regex.Pattern;
 
+/** @noinspection Convert2Lambda*/
 public class InserirEmail extends AppCompatActivity {
 
 
-    private final EditText txtemail = findViewById(R.id.txtEmail);
+    private EditText txtemail;
 
     public static final String EXTRA_EMAIL = "email";
 
@@ -30,27 +31,27 @@ public class InserirEmail extends AppCompatActivity {
 
         setContentView(R.layout.inserir_email);
 
-        Button btnContinuar = findViewById(R.id.btnContinuar);
-
+        txtemail = (EditText) findViewById(R.id.txtEmail);
+        Button btnContinuar = (Button) findViewById(R.id.btnContinuar);
+        //noinspection Convert2Lambda
         btnContinuar.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v)
-            {
+            public void onClick(View v) {
 
 
-                    String email = txtemail.getText().toString().trim();
+                String email = txtemail.getText().toString().trim();
 
-                    if (email.isEmpty()) {
-                        // Mostrar uma mensagem de erro
-                        Toast.makeText(InserirEmail.this, "Por favor, insira o seu email", Toast.LENGTH_SHORT).show();
-                    }else if(!isValidEmail(email)){
-                        // Mostrar uma mensagem de erro de email inválido
-                        Toast.makeText(InserirEmail.this, "Email inválido", Toast.LENGTH_SHORT).show();
-                    } else {
+                if (email.isEmpty()) {
+                    // Mostrar uma mensagem de erro
+                    Toast.makeText(InserirEmail.this, "Por favor, insira o seu email", Toast.LENGTH_SHORT).show();
+                } else if (!isValidEmail(email)) {
+                    // Mostrar uma mensagem de erro de email inválido
+                    Toast.makeText(InserirEmail.this, "Email inválido", Toast.LENGTH_SHORT).show();
+                } else {
 
-                        // Verificar se o email existe no banco de dados
-                        checkEmail(email);
-                    }
+                    // Verificar se o email existe no banco de dados
+                    checkEmail(email);
+                }
 
 
             }
