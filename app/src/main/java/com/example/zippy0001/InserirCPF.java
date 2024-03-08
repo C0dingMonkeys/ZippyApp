@@ -2,6 +2,9 @@ package com.example.zippy0001;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
@@ -39,9 +42,6 @@ public class InserirCPF extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
-
         setContentView(R.layout.inserir_cpf);
 
         txtcpf = (EditText) findViewById(R.id.txtCpf);
@@ -56,13 +56,19 @@ public class InserirCPF extends AppCompatActivity {
         btnInserir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String CPF = txtcpf.getText().toString().trim();
+                String txtCPF = txtcpf.getText().toString().trim();
 
-                if (CPF.isEmpty()) {
+                if (!isNetworkAvailable(InserirCPF.this)) {
+                    // Mostrar um Toast de aviso de que não há internet
+                    Toast.makeText(InserirCPF.this, "Sem conexão com a internet!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if (txtCPF.isEmpty()) {
                     // Mostrar uma mensagem de erro
                     Toast.makeText(InserirCPF.this, "Por favor, insira seu CPF", Toast.LENGTH_SHORT).show();
                 }
-                if (!ValidaCPF.isCPF(CPF)){
+                if (!ValidaCPF.isCPF(txtCPF)){
                     // Mostrar uma mensagem de erro
                     Toast.makeText(InserirCPF.this, "CPF inválido!", Toast.LENGTH_SHORT).show();
                 }
@@ -108,5 +114,10 @@ public class InserirCPF extends AppCompatActivity {
                 });
     }
 
+    public static boolean isNetworkAvailable(Context context) {
+        ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnectedOrConnecting();
+    }
 
 }

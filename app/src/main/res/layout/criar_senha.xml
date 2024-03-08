@@ -16,6 +16,7 @@
         android:fontFamily="@font/krona"
         android:layout_marginHorizontal="25dp"
         android:textColor="@color/white"
+        android:background="@drawable/edittext_backgorund"
         android:text="@string/btn_continuar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

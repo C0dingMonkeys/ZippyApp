@@ -3,8 +3,11 @@ package com.example.zippy0001;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowInsets;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
@@ -13,6 +16,8 @@ import android.widget.Toast;
 import com.google.gson.JsonObject;
 import com.koushikdutta.async.future.FutureCallback;
 import com.koushikdutta.ion.Ion;
+
+import java.util.regex.Pattern;
 
 public class InserirEmail extends AppCompatActivity {
 
@@ -32,9 +37,7 @@ public class InserirEmail extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
         setContentView(R.layout.inserir_email);
-
 
         txtemail = (EditText) findViewById(R.id.txtEmail);
         btnContinuar = (Button) findViewById(R.id.btnContinuar);
@@ -50,6 +53,9 @@ public class InserirEmail extends AppCompatActivity {
                     if (email.isEmpty()) {
                         // Mostrar uma mensagem de erro
                         Toast.makeText(InserirEmail.this, "Por favor, insira o seu email", Toast.LENGTH_SHORT).show();
+                    }else if(!isValidEmail(email)){
+                        // Mostrar uma mensagem de erro de email inválido
+                        Toast.makeText(InserirEmail.this, "Email inválido", Toast.LENGTH_SHORT).show();
                     } else {
 
                         // Verificar se o email existe no banco de dados
@@ -102,6 +108,12 @@ public class InserirEmail extends AppCompatActivity {
                         }
                     }
                 });
+    }
+
+    // FUNÇÃO DE VALIDAR O EMAIL
+    public static boolean isValidEmail(String email) {
+        String emailPattern = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$";
+        return Pattern.matches(emailPattern, email);
     }
 }
 

@@ -2,7 +2,10 @@ package com.example.zippy0001;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
@@ -29,7 +32,6 @@ public class CriarSenha extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
 
         setContentView(R.layout.criar_senha);
 
@@ -46,6 +48,11 @@ public class CriarSenha extends AppCompatActivity {
                 String Senha = txtSenha.getText().toString().trim();
                 String Confsenha = txtConfsenha.getText().toString().trim();
 
+                if (!isNetworkAvailable(CriarSenha.this)) {
+                    // Mostrar um Toast de aviso de que não há internet
+                    Toast.makeText(CriarSenha.this, "Sem conexão com a internet!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 // Validar a senha
                 if (Senha.isEmpty()) {
                     // Mostrar uma mensagem de erro
@@ -65,6 +72,12 @@ public class CriarSenha extends AppCompatActivity {
             }
         });
 
+    }
+
+    public static boolean isNetworkAvailable(Context context) {
+        ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnectedOrConnecting();
     }
 
 }

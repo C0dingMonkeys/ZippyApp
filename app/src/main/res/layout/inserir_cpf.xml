@@ -16,6 +16,7 @@
         android:fontFamily="@font/krona"
         android:layout_marginHorizontal="25dp"
         android:text="@string/fim"
+        android:background="@drawable/edittext_backgorund"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

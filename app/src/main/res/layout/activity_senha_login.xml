@@ -16,6 +16,7 @@
         android:backgroundTint="#CB6CE6"
         android:fontFamily="@font/krona"
         android:text="@string/btn_entrar"
+        android:background="@drawable/edittext_backgorund"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

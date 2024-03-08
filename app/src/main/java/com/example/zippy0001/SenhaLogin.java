@@ -37,7 +37,6 @@ public class SenhaLogin extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
 
         setContentView(R.layout.activity_senha_login);
 
@@ -76,37 +75,31 @@ public class SenhaLogin extends AppCompatActivity {
                 .setCallback(new FutureCallback<JsonObject>() {
                     @Override
                     public void onCompleted(Exception e, JsonObject result) {
-
-                        ret=result.get("status").getAsString();
-
-                        // Verificar se a requisição foi bem-sucedida
-                        if (e == null) {
-                            // Verificar se o resultado é válido
-                            if (ret != null) {
-                                // Verificar se o resultado é "true" ou "false"
-                                if (ret.equals("true")) {
+                        if (e != null) {
+                            // Ocorreu um erro de conexão ou outra exceção
+                            Toast.makeText(SenhaLogin.this, "Erro ao verificar senha. Verifique sua conexão com a internet.", Toast.LENGTH_SHORT).show();
+                        } else {
+                            // Verifique se o resultado é válido
+                            if (result != null && result.has("status")) {
+                                String status = result.get("status").getAsString();
+                                if ("true".equals(status)) {
+                                    // O e-mail existe no banco de dados
+                                    // Ir para a tela de inserir senha
                                     Intent intent = new Intent(SenhaLogin.this, InserirCPF.class);
-                                    intent.putExtra(EXTRA_EMAIL, email);// Passar o email como extra
+                                    intent.putExtra(EXTRA_EMAIL, email);
                                     startActivity(intent);
+                                    overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                                } else if ("false".equals(status)) {
+                                    Toast.makeText(SenhaLogin.this, "Senha Incoreta.", Toast.LENGTH_SHORT).show();
 
-                                } else if (ret.equals("false")) {
-                                    // A senha está incorreta
-                                    // Mostrar uma mensagem de erro
-                                    Toast.makeText(SenhaLogin.this, "Senha incorreta", Toast.LENGTH_SHORT).show();
                                 } else {
-                                    // O resultado é inválido
-                                    // Mostrar uma mensagem de erro
-                                    Toast.makeText(SenhaLogin.this, "Erro: resultado inválido", Toast.LENGTH_SHORT).show();
+                                    // Resposta inválida do servidor
+                                    Toast.makeText(SenhaLogin.this, "Erro desconhecido ao verificar e-mail.", Toast.LENGTH_SHORT).show();
                                 }
                             } else {
-                                // O resultado é nulo
-                                // Mostrar uma mensagem de erro
-                                Toast.makeText(SenhaLogin.this, "Erro: resultado nulo", Toast.LENGTH_SHORT).show();
+                                // Resposta inválida do servidor
+                                Toast.makeText(SenhaLogin.this, "Erro desconhecido ao verificar e-mail.", Toast.LENGTH_SHORT).show();
                             }
-                        } else {
-                            // A requisição falhou
-                            // Mostrar uma mensagem de erro
-                            Toast.makeText(SenhaLogin.this, "Erro: " + e.getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
