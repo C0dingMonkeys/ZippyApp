@@ -8,15 +8,11 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class CriarSenha extends AppCompatActivity {
-
-    // URL do script PHP que verifica se a senha está correta
-    private static final String URL_CHECK_PASSWORD = "https://zippyinternacional.000webhostapp.com/testeLuix/VerificarSenha.php";
 
     // Chave para receber o email como extra da tela anterior
     public static final String EXTRA_EMAIL = "email";
@@ -26,8 +22,6 @@ public class CriarSenha extends AppCompatActivity {
     private String email;
 
     private TextView txtSenha, txtConfsenha;
-    private Button Continuar;
-    String ret;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,12 +31,12 @@ public class CriarSenha extends AppCompatActivity {
 
         txtSenha = findViewById(R.id.txtSenhaCadastro);
         txtConfsenha = findViewById(R.id.txtConfirmarSenha);
-        Continuar = findViewById(R.id.btnContinuar);
+        Button continuar = findViewById(R.id.btnContinuar);
 
         email = getIntent().getStringExtra(EXTRA_EMAIL);
 
 
-        Continuar.setOnClickListener(new View.OnClickListener() {
+        continuar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String Senha = txtSenha.getText().toString().trim();

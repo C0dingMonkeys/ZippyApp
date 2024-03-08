@@ -1,18 +1,12 @@
 package com.example.zippy0001;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
-import android.graphics.Color;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
-import android.view.WindowInsets;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import com.google.gson.JsonObject;
 import com.koushikdutta.async.future.FutureCallback;
 import com.koushikdutta.ion.Ion;
@@ -22,12 +16,9 @@ import java.util.regex.Pattern;
 public class InserirEmail extends AppCompatActivity {
 
 
-    private EditText txtemail;
+    private final EditText txtemail = findViewById(R.id.txtEmail);
 
     public static final String EXTRA_EMAIL = "email";
-
-    private Button btnContinuar;
-    String ret;
 
     private static final String URL_CHECK_EMAIL = "https://zippyinternacional.000webhostapp.com/testeLuix/login01.php";
 
@@ -39,10 +30,9 @@ public class InserirEmail extends AppCompatActivity {
 
         setContentView(R.layout.inserir_email);
 
-        txtemail = (EditText) findViewById(R.id.txtEmail);
-        btnContinuar = (Button) findViewById(R.id.btnContinuar);
+        Button btnContinuar = findViewById(R.id.btnContinuar);
 
-        findViewById(R.id.btnContinuar).setOnClickListener(new View.OnClickListener() {
+        btnContinuar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v)
             {

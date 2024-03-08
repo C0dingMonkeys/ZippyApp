@@ -7,7 +7,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.View;
-import android.view.WindowManager;
+
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -34,8 +34,6 @@ public class InserirCPF extends AppCompatActivity {
 
     private EditText txtcpf;
 
-    private Button btnInserir;
-
     String ret;
 
     @Override
@@ -44,10 +42,10 @@ public class InserirCPF extends AppCompatActivity {
 
         setContentView(R.layout.inserir_cpf);
 
-        txtcpf = (EditText) findViewById(R.id.txtCpf);
+        txtcpf = findViewById(R.id.txtCpf);
         txtcpf.addTextChangedListener(MaskUtil.insert(txtcpf, MaskType.CPF)); // Máscara de CPF
 
-        btnInserir = (Button) findViewById(R.id.btnInserir);
+        Button btnInserir = findViewById(R.id.btnInserir);
 
         email = getIntent().getStringExtra(EXTRA_EMAIL);
         Senha = getIntent().getStringExtra(EXTRA_SENHA);

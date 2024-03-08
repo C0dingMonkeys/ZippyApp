@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,10 +23,6 @@ public class SenhaLogin extends AppCompatActivity {
     private TextView txtSenhaLogin;
     private String email;
 
-    private Button Logar;
-
-    String ret;
-
     @Override
     public void finish() {
         super.finish();
@@ -42,11 +37,11 @@ public class SenhaLogin extends AppCompatActivity {
 
         txtSenhaLogin = findViewById(R.id.txtSenhaLogin);
 
-        Logar = findViewById(R.id.btnLogar);
+        Button logar = findViewById(R.id.btnLogar);
 
         email = getIntent().getStringExtra(EXTRA_EMAIL);
 
-        Logar.setOnClickListener(new View.OnClickListener() {
+        logar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String SenhaLogin = txtSenhaLogin.getText().toString().trim();
