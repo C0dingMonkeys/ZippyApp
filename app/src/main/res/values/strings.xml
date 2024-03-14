@@ -14,4 +14,6 @@
     <string name="btn_entrar">Entrar</string>
     <string name="cpf_hint">CPF</string>
     <string name="btn_continuar">Continuar</string>
+    <string name="esqueceu_senha" translatable="false">Esqueceu sua senha?</string>
+    <string name="txtOnclick_RedefinirSenha" translatable="false">Redefina Aqui!</string>
 </resources>
