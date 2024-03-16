@@ -68,7 +68,7 @@
         app:layout_constraintTop_toBottomOf="@+id/lblEntrar" />
 
     <TextView
-        android:id="@+id/txtEsqueceuSenha"
+        android:id="@+id/lblEsqueceuSenha"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
@@ -95,6 +95,6 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtEsqueceuSenha" />
+        app:layout_constraintTop_toBottomOf="@+id/lblEsqueceuSenha" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

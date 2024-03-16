@@ -4,6 +4,68 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/gradient"
     tools:context=".RecuperarSenha">
 
+    <EditText
+        android:id="@+id/txtEsqueceuSenha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="25dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/edittext_backgorund"
+        android:ems="10"
+        android:fontFamily="@font/krona_one"
+        android:hint="@string/email_hint"
+        android:inputType="textEmailAddress"
+        android:padding="15dp"
+        android:paddingStart="16dp"
+        android:textColor="@color/white"
+        android:textCursorDrawable="@drawable/cursor_color"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtInserirEsqueceu" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="76dp"
+        android:fontFamily="@font/krona_one"
+        android:text="@string/redefinir_titulo"
+        android:textColor="@color/white"
+        android:textSize="22sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.25"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtInserirEsqueceu"
+        android:layout_width="304dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="68dp"
+        android:fontFamily="@font/krona_one"
+        android:text="@string/Inserir_email_esqueceu_senha"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.233"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <Button
+        android:id="@+id/btnEnviarSenha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="25dp"
+        android:layout_marginTop="35dp"
+        android:background="@drawable/edittext_backgorund"
+        android:backgroundTint="#CB6CE6"
+        android:fontFamily="@font/krona"
+        android:text="@string/enviar_esqueceuSenha"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtEsqueceuSenha" />
 </androidx.constraintlayout.widget.ConstraintLayout>

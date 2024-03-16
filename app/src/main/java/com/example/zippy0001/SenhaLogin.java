@@ -41,6 +41,8 @@ public class SenhaLogin extends AppCompatActivity {
 
         email = getIntent().getStringExtra(EXTRA_EMAIL);
 
+        TextView esqueceuSenha = findViewById(R.id.btnEsqueceuSenha);
+
         logar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -58,6 +60,17 @@ public class SenhaLogin extends AppCompatActivity {
             }
         });
 
+
+
+        esqueceuSenha.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SenhaLogin.this, RecuperarSenha.class);
+                startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+
+            }
+        });
     }
 
     private void checkPassword(String email, String Senha) {
