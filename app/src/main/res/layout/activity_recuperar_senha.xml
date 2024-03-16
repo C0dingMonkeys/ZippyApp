@@ -15,44 +15,44 @@
         android:layout_marginTop="15dp"
         android:background="@drawable/edittext_backgorund"
         android:ems="10"
-        android:fontFamily="@font/krona_one"
+        android:fontFamily="@font/fonte_padrao"
         android:hint="@string/email_hint"
         android:inputType="textEmailAddress"
         android:padding="15dp"
         android:paddingStart="16dp"
-        android:textColor="@color/white"
+        android:textColor="@color/EditTextColor"
         android:textCursorDrawable="@drawable/cursor_color"
-        android:textSize="16sp"
+        android:textSize="@dimen/Normal_Size"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtInserirEsqueceu" />
+        app:layout_constraintTop_toBottomOf="@+id/lblInserirEsqueceu" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/lblTituloRedefinirSenha"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="76dp"
-        android:fontFamily="@font/krona_one"
+        android:fontFamily="@font/fonte_padrao"
         android:text="@string/redefinir_titulo"
-        android:textColor="@color/white"
-        android:textSize="22sp"
+        android:textColor="@color/TextColor"
+        android:textSize="@dimen/TitulosMenu"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.25"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/txtInserirEsqueceu"
+        android:id="@+id/lblInserirEsqueceu"
         android:layout_width="304dp"
         android:layout_height="38dp"
         android:layout_marginTop="68dp"
-        android:fontFamily="@font/krona_one"
-        android:text="@string/Inserir_email_esqueceu_senha"
-        android:textColor="@color/white"
+        android:fontFamily="@font/fonte_padrao"
+        android:text="@string/inserir_email_esqueceu_senha"
+        android:textColor="@color/TextColor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.233"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+        app:layout_constraintTop_toBottomOf="@+id/lblTituloRedefinirSenha" />
 
     <Button
         android:id="@+id/btnEnviarSenha"
@@ -61,10 +61,10 @@
         android:layout_marginHorizontal="25dp"
         android:layout_marginTop="35dp"
         android:background="@drawable/edittext_backgorund"
-        android:backgroundTint="#CB6CE6"
-        android:fontFamily="@font/krona"
+        android:backgroundTint="@color/ButtonColor"
+        android:fontFamily="@font/fonte_padrao"
         android:text="@string/enviar_esqueceuSenha"
-        android:textColor="@color/white"
+        android:textColor="@color/TextColor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtEsqueceuSenha" />

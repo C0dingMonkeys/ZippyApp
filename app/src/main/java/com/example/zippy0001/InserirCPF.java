@@ -1,8 +1,13 @@
 package com.example.zippy0001;
 
+import static com.example.zippy0001.Classes.MaskType.CPF;
+
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -33,6 +38,8 @@ public class InserirCPF extends AppCompatActivity {
     private String Senha;
 
     private EditText txtcpf;
+    private String cpfteste = "123";
+
 
     String ret;
 
@@ -43,7 +50,8 @@ public class InserirCPF extends AppCompatActivity {
         setContentView(R.layout.inserir_cpf);
 
         txtcpf = findViewById(R.id.txtCpf);
-        txtcpf.addTextChangedListener(MaskUtil.insert(txtcpf, MaskType.CPF)); // Máscara de CPF
+        txtcpf.addTextChangedListener(MaskUtil.insert(txtcpf, CPF)); // Máscara de CPF
+
 
         Button btnInserir = findViewById(R.id.btnInserir);
 
@@ -55,6 +63,7 @@ public class InserirCPF extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String txtCPF = txtcpf.getText().toString().trim();
+
 
                 if (!isNetworkAvailable(InserirCPF.this)) {
                     // Mostrar um Toast de aviso de que não há internet
@@ -72,7 +81,7 @@ public class InserirCPF extends AppCompatActivity {
                 }
                 else {
 
-                InserirDados();
+                    InserirDados();
                 }
             }
         });
@@ -96,9 +105,21 @@ public class InserirCPF extends AppCompatActivity {
                         ret=result.get("status").getAsString ();
                         if(ret.equals ( "ok" ))
                         {
-                            Toast.makeText(getApplicationContext(),
-                                    " incluido com sucesso",
-                                    Toast.LENGTH_LONG).show();
+                            Toast.makeText(InserirCPF.this, "Cadastrado com Sucesso!", Toast.LENGTH_SHORT).show();
+                            AlertDialog.Builder fazerLogin = new AlertDialog.Builder(InserirCPF.this);
+                            fazerLogin.setTitle("Sucesso!");
+                            fazerLogin.setMessage("Cadastro realizado com Sucesso!\nFaça Login para continuar!");
+                            fazerLogin.setCancelable(false);
+                            fazerLogin.setPositiveButton("Fazer Login", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    Intent intent = new Intent(InserirCPF.this, InserirEmail.class);
+                                    startActivity(intent);
+
+                                }
+                            });
+
+                            fazerLogin.create().show();
 
                         }
                         else
@@ -117,5 +138,6 @@ public class InserirCPF extends AppCompatActivity {
         NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
         return activeNetworkInfo != null && activeNetworkInfo.isConnectedOrConnecting();
     }
+
 
 }

@@ -16,4 +16,7 @@
     <string name="btn_continuar">Continuar</string>
     <string name="esqueceu_senha" translatable="false">Esqueceu sua senha?</string>
     <string name="txtOnclick_RedefinirSenha" translatable="false">Redefina Aqui!</string>
+    <string name="redefinir_titulo" translatable="false">Redefina sua Senha</string>
+    <string name="inserir_email_esqueceu_senha" translatable="false">Insira seu email cadastrado em nosso App</string>
+    <string name="enviar_esqueceuSenha" translatable="false">Enviar</string>
 </resources>
