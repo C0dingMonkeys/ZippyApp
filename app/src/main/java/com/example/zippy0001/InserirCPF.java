@@ -17,7 +17,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.zippy0001.Classes.MaskType;
 import com.example.zippy0001.Classes.MaskUtil;
 import com.example.zippy0001.Classes.ValidaCPF;
 import com.google.gson.JsonObject;
@@ -38,7 +37,7 @@ public class InserirCPF extends AppCompatActivity {
     private String Senha;
 
     private EditText txtcpf;
-    private String cpfteste = "123";
+
 
 
     String ret;
@@ -105,7 +104,6 @@ public class InserirCPF extends AppCompatActivity {
                         ret=result.get("status").getAsString ();
                         if(ret.equals ( "ok" ))
                         {
-                            Toast.makeText(InserirCPF.this, "Cadastrado com Sucesso!", Toast.LENGTH_SHORT).show();
                             AlertDialog.Builder fazerLogin = new AlertDialog.Builder(InserirCPF.this);
                             fazerLogin.setTitle("Sucesso!");
                             fazerLogin.setMessage("Cadastro realizado com Sucesso!\nFaça Login para continuar!");

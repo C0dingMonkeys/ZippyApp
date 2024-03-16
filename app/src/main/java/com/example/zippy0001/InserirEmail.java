@@ -31,8 +31,8 @@ public class InserirEmail extends AppCompatActivity {
 
         setContentView(R.layout.inserir_email);
 
-        txtemail = (EditText) findViewById(R.id.txtEmail);
-        Button btnContinuar = (Button) findViewById(R.id.btnContinuar);
+        txtemail = findViewById(R.id.txtEmail);
+        Button btnContinuar = findViewById(R.id.btnContinuar);
         //noinspection Convert2Lambda
         btnContinuar.setOnClickListener(new View.OnClickListener() {
             @Override

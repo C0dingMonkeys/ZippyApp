@@ -2,7 +2,6 @@ package com.example.zippy0001;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -16,11 +15,8 @@ import com.koushikdutta.ion.Ion;
 public class RecuperarSenha extends AppCompatActivity {
 
     private EditText txtEsqueceuSenha;
-    private Button Enviar;
 
-    private String RedefinirSenha;
     private static final String URL_RESET_PASSWORD = "https://zippyinternacional.000webhostapp.com/testeLuix/recuperarSenha.php";
-    private String email;
 
     public void finish() {
         super.finish();
@@ -32,9 +28,9 @@ public class RecuperarSenha extends AppCompatActivity {
         setContentView(R.layout.activity_recuperar_senha);
 
         txtEsqueceuSenha = findViewById(R.id.txtEsqueceuSenha);
-        Enviar = findViewById(R.id.btnEnviarSenha);
+        Button enviar = findViewById(R.id.btnEnviarSenha);
 
-        Enviar.setOnClickListener(new View.OnClickListener() {
+        enviar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String EmailRecuperar = txtEsqueceuSenha.getText().toString().trim();
