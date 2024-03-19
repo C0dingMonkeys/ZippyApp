@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient"
+    android:background="@drawable/bg_gradient"
     tools:context=".RecuperarSenha">
 
     <EditText
@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="25dp"
         android:layout_marginTop="15dp"
-        android:background="@drawable/edittext_backgorund"
+        android:background="@drawable/bg_edittext"
         android:ems="10"
         android:fontFamily="@font/fonte_padrao"
         android:hint="@string/email_hint"
@@ -21,7 +21,7 @@
         android:padding="15dp"
         android:paddingStart="16dp"
         android:textColor="@color/EditTextColor"
-        android:textCursorDrawable="@drawable/cursor_color"
+        android:textCursorDrawable="@drawable/bg_cursor_color"
         android:textSize="@dimen/Normal_Size"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -60,7 +60,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="25dp"
         android:layout_marginTop="35dp"
-        android:background="@drawable/edittext_backgorund"
+        android:background="@drawable/bg_edittext"
         android:backgroundTint="@color/ButtonColor"
         android:fontFamily="@font/fonte_padrao"
         android:text="@string/enviar_esqueceuSenha"

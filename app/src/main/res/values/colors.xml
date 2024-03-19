@@ -2,10 +2,12 @@
 <resources>
     <color name="EditTextColor">#FF000000</color>
     <color name="TextColor">#FFFFFFFF</color>
-    <color name="PrimaryColor"></color>
-    <color name="SeocondaryColor"></color>
+    <color name="PrimaryColor">#8C76DB</color>
+    <color name="SeocondaryColor">#FFFFFF</color>
     <color name="ButtonColor">#CB6CE6</color>
-    <color name="gray">#54626F</color>
+    <color name="gray">#ADB9C5</color>
+    <color name="white">#FFFFFF</color>
+    <color name="background_app">#F8E9FF</color>
 
 
 

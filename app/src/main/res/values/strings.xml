@@ -19,4 +19,10 @@
     <string name="redefinir_titulo" translatable="false">Redefina sua Senha</string>
     <string name="inserir_email_esqueceu_senha" translatable="false">Insira seu email cadastrado em nosso App</string>
     <string name="enviar_esqueceuSenha" translatable="false">Enviar</string>
+    <string name="chat" translatable="false">Chat</string>
+    <string name="profile" translatable="false">Profile</string>
+    <string name="home" translatable="false">Home</string>
+    <string name="txt_btn_carousel">Confira</string>
+    <string name="carousel_image_description">carousel_imaage</string>
+
 </resources>
