@@ -21,7 +21,8 @@
         android:textSize="@dimen/Normal_Size"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtConfirmarSenha" />
+        app:layout_constraintTop_toBottomOf="@+id/txtConfirmarSenha"
+        tools:ignore="TextContrastCheck" />
 
     <EditText
         android:id="@+id/txtSenhaCadastro"
@@ -42,7 +43,9 @@
         android:textSize="@dimen/Normal_Size"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lblCriarSenha" />
+        app:layout_constraintTop_toBottomOf="@+id/lblCriarSenha"
+        tools:ignore="RtlSymmetry"
+        android:importantForAutofill="no" />
 
     <EditText
         android:id="@+id/txtConfirmarSenha"
@@ -63,7 +66,9 @@
         android:textSize="@dimen/Normal_Size"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtSenhaCadastro" />
+        app:layout_constraintTop_toBottomOf="@+id/txtSenhaCadastro"
+        tools:ignore="RtlSymmetry"
+        android:importantForAutofill="no" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -73,7 +78,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/logo" />
+        app:srcCompat="@drawable/logo"
+        tools:ignore="ContentDescription" />
 
     <TextView
         android:id="@+id/lblCriarSenha"

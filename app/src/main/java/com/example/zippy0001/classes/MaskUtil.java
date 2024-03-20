@@ -1,4 +1,4 @@
-package com.example.zippy0001.Classes;
+package com.example.zippy0001.classes;
 
 import android.text.Editable;
 import android.text.TextWatcher;

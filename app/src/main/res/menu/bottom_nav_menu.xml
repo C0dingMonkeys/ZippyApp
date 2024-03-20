@@ -10,10 +10,10 @@
 
     <item
         android:id="@+id/bottom_profile"
-        android:title="Perfil"
+        android:title="@string/title_perfil_BB"
         android:icon="@drawable/ic_perfil"/>
     <item
         android:id="@+id/bottom_chat"
-        android:title="Chat"
+        android:title="@string/title_chat_BB"
         android:icon="@drawable/ic_chat"/>
 </menu>

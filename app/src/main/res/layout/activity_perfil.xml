@@ -23,7 +23,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/zippy_logo" />
+            app:srcCompat="@drawable/zippy_logo"
+            tools:ignore="ContentDescription" />
 
         <TextView
             android:id="@+id/TituloMenuHome"
@@ -31,7 +32,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:fontFamily="@font/fonte_padrao"
-            android:text="Zippy"
+            android:text="@string/app_name"
             android:textColor="@color/TextColor"
             android:textSize="@dimen/TituloMenu_Size"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -46,7 +47,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/TituloMenuHome"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_sino" />
+            app:srcCompat="@drawable/ic_sino"
+            tools:ignore="ContentDescription" />
 
         <ImageView
             android:layout_width="45dp"
@@ -55,7 +57,8 @@
             android:src="@drawable/ic_menu"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/SinoNotificacoes"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

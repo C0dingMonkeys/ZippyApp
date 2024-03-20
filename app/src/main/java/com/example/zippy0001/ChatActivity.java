@@ -29,10 +29,7 @@ public class ChatActivity extends AppCompatActivity {
                 overridePendingTransition(R.anim.slide_out_right, R.anim.slide_in_left);
                 finish();
                 return true;
-            } else if (itemId == R.id.bottom_chat) {
-                return true;
-            }
-            return false;
+            } else return itemId == R.id.bottom_chat;
         });
     }
 }

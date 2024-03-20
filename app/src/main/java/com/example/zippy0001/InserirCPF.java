@@ -1,6 +1,6 @@
 package com.example.zippy0001;
 
-import static com.example.zippy0001.Classes.MaskType.CPF;
+import static com.example.zippy0001.classes.MaskType.CPF;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,8 +17,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.zippy0001.Classes.MaskUtil;
-import com.example.zippy0001.Classes.ValidaCPF;
+import com.example.zippy0001.classes.MaskUtil;
+import com.example.zippy0001.classes.ValidaCPF;
 import com.google.gson.JsonObject;
 import com.koushikdutta.async.future.FutureCallback;
 import com.koushikdutta.ion.Ion;

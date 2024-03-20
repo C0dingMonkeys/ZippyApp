@@ -20,7 +20,8 @@
         android:textColor="@color/TextColor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtSenhaLogin" />
+        app:layout_constraintTop_toBottomOf="@+id/txtSenhaLogin"
+        tools:ignore="TextContrastCheck" />
 
     <TextView
         android:id="@+id/lblEntrar"
@@ -44,7 +45,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/logo" />
+        app:srcCompat="@drawable/logo"
+        tools:ignore="ContentDescription" />
 
     <EditText
         android:id="@+id/txtSenhaLogin"
@@ -65,7 +67,9 @@
         android:textSize="@dimen/Normal_Size"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lblEntrar" />
+        app:layout_constraintTop_toBottomOf="@+id/lblEntrar"
+        tools:ignore="RtlSymmetry"
+        android:autofillHints="oi" />
 
     <TextView
         android:id="@+id/lblEsqueceuSenha"

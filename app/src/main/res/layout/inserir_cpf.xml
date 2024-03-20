@@ -20,7 +20,8 @@
         android:textColor="@color/TextColor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtCpf" />
+        app:layout_constraintTop_toBottomOf="@+id/txtCpf"
+        tools:ignore="TextContrastCheck" />
 
     <TextView
         android:id="@+id/lblTituloCPF"
@@ -70,7 +71,9 @@
         android:textSize="@dimen/Normal_Size"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lblSubtituloCpf" />
+        app:layout_constraintTop_toBottomOf="@+id/lblSubtituloCpf"
+        tools:ignore="RtlSymmetry"
+        android:importantForAutofill="no" />
 
     <ImageView
         android:id="@+id/imageView2"
@@ -80,6 +83,7 @@
         android:layout_marginBottom="45dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/logo" />
+        app:srcCompat="@drawable/logo"
+        tools:ignore="ContentDescription" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

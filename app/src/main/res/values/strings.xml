@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Zippy0.001</string>
+    <string name="app_name">Zippy</string>
     <string name="welcome">Bem vindo(a)\n ao Zippy</string>
     <string name="email_hint" translatable="false">Email</string>
     <string name="logodescricao" translatable="false">Zippy Logo</string>
@@ -22,7 +22,9 @@
     <string name="chat" translatable="false">Chat</string>
     <string name="profile" translatable="false">Profile</string>
     <string name="home" translatable="false">Home</string>
-    <string name="txt_btn_carousel">Confira</string>
-    <string name="carousel_image_description">carousel_imaage</string>
+    <string name="txt_btn_carousel" translatable="false">Confira</string>
+    <string name="carousel_image_description" translatable="false">carousel_imaage</string>
+    <string name="title_perfil_BB" translatable="false">Perfil</string>
+    <string name="title_chat_BB" translatable="false">Chat</string>
 
 </resources>

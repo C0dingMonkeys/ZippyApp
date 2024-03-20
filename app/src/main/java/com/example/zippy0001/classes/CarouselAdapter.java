@@ -1,4 +1,4 @@
-package com.example.zippy0001.Classes;
+package com.example.zippy0001.classes;
 
 import android.content.Context;
 import android.view.LayoutInflater;
