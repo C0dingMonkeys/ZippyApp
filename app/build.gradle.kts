@@ -6,6 +6,8 @@ android {
     namespace = "com.example.zippy0001"
     compileSdk = 34
 
+    android { packagingOptions { resources.excludes.add("META-INF/*") } }
+
     defaultConfig {
         applicationId = "com.example.zippy0001"
         minSdk = 24
@@ -40,6 +42,8 @@ dependencies {
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     implementation ("com.koushikdutta.ion:ion:3.1.0")
     implementation ("com.github.bumptech.glide:glide:4.14.2")
+    implementation ("com.android.support:cardview-v7:28.0.0")
+    implementation("com.android.support:support-annotations:28.0.0")
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")

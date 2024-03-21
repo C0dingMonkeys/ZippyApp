@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Zippy0.001</string>
+    <string name="app_name">Zippy</string>
     <string name="welcome">Welcome to\n Zippy</string>
     <string name="email_hint" translatable="false">Email</string>
     <string name="logodescricao" translatable="false">Zippy Logo</string>

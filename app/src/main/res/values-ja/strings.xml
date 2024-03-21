@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ジッピー0.001</string>
+    <string name="app_name">ジッピー</string>
     <string name="welcome">ジッピーへようこそ</string>
     <string name="email_hint" translatable="false">Email</string>
     <string name="logodescricao" translatable="false">Zippy Logo</string>
