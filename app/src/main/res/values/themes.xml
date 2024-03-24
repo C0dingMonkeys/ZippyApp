@@ -8,15 +8,22 @@
     <style name="Theme.AppCompat.DayNight.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
-        <item name="android:windowTranslucentNavigation">false</item>
         <item name="android:fitsSystemWindows">true</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
+
     </style>
     <!-- Base application theme. -->
     <style name="Base.Theme.AppCompat.DayNight.NoActionBar" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:fitsSystemWindows">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
+
+
 
 
 </resources>

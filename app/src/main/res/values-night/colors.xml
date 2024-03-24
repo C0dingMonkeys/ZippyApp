@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="EditTextColor">#000000</color>
+    <color name="TextColor">#ffffff</color>
+    <color name="LogoColor">#ffffff</color>
+    <color name="PrimaryColor">#2A176E</color>
+    <color name="SeocondaryColor">#000000</color>
+    <color name="ThirdColor">#4F2DAA</color>
+    <color name="ButtonColor">#CB6CE6</color>
+    <color name="gray">#ADB9C5</color>
+    <color name="white">#FFFFFF</color>
+    <color name="background_app">#39343C</color>
+    <color name="Purple_700">#7D72FF</color>
+</resources>

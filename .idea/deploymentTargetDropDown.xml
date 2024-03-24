@@ -12,20 +12,33 @@
               <type value="RUNNING_DEVICE_TARGET" />
               <deviceKey>
                 <Key>
-                  <type value="SERIAL_NUMBER" />
-                  <value value="adb-RQ8NA0062MB-6CUybG._adb-tls-connect._tcp" />
+                  <type value="VIRTUAL_DEVICE_PATH" />
+                  <value value="C:\Users\aluiz\.android\avd\Pixel_7_API_UpsideDownCakePrivacySandbox.avd" />
                 </Key>
               </deviceKey>
             </Target>
           </runningDeviceTargetSelectedWithDropDown>
-          <timeTargetWasSelectedWithDropDown value="2024-03-24T05:24:57.864315800Z" />
+          <timeTargetWasSelectedWithDropDown value="2024-03-24T18:01:53.766282300Z" />
         </State>
       </entry>
       <entry key="InserirCPF">
         <State />
       </entry>
       <entry key="app">
-        <State />
+        <State>
+          <runningDeviceTargetSelectedWithDropDown>
+            <Target>
+              <type value="RUNNING_DEVICE_TARGET" />
+              <deviceKey>
+                <Key>
+                  <type value="SERIAL_NUMBER" />
+                  <value value="adb-RQ8NA0062MB-6CUybG._adb-tls-connect._tcp" />
+                </Key>
+              </deviceKey>
+            </Target>
+          </runningDeviceTargetSelectedWithDropDown>
+          <timeTargetWasSelectedWithDropDown value="2024-03-24T14:08:20.158346Z" />
+        </State>
       </entry>
     </value>
   </component>

@@ -14,4 +14,72 @@
     <string name="btn_entrar">Sign in</string>
     <string name="cpf_hint">CPF</string>
     <string name="btn_continuar">Continue</string>
+    <string name="esqueceu_senha">Forgot your password\?</string>
+    <string name="txtOnclick_RedefinirSenha">Reset Here!</string>
+    <string name="redefinir_titulo">Reset your Password</string>
+    <string name="inserir_email_esqueceu_senha">Enter your email registered on our App</string>
+    <string name="enviar_esqueceuSenha">To send</string>
+    <string name="chat">Chat</string>
+    <string name="profile">Profile</string>
+    <string name="home">Home</string>
+    <string name="txt_btn_carousel">check out</string>
+    <string name="carousel_image_description">carousel_imaage</string>
+    <string name="title_perfil_BB">Profile</string>
+    <string name="title_chat_BB">Chat</string>
+    <string name="navigation_drawer_open">Open Drawer</string>
+    <string name="navigation_drawer_close">Close Drawer</string>
+    <string name="title_activity_config">ConfigActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="lorem_ipsum">The customer is very important, the customer will be followed by the customer. For the chocolate salad. Maurice
+        life, the pain is sometimes a corporal, the laughter of the pain needs to be read, let it be a lot of real estate
+        I don\'t even laugh. Maecenas was not a member except, or so it was said. The class is apt to be taciturn and friendly
+        they twist the shores through our marriages, through our hymenaean projects. It is flattering for teenagers
+        diam, or rutrum tellus vulputate quis Some people need free buses, financing the players from
+        to decorate from But CNN is like a free portal policy. Stay in the said country.\n\n
+        Sometimes the massage is done before. Some don\'t even have a course. That\'s a great recipe for disease. We live
+        the need, it is a matter of need, the ugly players targeted him, but in the said region pain
+        nor It was a disease of the earth, the protein was like a salad, and the targets were targeted. Sometimes it is expected
+        hunger and before him the first in the throat. Curabitur et eros porttitor, ultricies urna vitae,
+        salary The boat is at your advantage, and not the truck. But the biggest fans are not the pain
+        he needs a drink or homework.\n\n
+        But sometimes the tortor nibh, in the arrows who laughs softly. Chat my hate, let it be a story
+        but the author is soft, not ugly. No free trial, for clinical purposes or
+        employee than Fusce flatters no tincidunt, who cares free and easy. Complete
+        now and then the law, and the fear of the ferment of the office. The bed of the bed, he said
+        Lacinia is going to be fun, how sad it is. Tomorrow I will give you a result. Subscribe now
+        put it in the box, but That\'s a great basketball game, in mourning. But from the kids
+        is.\n\n
+        Aenean wants now, but Lacinia is sad, but there is no basketball cartoon. Even from a poisoned book.
+        Morbi laoreet, tortor sed facilisis varius, nibh orci rhoncus nula, id elementum leo dui
+        not the internet. In fact, the author of the casino is very soft. Each element of free football is convenient. In
+        eros nisl, investment or investment and, chocolate from mauris. Children are different from now on,
+        who invests the money and It has two clinical purposes and is responsible for development. But not cartoons
+        very Now, who wants to advertise, run a course, and be an employee. The disease will follow him, a
+        place diam. Even vulputate dignissim convallis. It\'s a fun thing to do with the ends
+        valley.\n\n
+        Boat on my trucks. The children live in old age and grandchildren
+        expected hunger and bad needs. In the life of the bow as a trigger of arrows, in the ends of the mass
+        pregnant The children of that region of the hospital. It has been said in full, but it is made into a notebook,
+        He will be pursued just as freely, in soft nisls from sed nisls. Until the greatest corporal
+        members It\'s time to drink the earth and not the land. In a deck there is no Until CNN
+        free or now the result, who can tincidunt nisl eleifend. To-morrow we must drink from a righteous mourning
+        vestibule Fusce said to the libero who was the greatest, the dignistis of the career of his life.</string>
+    <string name="fale_conosco_card">Talk to one of our affiliates around the WORLD</string>
+    <string name="entrar_em_contato_card">Get in touch</string>
+    <string name="faça_solicitação">Looking for something specific\?\nMake your request!</string>
+    <string name="fazer_post">Make Post</string>
+    <string name="content_Descripton">LOGO</string>
+    <string name="config_drawer">settings</string>
+    <string name="suporte_drawer">Support\n</string>
+    <string name="sair_drawer">Log out\n</string>
+    <string name="solicita_drawer">Requests</string>
+    <string name="fazer_post_drawer">Make Post</string>
+    <string name="slogan">Your international shopping app\n</string>
+    <string name="ver_perfil_drawer">View your profile</string>
+
 </resources>

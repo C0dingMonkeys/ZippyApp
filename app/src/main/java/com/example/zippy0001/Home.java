@@ -4,12 +4,14 @@ import static com.example.zippy0001.R.layout.activity_home;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.ColorInt;
 import android.support.annotation.NonNull;
 import android.view.MenuItem;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.ContextCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -40,21 +42,20 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         super.onCreate(savedInstanceState);
         setContentView(activity_home);
 
+        getWindow().setNavigationBarColor(ContextCompat.getColor(this, R.color.black));
+
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view_header);
         toolbar = findViewById(R.id.MenuToolbar);
 
         setSupportActionBar(toolbar);
 
-        navigationView.bringToFront();
         toggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
 
         navigationView.setNavigationItemSelectedListener(this);
-
-
-
+        navigationView.bringToFront();
 
 
         RecyclerView recyclerView = findViewById(R.id.CarouselRecycler);

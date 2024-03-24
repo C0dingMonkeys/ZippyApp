@@ -1,18 +1,338 @@
-<?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ConfigActivity">
+    android:background="@color/background_app"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    tools:context=".Home">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="148dp"
-        android:layout_marginTop="375dp"
-        android:text="|Config"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:id="@+id/LayoutConfiguracoes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/SeocondaryColor"
+                    android:gravity="center_vertical"
+                    android:paddingVertical="5dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageButton
+                        android:id="@+id/imgBtnConfiguracoes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:backgroundTint="@android:color/transparent"
+                        android:src="@drawable/ic_seta_voltar" />
+
+                    <TextView
+                        android:id="@+id/txtConfiguracoesLayout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/fonte_padrao"
+                        android:padding="10dp"
+                        android:text="Configurações"
+                        android:textSize="@dimen/Subtitulo_Size" />
+
+
+                </LinearLayout>
+
+
+                <TextView
+                    android:id="@+id/tituloPersonalizacao"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/fonte_padrao"
+                    android:text="Personalização"
+                    android:textSize="@dimen/Normal_Size"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/LayoutConfiguracoes" />
+
+                <LinearLayout
+                    android:id="@+id/layoyt_notificacoes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/SeocondaryColor"
+                    android:divider="@drawable/divisor_lista"
+                    android:orientation="vertical"
+                    android:showDividers="middle"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tituloPersonalizacao">
+
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/switchDarkLightMode"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:checked="true"
+                        android:fontFamily="@font/fonte_padrao"
+                        android:padding="10dp"
+                        android:text="Habilitar Modo Escuro" />
+
+                    <RelativeLayout
+                        android:id="@+id/layout_notificacoes_btn"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/SeocondaryColor">
+
+                        <TextView
+                            android:id="@+id/txtNotificacoesLayout"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/fonte_padrao"
+                            android:padding="10dp"
+                            android:text="Notificações" />
+
+                        <ImageButton
+                            android:id="@+id/imgBtnNotificacoes"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:backgroundTint="@android:color/transparent"
+                            android:src="@drawable/ic_seta" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/layout_IdiomasApp_btn"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/SeocondaryColor">
+
+                        <TextView
+                            android:id="@+id/txtIdiomasAppLayout"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/fonte_padrao"
+                            android:padding="10dp"
+                            android:text="Idioma do App" />
+
+                        <ImageButton
+                            android:id="@+id/imgIdiomasApp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:backgroundTint="@android:color/transparent"
+                            android:src="@drawable/ic_seta" />
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tituloMinhaConta"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/fonte_padrao"
+                    android:text="Minha Conta"
+                    android:textSize="@dimen/Normal_Size"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/layoyt_notificacoes" />
+
+                <LinearLayout
+                    android:id="@+id/Layout_MinhaConta"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/SeocondaryColor"
+                    android:divider="@drawable/divisor_lista"
+                    android:orientation="vertical"
+                    android:showDividers="middle"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tituloMinhaConta">
+
+
+                    <RelativeLayout
+                        android:id="@+id/layout_meusDados_btn"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/SeocondaryColor">
+
+                        <TextView
+                            android:id="@+id/txtMeusDadosLayout"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/fonte_padrao"
+                            android:padding="10dp"
+                            android:text="Meus Dados" />
+
+                        <ImageButton
+                            android:id="@+id/imgBtnMeusDados"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:backgroundTint="@android:color/transparent"
+                            android:src="@drawable/ic_seta" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/layout_meusEnderecos_btn"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/SeocondaryColor">
+
+                        <TextView
+                            android:id="@+id/txtMeusEnderecosLayout"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/fonte_padrao"
+                            android:padding="10dp"
+                            android:text="Meus Endereços" />
+
+                        <ImageButton
+                            android:id="@+id/imgBtnMeusEnderecos"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:backgroundTint="@android:color/transparent"
+                            android:src="@drawable/ic_seta" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/layout_meusPagamentos_btn"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/SeocondaryColor">
+
+                        <TextView
+                            android:id="@+id/txtMeusPagamentosLayout"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/fonte_padrao"
+                            android:padding="10dp"
+                            android:text="Meus Dados" />
+
+                        <ImageButton
+                            android:id="@+id/imgBtnMeusPagamentos"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:backgroundTint="@android:color/transparent"
+                            android:src="@drawable/ic_seta" />
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tituloSuporte"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/fonte_padrao"
+                    android:text="Minha Conta"
+                    android:textSize="@dimen/Normal_Size"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/Layout_MinhaConta" />
+
+                <LinearLayout
+                    android:id="@+id/Layout_Suporte"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/SeocondaryColor"
+                    android:divider="@drawable/divisor_lista"
+                    android:orientation="vertical"
+                    android:showDividers="middle"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tituloSuporte">
+
+
+                    <RelativeLayout
+                        android:id="@+id/layout_CentraldeAjuda_btn"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/SeocondaryColor">
+
+                        <TextView
+                            android:id="@+id/txtCentraldeAjudaLayout"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/fonte_padrao"
+                            android:padding="10dp"
+                            android:text="Central de Ajuda" />
+
+                        <ImageButton
+                            android:id="@+id/imgBtnCentraldeAjuda"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:backgroundTint="@android:color/transparent"
+                            android:src="@drawable/ic_seta" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/layout_NossaPolitica_btn"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/SeocondaryColor">
+
+                        <TextView
+                            android:id="@+id/txtNossaPoliticaLayout"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/fonte_padrao"
+                            android:padding="10dp"
+                            android:text="Nossa Politica" />
+
+                        <ImageButton
+                            android:id="@+id/imgBtnNossaPolitica"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:backgroundTint="@android:color/transparent"
+                            android:src="@drawable/ic_seta" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/layout_DenunciarUsuario_btn"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/SeocondaryColor">
+
+                        <TextView
+                            android:id="@+id/txtDenunciarUsuarioLayout"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/fonte_padrao"
+                            android:padding="10dp"
+                            android:text="Meus Dados" />
+
+                        <ImageButton
+                            android:id="@+id/imgBtnDenunciarUsuario"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:backgroundTint="@android:color/transparent"
+                            android:src="@drawable/ic_seta" />
+                    </RelativeLayout>
+
+                </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

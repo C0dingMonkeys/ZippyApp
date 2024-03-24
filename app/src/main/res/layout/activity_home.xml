@@ -16,16 +16,16 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        app:headerLayout="@layout/header_drawer"
-        app:menu="@menu/drawer_menu"
         android:background="@color/PrimaryColor"
-        app:itemVerticalPadding="20dp"
+        android:visibility="gone"
+        app:headerLayout="@layout/header_drawer"
         app:itemIconSize="40dp"
-        app:itemTextAppearance="@style/MenuItemStyle"
-        app:itemTextColor="@color/white"
         app:itemIconTint="@color/white"
+        app:itemTextAppearance="@style/MenuItemStyle"
 
-        />
+        app:itemTextColor="@color/white"
+        app:itemVerticalPadding="20dp"
+        app:menu="@menu/drawer_menu" />
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -65,7 +65,7 @@
                         android:layout_marginEnd="20dp"
                         android:fontFamily="@font/fonte_padrao"
                         android:text="@string/app_name"
-                        android:textColor="@color/TextColor"
+                        android:textColor="@color/LogoColor"
                         android:textSize="@dimen/TituloMenu_Size"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toStartOf="@+id/logoHeader"
@@ -93,9 +93,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:navigationIcon="@drawable/ic_menu"
-                    app:title=" "
-
-                    />
+                    app:title=" "/>
 
 
                 <androidx.recyclerview.widget.RecyclerView
@@ -110,7 +108,6 @@
                     android:id="@+id/CardView"
                     android:layout_width="match_parent"
                     android:layout_height="220dp"
-                    android:layout_marginHorizontal="15dp"
                     android:layout_marginTop="10dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
@@ -153,7 +150,7 @@
                                 android:layout_alignParentStart="true"
                                 android:layout_alignParentBottom="true"
                                 android:background="@drawable/bg_edittext"
-                                android:backgroundTint="@color/white"
+                                android:backgroundTint="@color/ButtonColor"
                                 android:fontFamily="@font/fonte_padrao"
                                 android:padding="10dp"
                                 android:text="@string/entrar_em_contato_card" />
@@ -163,8 +160,8 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:layout_alignParentEnd="true"
-                                android:src="@drawable/aviao"
-                                android:contentDescription="@string/faça_solicitação" />
+                                android:contentDescription="@string/faça_solicitação"
+                                android:src="@drawable/aviao" />
                         </RelativeLayout>
 
                     </LinearLayout>
@@ -175,7 +172,6 @@
                     android:id="@+id/CardView2"
                     android:layout_width="match_parent"
                     android:layout_height="220dp"
-                    android:layout_marginHorizontal="15dp"
                     android:layout_marginTop="10dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
@@ -185,7 +181,7 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@color/white"
+                        android:background="@color/SeocondaryColor"
                         android:orientation="horizontal">
 
                         <RelativeLayout
@@ -206,7 +202,7 @@
                                 android:layout_toStartOf="@+id/imgCard3"
                                 android:fontFamily="@font/fonte_padrao"
                                 android:text="@string/faça_solicitação"
-                                android:textColor="@color/EditTextColor"
+                                android:textColor="@color/TextColor"
                                 android:textSize="@dimen/Subtitulo_Size" />
 
                             <Button
@@ -233,8 +229,8 @@
                                 android:layout_alignParentEnd="true"
                                 android:layout_alignParentBottom="true"
                                 android:layout_marginEnd="20dp"
-                                android:src="@drawable/zippy_logo"
-                                android:contentDescription="@string/content_Descripton" />
+                                android:contentDescription="@string/content_Descripton"
+                                android:src="@drawable/zippy_logo" />
                         </RelativeLayout>
 
 
@@ -245,7 +241,6 @@
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="220dp"
-                    android:layout_marginHorizontal="15dp"
                     android:layout_marginTop="10dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
@@ -255,7 +250,7 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@color/white"
+                        android:background="@color/SeocondaryColor"
                         android:orientation="horizontal">
 
                         <RelativeLayout
@@ -276,7 +271,7 @@
                                 android:layout_toStartOf="@+id/imgCard2"
                                 android:fontFamily="@font/fonte_padrao"
                                 android:text="@string/faça_solicitação"
-                                android:textColor="@color/EditTextColor"
+                                android:textColor="@color/TextColor"
                                 android:textSize="@dimen/Subtitulo_Size" />
 
                             <Button
@@ -302,8 +297,8 @@
                                 android:layout_alignParentEnd="true"
                                 android:layout_alignParentBottom="true"
                                 android:layout_marginEnd="20dp"
-                                android:src="@drawable/zippy_logo"
-                                android:contentDescription="@string/fazer_post" />
+                                android:contentDescription="@string/fazer_post"
+                                android:src="@drawable/zippy_logo" />
                         </RelativeLayout>
 
                     </LinearLayout>
@@ -319,9 +314,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/PrimaryColor"
+            app:itemActiveIndicatorStyle="@android:color/transparent"
             app:itemIconSize="32sp"
             app:itemIconTint="@drawable/item_selected"
-            app:itemRippleColor="@android:color/transparent"
             app:labelVisibilityMode="unlabeled"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

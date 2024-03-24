@@ -93,7 +93,7 @@ public class SenhaLogin extends AppCompatActivity {
                                 if ("true".equals(status)) {
                                     // O e-mail existe no banco de dados
                                     // Ir para a tela de inserir senha
-                                    Intent intent = new Intent(SenhaLogin.this, InserirCPF.class);
+                                    Intent intent = new Intent(SenhaLogin.this, Home.class);
                                     intent.putExtra(EXTRA_EMAIL, email);
                                     startActivity(intent);
                                     overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
