@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.Zippy0001" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="Base.Theme.Zippy0001" parent="Theme.MaterialComponents.DayNight.NoActionBar">
 
 
     </style>
@@ -10,7 +10,12 @@
         <item name="windowNoTitle">true</item>
         <item name="android:windowTranslucentNavigation">false</item>
         <item name="android:fitsSystemWindows">true</item>
-        <item name="android:statusBarColor">@android:color/black</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+    </style>
+    <!-- Base application theme. -->
+    <style name="Base.Theme.AppCompat.DayNight.NoActionBar" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
 
 

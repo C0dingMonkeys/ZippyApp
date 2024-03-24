@@ -5,4 +5,5 @@
     <dimen name="Subtitulo_Size">18sp</dimen>
     <dimen name="TituloMenu_Size">28sp</dimen>
     <dimen name="mini_Size">10sp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
 </resources>

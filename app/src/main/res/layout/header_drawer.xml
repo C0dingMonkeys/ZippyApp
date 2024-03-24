@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    android:orientation="vertical"
+    android:background="@color/ThirdColor"
+    android:gravity="bottom">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtHeaderDrawer"
+        android:text=""
+        android:textSize="24sp"
+        android:fontFamily="@font/fonte_padrao"
+        android:textColor="@color/TextColor"
+        android:gravity="bottom"
+        android:padding="20dp"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/ThirdColor"
+        android:text="@string/ver_perfil_drawer"
+        android:textAlignment="textStart" />
+
+
+
+</LinearLayout>
