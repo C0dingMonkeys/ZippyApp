@@ -39,9 +39,11 @@ dependencies {
 
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.11.0")
+    implementation("de.hdodenhof:circleimageview:3.1.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
-    implementation ("com.koushikdutta.ion:ion:3.1.0")
-    implementation ("com.github.bumptech.glide:glide:4.14.2")
+    implementation("com.koushikdutta.ion:ion:3.1.0")
+    implementation("com.github.bumptech.glide:glide:4.14.2")
+    implementation("com.squareup.picasso:picasso:2.8")
     implementation("com.android.support:support-annotations:28.0.0")
     implementation("androidx.navigation:navigation-fragment:2.7.7")
     implementation("androidx.navigation:navigation-ui:2.7.7")

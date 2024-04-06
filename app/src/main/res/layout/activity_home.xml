@@ -17,7 +17,6 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:background="@color/PrimaryColor"
-        android:visibility="gone"
         app:headerLayout="@layout/header_drawer"
         app:itemIconSize="40dp"
         app:itemIconTint="@color/white"
