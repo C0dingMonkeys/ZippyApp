@@ -4,6 +4,172 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:theme="@style/Theme.Material3.DayNight.NoActionBar"
+    android:background="@color/BackgroundColor"
     tools:context=".activityCriarNome">
+
+    <!-- TITULO CRIAR NOME-->
+    <TextView
+        android:id="@+id/lblCriarNome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:fontFamily="@font/fonte_padrao"
+        android:text="@string/criar_nome"
+        android:textColor="@color/TextColor"
+        android:textSize="@dimen/Subtitulo_Size"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.25"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- FIM DO TITULO CRIAR NOME-->
+
+
+    <!-- EDITTEXT INSERIR NOME -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layoutInserirNomeEdit"
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="25dp"
+        android:layout_marginTop="50dp"
+        android:textColorHint="@color/black"
+        android:hint="@string/nome_completo"
+        app:boxBackgroundColor="@color/bg_edittext"
+        app:boxStrokeColor="@color/black"
+        app:boxStrokeWidthFocused="2dp"
+        app:hintTextAppearance="@style/TextAppearance"
+        app:hintTextColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblCriarNome"
+        >
+
+        <!-- EDITTEXT CONFIRMAR SENHA-->
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/txtInserirNome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/fonte_padrao"
+            android:inputType="text"
+            android:textColor="@color/black" />
+
+        <!-- FIM DO EDITTEXT CONFIRMAR SENHA-->
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- FIM DO EDITTEXT INSERIR NOME -->
+
+    <!-- EDITTEXT INSIRA TELEFONE -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layoutTelefone"
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="25dp"
+        android:layout_marginTop="40dp"
+        android:hint="@string/lblInserirTelefone"
+        android:textColorHint="@color/black"
+        app:boxBackgroundColor="@color/bg_edittext"
+        app:boxStrokeColor="@color/black"
+        app:boxStrokeWidthFocused="2dp"
+        app:hintTextColor="@color/black"
+        app:hintTextAppearance="@style/TextAppearance"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layoutInserirNomeEdit">
+
+        <!-- EDITTEXT CONFIRMAR SENHA-->
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/txtTelefone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/fonte_padrao"
+            android:inputType="number"
+            android:textColor="@color/black" />
+
+        <!-- FIM DO EDITTEXT CONFIRMAR SENHA-->
+
+    </com.google.android.material.textfield.TextInputLayout>
+    <!-- FIM DO EDITTEXT INSIRA TELEFONE -->
+
+
+
+
+    <!-- EDITTEXT INSIRA DATA DE NASCIMENTO -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layoutDataNasc"
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="25dp"
+        android:layout_marginTop="40dp"
+        android:hint="@string/lbl_dataNasc"
+        android:textColorHint="@color/black"
+        app:boxBackgroundColor="@color/bg_edittext"
+        app:boxStrokeColor="@color/black"
+        app:boxStrokeWidthFocused="2dp"
+        app:hintTextAppearance="@style/TextAppearance"
+        app:hintTextColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layoutTelefone">
+
+        <!-- EDITTEXT CONFIRMAR SENHA-->
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/txtDataNasc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/fonte_padrao"
+            android:inputType="number"
+            android:maxLength="10"
+            android:textColor="@color/black"
+            app:mask="##/##/####"/>
+
+        <!-- FIM DO EDITTEXT CONFIRMAR SENHA-->
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- FIM DO EDITTEXT INSIRA DATA DE NASCIMENTO -->
+
+
+    <!-- BOTÃO CONTINUAR -->
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnContinuarNome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="25dp"
+        android:background="@drawable/bg_btn_perfil"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/fonte_padrao"
+        android:text="@string/btn_continuar"
+        android:padding="20dp"
+        android:textColor="@color/TextColor"
+        android:textSize="@dimen/Normal_Size"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layoutDataNasc"
+        tools:ignore="TextContrastCheck" />
+
+    <!-- FIM DO BOTÃO CONTINUAR -->
+
+
+    <!-- IMAGEVIEW LOGO ZIPPY -->
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="45dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/logo_inicio"
+        tools:ignore="ContentDescription" />
+
+    <!--FIM DO IMAGEVIEW LOGO ZIPPY-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,17 +7,17 @@
     <string name="criar_senha">Crie sua senha</string>
     <string name="confirmar_senha">Confirme sua senha</string>
     <string name="quase_la">Estamos quase lá..</string>
-    <string name="cpf">Insira seu CPF</string>
+    <string name="identidade" translatable="false">Insira sua identidade</string>
     <string name="fim">Finalizar</string>
     <string name="entrar">Olá novamente!\nEntre para prosseguir!</string>
     <string name="senha_hint">Senha</string>
     <string name="btn_entrar">Entrar</string>
-    <string name="cpf_hint">CPF</string>
+    <string name="identidade_hint" translatable="false">Identidade</string>
     <string name="btn_continuar">Continuar</string>
     <string name="esqueceu_senha">Esqueceu sua senha?</string>
-    <string name="txtOnclick_RedefinirSenha">Redefina Aqui!</string>
+    <string name="txtOnclick_RedefinirSenha"><u>Redefina Aqui!</u></string>
     <string name="redefinir_titulo">Redefina sua Senha</string>
-    <string name="inserir_email_esqueceu_senha">Insira seu email cadastrado em nosso App</string>
+    <string name="inserir_email_esqueceu_senha">Insira seu email cadastrado na Zippy</string>
     <string name="enviar_esqueceuSenha">Enviar</string>
     <string name="chat">Chat</string>
     <string name="profile">Profile</string>
@@ -83,5 +83,11 @@
     <string name="fazer_post_drawer">Fazer Post</string>
     <string name="slogan">Seu app de compras internacionais\n</string>
     <string name="ver_perfil_drawer">Ver seu perfil</string>
+    <string name="criar_nome">Nos conte mais sobre você</string>
+    <string name="nome_completo">Insira seu nome completo</string>
+    <string name="dataNasc_hint">12/12/2000</string>
+    <string name="lbl_dataNasc">Insira sua data de nascimento</string>
+    <string name="lblInserirTelefone">Insira seu telefone</string>
+    <string name="telefone_hint">(11)999999999</string>
 
 </resources>

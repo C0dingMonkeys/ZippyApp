@@ -4,83 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_gradient"
+    android:background="@color/BackgroundColor"
+    android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar"
     tools:context=".CriarSenha">
 
-    <Button
-        android:id="@+id/btnContinuar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="25dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/bg_edittext"
-        android:backgroundTint="@color/ButtonColor"
-        android:fontFamily="@font/fonte_padrao"
-        android:text="@string/btn_continuar"
-        android:textColor="@color/SeocondaryColor"
-        android:textSize="@dimen/Normal_Size"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtConfirmarSenha"
-        tools:ignore="TextContrastCheck" />
-
-    <EditText
-        android:id="@+id/txtSenhaCadastro"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="25dp"
-        android:layout_marginTop="55dp"
-        android:background="@drawable/bg_edittext"
-        android:ems="10"
-        android:fontFamily="@font/krona"
-        android:hint="@string/senha_hint"
-        android:inputType="textPassword"
-        android:padding="15dp"
-        android:paddingStart="16dp"
-        android:textColor="@color/EditTextColor"
-        android:textColorHint="@color/gray"
-        android:textCursorDrawable="@drawable/bg_cursor_color"
-        android:textSize="@dimen/Normal_Size"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lblCriarSenha"
-        tools:ignore="RtlSymmetry"
-        android:importantForAutofill="no" />
-
-    <EditText
-        android:id="@+id/txtConfirmarSenha"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="25dp"
-        android:layout_marginTop="50dp"
-        android:background="@drawable/bg_edittext"
-        android:ems="10"
-        android:fontFamily="@font/fonte_padrao"
-        android:hint="@string/confirmar_senha"
-        android:inputType="textPassword"
-        android:padding="15dp"
-        android:paddingStart="16dp"
-        android:textColor="@color/EditTextColor"
-        android:textColorHint="@color/gray"
-        android:textCursorDrawable="@drawable/bg_cursor_color"
-        android:textSize="@dimen/Normal_Size"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtSenhaCadastro"
-        tools:ignore="RtlSymmetry"
-        android:importantForAutofill="no" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="45dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/logo"
-        tools:ignore="ContentDescription" />
-
+    <!-- TEXTVIEW "CRIE SUA SENHA-->
     <TextView
         android:id="@+id/lblCriarSenha"
         android:layout_width="wrap_content"
@@ -88,11 +16,124 @@
         android:layout_marginTop="56dp"
         android:fontFamily="@font/fonte_padrao"
         android:text="@string/criar_senha"
-        android:textColor="@color/SeocondaryColor"
+        android:textColor="@color/TextColor"
         android:textSize="@dimen/TitulosMenu"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.25"
+        app:layout_constraintHorizontal_bias="0.15"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+    <!-- FIM DO TEXTVIEW "CRIE SUA SENHA"-->
+
+
+    <!-- LAYOUT DO EDITTEXT INSERIR SENHA -->
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layoutSenhaEdit"
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="25dp"
+        android:layout_marginTop="50dp"
+        android:hint="@string/senha_hint"
+        android:textColorHint="@color/black"
+        app:boxBackgroundColor="@color/bg_edittext"
+        app:boxStrokeColor="@color/black"
+        app:boxStrokeWidthFocused="2dp"
+        app:hintTextAppearance="@style/TextAppearance"
+        app:hintTextColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblCriarSenha"
+        app:passwordToggleEnabled="true"
+        app:passwordToggleTint="@color/black">
+
+        <!-- EDITTEXT INSERIR SENHA -->
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/txtSenhaCadastro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/fonte_padrao"
+            android:inputType="textPassword"
+            android:textColor="@color/black" />
+
+        <!-- FIM DO EDITTEXT INSERIR SENHA -->
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- FIM DO LAYOUT EDITTEXT INSERIR SENHA  -->
+
+    <!-- LAYOUT CONFIRMAR SENHA -->
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layoutConfSenhaEdit"
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="25dp"
+        android:layout_marginTop="50dp"
+        android:hint="@string/confirmar_senha"
+        android:textColorHint="@color/black"
+        app:boxBackgroundColor="@color/bg_edittext"
+        app:boxStrokeColor="@color/black"
+        app:boxStrokeWidthFocused="2dp"
+        app:hintTextAppearance="@style/TextAppearance"
+        app:hintTextColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layoutSenhaEdit"
+        app:passwordToggleEnabled="true"
+        app:passwordToggleTint="@color/black">
+
+        <!-- EDITTEXT CONFIRMAR SENHA-->
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/txtConfirmarSenha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/fonte_padrao"
+            android:inputType="textPassword"
+            android:textColor="@color/black" />
+
+        <!-- FIM DO EDITTEXT CONFIRMAR SENHA-->
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- FIM DO LAYOUT CONFIRMAR SENHA-->
+
+    <!-- BOTÃO DE CONTINUAR -->
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnContinuar2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="25dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/bg_btn_perfil"
+        android:backgroundTint="#33186B"
+        android:fontFamily="@font/fonte_padrao"
+        android:padding="20dp"
+        android:text="@string/btn_continuar"
+        android:textColor="@color/TextColor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layoutConfSenhaEdit"
+        tools:ignore="TextContrastCheck" />
+
+    <!-- FIM DO BOTÃO CONTINUAR -->
+
+    <!-- IMAGEM LOGO INICIO-->
+    <ImageView
+        android:id="@+id/ImagemLogoCriarSenha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="45dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/logo_inicio"
+        tools:ignore="ContentDescription" />
+
+    <!-- FIM DA IMAGEM LOGO-->
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

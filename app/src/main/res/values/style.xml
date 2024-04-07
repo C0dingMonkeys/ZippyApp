@@ -5,4 +5,13 @@
         <item name="android:textSize">15sp</item>
     </style>
 
+    <style name="TextAppearance">
+        <item name="android:textSize">10sp</item>
+        <item name="android:lineSpacingExtra">4dp</item>
+    </style>
+    <style name="ErrorTextAppearance">
+        <item name="android:textSize">13sp</item>
+        <item name="android:lineSpacingExtra">4dp</item>
+        <item name="fontFamily">@font/fonte_padrao</item>
+    </style>
 </resources>

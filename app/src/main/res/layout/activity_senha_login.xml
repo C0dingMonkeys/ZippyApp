@@ -4,25 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_gradient"
+    android:background="@color/BackgroundColor"
     tools:context=".SenhaLogin">
 
-    <Button
-        android:id="@+id/btnLogar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="25dp"
-        android:layout_marginTop="14dp"
-        android:background="@drawable/bg_edittext"
-        android:backgroundTint="@color/ButtonColor"
-        android:fontFamily="@font/fonte_padrao"
-        android:text="@string/btn_entrar"
-        android:textColor="@color/TextColor"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtSenhaLogin"
-        tools:ignore="TextContrastCheck" />
-
+    <!-- TITULO LOGIN -->
     <TextView
         android:id="@+id/lblEntrar"
         android:layout_width="wrap_content"
@@ -30,47 +15,74 @@
         android:layout_marginTop="70dp"
         android:fontFamily="@font/fonte_padrao"
         android:text="@string/entrar"
-        android:textColor="@color/TextColor"
+        android:textColor="@color/SeocondaryColor"
         android:textSize="@dimen/TitulosMenu"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.25"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/imgLogo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="45dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/logo"
-        tools:ignore="ContentDescription" />
+    <!-- FIM TITULO LOGIN-->
 
-    <EditText
-        android:id="@+id/txtSenhaLogin"
+
+    <!-- LAYOUT INSERIR SENHA -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layoutSenhaLoginEdit"
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="25dp"
-        android:layout_marginTop="120dp"
-        android:background="@drawable/bg_edittext"
-        android:ems="10"
-        android:fontFamily="@font/fonte_padrao"
+        android:layout_marginTop="20dp"
         android:hint="@string/senha_hint"
-        android:inputType="textPassword"
-        android:padding="15dp"
-        android:paddingStart="16dp"
-        android:textColor="@color/EditTextColor"
-        android:textColorHint="@color/gray"
-        android:textCursorDrawable="@drawable/bg_cursor_color"
+        android:textColorHint="@color/black"
+        app:boxBackgroundColor="@color/bg_edittext"
+        app:boxStrokeColor="@color/black"
+        app:boxStrokeWidthFocused="2dp"
+        app:hintTextAppearance="@style/TextAppearance"
+        app:hintTextColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:passwordToggleEnabled="true"
+        app:passwordToggleTint="@color/black"
+        app:layout_constraintTop_toBottomOf="@+id/lblEntrar">
+
+        <!-- EDITTEXT CONFIRMAR SENHA-->
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/txtSenhaLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/fonte_padrao"
+            android:inputType="textPassword"
+            android:textColor="@color/black" />
+
+        <!-- FIM DO EDITTEXT CONFIRMAR SENHA-->
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <!-- BOTÃO ENTRAR NA CONTA-->
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnLogar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="25dp"
+        android:background="@drawable/bg_btn_perfil"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/fonte_padrao"
+        android:text="@string/btn_continuar"
+        android:padding="20dp"
+        android:textColor="@color/TextColor"
         android:textSize="@dimen/Normal_Size"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lblEntrar"
-        tools:ignore="RtlSymmetry"
-        android:autofillHints="oi" />
+        app:layout_constraintTop_toBottomOf="@+id/layoutSenhaLoginEdit"
+        tools:ignore="TextContrastCheck" />
 
+    <!-- FIM DO BOTÃO ENTRAR NA CONTA-->
+
+
+    <!-- TEXTVIEW "ESQUECEU SUA SENHA"-->
     <TextView
         android:id="@+id/lblEsqueceuSenha"
         android:layout_width="wrap_content"
@@ -82,7 +94,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnLogar" />
+    <!-- FIM DO TEXTVIEW "ESQUECEU SUA SENHA" -->
 
+
+    <!-- TEXTVIEW CLICAVEL REDEFINIR SENHA-->
     <TextView
         android:id="@+id/btnEsqueceuSenha"
         android:layout_width="wrap_content"
@@ -100,5 +115,22 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lblEsqueceuSenha" />
+
+    <!-- FIM DO TEXTVIEW CLICAVEL-->
+
+    <!-- IMAGEVIEW LOGO ZIPPY-->
+    <ImageView
+        android:id="@+id/imgLogo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="45dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/logo_inicio"
+        tools:ignore="ContentDescription" />
+
+    <!-- FIM DO IMAGEVIEW LOGO ZIPPY-->
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

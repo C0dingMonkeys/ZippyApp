@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-<item>
-    <shape android:shape="rectangle">
-        <corners android:radius ="20dp"/>
-            <solid android:color="#d9d9d9"/>
-    </shape>
-</item>
+
+    <item android:drawable="@drawable/bg_edittext_focado" android:state_focused="true" android:state_window_focused="true"/>
+    <item android:drawable="@drawable/bg_edittext_nao_focado"  android:state_focused="false" android:state_window_focused="false"/>
+
 </selector>

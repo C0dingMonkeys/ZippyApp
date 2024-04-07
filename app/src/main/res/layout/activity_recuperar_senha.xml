@@ -4,31 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_gradient"
+    android:background="@color/BackgroundColor"
     tools:context=".RecuperarSenha">
 
-    <EditText
-        android:id="@+id/txtEsqueceuSenha"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="25dp"
-        android:layout_marginTop="15dp"
-        android:background="@drawable/bg_edittext"
-        android:ems="10"
-        android:fontFamily="@font/fonte_padrao"
-        android:hint="@string/email_hint"
-        android:inputType="textEmailAddress"
-        android:padding="15dp"
-        android:paddingStart="16dp"
-        android:textColor="@color/EditTextColor"
-        android:textCursorDrawable="@drawable/bg_cursor_color"
-        android:textSize="@dimen/Normal_Size"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lblInserirEsqueceu"
-        tools:ignore="RtlSymmetry"
-        android:autofillHints="OI" />
-
+    <!-- TITULO REDEFINIR A SENHA -->
     <TextView
         android:id="@+id/lblTituloRedefinirSenha"
         android:layout_width="wrap_content"
@@ -43,13 +22,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!-- FIM DO TITULO REDEFINIR A SENHA-->
+
+
+    <!-- TEXTVIEW INSERIR EMAIL CADASTRADO-->
     <TextView
         android:id="@+id/lblInserirEsqueceu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="68dp"
-        android:layout_marginEnd="100dp"
         android:layout_marginStart="25dp"
+        android:layout_marginTop="68dp"
+        android:layout_marginEnd="70dp"
         android:fontFamily="@font/fonte_padrao"
         android:text="@string/inserir_email_esqueceu_senha"
         android:textColor="@color/TextColor"
@@ -58,19 +41,79 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lblTituloRedefinirSenha" />
 
-    <Button
+    <!-- FIM DO TEXTVIEW INSERIR EMAIL CADASTRADO-->
+
+
+    <!-- EDITTEXT PARA INSERIR O EMAIL-->
+    <!-- EDITTEXT INSIRA TELEFONE -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layoutRecuperarSenha"
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="25dp"
+        android:layout_marginTop="20dp"
+        android:hint="@string/email_hint"
+        android:textColorHint="@color/black"
+        app:boxBackgroundColor="@color/bg_edittext"
+        app:boxStrokeColor="@color/black"
+        app:boxStrokeWidthFocused="2dp"
+        app:hintTextAppearance="@style/TextAppearance"
+        app:hintTextColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblInserirEsqueceu">
+
+        <!-- EDITTEXT CONFIRMAR SENHA-->
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/txtEsqueceuSenha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/fonte_padrao"
+            android:inputType="textEmailAddress"
+            android:textColor="@color/black" />
+
+        <!-- FIM DO EDITTEXT CONFIRMAR SENHA-->
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- FIM DO EDITTEXT PARA INSERIR O EMAIL-->
+
+
+    <!-- BOTÃO ENVIAR RECUPERAÇÃO-->
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnEnviarSenha"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="25dp"
-        android:layout_marginTop="35dp"
-        android:background="@drawable/bg_edittext"
-        android:backgroundTint="@color/ButtonColor"
+        android:background="@drawable/bg_btn_perfil"
+        android:layout_marginTop="30dp"
         android:fontFamily="@font/fonte_padrao"
-        android:text="@string/enviar_esqueceuSenha"
+        android:text="@string/btn_continuar"
+        android:padding="20dp"
         android:textColor="@color/TextColor"
+        android:textSize="@dimen/Normal_Size"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtEsqueceuSenha"
+        app:layout_constraintTop_toBottomOf="@+id/layoutRecuperarSenha"
         tools:ignore="TextContrastCheck" />
+
+    <!-- FIM DO BOTÃO ENVIAR RECUPERAÇÃO-->
+
+
+    <!-- IMAGEVIEW LOGO ZIPPY-->
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="45dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/logo_inicio"
+        tools:ignore="ContentDescription" />
+    <!-- FIM DO IMAGEVIEW LOGO ZIPPY-->
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

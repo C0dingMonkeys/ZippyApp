@@ -4,27 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_gradient"
-    tools:context=".InserirCPF">
+    android:background="@color/BackgroundColor"
+    tools:context=".InserirIdentidade">
 
-    <Button
-        android:id="@+id/btnInserir"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="25dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/bg_edittext"
-        android:backgroundTint="@color/ButtonColor"
-        android:fontFamily="@font/fonte_padrao"
-        android:text="@string/fim"
-        android:textColor="@color/TextColor"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtCpf"
-        tools:ignore="TextContrastCheck" />
-
+    <!-- TITULO DA TELA-->
     <TextView
-        android:id="@+id/lblTituloCPF"
+        android:id="@+id/lblTituloIdentidade"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="70dp"
@@ -36,44 +21,83 @@
         app:layout_constraintHorizontal_bias="0.25"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+    <!-- FIM DO TITULO DA TELA -->
 
+
+    <!-- TEXTVIEW INSIRA CPF -->
     <TextView
-        android:id="@+id/lblSubtituloCpf"
+        android:id="@+id/lblSubtituloIdentidade"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="45dp"
         android:fontFamily="@font/fonte_padrao"
-        android:text="@string/cpf"
+        android:text="@string/identidade"
         android:textColor="@color/TextColor"
         android:textSize="@dimen/Subtitulo_Size"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.15"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lblTituloCPF" />
+        app:layout_constraintTop_toBottomOf="@+id/lblTituloIdentidade" />
 
-    <EditText
-        android:id="@+id/txtCpf"
+    <!-- FIM DO TEXTVIEW INSIRA CPF-->
+
+
+    <!-- EDITTEXT INSERIR IDENTIDADE-->
+    <!-- EDITTEXT INSIRA TELEFONE -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layoutIdentidade"
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="25dp"
-        android:layout_marginTop="40dp"
-        android:background="@drawable/bg_edittext"
-        android:ems="10"
+        android:layout_marginTop="20dp"
+        android:hint="@string/identidade_hint"
+        android:textColorHint="@color/black"
+        app:boxBackgroundColor="@color/bg_edittext"
+        app:boxStrokeColor="@color/black"
+        app:boxStrokeWidthFocused="2dp"
+        app:hintTextAppearance="@style/TextAppearance"
+        app:hintTextColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblSubtituloIdentidade">
+
+        <!-- EDITTEXT CONFIRMAR SENHA-->
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/txtIdentidade"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/fonte_padrao"
+            android:inputType="text"
+            android:textColor="@color/black" />
+
+        <!-- FIM DO EDITTEXT CONFIRMAR SENHA-->
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!--    FIM DO EDITTEXT INSERIR IDENTIDADE-->
+
+    <!-- BOTÃO DE CADASTRAR / INSERIR -->
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnInserir"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="25dp"
+        android:background="@drawable/bg_btn_perfil"
+        android:layout_marginTop="30dp"
         android:fontFamily="@font/fonte_padrao"
-        android:hint="@string/cpf_hint"
-        android:inputType="number"
-        android:maxLength="14"
-        android:padding="15dp"
-        android:paddingStart="16dp"
-        android:textColor="@color/EditTextColor"
-        android:textColorHint="@color/gray"
-        android:textCursorDrawable="@drawable/bg_cursor_color"
+        android:text="@string/btn_continuar"
+        android:padding="20dp"
+        android:textColor="@color/TextColor"
         android:textSize="@dimen/Normal_Size"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lblSubtituloCpf"
-        tools:ignore="RtlSymmetry"
-        android:importantForAutofill="no" />
+        app:layout_constraintTop_toBottomOf="@+id/layoutIdentidade"
+        tools:ignore="TextContrastCheck" />
+    <!-- FIM DO BOTÃO CADASTRAR / INSERIR-->
+
+    <!-- IMAGEVIEW LOGO ZIPPY-->
 
     <ImageView
         android:id="@+id/imageView2"
@@ -83,7 +107,9 @@
         android:layout_marginBottom="45dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/logo"
+        app:srcCompat="@drawable/logo_inicio"
         tools:ignore="ContentDescription" />
+
+    <!-- FIM DO IMAGEVIEW LOGO ZIPPY-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

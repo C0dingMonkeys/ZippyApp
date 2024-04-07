@@ -3,6 +3,7 @@ package com.example.zippy0001;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -17,7 +18,7 @@ public class SenhaLogin extends AppCompatActivity {
 
 
     // URL do script PHP que verifica se a senha está correta
-    private static final String URL_CHECK_PASSWORD = "https://zippyinternacional.000webhostapp.com/testeLuix/VerificarSenha.php";
+    private static final String URL_CHECK_PASSWORD = "https://zippyinternacional.000webhostapp.com/testeLuix/VerificarSenhaLogin.php";
     public static final String EXTRA_EMAIL = "email";
 
     private TextView txtSenhaLogin;
@@ -42,6 +43,7 @@ public class SenhaLogin extends AppCompatActivity {
         email = getIntent().getStringExtra(EXTRA_EMAIL);
 
         TextView esqueceuSenha = findViewById(R.id.btnEsqueceuSenha);
+
 
         logar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,12 +75,12 @@ public class SenhaLogin extends AppCompatActivity {
         });
     }
 
-    private void checkPassword(String email, String Senha) {
+    private void checkPassword(String email, String SenhaLogin) {
         // Usar a API Ion para fazer uma requisição HTTP POST para o script PHP
         Ion.with(this)
                 .load(URL_CHECK_PASSWORD)
                 .setBodyParameter("email", email) // Enviar o email como parâmetro
-                .setBodyParameter("Senha", Senha) // Enviar a senha como parâmetro
+                .setBodyParameter("Senha", SenhaLogin) // Enviar a senha como parâmetro
                 .asJsonObject() // Obter a resposta como uma string
                 .setCallback(new FutureCallback<JsonObject>() {
                     @Override
