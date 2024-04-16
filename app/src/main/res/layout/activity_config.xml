@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background_app"
+    android:theme="@style/Theme.Material3.DayNight.NoActionBar"
+    style="@style/BackgroundApp"
     android:fitsSystemWindows="true"
     android:orientation="vertical"
     tools:context=".ConfigActivity">
@@ -28,8 +29,9 @@
                     android:id="@+id/LayoutConfiguracoes"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/SeocondaryColor"
+                    style="@style/ColorPrimary"
                     android:gravity="center_vertical"
+
                     android:paddingVertical="5dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -49,6 +51,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/fonte_padrao"
                         android:padding="10dp"
+                        android:textColor="@color/TextColor"
                         android:text="Configurações"
                         android:textSize="@dimen/Subtitulo_Size" />
 
@@ -63,6 +66,7 @@
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="20dp"
                     android:fontFamily="@font/fonte_padrao"
+                    android:textColor="@color/TextColorContrast"
                     android:text="Personalização"
                     android:textSize="@dimen/Normal_Size"
                     app:layout_constraintStart_toStartOf="parent"
@@ -73,7 +77,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:background="@color/SeocondaryColor"
+                    android:background="@color/PrimaryColor"
                     android:divider="@drawable/divisor_lista"
                     android:orientation="vertical"
                     android:showDividers="middle"
@@ -86,7 +90,8 @@
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:checked="true"
+                        android:checked="false"
+                        style="@style/TextColor"
                         android:fontFamily="@font/fonte_padrao"
                         android:padding="10dp"
                         android:text="Habilitar Modo Escuro" />
@@ -95,12 +100,13 @@
                         android:id="@+id/layout_notificacoes_btn"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@color/SeocondaryColor">
+                        style="@style/ColorPrimary">
 
                         <TextView
                             android:id="@+id/txtNotificacoesLayout"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            style="@style/TextColor"
                             android:fontFamily="@font/fonte_padrao"
                             android:padding="10dp"
                             android:text="Notificações" />
@@ -118,12 +124,13 @@
                         android:id="@+id/layout_IdiomasApp_btn"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@color/SeocondaryColor">
+                        style="@style/ColorPrimary">
 
                         <TextView
                             android:id="@+id/txtIdiomasAppLayout"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            style="@style/TextColor"
                             android:fontFamily="@font/fonte_padrao"
                             android:padding="10dp"
                             android:text="Idioma do App" />
@@ -145,6 +152,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="20dp"
+                    style="@style/TextColorContrast"
                     android:fontFamily="@font/fonte_padrao"
                     android:text="Minha Conta"
                     android:textSize="@dimen/Normal_Size"
@@ -156,7 +164,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:background="@color/SeocondaryColor"
+                    style="@style/ColorSecondary"
                     android:divider="@drawable/divisor_lista"
                     android:orientation="vertical"
                     android:showDividers="middle"
@@ -168,7 +176,7 @@
                         android:id="@+id/layout_meusDados_btn"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@color/SeocondaryColor">
+                        style="@style/ColorPrimary">
 
                         <TextView
                             android:id="@+id/txtMeusDadosLayout"
@@ -176,6 +184,7 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/fonte_padrao"
                             android:padding="10dp"
+                            style="@style/TextColor"
                             android:text="Meus Dados" />
 
                         <ImageButton
@@ -191,12 +200,13 @@
                         android:id="@+id/layout_meusEnderecos_btn"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@color/SeocondaryColor">
+                        android:background="@color/PrimaryColor">
 
                         <TextView
                             android:id="@+id/txtMeusEnderecosLayout"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            style="@style/TextColor"
                             android:fontFamily="@font/fonte_padrao"
                             android:padding="10dp"
                             android:text="Meus Endereços" />
@@ -214,7 +224,7 @@
                         android:id="@+id/layout_meusPagamentos_btn"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@color/SeocondaryColor">
+                        style="@style/ColorPrimary">
 
                         <TextView
                             android:id="@+id/txtMeusPagamentosLayout"
@@ -222,7 +232,9 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/fonte_padrao"
                             android:padding="10dp"
+                            style="@style/TextColor"
                             android:text="Meus Dados" />
+
 
                         <ImageButton
                             android:id="@+id/imgBtnMeusPagamentos"
@@ -242,8 +254,9 @@
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="20dp"
                     android:fontFamily="@font/fonte_padrao"
-                    android:text="Minha Conta"
+                    android:text="Suporte"
                     android:textSize="@dimen/Normal_Size"
+                    style="@style/TextColorContrast"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/Layout_MinhaConta" />
 
@@ -264,13 +277,14 @@
                         android:id="@+id/layout_CentraldeAjuda_btn"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@color/SeocondaryColor">
+                        android:background="@color/PrimaryColor">
 
                         <TextView
                             android:id="@+id/txtCentraldeAjudaLayout"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/fonte_padrao"
+                            style="@style/TextColor"
                             android:padding="10dp"
                             android:text="Central de Ajuda" />
 
@@ -287,12 +301,13 @@
                         android:id="@+id/layout_NossaPolitica_btn"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@color/SeocondaryColor">
+                        style="@style/ColorPrimary">
 
                         <TextView
                             android:id="@+id/txtNossaPoliticaLayout"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            style="@style/TextColor"
                             android:fontFamily="@font/fonte_padrao"
                             android:padding="10dp"
                             android:text="Nossa Politica" />
@@ -310,13 +325,14 @@
                         android:id="@+id/layout_DenunciarUsuario_btn"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@color/SeocondaryColor">
+                        style="@style/ColorPrimary">
 
                         <TextView
                             android:id="@+id/txtDenunciarUsuarioLayout"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/fonte_padrao"
+                            android:textColor="@color/TextColor"
                             android:padding="10dp"
                             android:text="Meus Dados" />
 

@@ -2,9 +2,10 @@
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
+        android:theme="@style/Theme.Material3.DayNight.NoActionBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white"
+        android:background="@color/SeocondaryColor"
         android:orientation="vertical">
 
         <ImageView
@@ -17,18 +18,18 @@
             android:contentDescription="@string/carousel_image_description"
             tools:ignore="UnusedAttribute" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button_carousel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="5dp"
-        android:background="@drawable/bg_edittext"
+        android:background="@drawable/bg_btn_perfil"
         android:backgroundTint="@color/ButtonColor"
         android:fontFamily="@font/fonte_padrao"
         android:paddingHorizontal="35dp"
         android:text="@string/txt_btn_carousel"
-        android:textColor="@color/white"
+        android:textColor="@color/TextColor"
         tools:ignore="TextContrastCheck" />
     </LinearLayout>

@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:theme="@style/Theme.Material3.DayNight.NoActionBar"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background_app"
@@ -29,7 +30,7 @@
                     android:id="@+id/LayoutPerfil"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/SeocondaryColor"
+                    android:background="@color/PrimaryColor"
                     android:gravity="center_vertical"
                     android:paddingVertical="5dp"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -48,6 +49,7 @@
                         android:id="@+id/txtPerfilLayout"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/TextColor"
                         android:fontFamily="@font/fonte_padrao"
                         android:padding="10dp"
                         android:text="Meu Perfil"
@@ -63,7 +65,7 @@
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="50dp"
                     android:fontFamily="@font/fonte_padrao"
-                    android:text="Olá [nome]"
+                    android:text="Olá Luiz"
                     android:textSize="@dimen/TitulosMenu"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/LayoutPerfil" />
@@ -75,17 +77,17 @@
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="5dp"
                     android:fontFamily="@font/fonte_padrao"
-                    android:text="[email]"
-                    android:textSize="@dimen/Normal_Size"
+                    android:text="*****5342@gmail.com"
+                    android:textSize="@dimen/mini_Size"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/txtNomeUsuario" />
 
-                <ImageView
+                <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/imgFotoPerfil"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
                     android:layout_marginTop="50dp"
-                    android:src="@drawable/zippy_logo"
+                    android:src="@drawable/justin"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@id/txtNomeUsuario"
                     app:layout_constraintTop_toBottomOf="@id/LayoutPerfil" />
@@ -103,12 +105,13 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/txtEmailUsuario">
 
-                    <Button
+                    <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/btnMeusPedidos_perfil"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
                         android:layout_weight="1"
+                        android:textColor="@color/TextColor"
                         android:background="@drawable/bg_btn_perfil"
                         android:fontFamily="@font/fonte_padrao"
                         android:text="Pedidos" />
@@ -118,12 +121,13 @@
                         android:layout_width="20dp"
                         android:layout_height="0dp" />
 
-                    <Button
+                    <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/btnMinhasSolicitacoes_perfil"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="20dp"
                         android:layout_weight="1"
+                        android:textColor="@color/TextColor"
                         android:background="@drawable/bg_btn_perfil"
                         android:fontFamily="@font/fonte_padrao"
                         android:text="Solicitações"
@@ -144,9 +148,10 @@
                     app:layout_constraintTop_toBottomOf="@+id/Buttons_perfil_layout">
 
 
-                    <Button
+                    <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/btnEditarPerfil_perfil"
                         android:layout_width="0dp"
+                        android:textColor="@color/TextColor"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
                         android:layout_weight="1"
@@ -161,9 +166,10 @@
                         android:layout_height="0dp" />
 
 
-                    <Button
+                    <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/btnPagamentos_perfil"
                         android:layout_width="0dp"
+                        android:textColor="@color/TextColor"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="20dp"
                         android:layout_weight="1"
@@ -187,7 +193,7 @@
                         android:layout_width="wrap_content"
                         android:id="@+id/txtavaliacao11"
                         android:fontFamily="@font/fonte_padrao"
-                        android:textColor="@color/SeocondaryColor"
+                        android:textColor="@color/TextColor"
                         android:layout_height="wrap_content"
                         android:text="Avaliação Viajante"
                         android:layout_marginBottom="10dp"/>

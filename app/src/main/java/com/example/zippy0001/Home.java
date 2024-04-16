@@ -3,6 +3,7 @@ package com.example.zippy0001;
 import static com.example.zippy0001.R.layout.activity_home;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.ColorInt;
 import android.support.annotation.NonNull;
@@ -33,6 +34,10 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
     NavigationView navigationView;
     Toolbar toolbar;
     ActionBarDrawerToggle toggle;
+    public static final String SHARED_PREFS = "sharedPrefs";
+
+
+
 
 
 
@@ -131,6 +136,16 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
             overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             finish();
             return true;
+        } else if (menuItemId == R.id.drawer_sair) {
+            SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putString("nome", "");
+            editor.apply();
+
+            startActivity(new Intent(getApplicationContext(), InserirEmail.class));
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+            finish();
+
         }
         return false;
     }

@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:theme="@style/Base.Theme.AppCompat.DayNight.NoActionBar"
     android:layout_height="match_parent"
     android:background="@color/BackgroundColor"
     tools:context=".SenhaLogin">
@@ -15,7 +16,7 @@
         android:layout_marginTop="70dp"
         android:fontFamily="@font/fonte_padrao"
         android:text="@string/entrar"
-        android:textColor="@color/SeocondaryColor"
+        style="@style/TextColor"
         android:textSize="@dimen/TitulosMenu"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.25"
@@ -38,13 +39,17 @@
         app:boxBackgroundColor="@color/bg_edittext"
         app:boxStrokeColor="@color/black"
         app:boxStrokeWidthFocused="2dp"
+        app:errorEnabled="true"
+        app:errorIconTint="@color/ERRO"
+        app:errorTextAppearance="@style/ErrorTextAppearance"
+        app:errorTextColor="@color/textoErro"
         app:hintTextAppearance="@style/TextAppearance"
         app:hintTextColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblEntrar"
         app:passwordToggleEnabled="true"
-        app:passwordToggleTint="@color/black"
-        app:layout_constraintTop_toBottomOf="@+id/lblEntrar">
+        app:passwordToggleTint="@color/black">
 
         <!-- EDITTEXT CONFIRMAR SENHA-->
 
@@ -60,6 +65,23 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
+<!--    Checkbox Manter Logado-->
+    <androidx.appcompat.widget.AppCompatCheckBox
+        android:id="@+id/manterLoginCheck"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/layoutSenhaLoginEdit"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="25dp"
+        android:text="Manter Login"
+        android:fontFamily="@font/fonte_padrao"
+        style="@style/TextColor"/>
+
+
+
+
+
+<!--    Fim Checkbox Manter Logado-->
 
     <!-- BOTÃO ENTRAR NA CONTA-->
     <androidx.appcompat.widget.AppCompatButton
@@ -67,16 +89,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="25dp"
-        android:background="@drawable/bg_btn_perfil"
         android:layout_marginTop="30dp"
+        android:background="@drawable/bg_btn_perfil"
         android:fontFamily="@font/fonte_padrao"
-        android:text="@string/btn_continuar"
         android:padding="20dp"
+        android:text="@string/btn_continuar"
         android:textColor="@color/TextColor"
         android:textSize="@dimen/Normal_Size"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layoutSenhaLoginEdit"
+        app:layout_constraintTop_toBottomOf="@+id/manterLoginCheck"
         tools:ignore="TextContrastCheck" />
 
     <!-- FIM DO BOTÃO ENTRAR NA CONTA-->

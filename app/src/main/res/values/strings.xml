@@ -85,9 +85,10 @@
     <string name="ver_perfil_drawer">Ver seu perfil</string>
     <string name="criar_nome">Nos conte mais sobre você</string>
     <string name="nome_completo">Insira seu nome completo</string>
-    <string name="dataNasc_hint">12/12/2000</string>
+    <string name="dataNasc_hint">13/04/2004</string>
     <string name="lbl_dataNasc">Insira sua data de nascimento</string>
     <string name="lblInserirTelefone">Insira seu telefone</string>
-    <string name="telefone_hint">(11)999999999</string>
+    <string name="telefone_hint">+55 (11) 99999-9999</string>
+    <string name="nome_hint">João Aparecido dos Santos</string>
 
 </resources>

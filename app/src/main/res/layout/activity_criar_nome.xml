@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:theme="@style/Theme.Material3.DayNight.NoActionBar"
     android:background="@color/BackgroundColor"
+    android:theme="@style/Theme.Material3.DayNight.NoActionBar"
     tools:context=".activityCriarNome">
 
     <!-- TITULO CRIAR NOME-->
@@ -25,28 +25,45 @@
 
     <!-- FIM DO TITULO CRIAR NOME-->
 
+    <!-- Label Nome Completo-->
+    <!-- Fim Label Nome Completo-->
 
     <!-- EDITTEXT INSERIR NOME -->
+    <TextView
+        android:id="@+id/lblNomeCompleto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:fontFamily="@font/fonte_padrao"
+        android:text="@string/nome_completo"
+        android:textColor="@color/TextColor"
+        android:textSize="@dimen/Normal_Size"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.167"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lblCriarNome" />
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/layoutInserirNomeEdit"
         style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="25dp"
-        android:layout_marginTop="50dp"
-        android:textColorHint="@color/black"
-        android:hint="@string/nome_completo"
+        android:layout_marginTop="10dp"
         app:boxBackgroundColor="@color/bg_edittext"
         app:boxStrokeColor="@color/black"
         app:boxStrokeWidthFocused="2dp"
+        app:errorEnabled="true"
+        app:errorIconTint="@color/ERRO"
+        app:errorTextAppearance="@style/ErrorTextAppearance"
+        app:errorTextColor="@color/textoErro"
         app:hintTextAppearance="@style/TextAppearance"
         app:hintTextColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lblCriarNome"
-        >
+        app:layout_constraintTop_toBottomOf="@+id/lblNomeCompleto">
 
-        <!-- EDITTEXT CONFIRMAR SENHA-->
+        <!-- EDITTEXT NOME COMPLETO SENHA-->
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/txtInserirNome"
@@ -56,32 +73,52 @@
             android:inputType="text"
             android:textColor="@color/black" />
 
-        <!-- FIM DO EDITTEXT CONFIRMAR SENHA-->
+        <!-- FIM DO EDITTEXT NOME COMPLETO -->
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <!-- FIM DO EDITTEXT INSERIR NOME -->
+    <!-- FIM DO LAYOUT INSERIR NOME -->
+
+    <!-- Label Telefone-->
+
+    <!-- Fim Label Telefone-->
 
     <!-- EDITTEXT INSIRA TELEFONE -->
+    <TextView
+        android:id="@+id/lblTelefone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/fonte_padrao"
+        android:text="@string/lblInserirTelefone"
+        android:textColor="@color/TextColor"
+        android:textSize="@dimen/Normal_Size"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.116"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/layoutInserirNomeEdit" />
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/layoutTelefone"
         style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="25dp"
-        android:layout_marginTop="40dp"
-        android:hint="@string/lblInserirTelefone"
-        android:textColorHint="@color/black"
+        android:layout_marginTop="10dp"
         app:boxBackgroundColor="@color/bg_edittext"
         app:boxStrokeColor="@color/black"
         app:boxStrokeWidthFocused="2dp"
-        app:hintTextColor="@color/black"
+        app:errorEnabled="true"
+        app:errorIconTint="@color/ERRO"
+        app:errorTextAppearance="@style/ErrorTextAppearance"
+        app:errorTextColor="@color/textoErro"
         app:hintTextAppearance="@style/TextAppearance"
+        app:hintTextColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layoutInserirNomeEdit">
+        app:layout_constraintTop_toBottomOf="@+id/lblTelefone">
 
-        <!-- EDITTEXT CONFIRMAR SENHA-->
+        <!-- EDITTEXT INSERIR TELEFONE -->
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/txtTelefone"
@@ -91,44 +128,60 @@
             android:inputType="number"
             android:textColor="@color/black" />
 
-        <!-- FIM DO EDITTEXT CONFIRMAR SENHA-->
+        <!-- FIM DO EDITTEXT INSERIR TELEFONE-->
 
     </com.google.android.material.textfield.TextInputLayout>
-    <!-- FIM DO EDITTEXT INSIRA TELEFONE -->
+    <!-- FIM DO LAYOUT INSIRA TELEFONE -->
 
-
+    <!-- Label DATA DE NASCIMENTO-->
+    <!-- Fim Label Nome Completo-->
 
 
     <!-- EDITTEXT INSIRA DATA DE NASCIMENTO -->
+    <TextView
+        android:id="@+id/lblDataNascimento"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/fonte_padrao"
+        android:text="@string/lbl_dataNasc"
+        android:textColor="@color/TextColor"
+        android:textSize="@dimen/Normal_Size"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.271"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/layoutTelefone" />
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/layoutDataNasc"
         style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="25dp"
-        android:layout_marginTop="40dp"
-        android:hint="@string/lbl_dataNasc"
-        android:textColorHint="@color/black"
+        android:layout_marginTop="10dp"
         app:boxBackgroundColor="@color/bg_edittext"
         app:boxStrokeColor="@color/black"
         app:boxStrokeWidthFocused="2dp"
+        app:errorEnabled="true"
+        app:errorIconTint="@color/ERRO"
+        app:errorTextAppearance="@style/ErrorTextAppearance"
+        app:errorTextColor="@color/textoErro"
         app:hintTextAppearance="@style/TextAppearance"
         app:hintTextColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layoutTelefone">
+        app:layout_constraintTop_toBottomOf="@+id/lblDataNascimento">
 
         <!-- EDITTEXT CONFIRMAR SENHA-->
 
-        <com.google.android.material.textfield.TextInputEditText
+        <com.vicmikhailau.maskededittext.MaskedEditText
             android:id="@+id/txtDataNasc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/fonte_padrao"
             android:inputType="number"
-            android:maxLength="10"
             android:textColor="@color/black"
-            app:mask="##/##/####"/>
+            app:mask="##/##/####" />
 
         <!-- FIM DO EDITTEXT CONFIRMAR SENHA-->
 
@@ -143,11 +196,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="25dp"
-        android:background="@drawable/bg_btn_perfil"
         android:layout_marginTop="30dp"
+        android:background="@drawable/bg_btn_perfil"
         android:fontFamily="@font/fonte_padrao"
-        android:text="@string/btn_continuar"
         android:padding="20dp"
+        android:text="@string/btn_continuar"
         android:textColor="@color/TextColor"
         android:textSize="@dimen/Normal_Size"
         app:layout_constraintEnd_toEndOf="parent"

@@ -20,6 +20,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.zippy0001.classes.MaskUtil;
 import com.example.zippy0001.classes.ValidaCPF;
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.gson.JsonObject;
 import com.koushikdutta.async.future.FutureCallback;
 import com.koushikdutta.ion.Ion;
@@ -42,10 +43,10 @@ public class InserirIdentidade extends AppCompatActivity {
     private String NomeCompleto;
     private String DataNascimento;
     private String Fone;
-
+    private Button btnInserir;
     private EditText txtIdentidade;
+    private TextInputLayout identidadeLayout;
 
-    TextView teste1;
 
 
     String ret;
@@ -57,7 +58,8 @@ public class InserirIdentidade extends AppCompatActivity {
         setContentView(R.layout.inserir_cpf);
 
         txtIdentidade = findViewById(R.id.txtIdentidade);
-        Button btnInserir = findViewById(R.id.btnInserir);
+        btnInserir = findViewById(R.id.btnInserir);
+        identidadeLayout = findViewById(R.id.layoutIdentidade);
 
         btnInserir.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -78,7 +80,7 @@ public class InserirIdentidade extends AppCompatActivity {
 
                 if (Identidade.isEmpty()) {
                     // Mostrar uma mensagem de erro
-                    Toast.makeText(InserirIdentidade.this, "Por favor, insira sua identidade", Toast.LENGTH_SHORT).show();
+                    identidadeLayout.setError("Por favor, insira sua identidade");
                 }
                  else {
                     InserirDados();

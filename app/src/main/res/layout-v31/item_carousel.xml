@@ -4,7 +4,8 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white"
+        android:theme="@style/Theme.Material3.DayNight.NoActionBar"
+        android:background="@color/background_app"
         android:orientation="vertical">
 
         <ImageView
@@ -16,7 +17,7 @@
             android:clipToOutline="true"
             tools:ignore="ContentDescription" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/button_carousel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -28,6 +29,7 @@
             android:fontFamily="@font/fonte_padrao"
             android:paddingHorizontal="35dp"
             android:text="@string/txt_btn_carousel"
-            android:textColor="@color/white"
+
+            android:textColor="@color/TextColor"
             tools:ignore="TextContrastCheck" />
     </LinearLayout>

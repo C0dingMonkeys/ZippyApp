@@ -2,26 +2,19 @@
 <project version="4">
   <component name="deploymentTargetDropDown">
     <value>
+      <entry key="CriarNome">
+        <State />
+      </entry>
       <entry key="CriarSenha">
         <State />
       </entry>
       <entry key="Home">
-        <State>
-          <targetSelectedWithDropDown>
-            <Target>
-              <type value="QUICK_BOOT_TARGET" />
-              <deviceKey>
-                <Key>
-                  <type value="VIRTUAL_DEVICE_PATH" />
-                  <value value="C:\Users\aluiz\.android\avd\Pixel_7_API_UpsideDownCakePrivacySandbox.avd" />
-                </Key>
-              </deviceKey>
-            </Target>
-          </targetSelectedWithDropDown>
-          <timeTargetWasSelectedWithDropDown value="2024-03-30T16:30:46.638871200Z" />
-        </State>
+        <State />
       </entry>
       <entry key="InserirCPF">
+        <State />
+      </entry>
+      <entry key="SenhaLogin">
         <State />
       </entry>
       <entry key="app">

@@ -1,26 +1,23 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.Zippy0001" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <!-- Customize your dark theme here. -->
 
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-        <item name="android:windowTranslucentNavigation">false</item>
-        <item name="android:fitsSystemWindows">true</item>
-        <item name="android:statusBarColor">@android:color/transparent</item>
-        <item name="android:navigationBarColor">@android:color/transparent</item>
-
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
-    </style>
     <!-- Base application theme. -->
     <style name="Base.Theme.AppCompat.DayNight.NoActionBar" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
-        <item name="android:windowTranslucentNavigation">false</item>
+        <item name="colorPrimaryVariant">@color/PrimaryColor</item>
         <item name="android:fitsSystemWindows">true</item>
-        <item name="android:statusBarColor">@android:color/transparent</item>
-        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:statusBarColor">@color/PrimaryColor</item>
+        <item name="colorSecondary">@color/SeocondaryColor</item>
+        <item name="colorTertiary">@color/ThirdColor</item>
     </style>
+
+    <style name="BackgroundApp"><item name="android:background">@color/background_app</item></style>
+    <style name="ButtonBackground"><item name="android:background">@color/ButtonColor</item></style>
+    <style name="TextColor"><item name="android:textColor">@color/TextColor</item></style>
+    <style name="TextColorContrast"><item name="android:textColor">@color/TextColorContrast</item></style>
+    <style name="ColorPrimary"><item name="android:background">@color/PrimaryColor</item></style>
+    <style name="ColorSecondary"><item name="android:background">@color/SeocondaryColor</item></style>
+    <style name="ColorThird"><item name="android:background">@color/ThirdColor</item></style>
         <!-- Customize your dark theme here. -->
 
 </resources>

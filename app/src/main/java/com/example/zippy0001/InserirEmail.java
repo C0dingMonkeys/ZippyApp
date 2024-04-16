@@ -1,7 +1,10 @@
 package com.example.zippy0001;
 
+import static com.example.zippy0001.SenhaLogin.SHARED_PREFS;
+
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.text.Editable;
@@ -29,9 +32,7 @@ public class InserirEmail extends AppCompatActivity {
 
     private EditText txtemail; //Instanciando a variavel
     private TextInputLayout emailLayout;
-
     public static final String EXTRA_EMAIL = "email"; // Variavel que envia o texto para a tela seguinte
-
     private static final String URL_CHECK_EMAIL = "https://zippyinternacional.000webhostapp.com/testeLuix/login01.php"; //URL do Script
 
 
@@ -45,6 +46,7 @@ public class InserirEmail extends AppCompatActivity {
         emailLayout = findViewById(R.id.layoutEmail);
         Button btnContinuar = findViewById(R.id.btnContinuar1); //Botão de continuar
 
+        salvarLogin();
 
         txtemail.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
@@ -66,11 +68,21 @@ public class InserirEmail extends AppCompatActivity {
                 validarEmail();
 
 
+
             }
         });
 
     }
-
+    private void salvarLogin() {
+        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
+        String Logado = sharedPreferences.getString("nome", "");
+        if (Logado.equals("true")) {
+            Intent intent = new Intent(InserirEmail.this, Home.class);
+            startActivity(intent);
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+            finish();
+        }
+    }
     private void checkEmail(String email) {
         Ion.with(this)
                 .load(URL_CHECK_EMAIL)

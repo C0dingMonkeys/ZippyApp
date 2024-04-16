@@ -1,13 +1,17 @@
 package com.example.zippy0001;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.gson.JsonObject;
 import com.koushikdutta.async.future.FutureCallback;
 import com.koushikdutta.ion.Ion;
@@ -15,6 +19,7 @@ import com.koushikdutta.ion.Ion;
 public class RecuperarSenha extends AppCompatActivity {
 
     private EditText txtEsqueceuSenha;
+    private TextInputLayout recuperarLayout;
 
     private static final String URL_RESET_PASSWORD = "https://zippyinternacional.000webhostapp.com/testeLuix/recuperarSenha.php";
 
@@ -29,6 +34,7 @@ public class RecuperarSenha extends AppCompatActivity {
 
         txtEsqueceuSenha = findViewById(R.id.txtEsqueceuSenha);
         Button enviar = findViewById(R.id.btnEnviarSenha);
+        recuperarLayout = findViewById(R.id.layoutRecuperarSenha);
 
         enviar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -37,7 +43,7 @@ public class RecuperarSenha extends AppCompatActivity {
 
                 if(EmailRecuperar.isEmpty())
                 {
-                    Toast.makeText(RecuperarSenha.this, "Por favor, insira a sua senha", Toast.LENGTH_SHORT).show();
+                    recuperarLayout.setError("Por favor, insira a sua senha");
 
                 }
                 else {
@@ -65,14 +71,29 @@ public class RecuperarSenha extends AppCompatActivity {
                             if (result != null && result.has("status")) {
                                 String status = result.get("status").getAsString();
                                 if ("ok".equals(status)) {
-                                    Toast.makeText(RecuperarSenha.this, "Email de Redefinição Enviado com Sucesso!", Toast.LENGTH_SHORT).show();
+                                    //CAIXA DE ALERTA DE SUCESSO:
+
+                                    AlertDialog.Builder fazerLogin = new AlertDialog.Builder(RecuperarSenha.this);
+                                    fazerLogin.setTitle("Sucesso!");
+                                    fazerLogin.setMessage("Email de recuperação enviado com sucesso!\nFaça Login para continuar!");
+                                    fazerLogin.setCancelable(false);
+                                    fazerLogin.setPositiveButton("Fazer Login", new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which) {
+                                            Intent intent = new Intent(RecuperarSenha.this, InserirEmail.class);
+                                            startActivity(intent);
+
+                                        }
+                                    });
+
+                                    fazerLogin.create().show();
 
                                 } else if ("error1".equals(status)) {
                                     Toast.makeText(RecuperarSenha.this, "Erro ao Enviar o Email", Toast.LENGTH_SHORT).show();
 
                                 } else if ("error2".equals(status)) {
                                     // Resposta inválida do servidor
-                                    Toast.makeText(RecuperarSenha.this, "Email não cadastrado", Toast.LENGTH_SHORT).show();
+                                    recuperarLayout.setError("Email não cadastrado");
                                 }
                             } else {
                                 // Resposta inválida do servidor
