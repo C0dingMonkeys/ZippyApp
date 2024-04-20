@@ -1,13 +1,10 @@
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:theme="@style/Theme.Material3.DayNight.NoActionBar"
-    style="@style/BackgroundApp"
-    android:fitsSystemWindows="true"
-    android:orientation="vertical"
-    tools:context=".ConfigActivity">
+    tools:context=".fragmentConfig">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -23,54 +20,21 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <LinearLayout
-                    android:id="@+id/LayoutConfiguracoes"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    style="@style/ColorPrimary"
-                    android:gravity="center_vertical"
-
-                    android:paddingVertical="5dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
-
-                    <ImageButton
-                        android:id="@+id/imgBtnConfiguracoes"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        android:backgroundTint="@android:color/transparent"
-                        android:src="@drawable/ic_seta_voltar" />
-
-                    <TextView
-                        android:id="@+id/txtConfiguracoesLayout"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/fonte_padrao"
-                        android:padding="10dp"
-                        android:textColor="@color/TextColor"
-                        android:text="Configurações"
-                        android:textSize="@dimen/Subtitulo_Size" />
-
-
-                </LinearLayout>
+                android:layout_height="wrap_content">
 
 
                 <TextView
                     android:id="@+id/tituloPersonalizacao"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
+                    android:layout_marginStart="20dp"
                     android:layout_marginTop="20dp"
                     android:fontFamily="@font/fonte_padrao"
                     android:textColor="@color/TextColorContrast"
-                    android:text="Personalização"
+                    android:text="@string/personalizacao_titulo_config"
                     android:textSize="@dimen/Normal_Size"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/LayoutConfiguracoes" />
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <LinearLayout
                     android:id="@+id/layoyt_notificacoes"
@@ -85,16 +49,15 @@
                     app:layout_constraintTop_toBottomOf="@+id/tituloPersonalizacao">
 
 
-                    <androidx.appcompat.widget.SwitchCompat
+                    <com.google.android.material.materialswitch.MaterialSwitch
                         android:id="@+id/switchDarkLightMode"
-                        android:layout_width="fill_parent"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:checked="false"
                         style="@style/TextColor"
                         android:fontFamily="@font/fonte_padrao"
                         android:padding="10dp"
-                        android:text="Habilitar Modo Escuro" />
+                        android:text="@string/habilitar_modo_escuro_config" />
 
                     <RelativeLayout
                         android:id="@+id/layout_notificacoes_btn"
@@ -109,7 +72,7 @@
                             style="@style/TextColor"
                             android:fontFamily="@font/fonte_padrao"
                             android:padding="10dp"
-                            android:text="Notificações" />
+                            android:text="@string/notificacoes_config" />
 
                         <ImageButton
                             android:id="@+id/imgBtnNotificacoes"
@@ -133,7 +96,7 @@
                             style="@style/TextColor"
                             android:fontFamily="@font/fonte_padrao"
                             android:padding="10dp"
-                            android:text="Idioma do App" />
+                            android:text="@string/idioma_do_app_config" />
 
                         <ImageButton
                             android:id="@+id/imgIdiomasApp"
@@ -154,7 +117,7 @@
                     android:layout_marginTop="20dp"
                     style="@style/TextColorContrast"
                     android:fontFamily="@font/fonte_padrao"
-                    android:text="Minha Conta"
+                    android:text="@string/minha_conta_config"
                     android:textSize="@dimen/Normal_Size"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/layoyt_notificacoes" />
@@ -180,12 +143,12 @@
 
                         <TextView
                             android:id="@+id/txtMeusDadosLayout"
+                            style="@style/TextColor"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/fonte_padrao"
                             android:padding="10dp"
-                            style="@style/TextColor"
-                            android:text="Meus Dados" />
+                            android:text="@string/meus_dados_config" />
 
                         <ImageButton
                             android:id="@+id/imgBtnMeusDados"
@@ -209,7 +172,7 @@
                             style="@style/TextColor"
                             android:fontFamily="@font/fonte_padrao"
                             android:padding="10dp"
-                            android:text="Meus Endereços" />
+                            android:text="@string/meus_enderecos_config" />
 
                         <ImageButton
                             android:id="@+id/imgBtnMeusEnderecos"
@@ -233,7 +196,7 @@
                             android:fontFamily="@font/fonte_padrao"
                             android:padding="10dp"
                             style="@style/TextColor"
-                            android:text="Meus Dados" />
+                            android:text="@string/meus_pagamentos_config" />
 
 
                         <ImageButton
@@ -254,7 +217,7 @@
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="20dp"
                     android:fontFamily="@font/fonte_padrao"
-                    android:text="Suporte"
+                    android:text="@string/suporte_config"
                     android:textSize="@dimen/Normal_Size"
                     style="@style/TextColorContrast"
                     app:layout_constraintStart_toStartOf="parent"
@@ -286,7 +249,7 @@
                             android:fontFamily="@font/fonte_padrao"
                             style="@style/TextColor"
                             android:padding="10dp"
-                            android:text="Central de Ajuda" />
+                            android:text="@string/central_de_ajuda_config" />
 
                         <ImageButton
                             android:id="@+id/imgBtnCentraldeAjuda"
@@ -310,7 +273,7 @@
                             style="@style/TextColor"
                             android:fontFamily="@font/fonte_padrao"
                             android:padding="10dp"
-                            android:text="Nossa Politica" />
+                            android:text="@string/nossa_politica_config" />
 
                         <ImageButton
                             android:id="@+id/imgBtnNossaPolitica"
@@ -334,7 +297,7 @@
                             android:fontFamily="@font/fonte_padrao"
                             android:textColor="@color/TextColor"
                             android:padding="10dp"
-                            android:text="Meus Dados" />
+                            android:text="@string/denunciar_config" />
 
                         <ImageButton
                             android:id="@+id/imgBtnDenunciarUsuario"
@@ -350,4 +313,4 @@
         </ScrollView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

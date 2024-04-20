@@ -1,0 +1,118 @@
+<resources>
+    <string name="app_name">Veloce</string>
+    <string name="welcome">Benvenuto\in Zippy</string>
+    <string name="email_hint">E-mail</string>
+    <string name="logodescricao">Logo scattante</string>
+    <string name="terms_conditions">Continuando, accetti i nostri Termini di servizio e confermi di aver letto la nostra Informativa sulla privacy</string>
+    <string name="criar_senha">crea la tua password</string>
+    <string name="confirmar_senha">Conferma la tua password</string>
+    <string name="quase_la">Siamo quasi li..</string>
+    <string name="identidade" translatable="false">Insira sua identidade</string>
+    <string name="fim">Fine</string>
+    <string name="entrar">Ciao di nuovo!\nAccedi per procedere!</string>
+    <string name="senha_hint">Parola d\'ordine</string>
+    <string name="btn_entrar">Per entrare</string>
+    <string name="identidade_hint" translatable="false">Identidade</string>
+    <string name="btn_continuar">Continua</string>
+    <string name="esqueceu_senha">Hai dimenticato la password\?</string>
+    <string name="txtOnclick_RedefinirSenha"><u>Reimposta qui!</u></string>
+    <string name="redefinir_titulo">Reimposta la tua password</string>
+    <string name="inserir_email_esqueceu_senha">Inserisci il tuo indirizzo email registrato con Zippy</string>
+    <string name="enviar_esqueceuSenha">Inviare</string>
+    <string name="chat">Chiacchierata</string>
+    <string name="profile">Profilo</string>
+    <string name="home">Casa</string>
+    <string name="txt_btn_carousel">guardare</string>
+    <string name="carousel_image_description">carosello_immagine</string>
+    <string name="title_perfil_BB">Profilo</string>
+    <string name="title_chat_BB">Chiacchierata</string>
+    <string name="navigation_drawer_open">Apri il cassetto</string>
+    <string name="navigation_drawer_close">Chiudere il cassetto</string>
+    <string name="title_activity_config">ConfigActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">Primo frammento</string>
+    <string name="second_fragment_label">Secondo frammento</string>
+    <string name="next">Prossimo</string>
+    <string name="previous">Precedente</string>
+
+    <string name="lorem_ipsum">Il cliente è molto importante, il cliente sarà seguito dal cliente. Per l\'insalata di cioccolato. Maurizio
+        vita, il dolore a volte è travolgente, il dolore delle risate deve essere letto, lascia che sia molto immobile
+        Non rido nemmeno. Mecenate non ne era membro tranne, o almeno così si diceva. La classe tende ad essere taciturna e amichevole
+        torcono le sponde attraverso i nostri matrimoni, attraverso i nostri progetti imenei. È lusinghiero per gli adolescenti
+        diam, o rutrum tellus vulputate quis Alcune persone hanno bisogno di autobus gratuiti da cui finanziare i giocatori
+        da cui decorare Ma la CNN è come una politica di portale gratuito. Rimani nel suddetto paese.\n\n
+        A volte il massaggio viene effettuato prima. Alcuni non hanno nemmeno un corso. Questa è un\'ottima ricetta per la malattia. Noi viviamo
+        la necessità, è questione di necessità, i giocatori brutti lo hanno preso di mira, ma in quella regione il dolore
+        né Era una malattia della terra, le proteine ​​erano come un\'insalata e gli obiettivi erano presi di mira. A volte è previsto
+        fame e prima di lui il primo in gola. Curabitur et eros porttitor, ultricies urna vitae,
+        stipendio La barca è a tuo vantaggio e non il camion. Ma i più grandi fan non sono il dolore
+        ha bisogno di un drink o di fare dei compiti.\n\n
+        Ma a volte il tortor nibh, nelle frecce che ride piano. Chatta con il mio odio, lascia che sia una storia
+        ma l\'autore è tenero, non brutto. Nessuna prova gratuita, per scopi clinici o
+        dipendente di Fusce non adula nessun tincidunt, che se ne frega liberamente e con disinvoltura. Completare
+        ogni tanto la legge, e la paura del fermento dell\'ufficio. Il letto del letto, disse
+        Lacinia sarà divertente, quanto sarà triste. Domani ti darò un risultato. Iscriviti ora
+        mettilo nella scatola, ma È una bellissima partita di basket, in lutto. Ma dai bambini
+        è.\n\n
+        Enea vuole adesso, ma Lacinia è triste, ma non c\'è nessun cartone animato sul basket. Anche da un libro avvelenato.
+        Morbi laoreet, tortor sed facilisis varius, nibh orci rhoncus nula, id elementum leo dui
+        non Internet. In effetti, l\'autore del casinò è molto morbido. Ogni elemento del calcio gratuito è conveniente. In
+        eros nisl, investimento o investimento e, cioccolato di mauris. I bambini sono diversi da ora in poi,
+        chi investe i soldi nell’economia e Ha due scopi clinici ed è responsabile dello sviluppo. Ma non i cartoni animati
+        molto Ora, chi vuole fare pubblicità, tenere un corso ed essere un dipendente. La malattia lo seguirà, a
+        posto diam. Anche vulputate dignissim convallis. È una cosa divertente da fare con le estremità
+        valle.\n\n
+        Barca sui miei camion. I bambini vivono nella vecchiaia e nei nipoti
+        fame attesa e cattivi bisogni. Nella carriera dell\'arco come innesco di frecce, nelle estremità della massa
+        incinta I bambini di quella zona dell\'ospedale. È stato detto per intero, ma il computer è fatto,
+        Sarà perseguito altrettanto liberamente, in morbidi nisls da ma nislis. Fino al più grande caporale
+        membri È ora di bere la terra e non la terra. In un mazzo non c\'è Fino alla CNN
+        gratis o ora il risultato, chi è il nisl eleifend Domani dovremo bere da un giusto lutto
+        vestibolo Fusce ha detto al libero chi è stato il più grande, il dignista della carriera della sua vita.</string>
+    <string name="fale_conosco_card">Parla con uno dei nostri affiliati nel MONDO</string>
+    <string name="entrar_em_contato_card">Mettiti in contatto</string>
+    <string name="faça_solicitação">Cerchi qualcosa di specifico\?\nFai la tua richiesta!</string>
+    <string name="fazer_post">Crea post</string>
+    <string name="content_Descripton">LOGO</string>
+    <string name="config_drawer">impostazioni</string>
+    <string name="suporte_drawer">Supporto\n</string>
+    <string name="sair_drawer">Esci\n</string>
+    <string name="solicita_drawer">Richieste</string>
+    <string name="fazer_post_drawer">Crea post</string>
+    <string name="slogan">La tua app per lo shopping internazionale\n</string>
+    <string name="ver_perfil_drawer">Visualizza il tuo profilo</string>
+    <string name="criar_nome">Dicci di più su di te</string>
+    <string name="nome">Inserisci il tuo nome</string>
+    <string name="dataNasc_hint">13/04/2004</string>
+    <string name="lbl_dataNasc">Inserisci la tua data di nascita</string>
+    <string name="lblInserirTelefone">Inserisci il tuo telefono</string>
+    <string name="telefone_hint">+55 (11) 99999-9999</string>
+    <string name="nome_hint">João Aparecido dos Santos</string>
+    <string name="sobrenome">Inserire il cognome</string>
+    <string name="configuracoes_titulo">impostazioni</string>
+    <string name="personalizacao_titulo_config">Personalizzazione</string>
+    <string name="habilitar_modo_escuro_config">Abilita la modalità oscura</string>
+    <string name="notificacoes_config">Notifiche</string>
+    <string name="idioma_do_app_config">Lingua dell\'app</string>
+    <string name="minha_conta_config">Il mio conto</string>
+    <string name="meus_dados_config">I miei dati</string>
+    <string name="central_de_ajuda_config">Centro assistenza</string>
+    <string name="meus_enderecos_config">I miei indirizzi</string>
+    <string name="suporte_config">Supporto</string>
+    <string name="nossa_politica_config">La nostra politica</string>
+    <string name="denunciar_config">Segnala utente</string>
+    <string name="meus_pagamentos_config">I miei pagamenti</string>
+    <string name="meu_perfil_titulo">Il mio profilo</string>
+    <string name="ola_luiz_teste">Ciao Luiz</string>
+    <string name="email_teste_perfil">*****5342\@gmail.com</string>
+    <string name="btn_pedidos_perfil">Richieste</string>
+    <string name="btn_solicitacoes_perfil">Richieste</string>
+    <string name="btn_editar_perfil">Modifica Profilo</string>
+    <string name="pagamento_perfil">Pagamento</string>
+    <string name="avaliacao_viajante_perfil">Recensione del viaggiatore</string>
+    <string name="manter_login_check">Accesso Manter</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Ciao frammento vuoto</string>
+    <string name="loading_dialog">Elaborazione in corso... Attendere prego</string>
+
+</resources>

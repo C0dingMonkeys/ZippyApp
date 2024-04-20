@@ -20,7 +20,7 @@ public class ChatActivity extends AppCompatActivity {
         bottomNavigationView.setOnItemSelectedListener(item -> {
             int itemId = item.getItemId();
             if (itemId == R.id.bottom_home) {
-                startActivity(new Intent(getApplicationContext(), Home.class));
+                startActivity(new Intent(getApplicationContext(), activityInicio.class));
                 overridePendingTransition(R.anim.slide_out_right, R.anim.slide_in_left);
                 finish();
                 return true;

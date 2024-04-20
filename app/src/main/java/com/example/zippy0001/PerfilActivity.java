@@ -8,7 +8,6 @@ import android.widget.ImageButton;
 
 import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.view.GravityCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -24,7 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PerfilActivity extends AppCompatActivity {
-    private static String HOST = "https://zippyinternacional.000webhostapp.com/testeLuix/";
+    private static String HOST = "http://zippyinternacional.com/Android/RecuperarRecyclerAvaliacoes.php";
     RecyclerView Avaliacao1;
     ImageButton btnVoltar;
     List<AvaliacoesGetterSetter> avaliacoesGetterSettersList;
@@ -42,7 +41,7 @@ public class PerfilActivity extends AppCompatActivity {
         btnVoltar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), Home.class));
+                startActivity(new Intent(getApplicationContext(), activityInicio.class));
                 overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
                 finish();
             }
@@ -60,7 +59,7 @@ public class PerfilActivity extends AppCompatActivity {
         getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
             @Override
             public void handleOnBackPressed() {
-                startActivity(new Intent(getApplicationContext(), Home.class));
+                startActivity(new Intent(getApplicationContext(), activityInicio.class));
                 overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
                 finish();
 
@@ -73,7 +72,7 @@ public class PerfilActivity extends AppCompatActivity {
 
 
         Ion.with(this)
-                .load(HOST+"RecuperarRecyclerAvaliacoes.php")
+                .load(HOST)
                 .asJsonArray()
                 .setCallback(new FutureCallback<JsonArray>() {
                     @Override
@@ -109,7 +108,7 @@ public class PerfilActivity extends AppCompatActivity {
 
 
 
-                                    Log.d("Nome01", avaliacoesGetterSetter.getPerfil01());
+                                    Log.d("perfil01", avaliacoesGetterSetter.getPerfil01());
                                 }
                             }
 

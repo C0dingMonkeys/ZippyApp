@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="TitulosMenu">22sp</dimen>
+    <dimen name="TitulosMenu">25sp</dimen>
     <dimen name="Normal_Size">16sp</dimen>
     <dimen name="Subtitulo_Size">18sp</dimen>
     <dimen name="TituloMenu_Size">28sp</dimen>

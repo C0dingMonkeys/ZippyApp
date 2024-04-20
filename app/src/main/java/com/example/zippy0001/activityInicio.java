@@ -5,41 +5,29 @@ import static com.example.zippy0001.R.layout.activity_home;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.annotation.ColorInt;
 import android.support.annotation.NonNull;
 import android.view.MenuItem;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.PagerSnapHelper;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.activity.OnBackPressedCallback;
+import androidx.fragment.app.Fragment;
 
-
-import com.example.zippy0001.classes.CarouselAdapter;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Objects;
 
-public class Home extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class activityInicio extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-    DrawerLayout drawerLayout;
-    NavigationView navigationView;
-    Toolbar toolbar;
-    ActionBarDrawerToggle toggle;
+    private DrawerLayout drawerLayout;
+    private ActionBarDrawerToggle toggle;
+
     public static final String SHARED_PREFS = "sharedPrefs";
-
-
-
-
-
 
 
     @Override
@@ -49,32 +37,27 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
 
         getWindow().setNavigationBarColor(ContextCompat.getColor(this, R.color.black));
 
-        drawerLayout = findViewById(R.id.drawer_layout);
-        navigationView = findViewById(R.id.nav_view_header);
-        toolbar = findViewById(R.id.MenuToolbar);
-
+        Toolbar toolbar = findViewById(R.id.Toolbar);
         setSupportActionBar(toolbar);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayShowTitleEnabled(false);
 
-        toggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawerLayout = findViewById(R.id.drawer_layout);
+        NavigationView navigationView = findViewById(R.id.nav_view_header);
+        navigationView.setNavigationItemSelectedListener(this);
+
+
+        toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
 
-        navigationView.setNavigationItemSelectedListener(this);
+        if (savedInstanceState == null) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new fragmentHome()).commit();
+        }
+
         navigationView.bringToFront();
 
 
-        RecyclerView recyclerView = findViewById(R.id.CarouselRecycler);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
 
-        List<Integer> images = new ArrayList<>();
-        images.add(R.drawable.carousel_1);
-        images.add(R.drawable.tony);
-        images.add(R.drawable.justin);
-
-        CarouselAdapter adapter = new CarouselAdapter(this, images);
-        recyclerView.setAdapter(adapter);
-        PagerSnapHelper pagerSnapHelper = new PagerSnapHelper();
-        pagerSnapHelper.attachToRecyclerView(recyclerView);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.BottomNavigation);
         bottomNavigationView.setSelectedItemId(R.id.bottom_home);
@@ -102,8 +85,13 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
             public void handleOnBackPressed() {
                 if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
                     drawerLayout.closeDrawer(GravityCompat.START);
-                }
-                else {
+                } else {
+                    if (isCurrentFragmentMain()) {
+                        super.getClass(); // Chamada padrão do botão Voltar
+                    } else {
+                        // Navega para o fragmento principal
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new fragmentHome()).commit();
+                    }
                     finish();
                 }
 
@@ -111,6 +99,12 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         });
 
     }
+
+    private boolean isCurrentFragmentMain() {
+            Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.fragmentContainer);
+            return fragment instanceof fragmentHome;
+        }
+
 
 
     @Override
@@ -122,15 +116,12 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
     }
 
     @Override
-    public boolean onNavigationItemSelected(@androidx.annotation.NonNull MenuItem menuItem) {
+    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         int menuItemId = menuItem.getItemId();
         if (menuItemId == R.id.drawer_home) {
-            return true;
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new fragmentChat()).commit();
         } else if (menuItemId == R.id.drawer_config) {
-            startActivity(new Intent(getApplicationContext(), ConfigActivity.class));
-            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-            finish();
-            return true;
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new fragmentConfig()).commit();
         } else if (menuItemId == R.id.drawer_post) {
             startActivity(new Intent(getApplicationContext(), PostActivity.class));
             overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
@@ -142,11 +133,12 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
             editor.putString("nome", "");
             editor.apply();
 
-            startActivity(new Intent(getApplicationContext(), InserirEmail.class));
+            startActivity(new Intent(getApplicationContext(), activityEmail.class));
             overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             finish();
 
         }
-        return false;
+        drawerLayout.closeDrawer(GravityCompat.START);
+        return true;
     }
 }

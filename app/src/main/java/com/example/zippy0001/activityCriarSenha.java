@@ -15,11 +15,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.textfield.TextInputLayout;
 
-public class CriarSenha extends AppCompatActivity {
+public class activityCriarSenha extends AppCompatActivity {
 
     // Chave para receber o email como extra da tela anterior
     public static final String EXTRA_EMAIL = "email"; // Variavel que envia o texto para a tela seguinte
-    public static final String EXTRA_SENHA = "Senha"; // Variavel que envia o texto para a tela seguinte
+    public static final String EXTRA_SENHA = "senha"; // Variavel que envia o texto para a tela seguinte
     private String email; //Variavel para receber o texto das telas anteriores
     private TextView txtSenha, txtConfsenha;
     private TextInputLayout senhaLayout, confSenhaLayout;//Instaciando variaveis da tela
@@ -76,17 +76,19 @@ public class CriarSenha extends AppCompatActivity {
         if (Senha.isEmpty()) { //Se a senha estiver vazia:
             // Mostrar uma mensagem de erro
             senhaLayout.setError("Por favor, insira a sua senha");
-        } else if (Confsenha.isEmpty()) {
+        }
+        if (Confsenha.isEmpty()) {
             confSenhaLayout.setError("Por favor, insira a sua senha");
 
-        } else if (!Senha.equals(Confsenha)) { //Se a senhas não forem iguais:
+        }
+        if (!Senha.equals(Confsenha)) { //Se a senhas não forem iguais:
             // Mostrar uma mensagem de erro
             confSenhaLayout.setError("Senhas não conferem");
-        } else { // Se não enviar senhas para as próximas telas:
+        } else if (!Senha.isEmpty()){ // Se não enviar senhas para as próximas telas:
             senhaLayout.setError(null);
             confSenhaLayout.setError(null);
             // Verificar se a senha está correta
-            Intent intent = new Intent(CriarSenha.this, activityCriarNome.class);
+            Intent intent = new Intent(activityCriarSenha.this, activityCriarNome.class);
             intent.putExtra(EXTRA_EMAIL, email);// Passar o email como extra
             intent.putExtra(EXTRA_SENHA, Senha); // Passar a senha como extra
             startActivity(intent);
@@ -103,6 +105,7 @@ public class CriarSenha extends AppCompatActivity {
                 v.getGlobalVisibleRect(outRect);
                 if (!outRect.contains((int) event.getRawX(), (int) event.getRawY())) {
                     v.clearFocus();
+                    senhaLayout.setError(null);
                     confSenhaLayout.setError(null);
 
                     InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);

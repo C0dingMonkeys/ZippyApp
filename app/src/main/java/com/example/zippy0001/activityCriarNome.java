@@ -17,15 +17,14 @@ import com.google.android.material.textfield.TextInputLayout;
 public class activityCriarNome extends AppCompatActivity {
 
     public static final String EXTRA_EMAIL = "email"; // Variavel que envia o texto para a tela seguinte
-    public static final String EXTRA_SENHA = "Senha"; // Variavel que envia o texto para a tela seguinte
-    public static final String EXTRA_FONE = "Fone"; // Variavel que envia o texto para a tela seguinte
-    public static final String EXTRA_NOME = "NomeCompleto"; // Variavel que envia o texto para a tela seguinte
-    public static final String EXTRA_DATA = "DataNascimento"; // Variavel que envia o texto para a tela seguinte
-    private String email; //Variavel para receber o texto das telas anteriores
-    private String Senha; //Variavel para receber o texto das telas anteriores
-
-    private EditText nomeCompleto, fone, dataNascimento; //Instanciando as variaveis
-    TextInputLayout nomeLayout, foneLayout, dataLayout;
+    public static final String EXTRA_SENHA = "senha"; // Variavel que envia o texto para a tela seguinte
+    public static final String EXTRA_TEL = "tel"; // Variavel que envia o texto para a tela seguinte
+    public static final String EXTRA_NOME = "nome"; // Variavel que envia o texto para a tela seguinte
+    public static final String EXTRA_DATA = "dtaNasc"; // Variavel que envia o texto para a tela seguinte
+    private static final String EXTRA_SOBRENOME = "sobrenome";
+    private String email, senha; //Variavel para receber o texto das telas anteriores
+    private EditText nomeCompleto, sobrenome, tel, dataNascimento; //Instanciando as variaveis
+    private TextInputLayout nomeLayout,sobrenomeLayout, telLayout, dataLayout;
 
 
 
@@ -36,16 +35,18 @@ public class activityCriarNome extends AppCompatActivity {
 
 
         nomeCompleto = findViewById(R.id.txtInserirNome); //EditText do Nome do cliente
-        fone = findViewById(R.id.txtTelefone); //EditText do Telefone do cliente
+        sobrenome = findViewById(R.id.txtInserirSobrenome);
+        tel = findViewById(R.id.txtTelefone); //EditText do Telefone do cliente
         dataNascimento = findViewById(R.id.txtDataNasc); //EditText da Data de Nascimento do cliente
         Button Continuar = findViewById(R.id.btnContinuarNome); // Botão de prosseguir para a prox. tela
 
         nomeLayout = findViewById(R.id.layoutInserirNomeEdit);
-        foneLayout = findViewById(R.id.layoutTelefone);
+        sobrenomeLayout = findViewById(R.id.layoutInserirSobrenomeEdit);
+        telLayout = findViewById(R.id.layoutTelefone);
         dataLayout = findViewById(R.id.layoutDataNasc);
 
         email = getIntent().getStringExtra(EXTRA_EMAIL); //Recebe o texto da tela anterior e transforma em String
-        Senha = getIntent().getStringExtra(EXTRA_SENHA); //Recebe o texto da tela anterior e transforma em String
+        senha = getIntent().getStringExtra(EXTRA_SENHA); //Recebe o texto da tela anterior e transforma em String
 
         Continuar.setOnClickListener(new View.OnClickListener() { // Evento Botão
             @Override
@@ -55,37 +56,55 @@ public class activityCriarNome extends AppCompatActivity {
         });
 
     }
-
-    public boolean validarNomes() {
+    public void validarNomes() {
 
 
         String NomeCompleto = nomeCompleto.getText().toString().trim(); //Recebe o Nome do EditText
+        String Sobrenome = sobrenome.getText().toString().trim(); // Recebe o Sobrenome do EditText
         String DataNascimento = dataNascimento.getText().toString().trim(); //Recebe a data de Nascimento do EditText
-        String Fone = fone.getText().toString().trim(); //Recebe o telefone do EditText
+        String Fone = tel.getText().toString().trim(); //Recebe o telefone do EditText
 
         if (NomeCompleto.isEmpty()) {
             // Mostrar uma mensagem de erro
             nomeLayout.setError("Por favor, insira o seu nome completo");
-            return false;
-        } else if (Fone.isEmpty()) {
+
+        }
+        if (Sobrenome.isEmpty()) {
             // Mostrar uma mensagem de erro de email inválido
-            foneLayout.setError("Por favor, insira seu telefone");
-            return false;
-        } else if (DataNascimento.isEmpty()) {
+            sobrenomeLayout.setError("Por favor, insira seu Sobrenome");
+
+        }
+        if (Fone.isEmpty()) {
+            // Mostrar uma mensagem de erro de email inválido
+            telLayout.setError("Por favor, insira seu telefone");
+
+        }
+        if (DataNascimento.isEmpty()) {
             // Mostrar uma mensagem de erro de email inválido
             dataLayout.setError("Por favor, insira sua data de nascimento");
-            return false;
+
         } else {
             // Verificar se o email existe no banco de dados
             nomeLayout.setError(null);
             dataLayout.setError(null);
-            foneLayout.setError(null);
-            enviarDados(NomeCompleto, DataNascimento, Fone);
-            return true;
+            sobrenomeLayout.setError(null);
+            telLayout.setError(null);
+            enviarDados(NomeCompleto, Sobrenome, DataNascimento, Fone);
 
         }
     }
+    private void enviarDados(String NomeCompleto, String Sobrenome, String DataNascimento, String Tel) {
 
+        Intent intent = new Intent(activityCriarNome.this, activityIdentidade.class);
+        intent.putExtra(EXTRA_EMAIL, email);// Passar o email como extra
+        intent.putExtra(EXTRA_SENHA, senha); // Passar o senha como extra
+        intent.putExtra(EXTRA_NOME, NomeCompleto);// Passar o Nome como extra
+        intent.putExtra(EXTRA_SOBRENOME, Sobrenome); // Passar o Sobrenome como extra
+        intent.putExtra(EXTRA_TEL, Tel);// Passar o telefone como extra
+        intent.putExtra(EXTRA_DATA, DataNascimento); // Passar Data de Nascimento como extra
+        startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+    }
     @Override
     public boolean dispatchTouchEvent(MotionEvent event) {
         if (event.getAction() == MotionEvent.ACTION_DOWN) {
@@ -96,8 +115,10 @@ public class activityCriarNome extends AppCompatActivity {
                 if (!outRect.contains((int) event.getRawX(), (int) event.getRawY())) {
                     v.clearFocus();
                     nomeLayout.setError(null);
-                    foneLayout.setError(null);
+                    sobrenomeLayout.setError(null);
+                    telLayout.setError(null);
                     dataLayout.setError(null);
+
 
 
                     InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
@@ -106,16 +127,5 @@ public class activityCriarNome extends AppCompatActivity {
             }
         }
         return super.dispatchTouchEvent(event);
-    }
-    private void enviarDados(String NomeCompleto, String DataNascimento, String Fone) {
-
-        Intent intent = new Intent(activityCriarNome.this, InserirIdentidade.class);
-        intent.putExtra(EXTRA_EMAIL, email);// Passar o email como extra
-        intent.putExtra(EXTRA_SENHA, Senha); // Passar o senha como extra
-        intent.putExtra(EXTRA_NOME, NomeCompleto);// Passar o Nome como extra
-        intent.putExtra(EXTRA_FONE, Fone);// Passar o telefone como extra
-        intent.putExtra(EXTRA_DATA, DataNascimento); // Passar Data de Nascimento como extra
-        startActivity(intent);
-        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 }

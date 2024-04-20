@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragmentHome">
+
+    <!-- TODO: Update blank fragment layout -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/CarouselRecycler"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="parent" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/CardView"
+                    android:layout_width="match_parent"
+                    android:layout_height="220dp"
+                    android:layout_marginTop="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/CarouselRecycler">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/Purple_700"
+                        android:orientation="horizontal"
+                        >
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginBottom="20dp">
+
+                            <TextView
+                                android:id="@+id/txtCard1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_above="@+id/btnCard1"
+                                android:layout_alignStart="@+id/imgCard1"
+                                android:layout_alignParentStart="true"
+                                android:layout_alignParentTop="true"
+                                android:layout_toStartOf="@+id/imgCard1"
+                                android:fontFamily="@font/fonte_padrao"
+                                android:gravity="center_vertical"
+                                android:text="@string/fale_conosco_card"
+                                android:textColor="@color/TextColor"
+                                android:textSize="@dimen/Subtitulo_Size" />
+
+                            <androidx.appcompat.widget.AppCompatButton
+                                android:id="@+id/btnCard1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignStart="@+id/imgCard1"
+                                android:layout_alignParentStart="true"
+                                android:layout_alignParentBottom="true"
+                                android:background="@drawable/bg_edittext"
+                                android:backgroundTint="@color/ButtonColor"
+                                android:fontFamily="@font/fonte_padrao"
+                                android:padding="10dp"
+                                android:text="@string/entrar_em_contato_card"
+                                android:textColor="@color/TextColor" />
+
+                            <ImageView
+                                android:id="@+id/imgCard1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_alignParentEnd="true"
+                                android:contentDescription="@string/faça_solicitação"
+                                android:src="@drawable/aviao" />
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/CardView2"
+                    android:layout_width="match_parent"
+                    android:layout_height="220dp"
+                    android:layout_marginTop="10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/SeocondaryColor"
+                        android:orientation="horizontal">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginBottom="20dp">
+
+                            <TextView
+                                android:id="@+id/txtCard3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentStart="true"
+                                android:layout_alignParentTop="true"
+                                android:layout_alignParentEnd="true"
+                                android:layout_marginTop="20dp"
+                                android:layout_toStartOf="@+id/imgCard3"
+                                android:fontFamily="@font/fonte_padrao"
+                                android:text="@string/faça_solicitação"
+                                android:textColor="@color/TextColorContrast"
+                                android:textSize="@dimen/Subtitulo_Size" />
+
+                            <androidx.appcompat.widget.AppCompatButton
+                                android:id="@+id/btnCard3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignStart="@+id/imgCard3"
+                                android:layout_alignBottom="@+id/txtCard3"
+                                android:layout_alignParentStart="true"
+                                android:layout_alignParentBottom="true"
+                                android:layout_margin="20dp"
+                                android:background="@drawable/bg_edittext"
+                                android:backgroundTint="@color/ButtonColor"
+                                android:fontFamily="@font/fonte_padrao"
+                                android:padding="10dp"
+                                android:text="@string/fazer_post"
+                                android:textColor="@color/TextColor" />
+
+                            <ImageView
+                                android:id="@+id/imgCard3"
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:layout_alignParentEnd="true"
+                                android:layout_alignParentBottom="true"
+                                android:layout_marginEnd="20dp"
+                                android:contentDescription="@string/content_Descripton"
+                                android:src="@drawable/zippy_logo" />
+                        </RelativeLayout>
+
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="220dp"
+                    android:layout_marginTop="10dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/CardView2">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/SeocondaryColor"
+                        android:orientation="horizontal">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginBottom="20dp">
+
+                            <TextView
+                                android:id="@+id/txtCard2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentStart="true"
+                                android:layout_alignParentTop="true"
+                                android:layout_alignParentEnd="true"
+                                android:layout_marginTop="20dp"
+                                android:layout_toStartOf="@+id/imgCard2"
+                                android:fontFamily="@font/fonte_padrao"
+                                android:text="@string/faça_solicitação"
+                                android:textColor="@color/TextColorContrast"
+                                android:textSize="@dimen/Subtitulo_Size" />
+
+                            <androidx.appcompat.widget.AppCompatButton
+                                android:id="@+id/btnCard2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignStart="@+id/imgCard2"
+                                android:layout_alignBottom="@+id/txtCard2"
+                                android:layout_alignParentStart="true"
+                                android:layout_alignParentBottom="true"
+                                android:layout_margin="20dp"
+                                android:background="@drawable/bg_edittext"
+                                android:backgroundTint="@color/ButtonColor"
+                                android:fontFamily="@font/fonte_padrao"
+                                android:padding="10dp"
+                                android:text="@string/fazer_post"
+                                android:textColor="@color/TextColor" />
+
+                            <ImageView
+                                android:id="@+id/imgCard2"
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:layout_alignParentEnd="true"
+                                android:layout_alignParentBottom="true"
+                                android:layout_marginEnd="20dp"
+                                android:contentDescription="@string/fazer_post"
+                                android:src="@drawable/zippy_logo" />
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+        </ScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

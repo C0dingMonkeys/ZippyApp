@@ -13,7 +13,7 @@
         android:id="@+id/lblCriarNome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="30dp"
         android:fontFamily="@font/fonte_padrao"
         android:text="@string/criar_nome"
         android:textColor="@color/TextColor"
@@ -29,17 +29,18 @@
     <!-- Fim Label Nome Completo-->
 
     <!-- EDITTEXT INSERIR NOME -->
+
     <TextView
         android:id="@+id/lblNomeCompleto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="20dp"
         android:fontFamily="@font/fonte_padrao"
-        android:text="@string/nome_completo"
+        android:text="@string/nome"
         android:textColor="@color/TextColor"
         android:textSize="@dimen/Normal_Size"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.167"
+        app:layout_constraintHorizontal_bias="0.128"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/lblCriarNome" />
 
@@ -57,8 +58,7 @@
         app:errorIconTint="@color/ERRO"
         app:errorTextAppearance="@style/ErrorTextAppearance"
         app:errorTextColor="@color/textoErro"
-        app:hintTextAppearance="@style/TextAppearance"
-        app:hintTextColor="@color/black"
+        app:hintEnabled="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lblNomeCompleto">
@@ -79,6 +79,57 @@
 
     <!-- FIM DO LAYOUT INSERIR NOME -->
 
+    <!-- EDITTEXT INSERIR NOME -->
+    <TextView
+        android:id="@+id/lblSobrenome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/fonte_padrao"
+        android:text="@string/sobrenome"
+        android:textColor="@color/TextColor"
+        android:textSize="@dimen/Normal_Size"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.167"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/layoutInserirNomeEdit" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layoutInserirSobrenomeEdit"
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="25dp"
+        android:layout_marginTop="10dp"
+        app:boxBackgroundColor="@color/bg_edittext"
+        app:boxStrokeColor="@color/black"
+        app:boxStrokeWidthFocused="2dp"
+        app:errorEnabled="true"
+        app:errorIconTint="@color/ERRO"
+        app:errorTextAppearance="@style/ErrorTextAppearance"
+        app:errorTextColor="@color/textoErro"
+        app:hintEnabled="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblSobrenome">
+
+        <!-- EDITTEXT NOME COMPLETO SENHA-->
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/txtInserirSobrenome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/fonte_padrao"
+            android:inputType="text"
+            android:textColor="@color/black" />
+
+        <!-- FIM DO EDITTEXT NOME COMPLETO -->
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- FIM DO LAYOUT INSERIR NOME -->
+
+
     <!-- Label Telefone-->
 
     <!-- Fim Label Telefone-->
@@ -88,7 +139,7 @@
         android:id="@+id/lblTelefone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="10dp"
         android:fontFamily="@font/fonte_padrao"
         android:text="@string/lblInserirTelefone"
         android:textColor="@color/TextColor"
@@ -96,7 +147,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.116"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/layoutInserirNomeEdit" />
+        app:layout_constraintTop_toBottomOf="@id/layoutInserirSobrenomeEdit" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/layoutTelefone"
@@ -112,8 +163,7 @@
         app:errorIconTint="@color/ERRO"
         app:errorTextAppearance="@style/ErrorTextAppearance"
         app:errorTextColor="@color/textoErro"
-        app:hintTextAppearance="@style/TextAppearance"
-        app:hintTextColor="@color/black"
+        app:hintEnabled="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lblTelefone">
@@ -166,8 +216,7 @@
         app:errorIconTint="@color/ERRO"
         app:errorTextAppearance="@style/ErrorTextAppearance"
         app:errorTextColor="@color/textoErro"
-        app:hintTextAppearance="@style/TextAppearance"
-        app:hintTextColor="@color/black"
+        app:hintEnabled="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lblDataNascimento">
@@ -212,16 +261,6 @@
 
 
     <!-- IMAGEVIEW LOGO ZIPPY -->
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="45dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/logo_inicio"
-        tools:ignore="ContentDescription" />
 
     <!--FIM DO IMAGEVIEW LOGO ZIPPY-->
 

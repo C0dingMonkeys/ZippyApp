@@ -7,12 +7,12 @@
     <string name="criar_senha">パスワードを作成してください</string>
     <string name="confirmar_senha">あなたのパスワードを確認</string>
     <string name="quase_la">私たちは、ほぼ、そこにいる..</string>
-    <string name="cpf">CPFを入力してください</string>
+    <string name="identidade" translatable="false">Insira sua identidade</string>
     <string name="fim">仕上げる</string>
     <string name="entrar">こんにちは!\n続行するにはサインインしてください!</string>
     <string name="senha_hint">パスワード</string>
     <string name="btn_entrar">入る</string>
-    <string name="cpf_hint">CPF</string>
+    <string name="identidade_hint" translatable="false">Identidade</string>
     <string name="btn_continuar">続く</string>
     <string name="esqueceu_senha">パスワードをお忘れですか？</string>
     <string name="txtOnclick_RedefinirSenha">ここでリセットしてください！</string>
@@ -81,5 +81,38 @@
     <string name="fazer_post_drawer">投稿する</string>
     <string name="slogan">海外ショッピング アプリ\n</string>
     <string name="ver_perfil_drawer">プロフィールを見る</string>
+    <string name="criar_nome">あなた自身についてもっと詳しく教えてください</string>
+    <string name="nome">あなたの名前を入力してください</string>
+    <string name="dataNasc_hint">2004/04/13</string>
+    <string name="lbl_dataNasc">生年月日を入力</string>
+    <string name="lblInserirTelefone">携帯電話を挿入します</string>
+    <string name="telefone_hint">+55 (11) 99999-9999</string>
+    <string name="nome_hint">ジョアン・アパレシド・ドス・サントス</string>
+    <string name="sobrenome">姓を入力してください</string>
+    <string name="configuracoes_titulo">設定</string>
+    <string name="personalizacao_titulo_config">カスタマイズ</string>
+    <string name="habilitar_modo_escuro_config">ダークモードを有効にする</string>
+    <string name="notificacoes_config">通知</string>
+    <string name="idioma_do_app_config">アプリの言語</string>
+    <string name="minha_conta_config">私のアカウント</string>
+    <string name="meus_dados_config">私のデータ</string>
+    <string name="central_de_ajuda_config">ヘルプセンター</string>
+    <string name="meus_enderecos_config">私の住所</string>
+    <string name="suporte_config">サポート</string>
+    <string name="nossa_politica_config">私たちのポリシー</string>
+    <string name="denunciar_config">レポートユーザー</string>
+    <string name="meus_pagamentos_config">私の支払い</string>
+    <string name="meu_perfil_titulo">私のプロフィール</string>
+    <string name="ola_luiz_teste">こんにちは、ルイス</string>
+    <string name="email_teste_perfil">*****5342\@gmail.com</string>
+    <string name="btn_pedidos_perfil">リクエスト</string>
+    <string name="btn_solicitacoes_perfil">リクエスト</string>
+    <string name="btn_editar_perfil">プロファイル編集</string>
+    <string name="pagamento_perfil">支払い</string>
+    <string name="avaliacao_viajante_perfil">旅行者のレビュー</string>
+    <string name="manter_login_check">マンターログイン</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">こんにちは、空白のフラグメント</string>
+    <string name="loading_dialog">処理中...お待ちください</string>
 
 </resources>

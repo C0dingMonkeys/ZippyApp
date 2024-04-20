@@ -9,305 +9,62 @@
     android:fitsSystemWindows="true"
     android:orientation="vertical"
     android:theme="@style/Theme.Material3.DayNight.NoActionBar"
-    tools:context=".Home"
+    tools:context=".activityInicio"
     tools:openDrawer="start">
 
-    <com.google.android.material.navigation.NavigationView
-        android:id="@+id/nav_view_header"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_gravity="start"
-        android:background="@color/PrimaryColor"
-        android:visibility="gone"
-        app:headerLayout="@layout/header_drawer"
-        app:itemIconSize="40dp"
-        app:itemIconTint="@color/white"
-        app:itemTextAppearance="@style/MenuItemStyle"
-        app:itemTextColor="@color/white"
-        app:itemVerticalPadding="20dp"
-        app:menu="@menu/drawer_menu" />
-
-
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/layoutheader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/PrimaryColor"
+            android:paddingVertical="5dp">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/Toolbar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:elevation="4dp"
+                app:title=""
+                android:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                app:navigationIcon="@drawable/ic_menu"
+                app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+            <TextView
+                style="@style/TextColor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="30dp"
+                android:layout_toStartOf="@+id/LogoZippy"
+                android:fontFamily="@font/fonte_padrao"
+                android:text="@string/app_name"
+                android:textSize="@dimen/TitulosMenu" />
+
+            <ImageView
+                android:id="@+id/LogoZippy"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/zippy_logo" />
+
+        </RelativeLayout>
 
 
-        <ScrollView
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintBottom_toTopOf="@id/BottomNavigation"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/layoutheader"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/bg_home_top"
-                    android:padding="10dp"
-                    app:layout_constraintBottom_toTopOf="@+id/CarouselRecycler"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
-
-
-                    <TextView
-                        android:id="@+id/TituloMenuHome"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="20dp"
-                        android:fontFamily="@font/fonte_padrao"
-                        android:text="@string/app_name"
-                        android:textColor="@color/LogoColor"
-                        android:textSize="@dimen/TituloMenu_Size"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toStartOf="@+id/logoHeader"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.4" />
-
-                    <ImageView
-                        android:id="@+id/logoHeader"
-                        android:layout_width="45dp"
-                        android:layout_height="45dp"
-                        android:layout_marginEnd="10dp"
-                        android:src="@drawable/zippy_logo"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        tools:ignore="ContentDescription" />
-
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-                <androidx.appcompat.widget.Toolbar
-                    android:id="@+id/MenuToolbar"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:navigationIcon="@drawable/ic_menu"
-                    app:title=" " />
-
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/CarouselRecycler"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/layoutheader" />
-
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/CardView"
-                    android:layout_width="match_parent"
-                    android:layout_height="220dp"
-                    android:layout_marginTop="10dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/CarouselRecycler">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@color/Purple_700"
-                        android:orientation="horizontal">
-
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginStart="15dp"
-                            android:layout_marginTop="20dp"
-                            android:layout_marginBottom="20dp">
-
-                            <TextView
-                                android:id="@+id/txtCard1"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_above="@+id/btnCard1"
-                                android:layout_alignStart="@+id/imgCard1"
-                                android:layout_alignParentStart="true"
-                                android:layout_alignParentTop="true"
-                                android:layout_toStartOf="@+id/imgCard1"
-                                android:fontFamily="@font/fonte_padrao"
-                                android:gravity="center_vertical"
-                                android:text="@string/fale_conosco_card"
-                                android:textColor="@color/TextColor"
-                                android:textSize="@dimen/Subtitulo_Size" />
-
-                            <androidx.appcompat.widget.AppCompatButton
-                                android:id="@+id/btnCard1"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_alignStart="@+id/imgCard1"
-                                android:layout_alignParentStart="true"
-                                android:layout_alignParentBottom="true"
-                                android:textColor="@color/TextColor"
-                                android:background="@drawable/bg_edittext"
-                                android:backgroundTint="@color/ButtonColor"
-                                android:fontFamily="@font/fonte_padrao"
-                                android:padding="10dp"
-                                android:text="@string/entrar_em_contato_card" />
-
-                            <ImageView
-                                android:id="@+id/imgCard1"
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
-                                android:layout_alignParentEnd="true"
-                                android:contentDescription="@string/faça_solicitação"
-                                android:src="@drawable/aviao" />
-                        </RelativeLayout>
-
-                    </LinearLayout>
-
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/CardView2"
-                    android:layout_width="match_parent"
-                    android:layout_height="220dp"
-                    android:layout_marginTop="10dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/CardView">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@color/SeocondaryColor"
-                        android:orientation="horizontal">
-
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginStart="15dp"
-                            android:layout_marginTop="20dp"
-                            android:layout_marginBottom="20dp">
-
-                            <TextView
-                                android:id="@+id/txtCard3"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_alignParentStart="true"
-                                android:layout_alignParentTop="true"
-                                android:layout_alignParentEnd="true"
-                                android:layout_marginTop="20dp"
-                                android:layout_toStartOf="@+id/imgCard3"
-                                android:fontFamily="@font/fonte_padrao"
-                                android:text="@string/faça_solicitação"
-                                android:textColor="@color/TextColorContrast"
-                                android:textSize="@dimen/Subtitulo_Size" />
-
-                            <androidx.appcompat.widget.AppCompatButton
-                                android:id="@+id/btnCard3"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_alignStart="@+id/imgCard3"
-                                android:layout_alignBottom="@+id/txtCard3"
-                                android:layout_alignParentStart="true"
-                                android:layout_alignParentBottom="true"
-                                android:layout_margin="20dp"
-                                android:background="@drawable/bg_edittext"
-                                android:backgroundTint="@color/ButtonColor"
-                                android:fontFamily="@font/fonte_padrao"
-                                android:padding="10dp"
-                                android:text="@string/fazer_post"
-                                android:textColor="@color/TextColor" />
-
-                            <ImageView
-                                android:id="@+id/imgCard3"
-                                android:layout_width="80dp"
-                                android:layout_height="80dp"
-                                android:layout_alignParentEnd="true"
-                                android:layout_alignParentBottom="true"
-                                android:layout_marginEnd="20dp"
-                                android:contentDescription="@string/content_Descripton"
-                                android:src="@drawable/zippy_logo" />
-                        </RelativeLayout>
-
-
-                    </LinearLayout>
-
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="220dp"
-                    android:layout_marginTop="10dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/CardView2">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@color/SeocondaryColor"
-                        android:orientation="horizontal">
-
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginStart="15dp"
-                            android:layout_marginTop="20dp"
-                            android:layout_marginBottom="20dp">
-
-                            <TextView
-                                android:id="@+id/txtCard2"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_alignParentStart="true"
-                                android:layout_alignParentTop="true"
-                                android:layout_alignParentEnd="true"
-                                android:layout_marginTop="20dp"
-                                android:layout_toStartOf="@+id/imgCard2"
-                                android:fontFamily="@font/fonte_padrao"
-                                android:text="@string/faça_solicitação"
-                                android:textColor="@color/TextColorContrast"
-                                android:textSize="@dimen/Subtitulo_Size" />
-
-                            <androidx.appcompat.widget.AppCompatButton
-                                android:id="@+id/btnCard2"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_alignStart="@+id/imgCard2"
-                                android:layout_alignBottom="@+id/txtCard2"
-                                android:layout_alignParentStart="true"
-                                android:layout_alignParentBottom="true"
-                                android:layout_margin="20dp"
-                                android:background="@drawable/bg_edittext"
-                                android:backgroundTint="@color/ButtonColor"
-                                android:fontFamily="@font/fonte_padrao"
-                                android:padding="10dp"
-                                android:text="@string/fazer_post"
-                                android:textColor="@color/TextColor" />
-
-                            <ImageView
-                                android:id="@+id/imgCard2"
-                                android:layout_width="80dp"
-                                android:layout_height="80dp"
-                                android:layout_alignParentEnd="true"
-                                android:layout_alignParentBottom="true"
-                                android:layout_marginEnd="20dp"
-                                android:contentDescription="@string/fazer_post"
-                                android:src="@drawable/zippy_logo" />
-                        </RelativeLayout>
-
-                    </LinearLayout>
-
-                </androidx.cardview.widget.CardView>
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </ScrollView>
-
+        <FrameLayout
+            android:id="@+id/fragmentContainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/layoutheader"
+            android:layout_above="@id/BottomNavigation"
+            />
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/BottomNavigation"
@@ -316,16 +73,244 @@
             android:background="@color/PrimaryColor"
             app:itemActiveIndicatorStyle="@android:color/transparent"
             app:itemIconSize="32sp"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="bottom"
             app:itemIconTint="@drawable/item_selected"
             app:labelVisibilityMode="unlabeled"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:menu="@menu/bottom_nav_menu"
+            app:menu="@menu/bottom_nav_menu" />
 
-            />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </RelativeLayout>
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view_header"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="@color/PrimaryColor"
+        app:headerLayout="@layout/header_drawer"
+        app:itemIconSize="40dp"
+        app:itemBackground="@android:color/transparent"
+        app:itemIconTint="@color/white"
+        app:itemTextAppearance="@style/MenuItemStyle"
+        app:itemTextColor="@color/white"
+        app:itemVerticalPadding="20dp"
+        app:menu="@menu/drawer_menu" />
 
 </androidx.drawerlayout.widget.DrawerLayout>
+
+
+
+
+
+    <!--                <androidx.recyclerview.widget.RecyclerView-->
+    <!--                    android:id="@+id/CarouselRecycler"-->
+    <!--                    android:layout_width="match_parent"-->
+    <!--                    android:layout_height="wrap_content"-->
+    <!--                    android:layout_marginTop="20dp"-->
+    <!--                    app:layout_constraintStart_toStartOf="parent"-->
+    <!--                    app:layout_constraintTop_toBottomOf="@+id/layoutheader" />-->
+
+    <!--                <androidx.cardview.widget.CardView-->
+    <!--                    android:id="@+id/CardView"-->
+    <!--                    android:layout_width="match_parent"-->
+    <!--                    android:layout_height="220dp"-->
+    <!--                    android:layout_marginTop="10dp"-->
+    <!--                    app:layout_constraintEnd_toEndOf="parent"-->
+    <!--                    app:layout_constraintHorizontal_bias="0.5"-->
+    <!--                    app:layout_constraintStart_toStartOf="parent"-->
+    <!--                    app:layout_constraintTop_toBottomOf="@+id/CarouselRecycler">-->
+
+    <!--                    <LinearLayout-->
+    <!--                        android:layout_width="match_parent"-->
+    <!--                        android:layout_height="match_parent"-->
+    <!--                        android:background="@color/Purple_700"-->
+    <!--                        android:orientation="horizontal">-->
+
+    <!--                        <RelativeLayout-->
+    <!--                            android:layout_width="match_parent"-->
+    <!--                            android:layout_height="match_parent"-->
+    <!--                            android:layout_marginStart="15dp"-->
+    <!--                            android:layout_marginTop="20dp"-->
+    <!--                            android:layout_marginBottom="20dp">-->
+
+    <!--                            <TextView-->
+    <!--                                android:id="@+id/txtCard1"-->
+    <!--                                android:layout_width="wrap_content"-->
+    <!--                                android:layout_height="wrap_content"-->
+    <!--                                android:layout_above="@+id/btnCard1"-->
+    <!--                                android:layout_alignStart="@+id/imgCard1"-->
+    <!--                                android:layout_alignParentStart="true"-->
+    <!--                                android:layout_alignParentTop="true"-->
+    <!--                                android:layout_toStartOf="@+id/imgCard1"-->
+    <!--                                android:fontFamily="@font/fonte_padrao"-->
+    <!--                                android:gravity="center_vertical"-->
+    <!--                                android:text="@string/fale_conosco_card"-->
+    <!--                                android:textColor="@color/TextColor"-->
+    <!--                                android:textSize="@dimen/Subtitulo_Size" />-->
+
+    <!--                            <androidx.appcompat.widget.AppCompatButton-->
+    <!--                                android:id="@+id/btnCard1"-->
+    <!--                                android:layout_width="wrap_content"-->
+    <!--                                android:layout_height="wrap_content"-->
+    <!--                                android:layout_alignStart="@+id/imgCard1"-->
+    <!--                                android:layout_alignParentStart="true"-->
+    <!--                                android:layout_alignParentBottom="true"-->
+    <!--                                android:textColor="@color/TextColor"-->
+    <!--                                android:background="@drawable/bg_edittext"-->
+    <!--                                android:backgroundTint="@color/ButtonColor"-->
+    <!--                                android:fontFamily="@font/fonte_padrao"-->
+    <!--                                android:padding="10dp"-->
+    <!--                                android:text="@string/entrar_em_contato_card" />-->
+
+    <!--                            <ImageView-->
+    <!--                                android:id="@+id/imgCard1"-->
+    <!--                                android:layout_width="wrap_content"-->
+    <!--                                android:layout_height="match_parent"-->
+    <!--                                android:layout_alignParentEnd="true"-->
+    <!--                                android:contentDescription="@string/faça_solicitação"-->
+    <!--                                android:src="@drawable/aviao" />-->
+    <!--                        </RelativeLayout>-->
+
+    <!--                    </LinearLayout>-->
+
+    <!--                </androidx.cardview.widget.CardView>-->
+
+    <!--                <androidx.cardview.widget.CardView-->
+    <!--                    android:id="@+id/CardView2"-->
+    <!--                    android:layout_width="match_parent"-->
+    <!--                    android:layout_height="220dp"-->
+    <!--                    android:layout_marginTop="10dp"-->
+    <!--                    app:layout_constraintEnd_toEndOf="parent"-->
+    <!--                    app:layout_constraintHorizontal_bias="0.5"-->
+    <!--                    app:layout_constraintStart_toStartOf="parent"-->
+    <!--                    app:layout_constraintTop_toBottomOf="@+id/CardView">-->
+
+    <!--                    <LinearLayout-->
+    <!--                        android:layout_width="match_parent"-->
+    <!--                        android:layout_height="match_parent"-->
+    <!--                        android:background="@color/SeocondaryColor"-->
+    <!--                        android:orientation="horizontal">-->
+
+    <!--                        <RelativeLayout-->
+    <!--                            android:layout_width="match_parent"-->
+    <!--                            android:layout_height="match_parent"-->
+    <!--                            android:layout_marginStart="15dp"-->
+    <!--                            android:layout_marginTop="20dp"-->
+    <!--                            android:layout_marginBottom="20dp">-->
+
+    <!--                            <TextView-->
+    <!--                                android:id="@+id/txtCard3"-->
+    <!--                                android:layout_width="wrap_content"-->
+    <!--                                android:layout_height="wrap_content"-->
+    <!--                                android:layout_alignParentStart="true"-->
+    <!--                                android:layout_alignParentTop="true"-->
+    <!--                                android:layout_alignParentEnd="true"-->
+    <!--                                android:layout_marginTop="20dp"-->
+    <!--                                android:layout_toStartOf="@+id/imgCard3"-->
+    <!--                                android:fontFamily="@font/fonte_padrao"-->
+    <!--                                android:text="@string/faça_solicitação"-->
+    <!--                                android:textColor="@color/TextColorContrast"-->
+    <!--                                android:textSize="@dimen/Subtitulo_Size" />-->
+
+    <!--                            <androidx.appcompat.widget.AppCompatButton-->
+    <!--                                android:id="@+id/btnCard3"-->
+    <!--                                android:layout_width="wrap_content"-->
+    <!--                                android:layout_height="wrap_content"-->
+    <!--                                android:layout_alignStart="@+id/imgCard3"-->
+    <!--                                android:layout_alignBottom="@+id/txtCard3"-->
+    <!--                                android:layout_alignParentStart="true"-->
+    <!--                                android:layout_alignParentBottom="true"-->
+    <!--                                android:layout_margin="20dp"-->
+    <!--                                android:background="@drawable/bg_edittext"-->
+    <!--                                android:backgroundTint="@color/ButtonColor"-->
+    <!--                                android:fontFamily="@font/fonte_padrao"-->
+    <!--                                android:padding="10dp"-->
+    <!--                                android:text="@string/fazer_post"-->
+    <!--                                android:textColor="@color/TextColor" />-->
+
+    <!--                            <ImageView-->
+    <!--                                android:id="@+id/imgCard3"-->
+    <!--                                android:layout_width="80dp"-->
+    <!--                                android:layout_height="80dp"-->
+    <!--                                android:layout_alignParentEnd="true"-->
+    <!--                                android:layout_alignParentBottom="true"-->
+    <!--                                android:layout_marginEnd="20dp"-->
+    <!--                                android:contentDescription="@string/content_Descripton"-->
+    <!--                                android:src="@drawable/zippy_logo" />-->
+    <!--                        </RelativeLayout>-->
+
+
+    <!--                    </LinearLayout>-->
+
+    <!--                </androidx.cardview.widget.CardView>-->
+
+    <!--                <androidx.cardview.widget.CardView-->
+    <!--                    android:layout_width="match_parent"-->
+    <!--                    android:layout_height="220dp"-->
+    <!--                    android:layout_marginTop="10dp"-->
+    <!--                    app:layout_constraintEnd_toEndOf="parent"-->
+    <!--                    app:layout_constraintHorizontal_bias="0.5"-->
+    <!--                    app:layout_constraintStart_toStartOf="parent"-->
+    <!--                    app:layout_constraintTop_toBottomOf="@+id/CardView2">-->
+
+    <!--                    <LinearLayout-->
+    <!--                        android:layout_width="match_parent"-->
+    <!--                        android:layout_height="match_parent"-->
+    <!--                        android:background="@color/SeocondaryColor"-->
+    <!--                        android:orientation="horizontal">-->
+
+    <!--                        <RelativeLayout-->
+    <!--                            android:layout_width="match_parent"-->
+    <!--                            android:layout_height="match_parent"-->
+    <!--                            android:layout_marginStart="15dp"-->
+    <!--                            android:layout_marginTop="20dp"-->
+    <!--                            android:layout_marginBottom="20dp">-->
+
+    <!--                            <TextView-->
+    <!--                                android:id="@+id/txtCard2"-->
+    <!--                                android:layout_width="wrap_content"-->
+    <!--                                android:layout_height="wrap_content"-->
+    <!--                                android:layout_alignParentStart="true"-->
+    <!--                                android:layout_alignParentTop="true"-->
+    <!--                                android:layout_alignParentEnd="true"-->
+    <!--                                android:layout_marginTop="20dp"-->
+    <!--                                android:layout_toStartOf="@+id/imgCard2"-->
+    <!--                                android:fontFamily="@font/fonte_padrao"-->
+    <!--                                android:text="@string/faça_solicitação"-->
+    <!--                                android:textColor="@color/TextColorContrast"-->
+    <!--                                android:textSize="@dimen/Subtitulo_Size" />-->
+
+    <!--                            <androidx.appcompat.widget.AppCompatButton-->
+    <!--                                android:id="@+id/btnCard2"-->
+    <!--                                android:layout_width="wrap_content"-->
+    <!--                                android:layout_height="wrap_content"-->
+    <!--                                android:layout_alignStart="@+id/imgCard2"-->
+    <!--                                android:layout_alignBottom="@+id/txtCard2"-->
+    <!--                                android:layout_alignParentStart="true"-->
+    <!--                                android:layout_alignParentBottom="true"-->
+    <!--                                android:layout_margin="20dp"-->
+    <!--                                android:background="@drawable/bg_edittext"-->
+    <!--                                android:backgroundTint="@color/ButtonColor"-->
+    <!--                                android:fontFamily="@font/fonte_padrao"-->
+    <!--                                android:padding="10dp"-->
+    <!--                                android:text="@string/fazer_post"-->
+    <!--                                android:textColor="@color/TextColor" />-->
+
+    <!--                            <ImageView-->
+    <!--                                android:id="@+id/imgCard2"-->
+    <!--                                android:layout_width="80dp"-->
+    <!--                                android:layout_height="80dp"-->
+    <!--                                android:layout_alignParentEnd="true"-->
+    <!--                                android:layout_alignParentBottom="true"-->
+    <!--                                android:layout_marginEnd="20dp"-->
+    <!--                                android:contentDescription="@string/fazer_post"-->
+    <!--                                android:src="@drawable/zippy_logo" />-->
+    <!--                        </RelativeLayout>-->
+
+    <!--                    </LinearLayout>-->
+
+    <!--                </androidx.cardview.widget.CardView>-->
+
+
 

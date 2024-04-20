@@ -23,11 +23,7 @@
             android:name=".PostActivity"
             android:exported="false"
             android:theme="@style/Theme.Material3.DayNight.NoActionBar" />
-        <activity
-            android:name=".ConfigActivity"
-            android:exported="false"
-            android:label="@string/title_activity_config"
-            android:theme="@style/Theme.Material3.DayNight.NoActionBar" />
+
         <activity
             android:name=".ChatActivity"
             android:exported="false" />
@@ -36,30 +32,30 @@
             android:exported="false"
             android:theme="@style/Theme.Material3.DayNight.NoActionBar" />
         <activity
-            android:name=".Home"
+            android:name=".activityInicio"
             android:exported="true"
             android:theme="@style/Theme.Material3.DayNight.NoActionBar" />
         <activity
-            android:name=".RecuperarSenha"
+            android:name=".activityRecuperarSenha"
             android:theme="@style/Theme.Material3.DayNight.NoActionBar"
             android:exported="false" />
         <activity
-            android:name=".SenhaLogin"
+            android:name=".activitySenhaLogin"
             android:exported="true"
             android:theme="@style/Theme.Material3.DayNight.NoActionBar" />
         <activity
-            android:name=".InserirIdentidade"
+            android:name=".activityIdentidade"
             android:exported="false"
             android:theme="@style/Theme.Material3.DayNight.NoActionBar"
             />
         <activity
-            android:name=".CriarSenha"
+            android:name=".activityCriarSenha"
             android:theme="@style/Theme.Material3.DayNight.NoActionBar"
             android:exported="true">
         </activity>
 
         <activity
-            android:name=".InserirEmail"
+            android:name=".activityEmail"
             android:exported="true"
             android:theme="@style/Theme.Material3.DayNight.NoActionBar">
             <intent-filter>

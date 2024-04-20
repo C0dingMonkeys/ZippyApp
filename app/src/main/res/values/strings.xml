@@ -84,11 +84,37 @@
     <string name="slogan">Seu app de compras internacionais\n</string>
     <string name="ver_perfil_drawer">Ver seu perfil</string>
     <string name="criar_nome">Nos conte mais sobre você</string>
-    <string name="nome_completo">Insira seu nome completo</string>
+    <string name="nome">Insira seu nome</string>
     <string name="dataNasc_hint">13/04/2004</string>
     <string name="lbl_dataNasc">Insira sua data de nascimento</string>
     <string name="lblInserirTelefone">Insira seu telefone</string>
     <string name="telefone_hint">+55 (11) 99999-9999</string>
     <string name="nome_hint">João Aparecido dos Santos</string>
+    <string name="sobrenome">Insira seu sobrenome</string>
+    <string name="configuracoes_titulo">Configurações</string>
+    <string name="personalizacao_titulo_config">Personalização</string>
+    <string name="habilitar_modo_escuro_config">Habilitar Modo Escuro</string>
+    <string name="notificacoes_config">Notificações</string>
+    <string name="idioma_do_app_config">Idioma do App</string>
+    <string name="minha_conta_config">Minha Conta</string>
+    <string name="meus_dados_config">Meus Dados</string>
+    <string name="central_de_ajuda_config">Central de Ajuda</string>
+    <string name="meus_enderecos_config">Meus Endereços</string>
+    <string name="suporte_config">Suporte</string>
+    <string name="nossa_politica_config">Nossa Politica</string>
+    <string name="denunciar_config">Denunciar Usuário</string>
+    <string name="meus_pagamentos_config">Meus Pagamentos</string>
+    <string name="meu_perfil_titulo">Meu Perfil</string>
+    <string name="ola_luiz_teste">Olá Luiz</string>
+    <string name="email_teste_perfil">*****5342@gmail.com</string>
+    <string name="btn_pedidos_perfil">Pedidos</string>
+    <string name="btn_solicitacoes_perfil">Solicitações</string>
+    <string name="btn_editar_perfil">Editar Perfil</string>
+    <string name="pagamento_perfil">Pagamento</string>
+    <string name="avaliacao_viajante_perfil">Avaliação Viajante</string>
+    <string name="manter_login_check">Manter Login</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="loading_dialog">Processando...Aguarde</string>
 
 </resources>

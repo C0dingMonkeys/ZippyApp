@@ -1,23 +1,23 @@
 <resources>
     <string name="app_name">Zippy</string>
-    <string name="welcome">Welcome to\n Zippy</string>
-    <string name="email_hint" translatable="false">Email</string>
-    <string name="logodescricao" translatable="false">Zippy Logo</string>
+    <string name="welcome">Welcome\nto Zippy</string>
+    <string name="email_hint">Email</string>
+    <string name="logodescricao">Zippy Logo</string>
     <string name="terms_conditions">By continuing, you agree to our Terms of Service and confirm that you have read our Privacy Policy</string>
     <string name="criar_senha">Create your password</string>
     <string name="confirmar_senha">Confirm your password</string>
     <string name="quase_la">We are almost there..</string>
-    <string name="cpf">Enter your CPF</string>
+    <string name="identidade" translatable="false">Insira sua identidade</string>
     <string name="fim">Finish</string>
     <string name="entrar">Hello again!\nSign in to proceed!</string>
     <string name="senha_hint">Password</string>
-    <string name="btn_entrar">Sign in</string>
-    <string name="cpf_hint">CPF</string>
+    <string name="btn_entrar">To enter</string>
+    <string name="identidade_hint" translatable="false">Identidade</string>
     <string name="btn_continuar">Continue</string>
     <string name="esqueceu_senha">Forgot your password\?</string>
-    <string name="txtOnclick_RedefinirSenha">Reset Here!</string>
+    <string name="txtOnclick_RedefinirSenha"><u>Reset Here!</u></string>
     <string name="redefinir_titulo">Reset your Password</string>
-    <string name="inserir_email_esqueceu_senha">Enter your email registered on our App</string>
+    <string name="inserir_email_esqueceu_senha">Enter your email address registered with Zippy</string>
     <string name="enviar_esqueceuSenha">To send</string>
     <string name="chat">Chat</string>
     <string name="profile">Profile</string>
@@ -81,5 +81,38 @@
     <string name="fazer_post_drawer">Make Post</string>
     <string name="slogan">Your international shopping app\n</string>
     <string name="ver_perfil_drawer">View your profile</string>
+    <string name="criar_nome">Tell us more about yourself</string>
+    <string name="nome">Enter your name</string>
+    <string name="dataNasc_hint">13/04/2004</string>
+    <string name="lbl_dataNasc">Enter your date of birth</string>
+    <string name="lblInserirTelefone">Insert your phone</string>
+    <string name="telefone_hint">+55 (11) 99999-9999</string>
+    <string name="nome_hint">João Aparecido dos Santos</string>
+    <string name="sobrenome">Enter your last name</string>
+    <string name="configuracoes_titulo">settings</string>
+    <string name="personalizacao_titulo_config">Customization</string>
+    <string name="habilitar_modo_escuro_config">Enable Dark Mode</string>
+    <string name="notificacoes_config">Notifications</string>
+    <string name="idioma_do_app_config">App Language</string>
+    <string name="minha_conta_config">My account</string>
+    <string name="meus_dados_config">My data</string>
+    <string name="central_de_ajuda_config">Help Center</string>
+    <string name="meus_enderecos_config">My Addresses</string>
+    <string name="suporte_config">Support</string>
+    <string name="nossa_politica_config">Our Policy</string>
+    <string name="denunciar_config">Report user</string>
+    <string name="meus_pagamentos_config">My Payments</string>
+    <string name="meu_perfil_titulo">My profile</string>
+    <string name="ola_luiz_teste">Hello Luiz</string>
+    <string name="email_teste_perfil">*****5342\@gmail.com</string>
+    <string name="btn_pedidos_perfil">Orders</string>
+    <string name="btn_solicitacoes_perfil">Requests</string>
+    <string name="btn_editar_perfil">Edit profile</string>
+    <string name="pagamento_perfil">Payment</string>
+    <string name="avaliacao_viajante_perfil">Traveler Review</string>
+    <string name="manter_login_check"> KeepLogin</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="loading_dialog">Processing...Please wait</string>
 
 </resources>

@@ -7,7 +7,7 @@
     android:background="@color/BackgroundColor"
     android:fitsSystemWindows="true"
     android:theme="@style/Theme.Material3.DayNight.NoActionBar"
-    tools:context=".InserirEmail">
+    tools:context=".activityEmail">
 
 
     <!--IMAGEM DA LOGO DO MEIO-->
