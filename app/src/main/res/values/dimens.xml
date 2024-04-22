@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="TitulosMenu">25sp</dimen>
-    <dimen name="Normal_Size">16sp</dimen>
-    <dimen name="Subtitulo_Size">18sp</dimen>
     <dimen name="TituloMenu_Size">28sp</dimen>
-    <dimen name="mini_Size">10sp</dimen>
+    <dimen name="TitulosMenu">25sp</dimen>
+    <dimen name="Subtitulo_Size">18sp</dimen>
+    <dimen name="Normal_Size">16sp</dimen>
+    <dimen name="Small_Size">14sp</dimen>
+    <dimen name="Mini_Size">12sp</dimen>
+    <dimen name="micro_size">10sp</dimen>
+
+
     <dimen name="fab_margin">16dp</dimen>
 </resources>

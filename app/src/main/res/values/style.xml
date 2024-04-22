@@ -14,4 +14,17 @@
         <item name="android:lineSpacingExtra">4dp</item>
         <item name="fontFamily">@font/fonte_padrao</item>
     </style>
+
+    <style name="BackgroundTextInput" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
+        <item name="shapeAppearanceOverlay">@style/BackgroundForma.MyApp.TextInputLayout.Rounded</item>
+    </style>
+
+    <style name="BackgroundForma.MyApp.TextInputLayout.Rounded" parent="">
+        <item name="indicatorColor">@android:color/transparent</item>
+        <item name="boxBackgroundColor">@android:color/transparent</item>
+        <item name="boxStrokeWidth">0dp</item>
+        <item name="boxStrokeWidthFocused">0dp</item>
+        <item name="hintTextColor">#7d8b9f</item>
+
+    </style>
 </resources>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+<com.google.android.material.bottomsheet.BottomSheetDragHandleView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"></com.google.android.material.bottomsheet.BottomSheetDragHandleView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/Subtitulo_Size"
+        android:text=""
+        android:id="@+id/lblTituloBottomSheet"
+        android:fontFamily="@font/fonte_padrao"
+        android:layout_margin="10dp"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:id="@+id/TextLayoutEdicao"
+        android:layout_margin="10dp">
+    <com.google.android.material.textfield.TextInputEditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/TextEditEdicao"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:id="@+id/btnSalvarEdicao"
+        android:text="@string/lbl_salvar"
+        android:textSize="@dimen/Normal_Size"
+        android:fontFamily="@font/fonte_padrao"
+        android:background="@drawable/bg_btn_perfil"
+        style="@style/TextColor"/>
+
+</LinearLayout>
