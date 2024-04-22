@@ -3,20 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:theme="@style/Base.Theme.AppCompat.DayNight.NoActionBar"
     android:layout_height="match_parent"
     android:background="@color/BackgroundColor"
+    android:theme="@style/Theme.Material3.DayNight.NoActionBar"
     tools:context=".activitySenhaLogin">
 
     <!-- TITULO LOGIN -->
     <TextView
         android:id="@+id/lblEntrar"
+        style="@style/TextColor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="70dp"
         android:fontFamily="@font/fonte_padrao"
         android:text="@string/entrar"
-        style="@style/TextColor"
         android:textSize="@dimen/TitulosMenu"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.25"
@@ -29,7 +29,7 @@
     <!-- LAYOUT INSERIR SENHA -->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/layoutSenhaLoginEdit"
-        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+        style="@style/BackgroundTextInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="25dp"
@@ -38,7 +38,9 @@
         android:textColorHint="@color/black"
         app:boxBackgroundColor="@color/bg_edittext"
         app:boxStrokeColor="@color/black"
-        app:boxStrokeWidthFocused="2dp"
+        app:boxStrokeWidth="0dp"
+        app:boxStrokeWidthFocused="0dp"
+        app:endIconMode="clear_text"
         app:errorEnabled="true"
         app:errorIconTint="@color/ERRO"
         app:errorTextAppearance="@style/ErrorTextAppearance"
@@ -57,31 +59,30 @@
             android:id="@+id/txtSenhaLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/text_field_background"
             android:fontFamily="@font/fonte_padrao"
             android:inputType="textPassword"
+            android:singleLine="true"
             android:textColor="@color/black" />
 
         <!-- FIM DO EDITTEXT CONFIRMAR SENHA-->
 
     </com.google.android.material.textfield.TextInputLayout>
 
-<!--    Checkbox Manter Logado-->
+    <!--    Checkbox Manter Logado-->
     <androidx.appcompat.widget.AppCompatCheckBox
         android:id="@+id/manterLoginCheck"
+        style="@style/TextColor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/layoutSenhaLoginEdit"
-        app:layout_constraintStart_toStartOf="parent"
         android:layout_marginStart="25dp"
-        android:text="@string/manter_login_check"
         android:fontFamily="@font/fonte_padrao"
-        style="@style/TextColor"/>
+        android:text="@string/manter_login_check"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layoutSenhaLoginEdit" />
 
 
-
-
-
-<!--    Fim Checkbox Manter Logado-->
+    <!--    Fim Checkbox Manter Logado-->
 
     <!-- BOTÃO ENTRAR NA CONTA-->
     <androidx.appcompat.widget.AppCompatButton

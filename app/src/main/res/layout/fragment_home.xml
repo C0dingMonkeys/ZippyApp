@@ -21,7 +21,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="vertical">
 
                 <androidx.recyclerview.widget.RecyclerView
@@ -36,18 +36,16 @@
                     android:id="@+id/CardView"
                     android:layout_width="match_parent"
                     android:layout_height="220dp"
+                    android:backgroundTint="#4B3FCE"
                     android:layout_marginTop="20dp"
+                    android:layout_marginHorizontal="10dp"
+                    app:cardCornerRadius="10dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/CarouselRecycler">
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@color/Purple_700"
-                        android:orientation="horizontal"
-                        >
+
 
                         <RelativeLayout
                             android:layout_width="match_parent"
@@ -94,7 +92,6 @@
                                 android:src="@drawable/aviao" />
                         </RelativeLayout>
 
-                    </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
 
@@ -102,13 +99,11 @@
                     android:id="@+id/CardView2"
                     android:layout_width="match_parent"
                     android:layout_height="220dp"
-                    android:layout_marginTop="10dp">
+                    android:backgroundTint="@color/white"
+                    android:layout_marginHorizontal="10dp"
+                    app:cardCornerRadius="10dp"
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@color/SeocondaryColor"
-                        android:orientation="horizontal">
+                    android:layout_marginTop="10dp">
 
                         <RelativeLayout
                             android:layout_width="match_parent"
@@ -139,13 +134,15 @@
                                 android:layout_alignBottom="@+id/txtCard3"
                                 android:layout_alignParentStart="true"
                                 android:layout_alignParentBottom="true"
-                                android:layout_margin="20dp"
+                                android:layout_marginTop="20dp"
+                                android:layout_marginEnd="20dp"
                                 android:background="@drawable/bg_edittext"
                                 android:backgroundTint="@color/ButtonColor"
                                 android:fontFamily="@font/fonte_padrao"
                                 android:padding="10dp"
                                 android:text="@string/fazer_post"
-                                android:textColor="@color/TextColor" />
+                                android:textColor="@color/TextColor"
+                                tools:ignore="DuplicateSpeakableTextCheck" />
 
                             <ImageView
                                 android:id="@+id/imgCard3"
@@ -158,25 +155,20 @@
                                 android:src="@drawable/zippy_logo" />
                         </RelativeLayout>
 
-
-                    </LinearLayout>
-
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="220dp"
                     android:layout_marginTop="10dp"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginBottom="20dp"
+                    app:cardCornerRadius="10dp"
+                    android:backgroundTint="@color/white"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/CardView2">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@color/SeocondaryColor"
-                        android:orientation="horizontal">
 
                         <RelativeLayout
                             android:layout_width="match_parent"
@@ -207,7 +199,8 @@
                                 android:layout_alignBottom="@+id/txtCard2"
                                 android:layout_alignParentStart="true"
                                 android:layout_alignParentBottom="true"
-                                android:layout_margin="20dp"
+                                android:layout_marginTop="20dp"
+                                android:layout_marginEnd="20dp"
                                 android:background="@drawable/bg_edittext"
                                 android:backgroundTint="@color/ButtonColor"
                                 android:fontFamily="@font/fonte_padrao"
@@ -225,8 +218,6 @@
                                 android:contentDescription="@string/fazer_post"
                                 android:src="@drawable/zippy_logo" />
                         </RelativeLayout>
-
-                    </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
 

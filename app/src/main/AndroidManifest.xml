@@ -16,6 +16,9 @@
         android:theme="@style/Theme.Material3.DayNight.NoActionBar"
         tools:targetApi="31">
         <activity
+            android:name=".activityEditarPerfil"
+            android:exported="false" />
+        <activity
             android:name=".activityCriarNome"
             android:exported="true"
             android:theme="@style/Theme.Material3.DayNight.NoActionBar" />
@@ -23,7 +26,6 @@
             android:name=".PostActivity"
             android:exported="false"
             android:theme="@style/Theme.Material3.DayNight.NoActionBar" />
-
         <activity
             android:name=".ChatActivity"
             android:exported="false" />
@@ -37,8 +39,8 @@
             android:theme="@style/Theme.Material3.DayNight.NoActionBar" />
         <activity
             android:name=".activityRecuperarSenha"
-            android:theme="@style/Theme.Material3.DayNight.NoActionBar"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.Material3.DayNight.NoActionBar" />
         <activity
             android:name=".activitySenhaLogin"
             android:exported="true"
@@ -46,14 +48,11 @@
         <activity
             android:name=".activityIdentidade"
             android:exported="false"
-            android:theme="@style/Theme.Material3.DayNight.NoActionBar"
-            />
+            android:theme="@style/Theme.Material3.DayNight.NoActionBar" />
         <activity
             android:name=".activityCriarSenha"
-            android:theme="@style/Theme.Material3.DayNight.NoActionBar"
-            android:exported="true">
-        </activity>
-
+            android:exported="true"
+            android:theme="@style/Theme.Material3.DayNight.NoActionBar"></activity>
         <activity
             android:name=".activityEmail"
             android:exported="true"

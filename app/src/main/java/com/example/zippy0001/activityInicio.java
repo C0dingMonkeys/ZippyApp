@@ -67,9 +67,8 @@ public class activityInicio extends AppCompatActivity implements NavigationView.
             if (itemId == R.id.bottom_home) {
                 return true;
             } else if (itemId == R.id.bottom_profile) {
-                startActivity(new Intent(getApplicationContext(), PerfilActivity.class));
-                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-                finish();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new PerfilFragment()).commit();
+
                 return true;
             } else if (itemId == R.id.bottom_chat) {
                 startActivity(new Intent(getApplicationContext(), ChatActivity.class));

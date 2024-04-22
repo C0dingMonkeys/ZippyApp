@@ -29,7 +29,7 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/layoutSenhaEdit"
-        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+        style="@style/BackgroundTextInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="25dp"
@@ -38,7 +38,9 @@
         android:textColorHint="@color/black"
         app:boxBackgroundColor="@color/bg_edittext"
         app:boxStrokeColor="@color/black"
-        app:boxStrokeWidthFocused="2dp"
+        app:boxStrokeWidth="0dp"
+        app:boxStrokeWidthFocused="0dp"
+        app:endIconMode="clear_text"
         app:errorEnabled="true"
         app:errorIconTint="@color/ERRO"
         app:errorTextAppearance="@style/ErrorTextAppearance"
@@ -57,8 +59,10 @@
             android:id="@+id/txtSenhaCadastro"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/text_field_background"
             android:fontFamily="@font/fonte_padrao"
             android:inputType="textPassword"
+            android:singleLine="true"
             android:textColor="@color/black" />
 
         <!-- FIM DO EDITTEXT INSERIR SENHA -->
@@ -71,20 +75,22 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/layoutConfSenhaEdit"
-        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+        style="@style/BackgroundTextInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="25dp"
         android:layout_marginTop="50dp"
         android:hint="@string/confirmar_senha"
+        android:textColorHint="@color/black"
+        app:boxBackgroundColor="@color/bg_edittext"
+        app:boxStrokeColor="@color/black"
+        app:boxStrokeWidth="0dp"
+        app:boxStrokeWidthFocused="0dp"
+        app:endIconMode="clear_text"
         app:errorEnabled="true"
         app:errorIconTint="@color/ERRO"
         app:errorTextAppearance="@style/ErrorTextAppearance"
         app:errorTextColor="@color/textoErro"
-        android:textColorHint="@color/black"
-        app:boxBackgroundColor="@color/bg_edittext"
-        app:boxStrokeColor="@color/black"
-        app:boxStrokeWidthFocused="2dp"
         app:hintTextAppearance="@style/TextAppearance"
         app:hintTextColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
@@ -99,8 +105,10 @@
             android:id="@+id/txtConfirmarSenha"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/text_field_background"
             android:fontFamily="@font/fonte_padrao"
             android:inputType="textPassword"
+            android:singleLine="true"
             android:textColor="@color/black" />
 
         <!-- FIM DO EDITTEXT CONFIRMAR SENHA-->

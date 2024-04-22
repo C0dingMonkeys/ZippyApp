@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_app"
+    android:theme="@style/Theme.Material3.DayNight.NoActionBar"
+    tools:context=".activityEditarPerfil">
+
+    <LinearLayout
+        android:id="@+id/barraSuperiorLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/PrimaryColor"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@android:color/transparent"
+            android:src="@drawable/ic_seta_voltar" />
+
+        <TextView
+            style="@style/TextColor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:fontFamily="@font/fonte_padrao"
+            android:text="@string/titulo_editar_perfil"
+            android:textSize="@dimen/Subtitulo_Size" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/LayoutEdicao"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/background_layout_editar"
+        android:divider="@drawable/divisor_lista"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:paddingVertical="10dp"
+        android:showDividers="middle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/barraSuperiorLayout">
+
+        <LinearLayout
+            android:id="@+id/layoutFotoPerfil"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="1dp"
+            android:layout_marginVertical="20dp"
+            android:background="@color/ThirdColor"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/editar_fotoPerfil"
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp"
+                android:src="@mipmap/ic_launcher" />
+
+            <TextView
+                style="@style/TextColor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:text="Editar Foto"
+                android:textSize="@dimen/Normal_Size" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/layoutEditarNomeTela"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginHorizontal="15dp"
+            android:layout_marginVertical="10dp"
+            android:background="@color/PrimaryColor"
+            android:paddingVertical="5dp">
+
+            <TextView
+                android:id="@+id/lblNomeEdit"
+                style="@style/TextColor"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="0dp"
+                android:fontFamily="@font/fonte_padrao"
+                android:text="@string/lbl_editarNome"
+                android:textSize="@dimen/Normal_Size" />
+
+            <TextView
+                android:id="@+id/txtNomeEdit"
+                style="@style/TextColor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="50dp"
+                android:layout_marginEnd="10dp"
+                android:layout_toStartOf="@+id/btnEditarNome"
+                android:layout_toEndOf="@+id/lblNomeEdit"
+                android:fontFamily="@font/fonte_padrao"
+                android:text="@string/lbl_editarNome"
+                android:textSize="@dimen/Mini_Size" />
+
+            <ImageView
+                android:id="@+id/btnEditarNome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_gravity="end"
+                android:backgroundTint="@color/TextColorContrast"
+                android:src="@drawable/ic_seta" />
+
+
+            <!--FIM DO EDIT TEXT PREENCHER EMAIL-->
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/layoutEditarFoneTela"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="15dp"
+            android:layout_marginVertical="10dp"
+            android:background="@color/PrimaryColor"
+            android:paddingVertical="5dp">
+
+            <TextView
+                style="@style/TextColor"
+                android:id="@+id/lblTelefoneEdit"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:fontFamily="@font/fonte_padrao"
+                android:text="@string/lbl_editarTelefone"
+                android:textSize="@dimen/Normal_Size" />
+
+            <TextView
+                android:id="@+id/txtFoneEdit"
+                style="@style/TextColor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="50dp"
+                android:gravity="end"
+                android:layout_marginEnd="10dp"
+                android:layout_toStartOf="@+id/btnEditarTelefone"
+                android:layout_toEndOf="@+id/lblTelefoneEdit"
+                android:fontFamily="@font/fonte_padrao"
+                android:text="Fone"
+                android:textSize="@dimen/Mini_Size" />
+
+            <ImageView
+                android:id="@+id/btnEditarTelefone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_gravity="end"
+                android:backgroundTint="@color/TextColorContrast"
+                android:src="@drawable/ic_seta" />
+
+
+            <!--FIM DO EDIT TEXT PREENCHER EMAIL-->
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/layoutEditarIdentidadeTela"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:layout_marginHorizontal="15dp"
+            android:layout_marginVertical="10dp"
+            android:background="@color/PrimaryColor"
+            android:paddingVertical="5dp"
+            android:focusable="true">
+
+            <TextView
+                style="@style/TextColor"
+                android:id="@+id/lblIdentidadeEdit"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:fontFamily="@font/fonte_padrao"
+                android:text="@string/lbl_editarIdentidade"
+                android:textSize="@dimen/Normal_Size" />
+
+            <TextView
+                android:id="@+id/txtIdentidadeEdit"
+                style="@style/TextColor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="50dp"
+                android:gravity="end"
+                android:layout_marginEnd="10dp"
+                android:layout_toStartOf="@+id/btnEditarIdentidade"
+                android:layout_toEndOf="@+id/lblIdentidadeEdit"
+                android:fontFamily="@font/fonte_padrao"
+                android:text="Identidade"
+                android:textSize="@dimen/Mini_Size" />
+
+            <ImageView
+                android:id="@+id/btnEditarIdentidade"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_gravity="end"
+                android:backgroundTint="@color/TextColorContrast"
+                android:src="@drawable/ic_seta" />
+
+
+            <!--FIM DO EDIT TEXT PREENCHER EMAIL-->
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

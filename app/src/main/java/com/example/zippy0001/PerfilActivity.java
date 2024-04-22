@@ -8,6 +8,7 @@ import android.widget.ImageButton;
 
 import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -25,7 +26,8 @@ import java.util.List;
 public class PerfilActivity extends AppCompatActivity {
     private static String HOST = "http://zippyinternacional.com/Android/RecuperarRecyclerAvaliacoes.php";
     RecyclerView Avaliacao1;
-    ImageButton btnVoltar;
+
+    private AppCompatButton editarPerfil;
     List<AvaliacoesGetterSetter> avaliacoesGetterSettersList;
     AdaptadorAvaliacao adaptadorAvaliacao;
 
@@ -33,17 +35,15 @@ public class PerfilActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_perfil);
-        Log.d("PerfilActivity", "onCreate chamado");
 
         Avaliacao1 = findViewById(R.id.rvAvaliacao1);
-        btnVoltar = findViewById(R.id.imgBtnPerfil);
+        editarPerfil = findViewById(R.id.btnEditarPerfil);
 
-        btnVoltar.setOnClickListener(new View.OnClickListener() {
+        editarPerfil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), activityInicio.class));
-                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
-                finish();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new fragmentChat()).commit();
+
             }
         });
 

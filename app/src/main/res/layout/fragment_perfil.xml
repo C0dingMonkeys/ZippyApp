@@ -1,14 +1,172 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background_app"
+    android:fitsSystemWindows="true"
+    android:theme="@style/Theme.Material3.DayNight.NoActionBar"
     tools:context=".PerfilFragment">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content">
 
+            <RelativeLayout
+                android:id="@+id/layoutDadosUsuario"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/txtNomeUsuario"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:layout_toStartOf="@+id/imgFotoPerfil"
+                    android:fontFamily="@font/fonte_padrao"
+                    android:text="@string/ola_luiz_teste"
+                    android:textSize="@dimen/TitulosMenu" />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/imgFotoPerfil"
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/justin" />
+
+                <TextView
+                    android:id="@+id/txtEmailUsuario"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/fonte_padrao"
+                    android:layout_below="@id/txtNomeUsuario"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/email_teste_perfil"
+                    android:textSize="@dimen/Mini_Size" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/Buttons_perfil_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal"
+                android:paddingVertical="5dp"
+                android:showDividers="middle"
+                android:weightSum="2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/layoutDadosUsuario">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnMeusPedidos_perfil"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_btn_perfil"
+                    android:fontFamily="@font/fonte_padrao"
+                    android:text="@string/btn_pedidos_perfil"
+                    android:textColor="@color/TextColor" />
+
+                <View
+                    android:id="@+id/spacer"
+                    android:layout_width="20dp"
+                    android:layout_height="0dp" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnMinhasSolicitacoes_perfil"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_btn_perfil"
+                    android:fontFamily="@font/fonte_padrao"
+                    android:text="@string/btn_solicitacoes_perfil"
+                    android:textColor="@color/TextColor"
+                    android:textSize="13sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/Buttons_perfil_layout_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingVertical="5dp"
+                android:showDividers="middle"
+                android:weightSum="2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Buttons_perfil_layout">
+
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnEditarPerfil_perfil"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_weight="1"
+
+                    android:background="@drawable/bg_btn_perfil"
+                    android:fontFamily="@font/fonte_padrao"
+                    android:text="@string/btn_editar_perfil"
+                    android:textColor="@color/TextColor"
+                    android:textSize="13sp" />
+
+                <View
+                    android:id="@+id/spacer2"
+                    android:layout_width="20dp"
+                    android:layout_height="0dp" />
+
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnPagamentos_perfil"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_btn_perfil"
+                    android:fontFamily="@font/fonte_padrao"
+                    android:text="@string/pagamento_perfil"
+                    android:textColor="@color/TextColor" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/ButtonColor"
+                android:orientation="vertical"
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/Buttons_perfil_layout_2">
+
+                <TextView
+                    android:id="@+id/txtavaliacao11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:fontFamily="@font/fonte_padrao"
+                    android:text="@string/avaliacao_viajante_perfil"
+                    android:textColor="@color/TextColor" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvAvaliacao1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scrollbars="horizontal" />
+
+
+            </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

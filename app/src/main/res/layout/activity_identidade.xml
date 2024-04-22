@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:theme="@style/Theme.Material3.DayNight.NoActionBar"
     android:background="@color/BackgroundColor"
+    android:theme="@style/Theme.Material3.DayNight.NoActionBar"
     tools:context=".activityIdentidade">
 
     <!-- TITULO DA TELA-->
@@ -47,7 +47,7 @@
     <!-- EDITTEXT INSIRA TELEFONE -->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/layoutIdentidade"
-        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+        style="@style/BackgroundTextInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="25dp"
@@ -56,7 +56,9 @@
         android:textColorHint="@color/black"
         app:boxBackgroundColor="@color/bg_edittext"
         app:boxStrokeColor="@color/black"
-        app:boxStrokeWidthFocused="2dp"
+        app:boxStrokeWidth="0dp"
+        app:boxStrokeWidthFocused="0dp"
+        app:endIconMode="clear_text"
         app:errorEnabled="true"
         app:errorIconTint="@color/ERRO"
         app:errorTextAppearance="@style/ErrorTextAppearance"
@@ -73,8 +75,10 @@
             android:id="@+id/txtIdentidade"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/text_field_background"
             android:fontFamily="@font/fonte_padrao"
             android:inputType="text"
+            android:singleLine="true"
             android:textColor="@color/black" />
 
         <!-- FIM DO EDITTEXT CONFIRMAR SENHA-->

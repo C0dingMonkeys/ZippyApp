@@ -41,24 +41,42 @@
 
     <!--FIM DO TEXTO-->
 
+    <!--TEXTO DE BEM VINDO-->
+
+    <!--FIM DO TEXTO-->
+
     <!--    EDITTEXT DE PREENCHER EMAIL  -->
 
     <!-- EDITTEXT INSIRA TELEFONE -->
+
+    <TextView
+        android:id="@+id/lblInsiraEmail"
+        style="@style/TextColor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="25dp"
+        android:fontFamily="@font/fonte_padrao"
+        android:text="@string/lbl_insiraEmail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lblBemvindo" />
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/layoutEmail"
-        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+        style="@style/BackgroundTextInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="25dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:hint="@string/email_hint"
         android:imeOptions="actionDone"
         android:textColorHint="@color/black"
         app:boxBackgroundColor="@color/bg_edittext"
-        app:boxStrokeColor="@color/black"
-        app:boxStrokeErrorColor="@color/ERRO"
-        app:boxStrokeWidth="1dp"
-        app:boxStrokeWidthFocused="2dp"
+        app:boxStrokeWidth="0dp"
+        app:boxStrokeWidthFocused="0dp"
         app:endIconMode="clear_text"
         app:errorEnabled="true"
         app:errorIconTint="@color/ERRO"
@@ -68,7 +86,7 @@
         app:hintTextColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lblBemvindo">
+        app:layout_constraintTop_toBottomOf="@+id/lblInsiraEmail">
 
         <!-- EDITTEXT CONFIRMAR SENHA-->
 
@@ -76,9 +94,11 @@
             android:id="@+id/txtEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/text_field_background"
             android:fontFamily="@font/fonte_padrao"
             android:imeOptions="actionDone"
             android:inputType="textEmailAddress"
+            android:singleLine="true"
             android:textColor="@color/black" />
 
         <!-- FIM DO EDITTEXT CONFIRMAR SENHA-->
@@ -118,7 +138,7 @@
         android:text="@string/terms_conditions"
         android:textAlignment="center"
         android:textColor="@color/TextColor"
-        android:textSize="@dimen/mini_Size"
+        android:textSize="@dimen/micro_size"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
