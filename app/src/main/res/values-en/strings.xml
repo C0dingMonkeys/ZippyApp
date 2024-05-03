@@ -114,5 +114,33 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="loading_dialog">Processing...Please wait</string>
+    <string name="speakableText_inserirTelefone">Insert Phone Field</string>
+    <string name="speakableText_dataNascismento">Enter date of birth field</string>
+    <string name="speakableText_inserirNome">Insert Name field</string>
+    <string name="speakableText_inserirSobrenome">Enter Last Name field</string>
+    <string name="lbl_insiraEmail">Login or Register below:</string>
+    <string name="titulo_editar_perfil">Edit profile</string>
+    <string name="titulo_editar_conta">Edit Account</string>
+    <string name="lbl_editarNome">Name:</string>
+    <string name="lbl_editarSobrenome">Surname:</string>
+    <string name="lbl_editarEmail">Email:</string>
+    <string name="lbl_dataNascimento">Date of birth:</string>
+    <string name="lbl_editarTelefone">Telephone:</string>
+    <string name="lbl_editarIdentidade">Identity:</string>
+    <string name="lbl_novaSenha">New Password:</string>
+    <string name="btn_salvarDados">To save</string>
+    <string name="lbl_editarPerfil">Edit profile</string>
+    <string name="lbl_salvar">To save</string>
+    <string name="lbl_edite_sua_senha">Edit your Password:</string>
+    <string name="lbl_edite_seu_nome">Edit your Name:</string>
+    <string name="lbl_atualize_sua_senha">Create a new password:</string>
+    <string name="lbl_edite_seu_telefone">Edit your Phone:</string>
+    <string name="lbl_edite_seu_email">Edit your Email:</string>
+    <string name="lbl_edite_sua_dtaNasc">Edit your date of birth:</string>
+    <string name="perfil_nome">%1$s %2$s</string>
+    <string name="edite_seu_nometestee">Edit your Name:</string>
+    <string name="title_activity_editar_conta">activityEditarConta</string>
+    <string name="lbl_senhaEdit">********</string>
+    <string name="dataEdit_error">Enter a valid date</string>
 
 </resources>

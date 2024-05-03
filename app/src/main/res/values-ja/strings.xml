@@ -114,5 +114,33 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">こんにちは、空白のフラグメント</string>
     <string name="loading_dialog">処理中...お待ちください</string>
+    <string name="speakableText_inserirTelefone">電話フィールドの挿入</string>
+    <string name="speakableText_dataNascismento">生年月日フィールドを入力してください</string>
+    <string name="speakableText_inserirNome">「名前を挿入」フィールド</string>
+    <string name="speakableText_inserirSobrenome">姓フィールドを入力してください</string>
+    <string name="lbl_insiraEmail">以下にログインまたは登録します:</string>
+    <string name="titulo_editar_perfil">プロファイル編集</string>
+    <string name="titulo_editar_conta">アカウントの編集</string>
+    <string name="lbl_editarNome">名前：</string>
+    <string name="lbl_editarSobrenome">姓：</string>
+    <string name="lbl_editarEmail">Eメール：</string>
+    <string name="lbl_dataNascimento">生年月日：</string>
+    <string name="lbl_editarTelefone">電話：</string>
+    <string name="lbl_editarIdentidade">身元：</string>
+    <string name="lbl_novaSenha">新しいパスワード：</string>
+    <string name="btn_salvarDados">保存する</string>
+    <string name="lbl_editarPerfil">プロファイル編集</string>
+    <string name="lbl_salvar">保存する</string>
+    <string name="lbl_edite_sua_senha">パスワードを編集します:</string>
+    <string name="lbl_edite_seu_nome">名前を編集します:</string>
+    <string name="lbl_atualize_sua_senha">新しいパスワードを作成します。</string>
+    <string name="lbl_edite_seu_telefone">電話を編集します:</string>
+    <string name="lbl_edite_seu_email">メールを編集します:</string>
+    <string name="lbl_edite_sua_dtaNasc">生年月日を編集します:</string>
+    <string name="perfil_nome">%1$s %2$s</string>
+    <string name="edite_seu_nometestee">名前を編集します:</string>
+    <string name="title_activity_editar_conta">アクティビティ編集Conta</string>
+    <string name="lbl_senhaEdit">********</string>
+    <string name="dataEdit_error">有効な日付を入力してください</string>
 
 </resources>

@@ -1,12 +1,21 @@
 package com.example.zippy0001;
 
+import static android.app.PendingIntent.getActivity;
 import static com.example.zippy0001.R.layout.activity_home;
+import static com.example.zippy0001.activityEditarPerfil.EXTRA_TRIGGER_PERFIL;
+import static com.example.zippy0001.activitySenhaLogin.SHARED_PREFS;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -19,27 +28,67 @@ import androidx.fragment.app.Fragment;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonIOException;
+import com.google.gson.JsonObject;
+import com.koushikdutta.async.future.FutureCallback;
+import com.koushikdutta.ion.Ion;
+import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class activityInicio extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle toggle;
-
+    String BASE_URL_IMAGEM = "https://zippyinternacional.com/Android/";
+    String URL_RECUPERAR_DADOS_USUARIO = "https://zippyinternacional.com/Android/selectUsuario.php";
+    String URL_RECUPERAR_DADOS_CLIENTE = "https://zippyinternacional.com/Android/selectCliente.php";
     public static final String SHARED_PREFS = "sharedPrefs";
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
+        String idUsuarioShared = sharedPreferences.getString("id_usuario", "");
+        String emailShared = sharedPreferences.getString("email", "");
+        recuperarDadosTBUSUARIO(emailShared);
+        recuperarDadosTBCLIENTE(idUsuarioShared);
+        Log.d("idTeste", idUsuarioShared);
+
+
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if (getIntent().hasExtra(EXTRA_TRIGGER_PERFIL)) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new PerfilFragment()).commit();
+
+        }
+    }
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        setIntent(intent);
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(activity_home);
 
-        getWindow().setNavigationBarColor(ContextCompat.getColor(this, R.color.black));
-
         Toolbar toolbar = findViewById(R.id.Toolbar);
         setSupportActionBar(toolbar);
         Objects.requireNonNull(getSupportActionBar()).setDisplayShowTitleEnabled(false);
+
 
         drawerLayout = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view_header);
@@ -55,8 +104,6 @@ public class activityInicio extends AppCompatActivity implements NavigationView.
         }
 
         navigationView.bringToFront();
-
-
 
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.BottomNavigation);
@@ -100,10 +147,9 @@ public class activityInicio extends AppCompatActivity implements NavigationView.
     }
 
     private boolean isCurrentFragmentMain() {
-            Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.fragmentContainer);
-            return fragment instanceof fragmentHome;
-        }
-
+        Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.fragmentContainer);
+        return fragment instanceof fragmentHome;
+    }
 
 
     @Override
@@ -129,7 +175,15 @@ public class activityInicio extends AppCompatActivity implements NavigationView.
         } else if (menuItemId == R.id.drawer_sair) {
             SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
             SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putString("id_usuario", "");
             editor.putString("nome", "");
+            editor.putString("email", "");
+            editor.putString("nomeCliente", "");
+            editor.putString("foneCliente", "");
+            editor.putString("identidadeCliente", "");
+            editor.putString("statusUsuario", "");
+            editor.putString("dataNascUsuario", "");
+            editor.putString("fotoPerfilUsuario", "");
             editor.apply();
 
             startActivity(new Intent(getApplicationContext(), activityEmail.class));
@@ -140,4 +194,102 @@ public class activityInicio extends AppCompatActivity implements NavigationView.
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
     }
+
+    private void recuperarDadosTBCLIENTE(String idUsuario){
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view_header);
+        View header = navigationView.getHeaderView(0);
+        TextView username = (TextView) header.findViewById(R.id.txtHeaderDrawer);
+        Ion.with(this)
+                .load(URL_RECUPERAR_DADOS_CLIENTE)
+                .setBodyParameter("idUsuario", idUsuario)
+                .asJsonArray()
+                .setCallback(new FutureCallback<JsonArray>() {
+                    @Override
+                    public void onCompleted(Exception e, JsonArray result) {
+                        try {
+                            if (e != null) {
+                                Log.e("acitivityInicio", "Erro na requisição: " + e.getMessage());
+                            } else {
+
+                                for (int i = 0; i < result.size(); i++) {
+                                    Log.d("activityInicio", "JSON Response: " + result.toString());
+
+                                    JsonArray dadosArray = result.get(i).getAsJsonArray();
+                                    String Nome = dadosArray.get(2).getAsString();
+                                    String Sobrenome = dadosArray.get(3).getAsString();
+                                    String Fone = dadosArray.get(4).getAsString();
+                                    String Identidade = dadosArray.get(5).getAsString();
+
+                                    Log.d("teste2", "o nome é:" +Nome);
+
+                                    SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
+                                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                                    editor.putString("nomeCliente", Nome);
+                                    editor.putString("sobrenomeCliente", Sobrenome);
+                                    editor.putString("foneCliente", Fone);
+                                    editor.putString("identidadeCliente", Identidade);
+                                    editor.apply();
+
+                                    username.setText(Nome);
+
+                                }
+                            }
+
+                        }catch (JsonIOException ex) {
+                            ex.printStackTrace();
+                        }
+                    }
+                });
+    }
+    private void recuperarDadosTBUSUARIO(String emailShared){
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view_header);
+        View header = navigationView.getHeaderView(0);
+        CircleImageView Foto = header.findViewById(R.id.FotoPerfilDrawer);
+        Ion.with(this)
+                .load(URL_RECUPERAR_DADOS_USUARIO)
+                .setBodyParameter("email", emailShared)
+                .asJsonArray()
+                .setCallback(new FutureCallback<JsonArray>() {
+                    @Override
+                    public void onCompleted(Exception e, JsonArray result) {
+                        try {
+                            if (e != null) {
+                                Log.e("acitivityInicio", "Erro na requisição: " + e.getMessage());
+                            } else {
+
+                                for (int i = 0; i < result.size(); i++) {
+                                    Log.d("activityInicio2", "JSON Response: " + result.toString());
+
+                                    JsonArray dadosArray = result.get(i).getAsJsonArray();
+                                    String Id_usuario = dadosArray.get(0).getAsString();
+                                    String email = dadosArray.get(1).getAsString();
+                                    String status = dadosArray.get(2).getAsString();
+                                    String  dataNasc = dadosArray.get(3).getAsString();
+                                    String fotoPerfil = dadosArray.get(4).getAsString();
+
+                                    Log.d("teste3", "o status é:" +status);
+
+                                    SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
+                                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                                    editor.putString("email", email);
+                                    editor.putString("id_usuario", Id_usuario);
+                                    editor.putString("statusUsuario", status);
+                                    editor.putString("dataNascUsuario", dataNasc);
+                                    editor.putString("fotoPerfilUsuario", fotoPerfil);
+                                    editor.apply();
+                                    Picasso.get().load(BASE_URL_IMAGEM+fotoPerfil).into(Foto);
+                                    Log.d("foto", BASE_URL_IMAGEM+fotoPerfil);
+
+                                }
+                            }
+
+                        }catch (JsonIOException ex) {
+                            ex.printStackTrace();
+                        }
+                    }
+                });
+
+
+    }
+
 }

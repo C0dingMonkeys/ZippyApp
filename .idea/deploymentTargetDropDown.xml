@@ -2,21 +2,6 @@
 <project version="4">
   <component name="deploymentTargetDropDown">
     <value>
-      <entry key="CriarNome">
-        <State />
-      </entry>
-      <entry key="CriarSenha">
-        <State />
-      </entry>
-      <entry key="Home">
-        <State />
-      </entry>
-      <entry key="InserirCPF">
-        <State />
-      </entry>
-      <entry key="SenhaLogin">
-        <State />
-      </entry>
       <entry key="app">
         <State />
       </entry>

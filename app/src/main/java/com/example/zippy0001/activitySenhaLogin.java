@@ -107,6 +107,7 @@ public class activitySenhaLogin extends AppCompatActivity {
                                     SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
                                     SharedPreferences.Editor editor = sharedPreferences.edit();
                                     editor.putString("nome", "true");
+                                    editor.putString("email", email);
                                     editor.apply();
 
                                 } else if ("false".equals(status)) {

@@ -1,6 +1,7 @@
 package com.example.zippy0001;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
@@ -16,6 +17,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.RelativeLayout;
 
 
 public class fragmentConfig extends Fragment {
@@ -46,12 +48,23 @@ public class fragmentConfig extends Fragment {
 
         sharedPreferences =  this.requireActivity().getSharedPreferences( "MODE", Context.MODE_PRIVATE);
         modoNoturno = sharedPreferences.getBoolean("modoNoturno", false);
+        RelativeLayout minhaConta = view.findViewById(R.id.layout_meusDados_btn);
+
+
+        minhaConta.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), activityEditarConta.class);
+                startActivity(intent);
+            }
+        });
+
+
 
         if(modoNoturno){
             switchModo.setChecked(true);
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
         }
-
         switchModo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

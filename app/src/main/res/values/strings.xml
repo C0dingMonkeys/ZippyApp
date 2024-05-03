@@ -122,6 +122,7 @@
     <string name="speakableText_inserirSobrenome">Campo Inserir Sobrenome</string>
     <string name="lbl_insiraEmail">Entre ou Cadastre-se abaixo:</string>
     <string name="titulo_editar_perfil">Editar Perfil</string>
+    <string name="titulo_editar_conta">Editar Conta</string>
     <string name="lbl_editarNome">Nome:</string>
     <string name="lbl_editarSobrenome">Sobrenome:</string>
     <string name="lbl_editarEmail">Email:</string>
@@ -132,8 +133,16 @@
     <string name="btn_salvarDados">Salvar</string>
     <string name="lbl_editarPerfil">Editar Perfil</string>
     <string name="lbl_salvar">Salvar</string>
+    <string name="lbl_edite_sua_senha">Edite sua Senha:</string>
     <string name="lbl_edite_seu_nome">Edite seu Nome:</string>
+    <string name="lbl_atualize_sua_senha">Crie uma nova senha:</string>
     <string name="lbl_edite_seu_telefone">Edite seu Telefone:</string>
+    <string name="lbl_edite_seu_email">Edite seu Email:</string>
+    <string name="lbl_edite_sua_dtaNasc">Edite sua data de nascimento:</string>
+    <string name="perfil_nome">%1$s %2$s</string>
     <string name="edite_seu_nometestee">Edite seu Nome:</string>
+    <string name="title_activity_editar_conta">activityEditarConta</string>
+    <string name="lbl_senhaEdit">********</string>
+    <string name="dataEdit_error">Insira uma data válida</string>
 
 </resources>

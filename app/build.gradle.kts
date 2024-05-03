@@ -10,7 +10,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.zippy0001"
-        minSdk = 24
+        minSdk = 26
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -46,10 +46,15 @@ dependencies {
     implementation("com.koushikdutta.ion:ion:3.1.0")
     implementation("com.github.bumptech.glide:glide:4.14.2")
     implementation("com.squareup.picasso:picasso:2.8")
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation("com.squareup.retrofit2:converter-scalars:2.9.0")
     implementation("com.android.support:support-annotations:28.0.0")
     implementation("androidx.navigation:navigation-fragment:2.7.7")
     implementation("androidx.navigation:navigation-ui:2.7.7")
     testImplementation("junit:junit:4.13.2")
+
+    implementation("com.karumi:dexter:6.2.3")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
 }

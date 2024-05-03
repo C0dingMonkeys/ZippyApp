@@ -114,5 +114,33 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Ciao frammento vuoto</string>
     <string name="loading_dialog">Elaborazione in corso... Attendere prego</string>
+    <string name="speakableText_inserirTelefone">Inserisci campo telefono</string>
+    <string name="speakableText_dataNascismento">Inserisci la data di nascita nel campo</string>
+    <string name="speakableText_inserirNome">Inserisci il campo Nome</string>
+    <string name="speakableText_inserirSobrenome">Inserisci il campo Cognome</string>
+    <string name="lbl_insiraEmail">Accedi o registrati qui sotto:</string>
+    <string name="titulo_editar_perfil">Modifica Profilo</string>
+    <string name="titulo_editar_conta">Modifica account</string>
+    <string name="lbl_editarNome">Nome:</string>
+    <string name="lbl_editarSobrenome">Cognome:</string>
+    <string name="lbl_editarEmail">E-mail:</string>
+    <string name="lbl_dataNascimento">Data di nascita:</string>
+    <string name="lbl_editarTelefone">Telefono:</string>
+    <string name="lbl_editarIdentidade">Identità:</string>
+    <string name="lbl_novaSenha">Nuova password:</string>
+    <string name="btn_salvarDados">Salvare</string>
+    <string name="lbl_editarPerfil">Modifica Profilo</string>
+    <string name="lbl_salvar">Salvare</string>
+    <string name="lbl_edite_sua_senha">Modifica la tua password:</string>
+    <string name="lbl_edite_seu_nome">Modifica il tuo nome:</string>
+    <string name="lbl_atualize_sua_senha">Crea una nuova password:</string>
+    <string name="lbl_edite_seu_telefone">Modifica il tuo telefono:</string>
+    <string name="lbl_edite_seu_email">Modifica la tua email:</string>
+    <string name="lbl_edite_sua_dtaNasc">Modifica la tua data di nascita:</string>
+    <string name="perfil_nome">%1$s %2$s</string>
+    <string name="edite_seu_nometestee">Modifica il tuo nome:</string>
+    <string name="title_activity_editar_conta">attivitàModificaConta</string>
+    <string name="lbl_senhaEdit">********</string>
+    <string name="dataEdit_error">Inserisci una data valida</string>
 
 </resources>

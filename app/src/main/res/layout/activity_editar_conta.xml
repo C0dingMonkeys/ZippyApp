@@ -109,7 +109,9 @@
                     android:textSize="@dimen/Normal_Size" />
 
                 <TextView
+                    android:layout_centerVertical="true"
                     style="@style/TextColor"
+                    android:id="@+id/txtEmailEdit"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"
@@ -117,8 +119,7 @@
                     android:layout_marginEnd="10dp"
                     android:layout_toStartOf="@+id/btnEditarTelefone"
                     android:fontFamily="@font/fonte_padrao"
-                    android:text="Fone"
-                    android:textSize="@dimen/Normal_Size" />
+                    android:textSize="@dimen/Small_Size" />
 
                 <ImageView
                     android:id="@+id/btnEditarTelefone"
@@ -153,14 +154,15 @@
 
             <TextView
                 style="@style/TextColor"
+                android:layout_centerVertical="true"
+                android:id="@+id/txtSenhaEdit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
                 android:layout_marginStart="25dp"
                 android:layout_marginEnd="10dp"
                 android:layout_toStartOf="@+id/btnEditarSenha"
-                android:fontFamily="@font/fonte_padrao"
-                android:text="Identidade"
+                android:text="@string/lbl_senhaEdit"
                 android:textSize="@dimen/Normal_Size" />
 
             <ImageView
@@ -197,6 +199,8 @@
 
                 <TextView
                     style="@style/TextColor"
+                    android:layout_centerVertical="true"
+                    android:id="@+id/txtDataNascEdit"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"
@@ -204,8 +208,7 @@
                     android:layout_marginEnd="10dp"
                     android:layout_toStartOf="@+id/btnEditarIdentidade"
                     android:fontFamily="@font/fonte_padrao"
-                    android:text="12/12/1222"
-                    android:textSize="@dimen/Normal_Size" />
+                    android:textSize="@dimen/Small_Size" />
 
                 <ImageView
                     android:id="@+id/btnEditarIdentidade"

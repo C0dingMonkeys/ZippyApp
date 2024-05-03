@@ -20,6 +20,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btnVoltarEditarPerfil"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:backgroundTint="@android:color/transparent"
@@ -69,12 +70,13 @@
                 android:src="@mipmap/ic_launcher" />
 
             <TextView
+                android:id="@+id/uploadFoto"
                 style="@style/TextColor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
-                android:text="Editar Foto"
+                android:text="Salvar Imagem"
                 android:textSize="@dimen/Normal_Size" />
         </LinearLayout>
 
