@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:theme="@style/Theme.Material3.DayNight.NoActionBar"
+    android:orientation="vertical">
+
+    <com.google.android.material.bottomsheet.BottomSheetDragHandleView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/lblTituloBottomSheetData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:fontFamily="@font/fonte_padrao"
+        android:text=""
+        android:textSize="@dimen/Subtitulo_Size" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/TextLayoutEdicaoData"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="10dp"
+        app:boxBackgroundColor="@color/bg_edittext"
+        app:boxStrokeColor="@color/black"
+        app:boxStrokeWidth="0dp"
+        app:boxStrokeWidthFocused="0dp"
+        app:endIconMode="clear_text"
+        app:errorEnabled="true"
+        app:errorIconTint="@color/ERRO"
+        app:errorTextAppearance="@style/ErrorTextAppearance"
+        app:errorTextColor="@color/textoErro">
+
+        <!-- EDITTEXT CONFIRMAR SENHA-->
+
+        <com.vicmikhailau.maskededittext.MaskedEditText
+            android:id="@+id/TextEditEdicaoData"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/speakableText_dataNascismento"
+            android:fontFamily="@font/fonte_padrao"
+            android:inputType="number"
+            android:singleLine="true"
+            android:textColor="@color/black"
+            app:mask="####-##-##" />
+
+        <!-- FIM DO EDITTEXT CONFIRMAR SENHA-->
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnSalvarEdicaoData"
+        style="@style/TextColor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/bg_btn_perfil"
+        android:fontFamily="@font/fonte_padrao"
+        android:text="@string/lbl_salvar"
+        android:textSize="@dimen/Normal_Size" />
+
+</LinearLayout>

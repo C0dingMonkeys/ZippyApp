@@ -96,7 +96,7 @@
     <string name="habilitar_modo_escuro_config">Habilitar Modo Escuro</string>
     <string name="notificacoes_config">Notificações</string>
     <string name="idioma_do_app_config">Idioma do App</string>
-    <string name="minha_conta_config">Minha Conta</string>
+    <string name="minha_conta_config">Conta e Segurança</string>
     <string name="meus_dados_config">Meus Dados</string>
     <string name="central_de_ajuda_config">Central de Ajuda</string>
     <string name="meus_enderecos_config">Meus Endereços</string>
@@ -122,7 +122,7 @@
     <string name="speakableText_inserirSobrenome">Campo Inserir Sobrenome</string>
     <string name="lbl_insiraEmail">Entre ou Cadastre-se abaixo:</string>
     <string name="titulo_editar_perfil">Editar Perfil</string>
-    <string name="titulo_editar_conta">Editar Conta</string>
+    <string name="titulo_editar_conta">Minha Conta</string>
     <string name="lbl_editarNome">Nome:</string>
     <string name="lbl_editarSobrenome">Sobrenome:</string>
     <string name="lbl_editarEmail">Email:</string>

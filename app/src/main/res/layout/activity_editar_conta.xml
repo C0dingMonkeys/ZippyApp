@@ -26,6 +26,8 @@
 
             <androidx.appcompat.widget.AppCompatImageButton
                 android:layout_width="wrap_content"
+                android:id="@+id/btnVoltarEditarConta"
+                android:layout_marginVertical="5dp"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@android:color/transparent"
                 android:src="@drawable/ic_seta_voltar" />
@@ -36,7 +38,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
                 android:fontFamily="@font/fonte_padrao"
-                android:text="@string/titulo_editar_perfil"
+                android:text="@string/titulo_editar_conta"
                 android:textSize="@dimen/Subtitulo_Size" />
         </LinearLayout>
 
@@ -55,7 +57,6 @@
             app:layout_constraintTop_toBottomOf="@+id/barraSuperiorLayout">
 
 
-
             <RelativeLayout
                 android:id="@+id/layoutEditarPerfil"
                 android:layout_width="match_parent"
@@ -70,11 +71,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
                     android:fontFamily="@font/fonte_padrao"
                     android:text="@string/lbl_editarPerfil"
 
                     android:textSize="@dimen/Normal_Size" />
-
 
 
                 <ImageView
@@ -100,26 +101,30 @@
                 android:paddingVertical="5dp">
 
                 <TextView
+                    android:id="@+id/textView2"
                     style="@style/TextColor"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
                     android:fontFamily="@font/fonte_padrao"
                     android:text="@string/lbl_editarEmail"
-                    android:textSize="@dimen/Normal_Size" />
+                    android:textSize="@dimen/Mini_Size"/>
 
                 <TextView
-                    android:layout_centerVertical="true"
-                    style="@style/TextColor"
                     android:id="@+id/txtEmailEdit"
+                    style="@style/TextColor"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:layout_marginStart="25dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="50dp"
+                    android:gravity="end"
                     android:layout_marginEnd="10dp"
                     android:layout_toStartOf="@+id/btnEditarTelefone"
+                    android:layout_toEndOf="@+id/textView2"
                     android:fontFamily="@font/fonte_padrao"
-                    android:textSize="@dimen/Small_Size" />
+                    android:text="@string/email_hint"
+                    android:textSize="@dimen/Mini_Size" />
 
                 <ImageView
                     android:id="@+id/btnEditarTelefone"
@@ -143,27 +148,30 @@
             android:background="@color/PrimaryColor"
             android:paddingVertical="5dp">
 
-            <TextView
-                style="@style/TextColor"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:fontFamily="@font/fonte_padrao"
-                android:text="@string/lbl_novaSenha"
-                android:textSize="@dimen/Normal_Size" />
+                <TextView
+                    android:id="@+id/textView3"
+                    style="@style/TextColor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:fontFamily="@font/fonte_padrao"
+                    android:text="@string/lbl_novaSenha"
+                    android:textSize="@dimen/Mini_Size" />
 
-            <TextView
-                style="@style/TextColor"
-                android:layout_centerVertical="true"
-                android:id="@+id/txtSenhaEdit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end"
-                android:layout_marginStart="25dp"
-                android:layout_marginEnd="10dp"
-                android:layout_toStartOf="@+id/btnEditarSenha"
-                android:text="@string/lbl_senhaEdit"
-                android:textSize="@dimen/Normal_Size" />
+                <TextView
+                    android:id="@+id/txtSenhaEdit"
+                    style="@style/TextColor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="50dp"
+                    android:gravity="end"
+                    android:layout_marginEnd="10dp"
+                    android:layout_toStartOf="@+id/btnEditarSenha"
+                    android:layout_toEndOf="@+id/textView3"
+                    android:text="@string/lbl_senhaEdit"
+                    android:textSize="@dimen/Mini_Size" />
 
             <ImageView
                 android:id="@+id/btnEditarSenha"
@@ -183,32 +191,35 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginHorizontal="15dp"
-                android:layout_marginVertical="10dp"
+                android:layout_marginTop="10dp"
                 android:background="@color/PrimaryColor"
                 android:paddingVertical="5dp">
 
                 <TextView
+                    android:id="@+id/textView4"
                     style="@style/TextColor"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
                     android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
                     android:fontFamily="@font/fonte_padrao"
                     android:text="@string/lbl_dataNascimento"
-                    android:textSize="14sp" />
+                    android:textSize="@dimen/Mini_Size" />
 
                 <TextView
-                    style="@style/TextColor"
-                    android:layout_centerVertical="true"
                     android:id="@+id/txtDataNascEdit"
+                    style="@style/TextColor"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:layout_marginStart="25dp"
+                    android:layout_centerVertical="true"
+                    android:gravity="end"
+                    android:layout_marginStart="20dp"
                     android:layout_marginEnd="10dp"
                     android:layout_toStartOf="@+id/btnEditarIdentidade"
+                    android:layout_toEndOf="@+id/textView4"
                     android:fontFamily="@font/fonte_padrao"
-                    android:textSize="@dimen/Small_Size" />
+                    android:text="@string/dataNasc_hint"
+                    android:textSize="@dimen/Mini_Size" />
 
                 <ImageView
                     android:id="@+id/btnEditarIdentidade"

@@ -16,6 +16,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,7 +33,7 @@ public class PerfilFragment extends Fragment {
     public static final String SHARED_PREFS = "sharedPrefs";
 
     private CircleImageView Foto;
-    String BASE_URL_IMAGEM = "https://zippyinternacional.com/Android/";
+    String BASE_URL_IMAGEM = "https://zippyinternacional.com/Android/img/";
 
     public static final String EXTRA_BACK_PERFIL = "voltar_perfil";
 
@@ -56,7 +57,7 @@ public class PerfilFragment extends Fragment {
         }
 
         String first5Chars = str.substring(0, 5); // Extract the first 5 characters
-        String asterisks = "*".repeat(4); // Create a string of 5 asterisks
+        String asterisks = "****"; // Create a string of 5 asterisks
         String remainingChars = str.substring(5); // Extract the remaining characters
 
         return asterisks + remainingChars; // Combine the asterisks and remaining characters
@@ -89,17 +90,17 @@ public class PerfilFragment extends Fragment {
         String nomeCliente = sharedPreferences.getString("nomeCliente", "");
         String sobrenomeCliente = sharedPreferences.getString("sobrenomeCliente", "");
         String emailUsuario = sharedPreferences.getString("email", "");
-
+        String idUsuario = sharedPreferences.getString("id_usuario", "");
         String emailModificado = substituirCarcteres(emailUsuario);
-
+        String fotoPerfillink = '"' + idUsuario + '"' + "fotoPerfil.jpg";
 
         TextView txtNomeUsuario = view.findViewById(R.id.txtNomeUsuario);
         TextView txtEmailUsuario = view.findViewById(R.id.txtEmailUsuario);
         txtNomeUsuario.setText(requireActivity().getString(R.string.perfil_nome, nomeCliente, sobrenomeCliente));
         txtEmailUsuario.setText(emailModificado);
+
         Foto = view.findViewById(R.id.imgFotoPerfil);
-
-
+        Picasso.get().load(BASE_URL_IMAGEM+fotoPerfillink).into(Foto);
 
         AppCompatButton editarPerfil;
         editarPerfil = view.findViewById(R.id.btnEditarPerfil_perfil);

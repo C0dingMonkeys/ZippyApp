@@ -13,6 +13,7 @@
     <color name="ERRO">#ff0000</color>
     <color name="textoErro">#9F0000</color>
     <color name="gray">#8E8A8A</color>
+    <color name="hintColor">#757575</color>
     <color name="cyan">#ADB9C5</color>
     <color name="white">#FFFFFF</color>
     <color name="background_app">#F8E9FF</color>

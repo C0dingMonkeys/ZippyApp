@@ -34,6 +34,7 @@
                     android:textColor="@color/TextColorContrast"
                     android:text="@string/personalizacao_titulo_config"
                     android:textSize="@dimen/Normal_Size"
+
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -68,9 +69,14 @@
 
                         <TextView
                             android:id="@+id/txtNotificacoesLayout"
+                            style="@style/TextColor"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            style="@style/TextColor"
+                            android:layout_alignParentStart="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="50dp"
+                            android:layout_toStartOf="@+id/imgBtnNotificacoes"
                             android:fontFamily="@font/fonte_padrao"
                             android:padding="10dp"
                             android:text="@string/notificacoes_config" />
@@ -92,10 +98,16 @@
 
                         <TextView
                             android:id="@+id/txtIdiomasAppLayout"
+                            style="@style/TextColor"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            style="@style/TextColor"
+                            android:layout_alignParentStart="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="50dp"
+                            android:layout_toStartOf="@+id/imgIdiomasApp"
                             android:fontFamily="@font/fonte_padrao"
+                            android:gravity="start"
                             android:padding="10dp"
                             android:text="@string/idioma_do_app_config" />
 
@@ -147,9 +159,14 @@
                             style="@style/TextColor"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="50dp"
+                            android:layout_toStartOf="@+id/imgBtnMeusDados"
                             android:fontFamily="@font/fonte_padrao"
                             android:padding="10dp"
-                            android:text="@string/meus_dados_config" />
+                            android:text="@string/titulo_editar_conta" />
 
                         <ImageButton
                             android:id="@+id/imgBtnMeusDados"
@@ -168,9 +185,14 @@
 
                         <TextView
                             android:id="@+id/txtMeusEnderecosLayout"
+                            style="@style/TextColor"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            style="@style/TextColor"
+                            android:layout_alignParentStart="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="50dp"
+                            android:layout_toStartOf="@+id/imgBtnMeusEnderecos"
                             android:fontFamily="@font/fonte_padrao"
                             android:padding="10dp"
                             android:text="@string/meus_enderecos_config" />
@@ -192,11 +214,16 @@
 
                         <TextView
                             android:id="@+id/txtMeusPagamentosLayout"
+                            style="@style/TextColor"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="50dp"
+                            android:layout_toStartOf="@+id/imgBtnMeusPagamentos"
                             android:fontFamily="@font/fonte_padrao"
                             android:padding="10dp"
-                            style="@style/TextColor"
                             android:text="@string/meus_pagamentos_config" />
 
 
@@ -245,10 +272,15 @@
 
                         <TextView
                             android:id="@+id/txtCentraldeAjudaLayout"
+                            style="@style/TextColor"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="50dp"
+                            android:layout_toStartOf="@+id/imgBtnCentraldeAjuda"
                             android:fontFamily="@font/fonte_padrao"
-                            style="@style/TextColor"
                             android:padding="10dp"
                             android:text="@string/central_de_ajuda_config" />
 
@@ -269,9 +301,14 @@
 
                         <TextView
                             android:id="@+id/txtNossaPoliticaLayout"
+                            style="@style/TextColor"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            style="@style/TextColor"
+                            android:layout_alignParentStart="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="50dp"
+                            android:layout_toStartOf="@+id/imgBtnNossaPolitica"
                             android:fontFamily="@font/fonte_padrao"
                             android:padding="10dp"
                             android:text="@string/nossa_politica_config" />
@@ -295,10 +332,15 @@
                             android:id="@+id/txtDenunciarUsuarioLayout"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="50dp"
+                            android:layout_toStartOf="@+id/imgBtnDenunciarUsuario"
                             android:fontFamily="@font/fonte_padrao"
-                            android:textColor="@color/TextColor"
                             android:padding="10dp"
-                            android:text="@string/denunciar_config" />
+                            android:text="@string/denunciar_config"
+                            android:textColor="@color/TextColor" />
 
                         <ImageButton
                             android:id="@+id/imgBtnDenunciarUsuario"

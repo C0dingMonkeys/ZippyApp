@@ -15,7 +15,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -37,11 +36,11 @@ import com.google.gson.JsonIOException;
 import com.google.gson.JsonObject;
 import com.koushikdutta.async.future.FutureCallback;
 import com.koushikdutta.ion.Ion;
+import com.squareup.picasso.MemoryPolicy;
+import com.squareup.picasso.NetworkPolicy;
 import com.squareup.picasso.Picasso;
 
 import java.io.File;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -55,9 +54,10 @@ public class activityEditarPerfil extends AppCompatActivity {
     private RelativeLayout editarNome, editarTelefone, editarIdentidade;
     public static final String EXTRA_TRIGGER_PERFIL = "perfil_trigger";
     public static final String SHARED_PREFS = "sharedPrefs";
-    String BASE_URL_IMAGEM = "https://zippyinternacional.com/Android/";
+    String BASE_URL_IMAGEM = "https://zippyinternacional.com/Android/img/";
 
     private String selectedImage;
+    private LoadingDialog loadingDialog;
     private String URL_UPDATE_CLIENTE = "https://zippyinternacional.com/Android/updateCliente.php";
     private ImageButton voltar;
     private CharSequence[] options = {"Camera", "Galeria", "Cancelar"};
@@ -85,8 +85,9 @@ public class activityEditarPerfil extends AppCompatActivity {
         String identidadeOculta = substituirCarcteres(identidadeCliente);
 
         voltar = findViewById(R.id.btnVoltarEditarPerfil);
-        btnUploadFoto = findViewById(R.id.uploadFoto);
         EditarFoto = findViewById(R.id.editar_fotoPerfil);
+
+        loadingDialog = new LoadingDialog(activityEditarPerfil.this);
 
         editarNome = findViewById(R.id.layoutEditarNomeTela);
         editarTelefone = findViewById(R.id.layoutEditarFoneTela);
@@ -113,7 +114,7 @@ public class activityEditarPerfil extends AppCompatActivity {
             }
         });
 
-        Picasso.get().load(BASE_URL_IMAGEM+fotoPerfil).into(EditarFoto);
+        Picasso.get().load(BASE_URL_IMAGEM + fotoPerfil).into(EditarFoto);
         EditarFoto.setOnClickListener(v -> {
             AlertDialog.Builder builder = new AlertDialog.Builder(activityEditarPerfil.this);
             builder.setTitle("Selecione uma imagem");
@@ -133,11 +134,7 @@ public class activityEditarPerfil extends AppCompatActivity {
             });
             builder.show();
         });
-        btnUploadFoto.setOnClickListener(v ->{
-            uploadFiletoServer(idUsuario);
 
-
-        });
 
         editarNome.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -223,9 +220,7 @@ public class activityEditarPerfil extends AppCompatActivity {
     }
 
     private void updatePerfil(String id_usuario, String Nome, String Sobrenome, String Telefone) {
-        Ion.with(this)
-                .load(URL_UPDATE_CLIENTE)
-                .setBodyParameter("idUsuario", id_usuario) // Enviar o email como parâmetro
+        Ion.with(this).load(URL_UPDATE_CLIENTE).setBodyParameter("idUsuario", id_usuario) // Enviar o email como parâmetro
                 .setBodyParameter("nome", Nome) // Enviar o email como parâmetro
                 .setBodyParameter("sobrenome", Sobrenome) // Enviar a senha como parâmetro
                 .setBodyParameter("fone", Telefone) // Enviar a senha como parâmetro
@@ -288,6 +283,9 @@ public class activityEditarPerfil extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
+        String idUsuario = sharedPreferences.getString("id_usuario", "");
+
 
         if (resultCode != RESULT_CANCELED) {
             switch (requestCode) {
@@ -296,6 +294,8 @@ public class activityEditarPerfil extends AppCompatActivity {
                         Bitmap image = (Bitmap) data.getExtras().get("data");
                         selectedImage = FileUtils.getPath(activityEditarPerfil.this, getImageUri(activityEditarPerfil.this, image));
                         EditarFoto.setImageBitmap(image);
+                        uploadFiletoServer(idUsuario);
+                        loadingDialog.iniciarAlertDialog();
                     }
                     break;
                 case 1:
@@ -303,6 +303,9 @@ public class activityEditarPerfil extends AppCompatActivity {
                         Uri image = data.getData();
                         selectedImage = FileUtils.getPath(activityEditarPerfil.this, image);
                         Picasso.get().load(image).into(EditarFoto);
+                        loadingDialog.iniciarAlertDialog();
+                        uploadFiletoServer(idUsuario);
+
                     }
             }
         }
@@ -326,7 +329,7 @@ public class activityEditarPerfil extends AppCompatActivity {
 
         HttpService service = RetrofitBuilder.getClient().create(HttpService.class);
 
-        retrofit2.Call<FileModel> call = service.callUploadApi(filePart,userId);
+        retrofit2.Call<FileModel> call = service.callUploadApi(filePart, userId);
         call.enqueue(new Callback<FileModel>() {
             @Override
             public void onResponse(retrofit2.Call<FileModel> call, retrofit2.Response<FileModel> response) {
@@ -334,6 +337,15 @@ public class activityEditarPerfil extends AppCompatActivity {
 
                 Toast.makeText(activityEditarPerfil.this, fileModel.getMessage(), Toast.LENGTH_SHORT).show();
 
+                SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                String idUsuario = sharedPreferences.getString("id_usuario", "");
+                String fotoPerfillink = '"' + idUsuario + '"' + "fotoPerfil.jpg";
+                editor.putString("fotoPerfilUsuario", fotoPerfillink);
+                editor.apply();
+
+                Picasso.get().load(BASE_URL_IMAGEM + fotoPerfillink).networkPolicy(NetworkPolicy.NO_CACHE).memoryPolicy(MemoryPolicy.NO_CACHE).into(EditarFoto);
+                loadingDialog.fecharAlertDialog();
 
 
 

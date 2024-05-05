@@ -1,27 +1,22 @@
 package com.example.zippy0001;
 
-import static android.app.PendingIntent.getActivity;
 import static com.example.zippy0001.R.layout.activity_home;
 import static com.example.zippy0001.activityEditarPerfil.EXTRA_TRIGGER_PERFIL;
-import static com.example.zippy0001.activitySenhaLogin.SHARED_PREFS;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.EditText;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.content.ContextCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
@@ -30,13 +25,10 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonIOException;
-import com.google.gson.JsonObject;
 import com.koushikdutta.async.future.FutureCallback;
 import com.koushikdutta.ion.Ion;
 import com.squareup.picasso.Picasso;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -45,7 +37,7 @@ public class activityInicio extends AppCompatActivity implements NavigationView.
 
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle toggle;
-    String BASE_URL_IMAGEM = "https://zippyinternacional.com/Android/";
+    String BASE_URL_IMAGEM = "https://zippyinternacional.com/Android/img/";
     String URL_RECUPERAR_DADOS_USUARIO = "https://zippyinternacional.com/Android/selectUsuario.php";
     String URL_RECUPERAR_DADOS_CLIENTE = "https://zippyinternacional.com/Android/selectCliente.php";
     public static final String SHARED_PREFS = "sharedPrefs";
@@ -59,7 +51,6 @@ public class activityInicio extends AppCompatActivity implements NavigationView.
         recuperarDadosTBUSUARIO(emailShared);
         recuperarDadosTBCLIENTE(idUsuarioShared);
         Log.d("idTeste", idUsuarioShared);
-
 
 
     }
@@ -112,6 +103,7 @@ public class activityInicio extends AppCompatActivity implements NavigationView.
         bottomNavigationView.setOnItemSelectedListener(item -> {
             int itemId = item.getItemId();
             if (itemId == R.id.bottom_home) {
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new fragmentHome()).commit();
                 return true;
             } else if (itemId == R.id.bottom_profile) {
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new PerfilFragment()).commit();
@@ -125,6 +117,17 @@ public class activityInicio extends AppCompatActivity implements NavigationView.
             }
             return false;
         });
+
+        navigationView = (NavigationView) findViewById(R.id.nav_view_header);
+        View header = navigationView.getHeaderView(0);
+        Button verPerfil = (Button) header.findViewById(R.id.btnVerPerfil);
+        verPerfil.setOnClickListener(v -> {
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new PerfilFragment()).commit();
+            drawerLayout.closeDrawer(GravityCompat.START);
+
+
+        });
+
 
         getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
             @Override
@@ -195,7 +198,7 @@ public class activityInicio extends AppCompatActivity implements NavigationView.
         return true;
     }
 
-    private void recuperarDadosTBCLIENTE(String idUsuario){
+    private void recuperarDadosTBCLIENTE(String idUsuario) {
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view_header);
         View header = navigationView.getHeaderView(0);
         TextView username = (TextView) header.findViewById(R.id.txtHeaderDrawer);
@@ -220,7 +223,7 @@ public class activityInicio extends AppCompatActivity implements NavigationView.
                                     String Fone = dadosArray.get(4).getAsString();
                                     String Identidade = dadosArray.get(5).getAsString();
 
-                                    Log.d("teste2", "o nome é:" +Nome);
+                                    Log.d("teste2", "o nome é:" + Nome);
 
                                     SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
                                     SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -235,13 +238,14 @@ public class activityInicio extends AppCompatActivity implements NavigationView.
                                 }
                             }
 
-                        }catch (JsonIOException ex) {
+                        } catch (JsonIOException ex) {
                             ex.printStackTrace();
                         }
                     }
                 });
     }
-    private void recuperarDadosTBUSUARIO(String emailShared){
+
+    private void recuperarDadosTBUSUARIO(String emailShared) {
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view_header);
         View header = navigationView.getHeaderView(0);
         CircleImageView Foto = header.findViewById(R.id.FotoPerfilDrawer);
@@ -264,10 +268,10 @@ public class activityInicio extends AppCompatActivity implements NavigationView.
                                     String Id_usuario = dadosArray.get(0).getAsString();
                                     String email = dadosArray.get(1).getAsString();
                                     String status = dadosArray.get(2).getAsString();
-                                    String  dataNasc = dadosArray.get(3).getAsString();
+                                    String dataNasc = dadosArray.get(3).getAsString();
                                     String fotoPerfil = dadosArray.get(4).getAsString();
 
-                                    Log.d("teste3", "o status é:" +status);
+                                    Log.d("teste3", "o status é:" + status);
 
                                     SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
                                     SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -277,13 +281,13 @@ public class activityInicio extends AppCompatActivity implements NavigationView.
                                     editor.putString("dataNascUsuario", dataNasc);
                                     editor.putString("fotoPerfilUsuario", fotoPerfil);
                                     editor.apply();
-                                    Picasso.get().load(BASE_URL_IMAGEM+fotoPerfil).into(Foto);
-                                    Log.d("foto", BASE_URL_IMAGEM+fotoPerfil);
+                                    Picasso.get().load(BASE_URL_IMAGEM + fotoPerfil).into(Foto);
+                                    Log.d("foto", BASE_URL_IMAGEM + fotoPerfil);
 
                                 }
                             }
 
-                        }catch (JsonIOException ex) {
+                        } catch (JsonIOException ex) {
                             ex.printStackTrace();
                         }
                     }

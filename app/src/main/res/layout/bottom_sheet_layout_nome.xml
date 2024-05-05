@@ -2,18 +2,20 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/SeocondaryColor"
+    android:theme="@style/Theme.Material3.DayNight.NoActionBar"
     android:orientation="vertical">
 
-<com.google.android.material.bottomsheet.BottomSheetDragHandleView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"/>
+    <com.google.android.material.bottomsheet.BottomSheetDragHandleView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="@dimen/Subtitulo_Size"
         android:text=""
-        android:id="@+id/lblTituloBottomSheet"
+        android:id="@+id/lblTituloBottomSheetNome"
         android:fontFamily="@font/fonte_padrao"
         android:layout_margin="10dp"/>
 
@@ -21,20 +23,39 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:id="@+id/TextLayoutEdicao"
+        android:id="@+id/TextLayoutEdicaoNome"
         android:layout_margin="10dp">
-    <com.google.android.material.textfield.TextInputEditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/TextEditEdicao"/>
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/TextEditEdicaoNome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="@color/hintColor" />
 
     </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:id="@+id/TextLayoutEdicaoSobrenome"
+        android:layout_margin="10dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/TextEditEdicaoSobrenome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="@color/hintColor" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
 
     <androidx.appcompat.widget.AppCompatButton
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:id="@+id/btnSalvarEdicao"
+        android:id="@+id/btnSalvarEdicaoNome"
         android:text="@string/lbl_salvar"
         android:textSize="@dimen/Normal_Size"
         android:fontFamily="@font/fonte_padrao"

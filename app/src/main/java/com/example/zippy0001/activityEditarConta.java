@@ -8,10 +8,13 @@ import android.text.InputType;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
@@ -22,7 +25,10 @@ import com.google.gson.JsonIOException;
 import com.google.gson.JsonObject;
 import com.koushikdutta.async.future.FutureCallback;
 import com.koushikdutta.ion.Ion;
+import com.vicmikhailau.maskededittext.MaskedEditText;
 
+import java.sql.Date;
+import java.text.SimpleDateFormat;
 import java.util.regex.Pattern;
 
 
@@ -44,6 +50,8 @@ public class activityEditarConta extends AppCompatActivity {
         TextView emailEdit = findViewById(R.id.txtEmailEdit);
         TextView dataNascEdit = findViewById(R.id.txtDataNascEdit);
 
+        ImageButton btnVoltar = findViewById(R.id.btnVoltarEditarConta);
+
         SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
         String idUsuario = sharedPreferences.getString("id_usuario", "");
         Log.d("idTESTECONTA", idUsuario);
@@ -54,6 +62,9 @@ public class activityEditarConta extends AppCompatActivity {
         emailEdit.setText(emailOculto);
         dataNascEdit.setText(dataNasc);
 
+        btnVoltar.setOnClickListener(v -> {
+            finish();
+        });
 
         editarPerfil.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -88,7 +99,16 @@ public class activityEditarConta extends AppCompatActivity {
             }
         });
 
+        getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                finish();
+            }
+        });
+
     }
+
+
 
 
     public static String substituirCaracteres(String str) {
@@ -96,7 +116,6 @@ public class activityEditarConta extends AppCompatActivity {
             return str; // String is too short, return it as is
         }
 
-        String first5Chars = str.substring(0, 5); // Extract the first 5 characters
         String asterisks = "****"; // Create a string of 5 asterisks
         String remainingChars = str.substring(5); // Extract the remaining characters
 
@@ -151,6 +170,8 @@ public class activityEditarConta extends AppCompatActivity {
         senhaLayout.setEndIconMode(TextInputLayout.END_ICON_PASSWORD_TOGGLE);
         txtSenha.setInputType(InputType.TYPE_TEXT_VARIATION_PASSWORD);
 
+        confSenhaLayout.setEndIconMode(TextInputLayout.END_ICON_PASSWORD_TOGGLE);
+        txtConfSenha.setInputType(InputType.TYPE_TEXT_VARIATION_PASSWORD);
 
         txtSenha.setHint(R.string.senha_hint);
         txtConfSenha.setHint(R.string.confirmar_senha);
@@ -175,25 +196,23 @@ public class activityEditarConta extends AppCompatActivity {
     private void bslDataNasc(String idUsuario, String emailCliente, String dataNasc) {
 
         BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(activityEditarConta.this);
-        View view1 = LayoutInflater.from(activityEditarConta.this).inflate(R.layout.bottom_sheet_layout, null);
+        View view1 = LayoutInflater.from(activityEditarConta.this).inflate(R.layout.bottom_sheet_layout_datanasc, null);
         bottomSheetDialog.setContentView(view1);
         bottomSheetDialog.show();
 
-        TextView txtTituloBSL = view1.findViewById(R.id.lblTituloBottomSheet);
-        TextInputLayout dataLayout = view1.findViewById(R.id.TextLayoutEdicao);
-        TextInputEditText txtData = view1.findViewById(R.id.TextEditEdicao);
+        TextView txtTituloBSL = view1.findViewById(R.id.lblTituloBottomSheetData);
+        TextInputLayout dataLayout = view1.findViewById(R.id.TextLayoutEdicaoData);
+        MaskedEditText txtData = view1.findViewById(R.id.TextEditEdicaoData);
 
-        AppCompatButton btnSalvarData = view1.findViewById(R.id.btnSalvarEdicao);
+        AppCompatButton btnSalvarData = view1.findViewById(R.id.btnSalvarEdicaoData);
 
-        txtTituloBSL.setText(R.string.lbl_edite_seu_nome);
+        txtTituloBSL.setText(R.string.lbl_edite_sua_dtaNasc);
 
-        txtData.setText(dataNasc);
-        txtData.setInputType(InputType.TYPE_CLASS_NUMBER);
-        String DataVerify = txtData.getText().toString().trim();
+
+        String DataVerify = txtData.getText().toString().trim().toLowerCase();
         if (DataVerify.isEmpty()) {
             dataLayout.setError(getString(R.string.dataEdit_error));
         }
-
 
         btnSalvarData.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -311,4 +330,6 @@ public class activityEditarConta extends AppCompatActivity {
         String emailPattern = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$";
         return Pattern.matches(emailPattern, email);
     }
+
+
 }
