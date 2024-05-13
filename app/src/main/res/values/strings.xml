@@ -123,6 +123,7 @@
     <string name="lbl_insiraEmail">Entre ou Cadastre-se abaixo:</string>
     <string name="titulo_editar_perfil">Editar Perfil</string>
     <string name="titulo_editar_conta">Minha Conta</string>
+    <string name="titulo_criar_post">Criar Postagem</string>
     <string name="lbl_editarNome">Nome:</string>
     <string name="lbl_editarSobrenome">Sobrenome:</string>
     <string name="lbl_editarEmail">Email:</string>

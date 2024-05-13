@@ -1,4 +1,4 @@
-package com.example.zippy0001.classes;
+package com.example.zippy0001;
 
 import android.annotation.TargetApi;
 import android.content.ContentResolver;

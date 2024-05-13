@@ -108,12 +108,16 @@
     <!--FIM DO EDIT TEXT PREENCHER EMAIL-->
 
     <!--BOTÃO CONTINUAR -->
+    <!--FIM DO BOTÃO CONTINUAR-->
+
+    <!--TEXTVIEW DE TERMOS E CONDIÇÕES-->
+
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnContinuar1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="25dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="28dp"
         android:background="@drawable/bg_btn_perfil"
         android:fontFamily="@font/fonte_padrao"
         android:padding="20dp"
@@ -124,9 +128,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/layoutEmail"
         tools:ignore="TextContrastCheck" />
-    <!--FIM DO BOTÃO CONTINUAR-->
-
-    <!--TEXTVIEW DE TERMOS E CONDIÇÕES-->
 
     <TextView
         android:id="@+id/lblTermos"

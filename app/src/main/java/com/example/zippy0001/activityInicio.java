@@ -171,7 +171,7 @@ public class activityInicio extends AppCompatActivity implements NavigationView.
         } else if (menuItemId == R.id.drawer_config) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new fragmentConfig()).commit();
         } else if (menuItemId == R.id.drawer_post) {
-            startActivity(new Intent(getApplicationContext(), PostActivity.class));
+            startActivity(new Intent(getApplicationContext(), activityCriarPost.class));
             overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             finish();
             return true;

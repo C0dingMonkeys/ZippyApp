@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:endof="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_rv_pedidos"
+    android:padding="15dp">
+
+    <ImageView
+        android:id="@+id/imgPedido_rv"
+        android:layout_width="128dp"
+        android:layout_height="128dp"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:src="@drawable/ic_launcher_background" />
+
+    <LinearLayout
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:layout_toEndOf="@+id/imgPedido_rv"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/txtTituloPedido"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/fonte_padrao"
+            android:text="testeNOme"
+            android:textSize="@dimen/Mini_Size" />
+
+        <TextView
+            android:id="@+id/txtLinkPedido"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/fonte_padrao"
+            android:text="testeLink"
+            android:textSize="@dimen/Mini_Size" />
+
+        <TextView
+            android:id="@+id/txtPrecoPedido"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/fonte_padrao"
+            android:text="testePreco"
+            android:textSize="@dimen/Mini_Size" />
+
+        <TextView
+            android:id="@+id/txtPaisDestino"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/fonte_padrao"
+            android:text="testePaisDestino"
+            android:textSize="@dimen/Mini_Size" />
+
+        <TextView
+            android:id="@+id/txtCidadeDestino"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/fonte_padrao"
+            android:text="testePreco"
+            android:textSize="@dimen/Mini_Size" />
+        <TextView
+            android:id="@+id/txtCaixaTipo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/fonte_padrao"
+            android:text="testePreco"
+            android:textSize="@dimen/Mini_Size" />
+
+        <!-- BOTÃO DE CADASTRAR / INSERIR -->
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnInserir"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/bg_btn_perfil"
+            android:fontFamily="@font/fonte_padrao"
+            android:text="INiciar Chat"
+            android:textColor="@color/TextColor"
+            android:textSize="@dimen/Mini_Size" />
+        <!-- FIM DO BOTÃO CADASTRAR / INSERIR-->
+
+
+
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>

@@ -1,6 +1,10 @@
+import java.util.regex.Pattern.compile
+
 plugins {
     id("com.android.application")
 }
+
+
 
 android {
     namespace = "com.example.zippy0001"
@@ -25,7 +29,7 @@ android {
         }
     }
 
-    buildFeatures{
+    buildFeatures {
         viewBinding = true
     }
 
@@ -33,12 +37,12 @@ android {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+
 }
 
 
 dependencies {
-
-    implementation ("io.github.vicmikhailau:MaskedEditText:5.0.1")
+    implementation("io.github.vicmikhailau:MaskedEditText:5.0.1")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.11.0")
     implementation("de.hdodenhof:circleimageview:3.1.0")
@@ -52,6 +56,7 @@ dependencies {
     implementation("com.android.support:support-annotations:28.0.0")
     implementation("androidx.navigation:navigation-fragment:2.7.7")
     implementation("androidx.navigation:navigation-ui:2.7.7")
+    implementation("androidx.activity:activity:1.8.0")
     testImplementation("junit:junit:4.13.2")
 
     implementation("com.karumi:dexter:6.2.3")

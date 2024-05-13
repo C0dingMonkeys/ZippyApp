@@ -235,8 +235,10 @@
 
             <!--FIM DO EDIT TEXT PREENCHER EMAIL-->
         </RelativeLayout>
-
-
+<Button
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/test"/>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

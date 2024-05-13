@@ -14,6 +14,7 @@ import android.provider.MediaStore;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -26,7 +27,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.core.app.ActivityCompat;
 
-import com.example.zippy0001.classes.FileUtils;
 import com.example.zippy0001.classes.HttpService;
 import com.example.zippy0001.classes.RetrofitBuilder;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
@@ -69,6 +69,7 @@ public class activityEditarPerfil extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_editar_perfil);
 
+
         requirePermission();
 
         SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
@@ -84,6 +85,14 @@ public class activityEditarPerfil extends AppCompatActivity {
         String foneOculto = substituirCarcteres(foneCliente);
         String identidadeOculta = substituirCarcteres(identidadeCliente);
 
+        Button teste = findViewById(R.id.test);
+        teste.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                uploadFiletoServer(idUsuario);
+
+            }
+        });
         voltar = findViewById(R.id.btnVoltarEditarPerfil);
         EditarFoto = findViewById(R.id.editar_fotoPerfil);
 
@@ -304,7 +313,6 @@ public class activityEditarPerfil extends AppCompatActivity {
                         selectedImage = FileUtils.getPath(activityEditarPerfil.this, image);
                         Picasso.get().load(image).into(EditarFoto);
                         loadingDialog.iniciarAlertDialog();
-                        uploadFiletoServer(idUsuario);
 
                     }
             }
@@ -322,20 +330,20 @@ public class activityEditarPerfil extends AppCompatActivity {
     }
 
     public void uploadFiletoServer(String userId) {
+
         File file = new File(Uri.parse(selectedImage).getPath());
 
         RequestBody requestBody = RequestBody.create(MediaType.parse("multipart/form-data"), file);
         MultipartBody.Part filePart = MultipartBody.Part.createFormData("sendimage", file.getName(), requestBody);
-
         HttpService service = RetrofitBuilder.getClient().create(HttpService.class);
 
         retrofit2.Call<FileModel> call = service.callUploadApi(filePart, userId);
-        call.enqueue(new Callback<FileModel>() {
-            @Override
-            public void onResponse(retrofit2.Call<FileModel> call, retrofit2.Response<FileModel> response) {
-                FileModel fileModel = response.body();
+                call.enqueue(new Callback<FileModel>() {
+                    @Override
+                    public void onResponse(retrofit2.Call<FileModel> call, retrofit2.Response<FileModel> response) {
+                        FileModel fileModel = response.body();
 
-                Toast.makeText(activityEditarPerfil.this, fileModel.getMessage(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(activityEditarPerfil.this, fileModel.getMessage(), Toast.LENGTH_SHORT).show();
 
                 SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedPreferences.edit();
