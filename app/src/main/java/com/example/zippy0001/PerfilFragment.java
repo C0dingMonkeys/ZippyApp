@@ -91,8 +91,8 @@ public class PerfilFragment extends Fragment {
         String sobrenomeCliente = sharedPreferences.getString("sobrenomeCliente", "");
         String emailUsuario = sharedPreferences.getString("email", "");
         String idUsuario = sharedPreferences.getString("id_usuario", "");
+        String fotoPerfil = sharedPreferences.getString("fotoPerfilUsuario", "");
         String emailModificado = substituirCarcteres(emailUsuario);
-        String fotoPerfillink = '"' + idUsuario + '"' + "fotoPerfil.jpg";
 
         TextView txtNomeUsuario = view.findViewById(R.id.txtNomeUsuario);
         TextView txtEmailUsuario = view.findViewById(R.id.txtEmailUsuario);
@@ -100,7 +100,7 @@ public class PerfilFragment extends Fragment {
         txtEmailUsuario.setText(emailModificado);
 
         Foto = view.findViewById(R.id.imgFotoPerfil);
-        Picasso.get().load(BASE_URL_IMAGEM+fotoPerfillink).into(Foto);
+        Picasso.get().load(BASE_URL_IMAGEM+fotoPerfil).into(Foto);
 
         AppCompatButton editarPerfil;
         editarPerfil = view.findViewById(R.id.btnEditarPerfil_perfil);

@@ -1,25 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="EditTextColor">#FF000000</color>
-    <color name="TextColor">#FFFFFF</color>
-    <color name="TextColorContrast">#000000</color>
-    <color name="LogoColor">#ffffff</color>
-    <color name="BackgroundColor">#8244C1</color>
-    <color name="PrimaryColor">#8C76DB</color>
-    <color name="SeocondaryColor">#FFFFFF</color>
-    <color name="ThirdColor">#AF91FF</color>
-    <color name="ButtonColor">#4A18B4</color>
+
+    <!--    CORES GERAIS   -->
+
     <color name="bg_edittext">#ffffff</color>
-    <color name="ERRO">#ff0000</color>
-    <color name="textoErro">#9F0000</color>
-    <color name="gray">#8E8A8A</color>
-    <color name="hintColor">#757575</color>
+    <color name="gray">#708090</color>
     <color name="cyan">#ADB9C5</color>
     <color name="white">#FFFFFF</color>
-    <color name="background_app">#F8E9FF</color>
-    <color name="Purple_700">#7D72FF</color>
     <color name="black">#000000</color>
 
+    <!--    FIM CORES GERAIS   -->
+
+    <!--    CORES FUNDO   -->
+
+    <color name="background_app">#f5f5f5</color>
+    <color name="Purple_700">#7D72FF</color>
+    <color name="LogoColor">#ffffff</color>
+    <color name="BackgroundColor">#8244C1</color>
+    <!--    <color name="PrimaryColor">#8C76DB</color>-->
+    <color name="SeocondaryColor">#FFFFFF</color>
+    <!--    <color name="ThirdColor">#AF91FF</color>-->
+    <color name="ButtonColor">#4A18B4</color>
+    <color name="ERRO">#ff0000</color>
+
+    <!--    FIM CORES FUNDO   -->
+
+    <!--    CORES TEXTO   -->
+
+    <color name="EditTextColor">#FF000000</color>
+    <color name="corziha">#FF000000</color>
+    <color name="TextColor">#FFFFFF</color>
+    <color name="TextColorContrast">#37258D</color>
+    <color name="textoErro">#9F0000</color>
+    <color name="hintColor">#757575</color>
+    <color name="textColortest">#37258D</color>
+
+    <!--    FIM CORES TEXTO   -->
+
+    <!-- CORES UCROP ACTIVITY    -->
+    <color name="ucrop_color_toolbar">@color/PrimaryColor</color>
+    <color name="ucrop_color_statusbar">@color/ThirdColor</color>
+    <color name="ucrop_color_widget_active">@color/PrimaryColor</color>
+    <color name="ucrop_color_toolbar_widget">@color/TextColor</color>
+    <!-- FIM CORES UCROP ACTIVITY    -->
+
+    <!--     CORES TESTE   -->
+
+    <!--    <color name="background_app">#F8E9FF</color>-->
+    <color name="PrimaryColor">#5A3EC2</color>
+    <color name="ThirdColor">#5A4A97</color>
+
+
+    <!--     FIM CORES TESTE   -->
 
 
 </resources>

@@ -2,6 +2,7 @@
 <resources>
     <dimen name="TituloMenu_Size">28sp</dimen>
     <dimen name="TitulosMenu">25sp</dimen>
+    <dimen name="Grande_size">22sp</dimen>
     <dimen name="Subtitulo_Size">18sp</dimen>
     <dimen name="Normal_Size">16sp</dimen>
     <dimen name="Small_Size">14sp</dimen>

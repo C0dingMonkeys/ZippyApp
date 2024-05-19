@@ -29,11 +29,11 @@
     <string name="navigation_drawer_open">Abrir Gaveta</string>
     <string name="navigation_drawer_close">Fechar Gaveta</string>
     <string name="title_activity_config">ConfigActivity</string>
-    <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
+    <string name="ucrop_crop">Cortar</string>
+    <string name="ucrop_label_edit_photo">Editar Foto</string>
+    <string name="ucrop_menu_crop">Cortar</string>
+    <string name="ucrop_rotate">Girar</string>
+    <string name="ucrop_scale">Aumentar</string>
 
     <string name="lorem_ipsum">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris
@@ -145,5 +145,34 @@
     <string name="title_activity_editar_conta">activityEditarConta</string>
     <string name="lbl_senhaEdit">********</string>
     <string name="dataEdit_error">Insira uma data válida</string>
+    <string name="subtitulo_criar_post">Insira as informações sobre o que você deseja</string>
+    <string name="lbl_nomePost">Nome do Produto: *</string>
+    <string name="lbl_valorPost">Valor do Produto*</string>
+    <string name="lbl_linkPost">Link de referencia: *</string>
+    <string name="lbl_addImg">Adicione uma foto do produto</string>
+    <string name="lbl_paisOrigemPost">País de Origem: *</string>
+    <string name="lbl_cidadePost">Cidade: *</string>
+    <string name="lbl_estadoPost">Estado: *</string>
+    <string name="lbl_paisDestinoPost">País de Destino: *</string>
+    <string name="lbl_cidadeDestinoPost">Cidade: *</string>
+    <string name="lbl_estadoDestinoPost">Estado: *</string>
+    <string name="lbl_checkCaixa">Deseja o produto com Caixa?</string>
+    <string name="hint_nomePost">Macbook Pro 14\"</string>
+    <string name="hint_linkPost">apple.com/shop/produto</string>
+    <string name="hint_precoPost">$3200</string>
+    <string name="hint_PaisOrigemPost">Estados Unidos</string>
+    <string name="hint_cidadeOrigemPost">Nova York</string>
+    <string name="hint_estadoOrigemPost">NY</string>
+    <string name="hint_PaisDestinoPost">Brasil</string>
+    <string name="hint_cidadeDestinoPost">São Paulo</string>
+    <string name="hint_estadoDestinoPost">SP</string>
+    <string name="text_uploadImg">Insira uma imagem</string>
+    <string name="subtitulo_selecionar_destino">Nos conte onde você está\n e para onde vai..</string>
+    <string name="titulo_selecionar_destino">Solicitações</string>
+    <string name="lbl_erroPosts">Nenhum Pedido Encuntrado!</string>
+    <string name="titulo_Pedidos">Pedidos Disponiveis</string>
+    <string name="cd_voltarPedidos">Botão voltar tela anterior</string>
+    <string name="cd_face_pedidos">Imagem carinha triste</string>
+    <string name="cd_setaAvancar">Seta indicando avançar</string>
 
 </resources>

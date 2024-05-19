@@ -1,4 +1,4 @@
-package com.example.zippy0001;
+package com.example.zippy0001.classes;
 
 public class FileModel {
     public String message;

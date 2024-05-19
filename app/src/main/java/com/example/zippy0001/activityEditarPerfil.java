@@ -3,6 +3,7 @@ package com.example.zippy0001;
 import static com.example.zippy0001.PerfilFragment.EXTRA_BACK_PERFIL;
 
 import android.Manifest;
+import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -27,8 +28,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.core.app.ActivityCompat;
 
+import com.example.zippy0001.classes.FileModel;
+import com.example.zippy0001.classes.FileUtils;
 import com.example.zippy0001.classes.HttpService;
 import com.example.zippy0001.classes.RetrofitBuilder;
+import com.github.drjacky.imagepicker.ImagePicker;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
@@ -56,7 +60,7 @@ public class activityEditarPerfil extends AppCompatActivity {
     public static final String SHARED_PREFS = "sharedPrefs";
     String BASE_URL_IMAGEM = "https://zippyinternacional.com/Android/img/";
 
-    private String selectedImage;
+    private Uri uri;
     private LoadingDialog loadingDialog;
     private String URL_UPDATE_CLIENTE = "https://zippyinternacional.com/Android/updateCliente.php";
     private ImageButton voltar;
@@ -80,19 +84,12 @@ public class activityEditarPerfil extends AppCompatActivity {
         String foneCliente = sharedPreferences.getString("foneCliente", "");
         String identidadeCliente = sharedPreferences.getString("identidadeCliente", "");
         String fotoPerfil = sharedPreferences.getString("fotoPerfilUsuario", "");
+        Log.d("testeFoto", fotoPerfil);
 
 
         String foneOculto = substituirCarcteres(foneCliente);
         String identidadeOculta = substituirCarcteres(identidadeCliente);
 
-        Button teste = findViewById(R.id.test);
-        teste.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                uploadFiletoServer(idUsuario);
-
-            }
-        });
         voltar = findViewById(R.id.btnVoltarEditarPerfil);
         EditarFoto = findViewById(R.id.editar_fotoPerfil);
 
@@ -125,23 +122,11 @@ public class activityEditarPerfil extends AppCompatActivity {
 
         Picasso.get().load(BASE_URL_IMAGEM + fotoPerfil).into(EditarFoto);
         EditarFoto.setOnClickListener(v -> {
-            AlertDialog.Builder builder = new AlertDialog.Builder(activityEditarPerfil.this);
-            builder.setTitle("Selecione uma imagem");
-            builder.setItems(options, new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    if (options[which].equals("Camera")) {
-                        Intent tirarFoto = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                        startActivityForResult(tirarFoto, 0);
-                    } else if (options[which].equals("Galeria")) {
-                        Intent galeria = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                        startActivityForResult(galeria, 1);
-                    } else {
-                        dialog.dismiss();
-                    }
-                }
-            });
-            builder.show();
+            ImagePicker.Companion.with(activityEditarPerfil.this)
+                    .crop()
+                    .cropOval()
+                    .maxResultSize(512, 512)
+                    .start(101);
         });
 
 
@@ -297,32 +282,35 @@ public class activityEditarPerfil extends AppCompatActivity {
 
 
         if (resultCode != RESULT_CANCELED) {
-            switch (requestCode) {
-                case 0:
-                    if (resultCode == RESULT_OK && data != null) {
-                        Bitmap image = (Bitmap) data.getExtras().get("data");
-                        selectedImage = FileUtils.getPath(activityEditarPerfil.this, getImageUri(activityEditarPerfil.this, image));
-                        EditarFoto.setImageBitmap(image);
-                        uploadFiletoServer(idUsuario);
-                        loadingDialog.iniciarAlertDialog();
-                    }
-                    break;
-                case 1:
-                    if (resultCode == RESULT_OK && data != null) {
-                        Uri image = data.getData();
-                        selectedImage = FileUtils.getPath(activityEditarPerfil.this, image);
-                        Picasso.get().load(image).into(EditarFoto);
-                        loadingDialog.iniciarAlertDialog();
+                if (requestCode == 101 && resultCode == Activity.RESULT_OK) {
+                    uri = data.getData();
+                    EditarFoto.setImageURI(uri);
+                    uploadFiletoServer(idUsuario);
+                    loadingDialog.iniciarAlertDialog();
+                } else {
+                    Toast.makeText(getApplicationContext(), "sem img", Toast.LENGTH_SHORT).show();
+                }
 
-                    }
-            }
+//            switch (requestCode) {
+//                case 0:
+//                    if (resultCode == RESULT_OK && data != null) {
+//                        Bitmap image = (Bitmap) data.getExtras().get("data");
+//                        selectedImage = FileUtils.getPath(activityEditarPerfil.this, getImageUri(activityEditarPerfil.this, image));
+//                        EditarFoto.setImageBitmap(image);
+//                        uploadFiletoServer(idUsuario);
+//                        loadingDialog.iniciarAlertDialog();
+//                    }
+//                    break;
+//                case 1:
+//                    if (resultCode == RESULT_OK && data != null) {
+//                        Uri image = data.getData();
+//                        selectedImage = FileUtils.getPath(activityEditarPerfil.this, image);
+//                        Picasso.get().load(image).into(EditarFoto);
+//                        loadingDialog.iniciarAlertDialog();
+//
+//                    }
+//            }
         }
-    }
-
-    public Uri getImageUri(Context context, Bitmap bitmap) {
-        String path = MediaStore.Images.Media.insertImage(context.getContentResolver(), bitmap, "minhaIMagem", "");
-
-        return Uri.parse(path);
     }
 
     public void requirePermission() {
@@ -331,7 +319,7 @@ public class activityEditarPerfil extends AppCompatActivity {
 
     public void uploadFiletoServer(String userId) {
 
-        File file = new File(Uri.parse(selectedImage).getPath());
+        File file = new File(uri.getPath());
 
         RequestBody requestBody = RequestBody.create(MediaType.parse("multipart/form-data"), file);
         MultipartBody.Part filePart = MultipartBody.Part.createFormData("sendimage", file.getName(), requestBody);

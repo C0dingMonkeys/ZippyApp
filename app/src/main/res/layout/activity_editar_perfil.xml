@@ -25,7 +25,8 @@
             android:layout_height="wrap_content"
             android:layout_marginVertical="5dp"
             android:backgroundTint="@android:color/transparent"
-            android:src="@drawable/ic_seta_voltar" />
+            android:src="@drawable/ic_seta_voltar"
+            android:contentDescription="@string/cd_voltarPedidos"/>
 
         <TextView
             style="@style/TextColor"
@@ -57,31 +58,30 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginHorizontal="1dp"
-            android:layout_marginVertical="20dp"
             android:background="@color/ThirdColor"
             android:orientation="vertical"
             android:padding="10dp">
-            
+
             <FrameLayout
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_gravity="center"
                 android:layout_margin="10dp">
 
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/editar_fotoPerfil"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_gravity="bottom|center_horizontal"
-                android:background="@drawable/border_image_view"
-                android:src="@mipmap/ic_launcher" />
-                
                 <de.hdodenhof.circleimageview.CircleImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:id="@+id/editar_fotoPerfil"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:layout_gravity="bottom|center_horizontal"
+                    android:background="@drawable/border_image_view"
+                    android:src="@drawable/ic_user" />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="top|end"
                     android:src="@drawable/ic_editar"
-                    android:padding="5dp"
+                    android:padding="3dp"
                     android:background="@drawable/border_image_view"/>
 
             </FrameLayout>
@@ -131,7 +131,8 @@
                 android:layout_alignParentEnd="true"
                 android:layout_gravity="end"
                 android:backgroundTint="@color/TextColorContrast"
-                android:src="@drawable/ic_seta" />
+                android:src="@drawable/ic_seta"
+                android:contentDescription="@string/cd_setaAvancar"/>
 
 
             <!--FIM DO EDIT TEXT PREENCHER EMAIL-->
@@ -180,7 +181,8 @@
                 android:layout_alignParentEnd="true"
                 android:layout_gravity="end"
                 android:backgroundTint="@color/TextColorContrast"
-                android:src="@drawable/ic_seta" />
+                android:src="@drawable/ic_seta"
+                android:contentDescription="@string/cd_setaAvancar"/>
 
 
             <!--FIM DO EDIT TEXT PREENCHER EMAIL-->
@@ -230,15 +232,13 @@
                 android:layout_alignParentEnd="true"
                 android:layout_gravity="end"
                 android:backgroundTint="@color/TextColorContrast"
-                android:src="@drawable/ic_seta" />
+                android:src="@drawable/ic_seta"
+                android:contentDescription="@string/cd_setaAvancar"/>
 
 
             <!--FIM DO EDIT TEXT PREENCHER EMAIL-->
         </RelativeLayout>
-<Button
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:id="@+id/test"/>
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
