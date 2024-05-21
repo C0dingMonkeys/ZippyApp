@@ -6,32 +6,41 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.ShapeDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
 import androidx.core.app.ActivityCompat;
+import androidx.core.graphics.drawable.DrawableCompat;
 
 import com.example.zippy0001.classes.FileModel;
 import com.example.zippy0001.classes.HttpService;
 import com.example.zippy0001.classes.RetrofitBuilder;
 import com.github.drjacky.imagepicker.ImagePicker;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.gson.JsonObject;
 import com.koushikdutta.async.future.FutureCallback;
 import com.koushikdutta.ion.Ion;
+import com.yalantis.ucrop.UCrop;
 
 import java.io.File;
 
@@ -48,7 +57,9 @@ public class activityCriarPost extends AppCompatActivity {
     private String BASE_URL = "https://zippyinternacional.com/Android/";
     TextInputLayout LayoutNomeProd, LayoutPrecoProd, LayoutLinkReferencia, LayoutPaisOrigem, LayoutCidadeOrigem, LayoutEstadoOrigem, LayoutPaisDestino, LayoutCidadeDestino, LayoutEstadoDestino;
     TextInputEditText TextNomeProd, TextPrecoProd, TextLinkReferencia, TextPaisOrigem, TextCidadeOrigem, TextEstadoOrigem, TextPaisDestino, TextCidadeDestino, TextEstadoDestino;
-    ImageView fotoProduto;
+    LinearLayout fotoProduto;
+    ImageView ic_imgUpload;
+    TextView txtUpload;
     CheckBox CheckCaixaProduto;
     private String ImagemPadrao = "https://zippyinternacional.com/uploads/produtos/produtoDefault.png";
     Uri uri;
@@ -56,11 +67,14 @@ public class activityCriarPost extends AppCompatActivity {
     Button testeFuncao;
     ImageButton btnVoltar;
     public static final String SHARED_PREFS = "sharedPrefs";
+    public static final int REMOVE_IMG = 2;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_criar_post);
+
 
         requirePermission();
 
@@ -83,8 +97,9 @@ public class activityCriarPost extends AppCompatActivity {
         TextPaisDestino = findViewById(R.id.TextEditPaisDestinoPost);
         TextCidadeDestino = findViewById(R.id.TextEditCidadeDestinoPost);
         TextEstadoDestino = findViewById(R.id.TextEditEstadoDestinoPost);
-
-        fotoProduto = findViewById(R.id.fotoProdutoPost);
+        txtUpload = findViewById(R.id.txtImgUpload);
+        ic_imgUpload = findViewById(R.id.ic_imgUpload);
+        fotoProduto = findViewById(R.id.layoutUploadImg);
 
         CheckCaixaProduto = findViewById(R.id.checkboxCaixaPost);
         btnVoltar = findViewById(R.id.btnVoltarPost);
@@ -105,11 +120,16 @@ public class activityCriarPost extends AppCompatActivity {
         fotoProduto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ImagePicker.Companion.with(activityCriarPost.this)
-                        .crop()
-                        .cropSquare()
-                        .maxResultSize(512, 512)
-                        .start(101);
+                if (uri == null) {
+                    ImagePicker.Companion.with(activityCriarPost.this)
+                            .crop()
+                            .crop(4,2)
+                            .maxResultSize(512, 512)
+                            .start(101);
+                }
+                else {
+                    BSLremoveImg();
+                }
             }
         });
         getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
@@ -128,7 +148,11 @@ public class activityCriarPost extends AppCompatActivity {
         if (resultCode != RESULT_CANCELED) {
             if (requestCode == 101 && resultCode == Activity.RESULT_OK) {
                 uri = data.getData();
-                fotoProduto.setImageURI(uri);
+                Drawable imgProduto = Drawable.createFromPath(uri.getPath());
+                txtUpload.setVisibility(View.INVISIBLE);
+                ic_imgUpload.setVisibility(View.INVISIBLE);
+                fotoProduto.setBackground(imgProduto);
+
             } else {
                 Toast.makeText(getApplicationContext(), "sem img", Toast.LENGTH_SHORT).show();
             }
@@ -219,6 +243,25 @@ public class activityCriarPost extends AppCompatActivity {
 
 
     }
+private void BSLremoveImg() {
+    BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(activityCriarPost.this);
+    View view1 = LayoutInflater.from(activityCriarPost.this).inflate(R.layout.bottom_sheet_layout_remove_img, null);
+    bottomSheetDialog.setContentView(view1);
+    bottomSheetDialog.show();
+
+    Button botao = view1.findViewById(R.id.btnRemoverImg);
+
+    botao.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            uri = null;
+            fotoProduto.setBackgroundResource(R.drawable.bg_tracos);
+            txtUpload.setVisibility(View.VISIBLE);
+            ic_imgUpload.setVisibility(View.VISIBLE);
+            bottomSheetDialog.dismiss();
+        }
+    });
+}
 
     private void cadastroDadosPostagem(String idUsuarioShared, String nomeProd, String precoProd, String linkProd, String paisOrigemProd, String cidadeOrigemProd, String estadoOrigemProd, String paisDestinoProd, String cidadeDestinoProd, String estadoDestinoProd, String caixa) {
 

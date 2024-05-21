@@ -52,6 +52,9 @@
             android:exported="false"
             android:theme="@style/Theme.Material3.DayNight.NoActionBar" />
         <activity
+            android:name=".activityCentralAjuda"
+            android:exported="true" />
+        <activity
             android:name=".activityInicio"
             android:exported="true"
             android:theme="@style/Theme.Material3.DayNight.NoActionBar" />

@@ -22,20 +22,20 @@
         <androidx.appcompat.widget.AppCompatImageButton
             android:id="@+id/btnVoltarEditarPerfil"
             android:layout_width="wrap_content"
+            android:padding="15dp"
+            android:layout_marginEnd="30dp"
             android:layout_height="wrap_content"
-            android:layout_marginVertical="5dp"
             android:backgroundTint="@android:color/transparent"
-            android:src="@drawable/ic_seta_voltar"
+            android:src="@drawable/ic_seta_voltar_constrast_big"
             android:contentDescription="@string/cd_voltarPedidos"/>
 
         <TextView
             style="@style/TextColor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
             android:fontFamily="@font/fonte_padrao"
             android:text="@string/titulo_editar_perfil"
-            android:textSize="@dimen/Subtitulo_Size" />
+            android:textSize="@dimen/Medio_size" />
     </LinearLayout>
 
     <LinearLayout

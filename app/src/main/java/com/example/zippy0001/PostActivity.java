@@ -2,8 +2,11 @@ package com.example.zippy0001;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -26,6 +29,8 @@ public class PostActivity extends AppCompatActivity {
 
 
     RecyclerView PostagemRV;
+    CardView cardImg;
+     TextView destinoBarra, origemBarra;
 
     AdaptadorPostagem adaptadorPostagem;
 
@@ -35,8 +40,13 @@ public class PostActivity extends AppCompatActivity {
         setContentView(R.layout.activity_post);
         postagemGetterSetterList = new ArrayList<>();
 
+        origemBarra = findViewById(R.id.txtOrigemBarra);
+        destinoBarra = findViewById(R.id.txtDestinoBarra);
+
+
         PostagemRV = findViewById(R.id.rvPostagem);
         carregarPostagem();
+
 
 
     }
@@ -44,6 +54,10 @@ public class PostActivity extends AppCompatActivity {
 
         String origem = getIntent().getStringExtra(EXTRA_ORIGEM);
         String destino = getIntent().getStringExtra(EXTRA_DESTINO);
+
+        origemBarra.setText(origem);
+        destinoBarra.setText(destino);
+
         String Caminho = "RecuperarPostagens.php";
         String CaminhoImagens = HOST+"uploads/produtos/";
         Log.d("destinos", origem + destino);
@@ -76,12 +90,14 @@ public class PostActivity extends AppCompatActivity {
                                     String CidadeDestino = avaliacoesObject.get("cidadeDestino").getAsString();
                                     String CaixaProduto = avaliacoesObject.get("caixaProduto").getAsString();
                                     String ImgProduto = avaliacoesObject.get("imgProduto").getAsString();
-                                    String ImgCompleta = HOST+ImgProduto;
+                                    String ImgCompleta = HOST+"uploads/produtos/"+ImgProduto;
 
                                     Log.d("testeRV", NomeProduto +","+ LinkProduto +","+ PrecoProduto +","+ PaisDestino +","+ CidadeDestino +","+ CaixaProduto +","+ ImgCompleta);
-                                    PostagemGetterSetter postagemGetterSetter = new PostagemGetterSetter(NomeProduto, LinkProduto, PrecoProduto, PaisDestino, CidadeDestino, CaixaProduto, ImgCompleta);
+                                    PostagemGetterSetter postagemGetterSetter = new PostagemGetterSetter(NomeProduto, PrecoProduto, PaisDestino, CidadeDestino, CaixaProduto, ImgCompleta);
                                     postagemGetterSetterList.add(postagemGetterSetter);
-                                    PostagemRV.setLayoutManager(new LinearLayoutManager(PostActivity.this, LinearLayoutManager.VERTICAL, false));
+                                    GridLayoutManager gridLayoutManager = new GridLayoutManager(PostActivity.this, 2, GridLayoutManager.VERTICAL,false);
+                                    LinearLayoutManager linearLayoutManager = new LinearLayoutManager(PostActivity.this, RecyclerView.VERTICAL, false);
+                                    PostagemRV.setLayoutManager(gridLayoutManager);
                                     adaptadorPostagem = new AdaptadorPostagem(PostActivity.this, postagemGetterSetterList);
                                     PostagemRV.setAdapter(adaptadorPostagem);
                                     adaptadorPostagem.notifyDataSetChanged();

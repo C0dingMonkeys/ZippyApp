@@ -36,7 +36,6 @@ public class PerfilActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_perfil);
 
-        Avaliacao1 = findViewById(R.id.rvAvaliacao1);
         editarPerfil = findViewById(R.id.btnEditarPerfil);
 
         editarPerfil.setOnClickListener(new View.OnClickListener() {

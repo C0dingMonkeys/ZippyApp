@@ -174,5 +174,6 @@
     <string name="cd_voltarPedidos">Botão voltar tela anterior</string>
     <string name="cd_face_pedidos">Imagem carinha triste</string>
     <string name="cd_setaAvancar">Seta indicando avançar</string>
+    <string name="btn_remove_img">Remover Imagem</string>
 
 </resources>

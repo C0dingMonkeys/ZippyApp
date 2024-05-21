@@ -2,7 +2,6 @@ package com.example.zippy0001.classes;
 
 public class PostagemGetterSetter {
     private String NomeProduto;
-    private String LinkProduto;
     private String PrecoProduto;
     private String PaisDestino;
     private String CidadeDestino;
@@ -11,10 +10,10 @@ public class PostagemGetterSetter {
 
 
 
-    public PostagemGetterSetter(String NomeProduto, String LinkProduto, String PrecoProduto, String PaisDestino, String CidadeDestino, String CaixaProduto, String ImgProduto) {
+    public PostagemGetterSetter(String NomeProduto, String PrecoProduto, String PaisDestino, String CidadeDestino, String CaixaProduto, String ImgProduto) {
 
         this.NomeProduto = NomeProduto;
-        this.LinkProduto = LinkProduto;
+
         this.PrecoProduto = PrecoProduto;
         this.PaisDestino = PaisDestino;
         this.CidadeDestino = CidadeDestino;
@@ -30,14 +29,6 @@ public class PostagemGetterSetter {
 
     public void setNomeProduto(String nomeProduto) {
         NomeProduto = nomeProduto;
-    }
-
-    public String getLinkProduto() {
-        return LinkProduto;
-    }
-
-    public void setLinkProduto(String linkProduto) {
-        LinkProduto = linkProduto;
     }
 
     public String getPrecoProduto() {

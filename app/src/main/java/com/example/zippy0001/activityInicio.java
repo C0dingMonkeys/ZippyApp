@@ -166,8 +166,10 @@ public class activityInicio extends AppCompatActivity implements NavigationView.
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         int menuItemId = menuItem.getItemId();
-        if (menuItemId == R.id.drawer_home) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new fragmentChat()).commit();
+        if (menuItemId == R.id.drawer_soliticao) {
+            startActivity(new Intent(getApplicationContext(), activitySelecionarDestino.class));
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+            finish();
         } else if (menuItemId == R.id.drawer_config) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new fragmentConfig()).commit();
         } else if (menuItemId == R.id.drawer_post) {

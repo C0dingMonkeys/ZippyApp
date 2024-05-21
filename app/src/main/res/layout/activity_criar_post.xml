@@ -42,19 +42,64 @@
                 android:textSize="@dimen/Subtitulo_Size" />
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/txtTituloPost"
-            android:layout_width="0dp"
+        <LinearLayout
+            android:id="@+id/bglayoutUploadImg"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="25dp"
-            android:layout_marginTop="20dp"
-            android:fontFamily="@font/fonte_padrao"
-            android:text="@string/subtitulo_criar_post"
-            android:textColor="@color/textColortest"
-            android:textSize="@dimen/Subtitulo_Size"
+            android:layout_marginVertical="20dp"
+            android:background="#d9d9d9"
+            android:gravity="center"
+            android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/barraSuperiorLayoutPost" />
+            app:layout_constraintTop_toBottomOf="@id/barraSuperiorLayoutPost">
+
+            <LinearLayout
+                android:id="@+id/layoutUploadImg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:paddingHorizontal="10dp"
+                android:background="@drawable/bg_tracos"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/ic_imgUpload"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="20dp"
+                    android:src="@drawable/ic_camera" />
+
+                <TextView
+                    android:id="@+id/txtImgUpload"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:layout_marginBottom="30dp"
+                    android:fontFamily="@font/fonte_padrao"
+                    android:text="Inclua uma foto do seu pedido"
+                    android:textColor="@color/TextColorContrast"
+                    android:textSize="@dimen/Normal_Size" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <!--        <TextView-->
+        <!--            android:id="@+id/txtTituloPost"-->
+        <!--            android:layout_width="0dp"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginHorizontal="25dp"-->
+        <!--            android:layout_marginTop="20dp"-->
+        <!--            android:fontFamily="@font/fonte_padrao"-->
+        <!--            android:text="@string/subtitulo_criar_post"-->
+        <!--            android:textColor="@color/textColortest"-->
+        <!--            android:textSize="@dimen/Subtitulo_Size"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintStart_toStartOf="parent"-->
+        <!--            app:layout_constraintTop_toBottomOf="@id/barraSuperiorLayoutPost" />-->
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -63,7 +108,7 @@
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtTituloPost">
+            app:layout_constraintTop_toBottomOf="@+id/bglayoutUploadImg">
 
             <LinearLayout
                 android:id="@+id/linearNomePost"
@@ -77,7 +122,7 @@
                     android:layout_marginStart="25dp"
                     android:fontFamily="@font/fonte_padrao"
                     android:text="@string/lbl_nomePost"
-                    android:textColor="@color/textColortest" />
+                    android:textColor="@color/TextColorContrast" />
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/LayoutNomePost"
@@ -135,7 +180,7 @@
                     android:layout_marginStart="25dp"
                     android:fontFamily="@font/fonte_padrao"
                     android:text="@string/lbl_valorPost"
-                    android:textColor="@color/textColortest" />
+                    android:textColor="@color/TextColorContrast" />
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/LayoutPrecoPost"
@@ -193,7 +238,7 @@
                     android:layout_marginStart="25dp"
                     android:fontFamily="@font/fonte_padrao"
                     android:text="@string/lbl_linkPost"
-                    android:textColor="@color/textColortest" />
+                    android:textColor="@color/TextColorContrast" />
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/LayoutLinkPost"
@@ -238,34 +283,6 @@
 
             </LinearLayout>
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp">
-
-                <TextView
-                    android:id="@+id/textView9"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="25dp"
-                    android:fontFamily="@font/fonte_padrao"
-                    android:text="@string/lbl_addImg"
-                    android:textColor="@color/textColortest"
-                    android:textSize="@dimen/Small_Size" />
-
-                <ImageView
-                    android:id="@+id/fotoProdutoPost"
-                    android:layout_width="128dp"
-                    android:layout_height="128dp"
-                    android:layout_below="@+id/textView9"
-                    android:layout_gravity="center"
-                    android:layout_marginHorizontal="20dp"
-                    android:layout_marginTop="20dp"
-                    android:src="@drawable/img_upload"
-                    android:contentDescription="@string/text_uploadImg"/>
-
-            </RelativeLayout>
-
             <LinearLayout
                 android:id="@+id/layoutPaisOrigemPost"
                 android:layout_width="match_parent"
@@ -279,7 +296,7 @@
                     android:layout_marginStart="25dp"
                     android:fontFamily="@font/fonte_padrao"
                     android:text="@string/lbl_paisOrigemPost"
-                    android:textColor="@color/textColortest" />
+                    android:textColor="@color/TextColorContrast" />
 
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -344,7 +361,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/fonte_padrao"
                         android:text="@string/lbl_cidadePost"
-                        android:textColor="@color/textColortest" />
+                        android:textColor="@color/TextColorContrast" />
 
 
                     <com.google.android.material.textfield.TextInputLayout
@@ -401,7 +418,7 @@
                         android:layout_marginStart="10dp"
                         android:fontFamily="@font/fonte_padrao"
                         android:text="@string/lbl_estadoPost"
-                        android:textColor="@color/textColortest" />
+                        android:textColor="@color/TextColorContrast" />
 
 
                     <com.google.android.material.textfield.TextInputLayout
@@ -435,8 +452,8 @@
                             android:fontFamily="@font/fonte_padrao"
                             android:hint="@string/hint_estadoOrigemPost"
                             android:inputType="text"
-                            android:singleLine="true"
                             android:maxLength="2"
+                            android:singleLine="true"
                             android:textAllCaps="true"
                             android:textColor="@color/black"
                             android:textColorHint="@color/hintColor" />
@@ -462,7 +479,7 @@
                     android:layout_marginStart="25dp"
                     android:fontFamily="@font/fonte_padrao"
                     android:text="@string/lbl_paisDestinoPost"
-                    android:textColor="@color/textColortest" />
+                    android:textColor="@color/TextColorContrast" />
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/LayoutPaisDestinoPost"
@@ -510,8 +527,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:baselineAligned="false"
                 android:layout_marginHorizontal="25dp"
+                android:baselineAligned="false"
                 android:orientation="horizontal"
                 android:weightSum="5">
 
@@ -527,7 +544,7 @@
                         android:layout_marginStart="10dp"
                         android:fontFamily="@font/fonte_padrao"
                         android:text="@string/lbl_cidadeDestinoPost"
-                        android:textColor="@color/textColortest" />
+                        android:textColor="@color/TextColorContrast" />
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/LayoutCidadeDestinoPost"
@@ -583,7 +600,7 @@
                         android:layout_marginStart="10dp"
                         android:fontFamily="@font/fonte_padrao"
                         android:text="@string/lbl_estadoDestinoPost"
-                        android:textColor="@color/textColortest" />
+                        android:textColor="@color/TextColorContrast" />
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/LayoutEstadoDestinoPost"
@@ -617,8 +634,8 @@
                             android:hint="@string/hint_estadoDestinoPost"
                             android:inputType="text"
                             android:maxLength="2"
-                            android:textAllCaps="true"
                             android:singleLine="true"
+                            android:textAllCaps="true"
                             android:textColor="@color/black"
                             android:textColorHint="@color/hintColor" />
 
@@ -631,15 +648,15 @@
             </LinearLayout>
 
             <androidx.appcompat.widget.AppCompatCheckBox
-                android:theme="@style/Theme.AppCompat.DayNight"
                 android:id="@+id/checkboxCaixaPost"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="25dp"
                 android:button="@drawable/checkbox_selector"
                 android:text="@string/lbl_checkCaixa"
-                android:textColor="@color/textColortest"
-                android:textSize="@dimen/Subtitulo_Size" />
+                android:textColor="@color/TextColorContrast"
+                android:textSize="@dimen/Subtitulo_Size"
+                android:theme="@style/Theme.AppCompat.DayNight" />
 
 
             <androidx.appcompat.widget.AppCompatButton

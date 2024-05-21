@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background_app"
+    android:background="@color/PrimaryColor"
     tools:context=".PostActivity">
 
     <RelativeLayout
@@ -15,9 +15,8 @@
             android:id="@+id/layoutPostagemTitulo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:background="@color/PrimaryColor"
             android:orientation="horizontal"
-            android:paddingVertical="15dp"
             android:layout_alignParentEnd="true"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true">
@@ -27,7 +26,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginStart="10dp"
+                android:padding="15dp"
                 android:layout_marginEnd="20dp"
                 android:background="@android:color/transparent"
                 android:src="@drawable/ic_seta_voltar_constrast_big" />
@@ -36,29 +35,70 @@
                 android:id="@+id/tituloDestinoPostagem"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/TextColor"
                 android:layout_gravity="center"
                 android:fontFamily="@font/fonte_padrao"
                 android:text="Pedidos Disponiveis"
-                android:textSize="@dimen/Subtitulo_Size" />
+                android:textSize="@dimen/Medio_size" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutDestinos"
+            android:layout_below="@id/layoutPostagemTitulo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:background="@color/background_app">
+
+            <TextView
+                android:id="@+id/txtOrigemBarra"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="eua"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:fontFamily="@font/fonte_padrao"
+                android:textSize="@dimen/Normal_Size"/>
+
+            <ImageView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginHorizontal="30dp"
+                android:rotation="45"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_plane"/>
+
+            <TextView
+                android:id="@+id/txtDestinoBarra"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="eua"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:fontFamily="@font/fonte_padrao"
+                android:textSize="@dimen/Normal_Size"/>
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="40dp"
-            android:background="@color/ThirdColor"
             android:orientation="vertical"
-            android:paddingHorizontal="20dp"
-            android:layout_marginHorizontal="15dp"
+            android:backgroundTint="#d9d9d9"
+            android:paddingHorizontal="10dp"
+            android:background="@drawable/bg_cantos_redondos_cima"
             android:paddingVertical="10dp"
-            android:layout_below="@+id/layoutPostagemTitulo"
+            android:layout_below="@+id/layoutDestinos"
 >
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvPostagem"
+                android:nestedScrollingEnabled="false"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:scrollbars="vertical" />
+                android:scrollbars="vertical"
+                app:spanCount="2"/>
 
 
         </LinearLayout>
