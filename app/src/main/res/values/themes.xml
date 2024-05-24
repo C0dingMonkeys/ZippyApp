@@ -23,9 +23,10 @@
     <style name="ButtonBackground"><item name="android:background">@color/ButtonColor</item></style>
     <style name="TextColor"><item name="android:textColor">@color/TextColor</item></style>
     <style name="TextColorContrast"><item name="android:textColor">@color/TextColorContrast</item></style>
-    <style name="ColorPrimary"><item name="android:background">@color/PrimaryColor</item></style>
+    <style name="ColorPrimary"><item name="android:background">@drawable/efeito_click_btn</item></style>
     <style name="ColorSecondary"><item name="android:background">@color/SeocondaryColor</item></style>
     <style name="ColorThird"><item name="android:background">@color/ThirdColor</item></style>
+    <style name="FillColor"><item name="android:fillColor">@color/white</item></style>
 
 
 

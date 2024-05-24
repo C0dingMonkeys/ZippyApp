@@ -41,7 +41,6 @@ public class AdaptadorPostagem extends RecyclerView.Adapter<AdaptadorPostagem.Ho
         holder.NomeProduto.setText(postagemGetterSetterList.get(position).getNomeProduto());
         holder.PrecoProduto.setText(postagemGetterSetterList.get(position).getPrecoProduto());
         holder.PaisDestino.setText(postagemGetterSetterList.get(position).getPaisDestino());
-        holder.CidadeDestino.setText(postagemGetterSetterList.get(position).getCidadeDestino());
         holder.CaixaProduto.setText(postagemGetterSetterList.get(position).getCaixaProduto());
         Picasso.get().load(postagemGetterSetterList.get(position).getImgProduto()).into(holder.ImgProduto);
 
@@ -51,7 +50,7 @@ public class AdaptadorPostagem extends RecyclerView.Adapter<AdaptadorPostagem.Ho
     public int getItemCount() { return postagemGetterSetterList.size(); }
 
     class HolderPostagem extends RecyclerView.ViewHolder {
-        TextView NomeProduto, PrecoProduto, PaisDestino, CidadeDestino, CaixaProduto;
+        TextView NomeProduto, PrecoProduto, PaisDestino, CaixaProduto;
         ImageView ImgProduto;
         CardView cardImg;
 
@@ -61,7 +60,6 @@ public class AdaptadorPostagem extends RecyclerView.Adapter<AdaptadorPostagem.Ho
             NomeProduto = itemView.findViewById(R.id.txtTituloPedido);
             PrecoProduto = itemView.findViewById(R.id.txtPrecoPedido);
             PaisDestino = itemView.findViewById(R.id.txtPaisDestino);
-            CidadeDestino = itemView.findViewById(R.id.txtCidadeDestino);
             CaixaProduto = itemView.findViewById(R.id.txtCaixaTipo);
             ImgProduto = itemView.findViewById(R.id.imgPedido_rv);
 

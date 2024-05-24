@@ -72,16 +72,14 @@ public class activityIdentidade extends AppCompatActivity {
 
         if (!isNetworkAvailable(activityIdentidade.this)) {
             // Mostrar um Toast de aviso de que não há internet
-            Toast.makeText(activityIdentidade.this, "Sem conexão com a internet!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(activityIdentidade.this, R.string.erro_sem_internet, Toast.LENGTH_SHORT).show();
             return;
         }
 
         if (identidade.isEmpty()) {
             // Mostrar uma mensagem de erro
-            identidadeLayout.setError("Por favor, insira sua identidade");
+            identidadeLayout.setError(getString(R.string.erro_insira_identidade));
         } else {
-            Toast.makeText(getApplicationContext(), " clique",
-                    Toast.LENGTH_LONG).show();
             InserirDados(nome, sobrenome, email, tel, identidade, senha, dtaNasc);
 
         }
@@ -105,7 +103,7 @@ public class activityIdentidade extends AppCompatActivity {
                     public void onCompleted(Exception e, JsonObject result) {
                         if (e != null) {
                             // Ocorreu um erro de conexão ou outra exceção
-                            Toast.makeText(activityIdentidade.this, "Erro ao verificar senha. Verifique sua conexão com a internet.", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(activityIdentidade.this, R.string.erro_conexao, Toast.LENGTH_SHORT).show();
                         } else {
                             // Verifique se o resultado é válido
                             if (result != null && result.has("status")) {
@@ -114,10 +112,10 @@ public class activityIdentidade extends AppCompatActivity {
                                 if ("ok".equals(status)) {
 
                                     AlertDialog.Builder fazerLogin = new AlertDialog.Builder(activityIdentidade.this);
-                                    fazerLogin.setTitle("Sucesso!");
-                                    fazerLogin.setMessage("Cadastro realizado com Sucesso!\nFaça Login para continuar!");
+                                    fazerLogin.setTitle(R.string.corpo_alert_dialog_login);
+                                    fazerLogin.setMessage(R.string.corpo_alert_dialog_login);
                                     fazerLogin.setCancelable(false);
-                                    fazerLogin.setPositiveButton("Fazer Login", new DialogInterface.OnClickListener() {
+                                    fazerLogin.setPositiveButton(R.string.btn_fazer_login, new DialogInterface.OnClickListener() {
                                         @Override
                                         public void onClick(DialogInterface dialog, int which) {
                                             Intent intent = new Intent(activityIdentidade.this, activityEmail.class);
@@ -134,11 +132,11 @@ public class activityIdentidade extends AppCompatActivity {
 
                                 } else {
                                     // Resposta inválida do servidor
-                                    Toast.makeText(activityIdentidade.this, "Erro desconhecido ao verificar e-mail.", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(activityIdentidade.this, R.string.erro_desconhecido, Toast.LENGTH_SHORT).show();
                                 }
                             } else {
                                 // Resposta inválida do servidor
-                                Toast.makeText(activityIdentidade.this, "Erro desconhecido ao verificar e-mail.", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(activityIdentidade.this, R.string.erro_desconhecido, Toast.LENGTH_SHORT).show();
                             }
                         }
                     }

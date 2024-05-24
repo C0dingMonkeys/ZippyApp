@@ -58,7 +58,6 @@ public class activityCriarNome extends AppCompatActivity {
     }
     public void validarNomes() {
 
-
         String NomeCompleto = nomeCompleto.getText().toString().trim(); //Recebe o Nome do EditText
         String Sobrenome = sobrenome.getText().toString().trim(); // Recebe o Sobrenome do EditText
         String DataNascimento = dataNascimento.getText().toString().trim(); //Recebe a data de Nascimento do EditText
@@ -66,22 +65,22 @@ public class activityCriarNome extends AppCompatActivity {
 
         if (NomeCompleto.isEmpty()) {
             // Mostrar uma mensagem de erro
-            nomeLayout.setError("Por favor, insira o seu nome completo");
+            nomeLayout.setError(getString(R.string.erro_nome));
 
         }
         if (Sobrenome.isEmpty()) {
             // Mostrar uma mensagem de erro de email inválido
-            sobrenomeLayout.setError("Por favor, insira seu Sobrenome");
+            sobrenomeLayout.setError(getString(R.string.erro_sobrenome));
 
         }
         if (Fone.isEmpty()) {
             // Mostrar uma mensagem de erro de email inválido
-            telLayout.setError("Por favor, insira seu telefone");
+            telLayout.setError(getString(R.string.erro_telefone));
 
         }
         if (DataNascimento.isEmpty()) {
             // Mostrar uma mensagem de erro de email inválido
-            dataLayout.setError("Por favor, insira sua data de nascimento");
+            dataLayout.setError(getString(R.string.erro_dtaNasc));
 
         } else {
             // Verificar se o email existe no banco de dados

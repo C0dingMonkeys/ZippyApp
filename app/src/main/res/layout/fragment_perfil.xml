@@ -31,7 +31,7 @@
                     android:layout_centerVertical="true"
                     android:layout_toStartOf="@+id/imgFotoPerfil"
                     android:fontFamily="@font/fonte_padrao"
-                    android:text="@string/ola_luiz_teste"
+                    android:text="@string/ola_teste"
                     android:textSize="@dimen/TitulosMenu" />
 
                 <de.hdodenhof.circleimageview.CircleImageView
@@ -40,7 +40,8 @@
                     android:layout_height="64dp"
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
-                    android:src="@drawable/justin" />
+                    android:background="@drawable/bg_border_image_view"
+                    android:src="@drawable/ic_user" />
 
                 <TextView
                     android:id="@+id/txtEmailUsuario"

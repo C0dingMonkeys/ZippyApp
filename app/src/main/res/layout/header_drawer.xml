@@ -16,8 +16,9 @@
             android:id="@+id/FotoPerfilDrawer"
             android:layout_width="64dp"
             android:layout_height="64dp"
+            android:background="@drawable/bg_border_image_view"
             android:layout_gravity="center_vertical"
-            android:src="@drawable/justin"/>
+            android:src="@drawable/ic_user"/>
 
         <TextView
             android:id="@+id/txtHeaderDrawer"
@@ -26,7 +27,7 @@
             android:fontFamily="@font/fonte_padrao"
             android:gravity="bottom"
             android:padding="20dp"
-            android:text="Luiz"
+            android:text="Usuário"
             android:layout_gravity="center_vertical"
             android:textColor="@color/TextColor"
             android:textSize="24sp" />

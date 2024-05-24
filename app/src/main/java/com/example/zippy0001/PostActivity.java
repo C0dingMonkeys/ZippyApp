@@ -1,9 +1,12 @@
 package com.example.zippy0001;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -29,8 +32,8 @@ public class PostActivity extends AppCompatActivity {
 
 
     RecyclerView PostagemRV;
-    CardView cardImg;
-     TextView destinoBarra, origemBarra;
+    ImageButton btnVoltar;
+    TextView destinoBarra, origemBarra;
 
     AdaptadorPostagem adaptadorPostagem;
 
@@ -43,13 +46,19 @@ public class PostActivity extends AppCompatActivity {
         origemBarra = findViewById(R.id.txtOrigemBarra);
         destinoBarra = findViewById(R.id.txtDestinoBarra);
 
+        btnVoltar = findViewById(R.id.btnVoltarPostagem);
 
         PostagemRV = findViewById(R.id.rvPostagem);
         carregarPostagem();
 
-
-
+        btnVoltar.setOnClickListener(v -> {
+            startActivity(new Intent(getApplicationContext(), activitySelecionarDestino.class));
+            finish();
+        });
     }
+
+
+
     private void carregarPostagem() {
 
         String origem = getIntent().getStringExtra(EXTRA_ORIGEM);
@@ -59,12 +68,12 @@ public class PostActivity extends AppCompatActivity {
         destinoBarra.setText(destino);
 
         String Caminho = "RecuperarPostagens.php";
-        String CaminhoImagens = HOST+"uploads/produtos/";
+        String CaminhoImagens = HOST + "uploads/produtos/";
         Log.d("destinos", origem + destino);
 
         Ion.with(this)
                 .load(HOST + Caminho)
-                .setBodyParameter("paisOrigem",origem)
+                .setBodyParameter("paisOrigem", origem)
                 .setBodyParameter("paisDestino", destino)
                 .asJsonArray()
                 .setCallback(new FutureCallback<JsonArray>() {
@@ -90,14 +99,14 @@ public class PostActivity extends AppCompatActivity {
                                     String CidadeDestino = avaliacoesObject.get("cidadeDestino").getAsString();
                                     String CaixaProduto = avaliacoesObject.get("caixaProduto").getAsString();
                                     String ImgProduto = avaliacoesObject.get("imgProduto").getAsString();
-                                    String ImgCompleta = HOST+"uploads/produtos/"+ImgProduto;
+                                    String ImgCompleta = HOST + "uploads/produtos/" + ImgProduto;
 
-                                    Log.d("testeRV", NomeProduto +","+ LinkProduto +","+ PrecoProduto +","+ PaisDestino +","+ CidadeDestino +","+ CaixaProduto +","+ ImgCompleta);
+                                    Log.d("testeRV", NomeProduto + "," + LinkProduto + "," + PrecoProduto + "," + PaisDestino + "," + CidadeDestino + "," + CaixaProduto + "," + ImgCompleta);
                                     PostagemGetterSetter postagemGetterSetter = new PostagemGetterSetter(NomeProduto, PrecoProduto, PaisDestino, CidadeDestino, CaixaProduto, ImgCompleta);
                                     postagemGetterSetterList.add(postagemGetterSetter);
-                                    GridLayoutManager gridLayoutManager = new GridLayoutManager(PostActivity.this, 2, GridLayoutManager.VERTICAL,false);
+                                    GridLayoutManager gridLayoutManager = new GridLayoutManager(PostActivity.this, 2, GridLayoutManager.VERTICAL, false);
                                     LinearLayoutManager linearLayoutManager = new LinearLayoutManager(PostActivity.this, RecyclerView.VERTICAL, false);
-                                    PostagemRV.setLayoutManager(gridLayoutManager);
+                                    PostagemRV.setLayoutManager(linearLayoutManager);
                                     adaptadorPostagem = new AdaptadorPostagem(PostActivity.this, postagemGetterSetterList);
                                     PostagemRV.setAdapter(adaptadorPostagem);
                                     adaptadorPostagem.notifyDataSetChanged();
@@ -114,5 +123,13 @@ public class PostActivity extends AppCompatActivity {
 
                     }
                 });
+        getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                startActivity(new Intent(getApplicationContext(), activitySelecionarDestino.class));
+                finish();
+            }
+        });
+
     }
 }

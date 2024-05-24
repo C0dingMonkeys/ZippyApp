@@ -1,5 +1,6 @@
 package com.example.zippy0001;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -12,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.example.zippy0001.classes.CarouselAdapter;
 
@@ -72,6 +74,7 @@ public class fragmentHome extends Fragment {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_home, container, false);
 
+
     }
 
     @Override
@@ -90,5 +93,18 @@ public class fragmentHome extends Fragment {
         recyclerView.setAdapter(adapter);
         PagerSnapHelper pagerSnapHelper = new PagerSnapHelper();
         pagerSnapHelper.attachToRecyclerView(recyclerView);
+
+        Button btnCard1, btnCard2;
+        btnCard1 = view.findViewById(R.id.btnCard1);
+        btnCard2 = view.findViewById(R.id.btnCard2);
+
+        btnCard1.setOnClickListener(v -> {
+            startActivity(new Intent(getContext(), activityCentralAjuda.class));
+        });
+
+        btnCard2.setOnClickListener(v -> {
+            startActivity(new Intent(getContext(), activityCriarPost.class));
+        });
+
     }
 }

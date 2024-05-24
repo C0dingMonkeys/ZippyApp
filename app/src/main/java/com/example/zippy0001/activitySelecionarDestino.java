@@ -43,10 +43,10 @@ public class activitySelecionarDestino extends AppCompatActivity {
             String PaisDestino = txtPaisDestino.getText().toString().trim();
 
             if (PaisOrigem.isEmpty()) {
-                lytPaisOrigem.setError("Insira um País");
+                lytPaisOrigem.setError(getString(R.string.erro_pais_vazio));
             }
             if (PaisDestino.isEmpty()) {
-                lytPaisDestino.setError("Insira um País");
+                lytPaisDestino.setError(getString(R.string.erro_pais_vazio));
             } else {
                 lytPaisOrigem.setError(null);
                 lytPaisDestino.setError(null);
@@ -56,7 +56,10 @@ public class activitySelecionarDestino extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
+        btnVoltar.setOnClickListener(v -> {
+            Intent intent = new Intent(activitySelecionarDestino.this, activityInicio.class);
+            startActivity(intent);
+        });
 
         getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
             @Override

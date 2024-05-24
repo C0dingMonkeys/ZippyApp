@@ -233,20 +233,20 @@ public class activityEditarConta extends AppCompatActivity {
         // Validar a senha
         if (Senha.isEmpty()) { //Se a senha estiver vazia:
             // Mostrar uma mensagem de erro
-            senhaLayout.setError("Por favor, insira a sua senha");
+            senhaLayout.setError(getString(R.string.erro_inserir_senha));
             return false;
         }
         if (Confsenha.isEmpty()) {
-            confSenhaLayout.setError("Por favor, insira a sua senha");
+            confSenhaLayout.setError(getString(R.string.erro_inserir_senha));
             return false;
         }
         if (!Senha.equals(Confsenha)) { //Se a senhas não forem iguais:
             // Mostrar uma mensagem de erro
-            confSenhaLayout.setError("Senhas não conferem");
+            confSenhaLayout.setError(getString(R.string.erro_senhas_diferentes));
             return false;
         } else {
             if (Senha.length() < 8) {
-                senhaLayout.setError("A senha precisa de no mininmo 8 caracteres");
+                senhaLayout.setError(getString(R.string.erro_tamanho_senha));
                 return false;
             } else {
                 senhaLayout.setError(null);
@@ -271,7 +271,7 @@ public class activityEditarConta extends AppCompatActivity {
 
 
                             if (e != null) {
-                                Toast.makeText(activityEditarConta.this, "Este Email já está cadastrado!", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(activityEditarConta.this, R.string.erro_email_cadastrado, Toast.LENGTH_SHORT).show();
 
                                 // Ocorreu um erro de conexão ou outra exceção
                                 Log.e("Conta", "Erro na requisição0: " + e.getMessage());
@@ -280,7 +280,7 @@ public class activityEditarConta extends AppCompatActivity {
                                 if (result != null && result.has("status")) {
                                     String status = result.get("status").getAsString();
                                     if ("ok".equals(status)) {
-                                        Toast.makeText(activityEditarConta.this, "Sucesso", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(activityEditarConta.this, R.string.sucesso, Toast.LENGTH_SHORT).show();
                                         SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
                                         SharedPreferences.Editor editor = sharedPreferences.edit();
                                         editor.putString("email", emailEditado);
@@ -311,11 +311,11 @@ public class activityEditarConta extends AppCompatActivity {
 
         if (email.isEmpty()) {
             // Mostrar uma mensagem de erro
-            emailLayout.setError("Por favor, insira o seu email");
+            emailLayout.setError(getString(R.string.erro_insira_email));
             return false;
         } else if (!isValidEmail(email)) {
             // Mostrar uma mensagem de erro de email inválido
-            emailLayout.setError("Email inválido");
+            emailLayout.setError(getString(R.string.erro_email_invalido));
             return false;
         } else {
             // Verificar se o email existe no banco de dados

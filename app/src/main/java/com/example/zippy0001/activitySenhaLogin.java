@@ -54,7 +54,7 @@ public class activitySenhaLogin extends AppCompatActivity {
 
                 if (SenhaLogin.isEmpty()) {
                     // Mostrar uma mensagem de erro
-                    layoutSenhaLogin.setError("Por favor, insira a sua senha");
+                    layoutSenhaLogin.setError(getString(R.string.erro_inserir_senha));
                 } else {
                     // Verificar se a senha está correta
                     checkPassword(email, SenhaLogin);
@@ -98,7 +98,7 @@ public class activitySenhaLogin extends AppCompatActivity {
                     public void onCompleted(Exception e, JsonObject result) {
                         if (e != null) {
                             // Ocorreu um erro de conexão ou outra exceção
-                            Toast.makeText(activitySenhaLogin.this, "Erro ao verificar senha. Verifique sua conexão com a internet.", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(activitySenhaLogin.this, R.string.erro_conexao, Toast.LENGTH_SHORT).show();
                         } else {
                             // Verifique se o resultado é válido
                             if (result != null && result.has("status")) {
@@ -115,11 +115,11 @@ public class activitySenhaLogin extends AppCompatActivity {
 
                                 } else {
                                     // Resposta inválida do servidor
-                                    Toast.makeText(activitySenhaLogin.this, "Erro desconhecido ao verificar e-mail.", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(activitySenhaLogin.this, R.string.erro_desconhecido, Toast.LENGTH_SHORT).show();
                                 }
                             } else {
                                 // Resposta inválida do servidor
-                                Toast.makeText(activitySenhaLogin.this, "Erro desconhecido ao verificar e-mail.", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(activitySenhaLogin.this, R.string.erro_desconhecido, Toast.LENGTH_SHORT).show();
                             }
                         }
                     }

@@ -73,9 +73,9 @@
             android:background="@color/PrimaryColor"
             app:itemActiveIndicatorStyle="@android:color/transparent"
             app:itemIconSize="32sp"
+            app:itemIconTint="@color/white"
             android:layout_alignParentBottom="true"
             android:layout_gravity="bottom"
-            app:itemIconTint="@drawable/item_selected"
             app:labelVisibilityMode="unlabeled"
             app:menu="@menu/bottom_nav_menu" />
 

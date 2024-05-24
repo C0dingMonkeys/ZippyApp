@@ -1,10 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:endof="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/bg_rv_pedidos"
     android:gravity="center"
-    android:layout_marginHorizontal="10dp"
     android:layout_marginVertical="20dp"
     android:orientation="vertical"
     android:theme="@style/Base.Theme.AppCompat.DayNight.NoActionBar">
@@ -12,89 +12,129 @@
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/imgPedido_rv"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="200dp"
         android:layout_alignParentStart="true"
         android:layout_centerVertical="true"
-        android:layout_marginHorizontal="2dp"
-        android:layout_marginTop="2dp"
+        android:layout_marginHorizontal="8dp"
+        android:layout_marginTop="8dp"
         android:scaleType="centerCrop"
         android:src="@drawable/ic_launcher_foreground"
         endof:shapeAppearance="@style/CornerCut" />
 
     <LinearLayout
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="2dp"
-        android:layout_marginBottom="2dp"
+        android:layout_marginHorizontal="8dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="8dp"
         android:layout_toEndOf="@+id/imgPedido_rv"
-        android:background="@drawable/bg_cantos_redondos_baixo"
+        android:background="@drawable/bg_cantos_redondos"
         android:orientation="vertical"
         android:paddingHorizontal="10dp"
         android:paddingTop="15dp"
         android:paddingBottom="20dp">
 
+
         <TextView
             android:id="@+id/txtTituloPedido"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/bg_contorno_pedido"
             android:fontFamily="@font/fonte_padrao"
-            android:text="Macbook 14 8gb ram"
-            android:textSize="@dimen/Mini_Size" />
-        <!--         <TextView -->
-        <!--             android:id="@+id/txtLinkPedido" -->
-        <!--             android:layout_width="wrap_content" -->
-        <!--             android:layout_height="wrap_content" -->
-        <!--             android:layout_marginTop="8dp" -->
-        <!--             android:fontFamily="@font/fonte_padrao" -->
-        <!--             android:text="apple.com" -->
-        <!--             android:textSize="@dimen/Normal_Size" /> -->
-        <TextView
-            android:id="@+id/txtPrecoPedido"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:fontFamily="@font/fonte_padrao"
-            android:text="$1000"
-            android:textSize="@dimen/Mini_Size" />
+            android:gravity="center"
+            android:text="Macbook 14  8gb ram"
+            android:textSize="@dimen/Grande_size" />
 
-        <TextView
-            android:id="@+id/txtPaisDestino"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:fontFamily="@font/fonte_padrao"
-            android:text="Estados Unidos"
-            android:textSize="@dimen/Mini_Size" />
+        <!--        <TextView-->
+        <!--            android:id="@+id/txtLinkPedido"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginTop="8dp"-->
+        <!--            android:fontFamily="@font/fonte_padrao"-->
+        <!--            android:text="apple.com"-->
+        <!--            android:textSize="@dimen/Normal_Size" />-->
 
-        <TextView
-            android:id="@+id/txtCidadeDestino"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:fontFamily="@font/fonte_padrao"
-            android:text="Diadema"
-            android:textSize="@dimen/Mini_Size" />
 
+        <!--        <TextView-->
+        <!--            android:id="@+id/txtPaisDestino"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginTop="8dp"-->
+        <!--            android:background="@drawable/contorno_pedido"-->
+        <!--            android:fontFamily="@font/fonte_padrao"-->
+        <!--            android:text="Estados Unidos"-->
+        <!--            android:textSize="@dimen/Normal_Size" />-->
+
+        <!--        <TextView-->
+        <!--            android:id="@+id/txtCidadeDestino"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginTop="8dp"-->
+        <!--            android:fontFamily="@font/fonte_padrao"-->
+        <!--            android:text="Diadema"-->
+        <!--            android:textSize="@dimen/Normal_Size" />-->
         <TextView
             android:id="@+id/txtCaixaTipo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_gravity="start"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bg_contorno_pedido"
             android:fontFamily="@font/fonte_padrao"
             android:text="Avulsa"
-            android:textSize="@dimen/Mini_Size" />
-        <!--  BOTÃO DE CADASTRAR / INSERIR  -->
+            android:textSize="@dimen/Normal_Size" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/txtPaisDestino"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_gravity="start"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/bg_contorno_pedido"
+                android:fontFamily="@font/fonte_padrao"
+                android:text="Estados Unidos"
+                android:textSize="@dimen/Normal_Size" />
+
+            <TextView
+                android:id="@+id/txtPrecoPedido"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_gravity="end|bottom"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/bg_contorno_pedido"
+                android:fontFamily="@font/fonte_padrao"
+                android:text="$1000"
+                android:textSize="@dimen/Normal_Size" />
+
+        </RelativeLayout>
+        <!-- BOTÃO DE CADASTRAR / INSERIR -->
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnInserir"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
             android:background="@drawable/bg_btn_perfil"
             android:fontFamily="@font/fonte_padrao"
-            android:padding="5dp"
+            android:padding="20dp"
             android:text="Ver Detalhes"
             android:textColor="@color/TextColor"
             android:textSize="@dimen/Mini_Size" />
-        <!--  FIM DO BOTÃO CADASTRAR / INSERIR -->
+        <!-- FIM DO BOTÃO CADASTRAR / INSERIR-->
+
+
     </LinearLayout>
+
+
 </LinearLayout>

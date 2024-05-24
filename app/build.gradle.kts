@@ -1,5 +1,3 @@
-import java.util.regex.Pattern.compile
-
 plugins {
     id("com.android.application")
 }
@@ -44,12 +42,13 @@ android {
 dependencies {
     implementation("io.github.vicmikhailau:MaskedEditText:5.0.1")
     implementation("androidx.appcompat:appcompat:1.6.1")
-    implementation ("de.hdodenhof:circleimageview:3.1.0")
+    implementation("de.hdodenhof:circleimageview:3.1.0")
     implementation("com.google.android.material:material:1.11.0")
-    implementation ("com.github.Drjacky:ImagePicker:1.8.4")
-    implementation ("com.google.code.gson:gson:2.9.0")
+    implementation("com.github.Drjacky:ImagePicker:1.8.4")
+    implementation("com.google.code.gson:gson:2.9.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     implementation("com.koushikdutta.ion:ion:3.1.0")
+    implementation("com.github.cachapa:ExpandableLayout:2.9.2")
     implementation("com.github.bumptech.glide:glide:4.14.2")
     implementation("com.squareup.picasso:picasso:2.8")
     implementation("com.squareup.retrofit2:retrofit:2.9.0")

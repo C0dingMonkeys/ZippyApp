@@ -122,6 +122,7 @@ public class activityEditarPerfil extends AppCompatActivity {
 
         Picasso.get().load(BASE_URL_IMAGEM + fotoPerfil).into(EditarFoto);
         EditarFoto.setOnClickListener(v -> {
+            requirePermission();
             ImagePicker.Companion.with(activityEditarPerfil.this)
                     .crop()
                     .cropOval()
@@ -195,8 +196,8 @@ public class activityEditarPerfil extends AppCompatActivity {
             public void onClick(View v) {
 
                 AlertDialog.Builder identidadeErro = new AlertDialog.Builder(activityEditarPerfil.this);
-                identidadeErro.setTitle("Aviso!");
-                identidadeErro.setMessage("Não é possivel alterar sua identidade\nCaso haja um erro, entre em contato com nosso suporte");
+                identidadeErro.setTitle(R.string.titulo_erro_dialog_identidade);
+                identidadeErro.setMessage(R.string.corpo_erro_dialog_identidade);
                 identidadeErro.setPositiveButton("Ok", null);
                 identidadeErro.create().show();
 
@@ -205,9 +206,13 @@ public class activityEditarPerfil extends AppCompatActivity {
         getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
             @Override
             public void handleOnBackPressed() {
-                Intent intent = new Intent(activityEditarPerfil.this, activityInicio.class);
-                intent.putExtra(EXTRA_TRIGGER_PERFIL, "PERFIL");//Add your return data here
-                startActivity(intent);
+                if (getIntent().hasExtra(EXTRA_BACK_PERFIL)) {
+                    Intent intent = new Intent(activityEditarPerfil.this, activityInicio.class);
+                    intent.putExtra(EXTRA_TRIGGER_PERFIL, "PERFIL");//Add your return data here
+                    startActivity(intent);
+                } else {
+                    finish();
+                }
             }
         });
 
@@ -233,7 +238,7 @@ public class activityEditarPerfil extends AppCompatActivity {
                                 if (result != null && result.has("status")) {
                                     String status = result.get("status").getAsString();
                                     if ("ok".equals(status)) {
-                                        Toast.makeText(activityEditarPerfil.this, "Sucesso", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(activityEditarPerfil.this, R.string.sucesso, Toast.LENGTH_SHORT).show();
                                         SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
                                         SharedPreferences.Editor editor = sharedPreferences.edit();
                                         editor.putString("nomeCliente", Nome);

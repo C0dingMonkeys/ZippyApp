@@ -251,7 +251,7 @@
             android:inputType="number"
             android:singleLine="true"
             android:textColor="@color/black"
-            app:mask="##/##/####"
+            app:mask="####-##-##"
             tools:ignore="EditableContentDescCheck" />
 
         <!-- FIM DO EDITTEXT CONFIRMAR SENHA-->

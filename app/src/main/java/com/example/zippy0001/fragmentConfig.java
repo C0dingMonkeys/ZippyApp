@@ -22,7 +22,6 @@ import android.widget.RelativeLayout;
 
 public class fragmentConfig extends Fragment {
 
-    ImageButton voltarButton;
     SwitchCompat switchModo;
     boolean modoNoturno;
     SharedPreferences sharedPreferences;
@@ -49,6 +48,8 @@ public class fragmentConfig extends Fragment {
         sharedPreferences =  this.requireActivity().getSharedPreferences( "MODE", Context.MODE_PRIVATE);
         modoNoturno = sharedPreferences.getBoolean("modoNoturno", false);
         RelativeLayout minhaConta = view.findViewById(R.id.layout_meusDados_btn);
+        RelativeLayout centralAjuda = view.findViewById(R.id.layout_CentraldeAjuda_btn);
+
 
 
         minhaConta.setOnClickListener(new View.OnClickListener() {
@@ -57,6 +58,11 @@ public class fragmentConfig extends Fragment {
                 Intent intent = new Intent(getContext(), activityEditarConta.class);
                 startActivity(intent);
             }
+        });
+
+        centralAjuda.setOnClickListener(v -> {
+            Intent intent = new Intent(getContext(), activityCentralAjuda.class);
+            startActivity(intent);
         });
 
 

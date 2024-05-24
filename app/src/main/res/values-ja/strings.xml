@@ -29,11 +29,11 @@
     <string name="navigation_drawer_open">引き出しを開ける</string>
     <string name="navigation_drawer_close">引き出しを閉じる</string>
     <string name="title_activity_config">構成アクティビティ</string>
-    <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">最初のフラグメント</string>
-    <string name="second_fragment_label">2 番目のフラグメント</string>
-    <string name="next">次</string>
-    <string name="previous">前の</string>
+    <string name="ucrop_crop">カット</string>
+    <string name="ucrop_label_edit_photo">写真を編集する</string>
+    <string name="ucrop_menu_crop">カット</string>
+    <string name="ucrop_rotate">スピン</string>
+    <string name="ucrop_scale">増加</string>
 
     <string name="lorem_ipsum">顧客は非常に重要であり、顧客は顧客に続きます。チョコレートサラダに。モーリス
         人生、痛みは時には肉体的なものである、痛みの笑いは読む必要がある、それはたくさんの不動産であるようにしましょう
@@ -69,8 +69,8 @@
         メンバー土地ではなく地球を飲む時が来ました。デッキにはありませんCNNまで
         自由になるか、それとも結果が出るか、誰がニスル・エイフェンドを怖がらせることができるだろうか。明日、私たちは義にかなった弔いの酒を飲まなければなりません
         前室フーシェは、生涯のキャリアの中で最も偉大なリベロ、そして最高の人物である彼にこう言った。</string>
-    <string name="fale_conosco_card">世界中の当社の関連会社にご相談ください</string>
-    <string name="entrar_em_contato_card">連絡する</string>
+    <string name="faq_card_home">何か質問がありますか？よくある質問を確認してください</string>
+    <string name="btn_faq_card_home">ここをクリック！</string>
     <string name="faça_solicitação">具体的なものをお探しですか\?\nリクエストしてください!</string>
     <string name="fazer_post">投稿する</string>
     <string name="content_Descripton">ロゴ</string>
@@ -103,7 +103,7 @@
     <string name="denunciar_config">レポートユーザー</string>
     <string name="meus_pagamentos_config">私の支払い</string>
     <string name="meu_perfil_titulo">私のプロフィール</string>
-    <string name="ola_luiz_teste">こんにちは、ルイス</string>
+    <string name="ola_teste">こんにちはユーザー</string>
     <string name="email_teste_perfil">*****5342\@gmail.com</string>
     <string name="btn_pedidos_perfil">リクエスト</string>
     <string name="btn_solicitacoes_perfil">リクエスト</string>
@@ -121,6 +121,7 @@
     <string name="lbl_insiraEmail">以下にログインまたは登録します:</string>
     <string name="titulo_editar_perfil">プロファイル編集</string>
     <string name="titulo_editar_conta">アカウントの編集</string>
+    <string name="titulo_criar_post">投稿の作成</string>
     <string name="lbl_editarNome">名前：</string>
     <string name="lbl_editarSobrenome">姓：</string>
     <string name="lbl_editarEmail">Eメール：</string>
@@ -142,5 +143,86 @@
     <string name="title_activity_editar_conta">アクティビティ編集Conta</string>
     <string name="lbl_senhaEdit">********</string>
     <string name="dataEdit_error">有効な日付を入力してください</string>
+    <string name="subtitulo_criar_post">欲しいものについての情報を入力してください</string>
+    <string name="lbl_nomePost">商品名：*</string>
+    <string name="lbl_valorPost">製品価値*</string>
+    <string name="lbl_linkPost">参考リンク：*</string>
+    <string name="lbl_addImg">製品写真を追加</string>
+    <string name="lbl_paisOrigemPost">原産国： *</string>
+    <string name="lbl_cidadePost">市： *</string>
+    <string name="lbl_estadoPost">州： *</string>
+    <string name="lbl_paisDestinoPost">目的地国: *</string>
+    <string name="lbl_cidadeDestinoPost">市： *</string>
+    <string name="lbl_estadoDestinoPost">州： *</string>
+    <string name="lbl_checkCaixa">箱付きの商品を希望しますか？</string>
+    <string name="hint_nomePost">MacBook Pro 14」</string>
+    <string name="hint_linkPost">apple.com/shop/produto</string>
+    <string name="hint_precoPost">3200ドル</string>
+    <string name="hint_PaisOrigemPost">アメリカ合衆国</string>
+    <string name="hint_cidadeOrigemPost">ニューヨーク</string>
+    <string name="hint_estadoOrigemPost">ニューヨーク</string>
+    <string name="hint_PaisDestinoPost">ブラジル</string>
+    <string name="hint_cidadeDestinoPost">サンパウロ</string>
+    <string name="hint_estadoDestinoPost">SP</string>
+    <string name="text_uploadImg">画像を挿入する</string>
+    <string name="subtitulo_selecionar_destino">どこにいるのか、\nどこへ行くのかを教えてください。</string>
+    <string name="titulo_selecionar_destino">リクエスト</string>
+    <string name="lbl_erroPosts">リクエストが見つかりませんでした!</string>
+    <string name="titulo_Pedidos">利用可能な注文</string>
+    <string name="cd_voltarPedidos">前の画面に戻るボタン</string>
+    <string name="cd_face_pedidos">悲しそうな顔画像</string>
+    <string name="cd_setaAvancar">前進を示す矢印</string>
+    <string name="btn_remove_img">画像の削除</string>
+    <string name="warning_caixa_original">オリジナルボックスには関税がかかる場合があります。</string>
+    <string name="FAQ_1">注文した商品が届かない場合はどうなりますか\?</string>
+    <string name="Resposta_FAQ1">ご注文の商品が配達されない場合は、まず旅行者に連絡し、配達の可能性がない場合には、お支払いいただいた金額を返金し、配達手続きをキャンセルさせていただきます。</string>
+    <string name="FAQ2">受領を確認しない場合はどうなりますか\?</string>
+    <string name="Resposta_FAQ2">購入者が受領を確認しない場合は、購入者に連絡しますが、その前に、配達を確認し、配達された製品の写真を撮っていただく必要があります。その後、状況を確認させていただき、お支払いをさせていただきます。</string>
+    <string name="FAQ3">ユーザーを報告するにはどうすればよいですか\?</string>
+    <string name="Resposta_FAQ3">ユーザーを報告したい場合は、ホームページにサポートと書かれたテキストが表示されます。そこをクリックすると、ユーザーを報告するオプションが表示され、要求された手順に従うと、ユーザーを報告できます。</string>
+    <string name="FAQ5">E se o viajante não puder entregar meu pedido mais?</string>
+    <string name="Resposta_FAQ5">Caso o viajante não puder entregar o seu produto, ele entrará em contato conosco e após isso entraremos em contato com você para que receba seu reembolso</string>
+    <string name="FAQ4">E se a alfandega impedir a chegada do meu produto?</string>
+    <string name="titulo_ajuda">Perguntas frequentes</string>
+
+    <!--ALERT DIALOGS-->
+    <string name="titulo_alert_dialog_login">Sucesso!</string>
+    <string name="corpo_alert_dialog_login">Cadastro realizado com Sucesso! \nFaça Login para continuar!</string>
+    <string name="titulo_dialog_posts">Sucesso!</string>
+    <string name="corpo_dialog_posts">Pedido criado com sucesso!</string>
+    <string name="btn_fazer_login">Fazer Login</string>
+
+    <string name="titulo_erro_dialog_identidade">Aviso!</string>
+    <string name="corpo_erro_dialog_identidade">"Não é possivel alterar sua identidade\nCaso haja um erro, entre em contato com nosso suporte</string>
+    
+    <string name="corpo_dialog_recuperar_senha">Email de recuperação enviado com sucesso!\nFaça Login para continuar!</string>
+    <string name="btn_voltar_dialog">Voltar</string>
+    <!--FIM ALERT DIALOGS-->
+    <!--    TRATAMENTO DE ERRO -->
+    <string name="erro_nome">Por favor, insira o seu nome completo</string>
+    <string name="erro_sobrenome">Por favor, insira seu Sobrenome</string>
+    <string name="erro_telefone">Por favor, insira seu telefone</string>
+    <string name="erro_dtaNasc">Por favor, insira sua data de nascimento</string>
+    <string name="erro_conexao">Erro ao verificar senha. Verifique sua conexão com a internet.</string>
+    <string name="erro_desconhecido">Erro desconhecido. Tente novamente mais tarde</string>
+    <string name="erro_pedido">Erro ao criar pedido. Tente novamente mais tarde.</string>
+    <string name="erro_inserir_senha">Por favor, insira a sua senha</string>
+    <string name="erro_senhas_diferentes">Senhas não conferem</string>
+    <string name="erro_insira_senha">Por favor, insira a sua senha</string>
+    <string name="erro_tamanho_senha">A senha precisa de no mininmo 8 caracteres</string>
+    <string name="erro_email_cadastrado">Este Email já está cadastrado!</string>
+    <string name="erro_insira_email">Por favor, insira o seu email</string>
+    <string name="erro_insira_identidade">Por favor, insira a sua identidade</string>
+    <string name="erro_email_invalido">Email inválido</string>
+    <string name="erro_sem_internet">Sem conexão com a internet!</string>
+    <string name="erro_enviar_email">Erro ao Enviar o Email</string>
+    <string name="erro_nao_email_cadastrado">Email não cadastrado</string>
+    <string name="erro_pais_vazio">Insira um País</string>
+    <!--   FIM TRATAMENTO DE ERRO -->
+
+<!--    RESPOSTAS-->
+    <string name="sucesso">Sucesso!</string>
+<!--   FIM RESPOSTAS-->
+
 
 </resources>

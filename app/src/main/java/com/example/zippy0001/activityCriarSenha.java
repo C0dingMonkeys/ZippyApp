@@ -75,15 +75,15 @@ public class activityCriarSenha extends AppCompatActivity {
         // Validar a senha
         if (Senha.isEmpty()) { //Se a senha estiver vazia:
             // Mostrar uma mensagem de erro
-            senhaLayout.setError("Por favor, insira a sua senha");
+            senhaLayout.setError(getString(R.string.erro_inserir_senha));
         }
         if (Confsenha.isEmpty()) {
-            confSenhaLayout.setError("Por favor, insira a sua senha");
+            confSenhaLayout.setError(getString(R.string.erro_inserir_senha));
 
         }
         if (!Senha.equals(Confsenha)) { //Se a senhas não forem iguais:
             // Mostrar uma mensagem de erro
-            confSenhaLayout.setError("Senhas não conferem");
+            confSenhaLayout.setError(getString(R.string.erro_senhas_diferentes));
         } else if (!Senha.isEmpty()){ // Se não enviar senhas para as próximas telas:
             senhaLayout.setError(null);
             confSenhaLayout.setError(null);

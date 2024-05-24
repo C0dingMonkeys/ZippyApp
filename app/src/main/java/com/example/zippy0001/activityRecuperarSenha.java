@@ -51,7 +51,7 @@ public class activityRecuperarSenha extends AppCompatActivity {
 
                 if(EmailRecuperar.isEmpty())
                 {
-                    recuperarLayout.setError("Por favor, insira a sua email");
+                    recuperarLayout.setError(getString(R.string.erro_insira_email));
 
                 }
                 else {
@@ -77,7 +77,7 @@ public class activityRecuperarSenha extends AppCompatActivity {
                         Log.d("erro", String.valueOf(e));
                         if (e != null) {
                             // Ocorreu um erro de conexão ou outra exceção
-                            Toast.makeText(activityRecuperarSenha.this, "Erro ao verificar senha. Verifique sua conexão com a internet.", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(activityRecuperarSenha.this, R.string.erro_conexao, Toast.LENGTH_SHORT).show();
                         } else {
                             // Verifique se o resultado é válido
                             if (result != null && result.has("status")) {
@@ -86,10 +86,10 @@ public class activityRecuperarSenha extends AppCompatActivity {
                                     //CAIXA DE ALERTA DE SUCESSO:
 
                                     AlertDialog.Builder fazerLogin = new AlertDialog.Builder(activityRecuperarSenha.this);
-                                    fazerLogin.setTitle("Sucesso!");
-                                    fazerLogin.setMessage("Email de recuperação enviado com sucesso!\nFaça Login para continuar!");
+                                    fazerLogin.setTitle(R.string.titulo_alert_dialog_login);
+                                    fazerLogin.setMessage(R.string.corpo_dialog_recuperar_senha);
                                     fazerLogin.setCancelable(false);
-                                    fazerLogin.setPositiveButton("Fazer Login", new DialogInterface.OnClickListener() {
+                                    fazerLogin.setPositiveButton(R.string.btn_voltar_dialog, new DialogInterface.OnClickListener() {
                                         @Override
                                         public void onClick(DialogInterface dialog, int which) {
                                             Intent intent = new Intent(activityRecuperarSenha.this, activityEmail.class);
@@ -101,15 +101,15 @@ public class activityRecuperarSenha extends AppCompatActivity {
                                     fazerLogin.create().show();
 
                                 } else if ("error1".equals(status)) {
-                                    Toast.makeText(activityRecuperarSenha.this, "Erro ao Enviar o Email", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(activityRecuperarSenha.this, R.string.erro_enviar_email, Toast.LENGTH_SHORT).show();
 
                                 } else if ("error2".equals(status)) {
                                     // Resposta inválida do servidor
-                                    recuperarLayout.setError("Email não cadastrado");
+                                    recuperarLayout.setError(getString(R.string.erro_nao_email_cadastrado));
                                 }
                             } else {
                                 // Resposta inválida do servidor
-                                Toast.makeText(activityRecuperarSenha.this, "Erro desconhecido ao verificar e-mail.", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(activityRecuperarSenha.this, R.string.erro_desconhecido, Toast.LENGTH_SHORT).show();
                             }
                         }
                     }

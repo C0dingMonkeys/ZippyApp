@@ -2,9 +2,9 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:theme="@style/Theme.Material3.DayNight.NoActionBar"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:theme="@style/Theme.Material3.DayNight.NoActionBar"
     tools:context=".fragmentConfig">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -31,8 +31,8 @@
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="20dp"
                     android:fontFamily="@font/fonte_padrao"
-                    android:textColor="@color/TextColorContrast"
                     android:text="@string/personalizacao_titulo_config"
+                    android:textColor="@color/TextColorContrast"
                     android:textSize="@dimen/Normal_Size"
 
                     app:layout_constraintStart_toStartOf="parent"
@@ -53,19 +53,19 @@
 
                     <com.google.android.material.materialswitch.MaterialSwitch
                         android:id="@+id/switchDarkLightMode"
+                        style="@style/TextColor"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        style="@style/TextColor"
                         android:fontFamily="@font/fonte_padrao"
                         android:padding="10dp"
                         android:text="@string/habilitar_modo_escuro_config" />
 
                     <RelativeLayout
                         android:id="@+id/layout_notificacoes_btn"
+                        style="@style/ColorPrimary"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        style="@style/ColorPrimary">
+                        android:layout_height="match_parent">
 
                         <TextView
                             android:id="@+id/txtNotificacoesLayout"
@@ -92,9 +92,9 @@
 
                     <RelativeLayout
                         android:id="@+id/layout_IdiomasApp_btn"
+                        style="@style/ColorPrimary"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        style="@style/ColorPrimary">
+                        android:layout_height="match_parent">
 
                         <TextView
                             android:id="@+id/txtIdiomasAppLayout"
@@ -124,11 +124,11 @@
 
                 <TextView
                     android:id="@+id/tituloMinhaConta"
+                    style="@style/TextColorContrast"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="20dp"
-                    style="@style/TextColorContrast"
                     android:fontFamily="@font/fonte_padrao"
                     android:text="@string/minha_conta_config"
                     android:textSize="@dimen/Normal_Size"
@@ -137,10 +137,10 @@
 
                 <LinearLayout
                     android:id="@+id/Layout_MinhaConta"
+                    style="@style/ColorSecondary"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    style="@style/ColorSecondary"
                     android:divider="@drawable/divisor_lista"
                     android:orientation="vertical"
                     android:showDividers="middle"
@@ -150,9 +150,10 @@
 
                     <RelativeLayout
                         android:id="@+id/layout_meusDados_btn"
+                        style="@style/ColorPrimary"
+                        android:background="@drawable/efeito_click_btn"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        style="@style/ColorPrimary">
+                        android:layout_height="match_parent">
 
                         <TextView
                             android:id="@+id/txtMeusDadosLayout"
@@ -178,39 +179,10 @@
                     </RelativeLayout>
 
                     <RelativeLayout
-                        android:id="@+id/layout_meusEnderecos_btn"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@color/PrimaryColor">
-
-                        <TextView
-                            android:id="@+id/txtMeusEnderecosLayout"
-                            style="@style/TextColor"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentStart="true"
-                            android:layout_centerVertical="true"
-                            android:layout_marginStart="10dp"
-                            android:layout_marginEnd="50dp"
-                            android:layout_toStartOf="@+id/imgBtnMeusEnderecos"
-                            android:fontFamily="@font/fonte_padrao"
-                            android:padding="10dp"
-                            android:text="@string/meus_enderecos_config" />
-
-                        <ImageButton
-                            android:id="@+id/imgBtnMeusEnderecos"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentEnd="true"
-                            android:backgroundTint="@android:color/transparent"
-                            android:src="@drawable/ic_seta" />
-                    </RelativeLayout>
-
-                    <RelativeLayout
                         android:id="@+id/layout_meusPagamentos_btn"
+                        style="@style/ColorPrimary"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        style="@style/ColorPrimary">
+                        android:layout_height="match_parent">
 
                         <TextView
                             android:id="@+id/txtMeusPagamentosLayout"
@@ -240,6 +212,7 @@
 
                 <TextView
                     android:id="@+id/tituloSuporte"
+                    style="@style/TextColorContrast"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
@@ -247,7 +220,6 @@
                     android:fontFamily="@font/fonte_padrao"
                     android:text="@string/suporte_config"
                     android:textSize="@dimen/Normal_Size"
-                    style="@style/TextColorContrast"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/Layout_MinhaConta" />
 
@@ -268,7 +240,7 @@
                         android:id="@+id/layout_CentraldeAjuda_btn"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@color/PrimaryColor">
+                        android:background="@drawable/efeito_click_btn">
 
                         <TextView
                             android:id="@+id/txtCentraldeAjudaLayout"
@@ -295,9 +267,9 @@
 
                     <RelativeLayout
                         android:id="@+id/layout_NossaPolitica_btn"
+                        style="@style/ColorPrimary"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        style="@style/ColorPrimary">
+                        android:layout_height="match_parent">
 
                         <TextView
                             android:id="@+id/txtNossaPoliticaLayout"
@@ -324,9 +296,9 @@
 
                     <RelativeLayout
                         android:id="@+id/layout_DenunciarUsuario_btn"
+                        style="@style/ColorPrimary"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        style="@style/ColorPrimary">
+                        android:layout_height="match_parent">
 
                         <TextView
                             android:id="@+id/txtDenunciarUsuarioLayout"

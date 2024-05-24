@@ -5,18 +5,18 @@
     <item
         android:id="@+id/bottom_home"
         android:title="@string/home"
-        android:icon="@drawable/ic_home"
+        android:icon="@drawable/item_selected_home"
         android:iconTint="@color/white"
         />
 
     <item
         android:id="@+id/bottom_profile"
         android:title="@string/title_perfil_BB"
-        android:icon="@drawable/ic_perfil"
+        android:icon="@drawable/item_selected_perfil"
         android:iconTint="@color/white"/>
     <item
         android:id="@+id/bottom_chat"
         android:title="@string/title_chat_BB"
         android:icon="@drawable/ic_chat"
-        android:iconTint="@color/white"/>
+        android:iconTint="@color/white" />
 </menu>

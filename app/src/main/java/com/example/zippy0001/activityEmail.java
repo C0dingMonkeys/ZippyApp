@@ -88,7 +88,7 @@ public class activityEmail extends AppCompatActivity {
                     public void onCompleted(Exception e, JsonObject result) {
                         if (e != null) {
                             // Ocorreu um erro de conexão ou outra exceção
-                            Toast.makeText(activityEmail.this, "Erro ao verificar e-mail. Verifique sua conexão com a internet.", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(activityEmail.this, R.string.erro_conexao, Toast.LENGTH_SHORT).show();
                         } else {
                             // Verifique se o resultado é válido
                             if (result != null && result.has("status")) {
@@ -109,11 +109,11 @@ public class activityEmail extends AppCompatActivity {
                                     overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                                 } else {
                                     // Resposta inválida do servidor
-                                    emailLayout.setError("Erro desconhecido ao verificar e-mail.");
+                                    emailLayout.setError(getString(R.string.erro_desconhecido));
                                 }
                             } else {
                                 // Resposta inválida do servidor
-                                emailLayout.setError("Erro desconhecido ao verificar e-mail.");
+                                emailLayout.setError(getString(R.string.erro_desconhecido));
                             }
                         }
                     }
@@ -125,10 +125,10 @@ public class activityEmail extends AppCompatActivity {
 
         if (email.isEmpty()) {
             // Mostrar uma mensagem de erro
-            emailLayout.setError("Por favor, insira o seu email");
+            emailLayout.setError(getString(R.string.erro_insira_email));
         } else if (!isValidEmail(email)) {
             // Mostrar uma mensagem de erro de email inválido
-            emailLayout.setError("Email inválido");
+            emailLayout.setError(getString(R.string.erro_email_invalido));
         } else {
             // Verificar se o email existe no banco de dados
             emailLayout.setError(null);

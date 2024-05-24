@@ -2,20 +2,17 @@ package com.example.zippy0001;
 
 import android.Manifest;
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
-import android.graphics.drawable.ShapeDrawable;
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -26,9 +23,7 @@ import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.AppCompatButton;
 import androidx.core.app.ActivityCompat;
-import androidx.core.graphics.drawable.DrawableCompat;
 
 import com.example.zippy0001.classes.FileModel;
 import com.example.zippy0001.classes.HttpService;
@@ -40,7 +35,6 @@ import com.google.android.material.textfield.TextInputLayout;
 import com.google.gson.JsonObject;
 import com.koushikdutta.async.future.FutureCallback;
 import com.koushikdutta.ion.Ion;
-import com.yalantis.ucrop.UCrop;
 
 import java.io.File;
 
@@ -59,7 +53,7 @@ public class activityCriarPost extends AppCompatActivity {
     TextInputEditText TextNomeProd, TextPrecoProd, TextLinkReferencia, TextPaisOrigem, TextCidadeOrigem, TextEstadoOrigem, TextPaisDestino, TextCidadeDestino, TextEstadoDestino;
     LinearLayout fotoProduto;
     ImageView ic_imgUpload;
-    TextView txtUpload;
+    TextView txtUpload, warningCaixa;
     CheckBox CheckCaixaProduto;
     private String ImagemPadrao = "https://zippyinternacional.com/uploads/produtos/produtoDefault.png";
     Uri uri;
@@ -101,10 +95,21 @@ public class activityCriarPost extends AppCompatActivity {
         ic_imgUpload = findViewById(R.id.ic_imgUpload);
         fotoProduto = findViewById(R.id.layoutUploadImg);
 
+        warningCaixa = findViewById(R.id.warning_caixa);
         CheckCaixaProduto = findViewById(R.id.checkboxCaixaPost);
         btnVoltar = findViewById(R.id.btnVoltarPost);
         testeFuncao = findViewById(R.id.testefuncao);
 
+        CheckCaixaProduto.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (CheckCaixaProduto.isChecked()) {
+                    warningCaixa.setVisibility(View.VISIBLE);
+                } else {
+                    warningCaixa.setVisibility(View.GONE);
+                }
+            }
+        });
 
         btnVoltar.setOnClickListener(v -> {
             startActivity(new Intent(getApplicationContext(), activityInicio.class));
@@ -123,11 +128,10 @@ public class activityCriarPost extends AppCompatActivity {
                 if (uri == null) {
                     ImagePicker.Companion.with(activityCriarPost.this)
                             .crop()
-                            .crop(4,2)
+                            .crop(4, 2)
                             .maxResultSize(512, 512)
                             .start(101);
-                }
-                else {
+                } else {
                     BSLremoveImg();
                 }
             }
@@ -159,11 +163,6 @@ public class activityCriarPost extends AppCompatActivity {
         }
     }
 
-    public Uri getImageUri(Context context, Bitmap bitmap) {
-        String path = MediaStore.Images.Media.insertImage(context.getContentResolver(), bitmap, "myImage", "");
-
-        return Uri.parse(path);
-    }
 
     public void requirePermission() {
         ActivityCompat.requestPermissions(activityCriarPost.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
@@ -220,14 +219,20 @@ public class activityCriarPost extends AppCompatActivity {
                 @Override
                 public void onResponse(Call<FileModel> call, Response<FileModel> response) {
                     FileModel fileModel = response.body();
-                    Toast.makeText(activityCriarPost.this, fileModel.getMessage(), Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(activityCriarPost.this, fileModel.getMessage(), Toast.LENGTH_SHORT).show();
                     Log.d("erro", fileModel.getMessage());
+
+                    AlertDialog.Builder fazerLogin = new AlertDialog.Builder(activityCriarPost.this);
+                    fazerLogin.setTitle(R.string.titulo_dialog_posts);
+                    fazerLogin.setMessage(R.string.corpo_dialog_posts);
+                    fazerLogin.setCancelable(true);
+                    fazerLogin.create().show();
 
                 }
 
                 @Override
                 public void onFailure(Call<FileModel> call, Throwable t) {
-                    Toast.makeText(activityCriarPost.this, t.getMessage(), Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(activityCriarPost.this, t.getMessage(), Toast.LENGTH_SHORT).show();
                     Log.d("erro", t.getMessage());
 
 
@@ -236,86 +241,31 @@ public class activityCriarPost extends AppCompatActivity {
 
         } else {
 
-            Toast.makeText(activityCriarPost.this, "caralho", Toast.LENGTH_SHORT).show();
             cadastroDadosPostagemPadrao();
 
         }
 
 
     }
-private void BSLremoveImg() {
-    BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(activityCriarPost.this);
-    View view1 = LayoutInflater.from(activityCriarPost.this).inflate(R.layout.bottom_sheet_layout_remove_img, null);
-    bottomSheetDialog.setContentView(view1);
-    bottomSheetDialog.show();
 
-    Button botao = view1.findViewById(R.id.btnRemoverImg);
+    private void BSLremoveImg() {
+        BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(activityCriarPost.this);
+        View view1 = LayoutInflater.from(activityCriarPost.this).inflate(R.layout.bottom_sheet_layout_remove_img, null);
+        bottomSheetDialog.setContentView(view1);
+        bottomSheetDialog.show();
 
-    botao.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            uri = null;
-            fotoProduto.setBackgroundResource(R.drawable.bg_tracos);
-            txtUpload.setVisibility(View.VISIBLE);
-            ic_imgUpload.setVisibility(View.VISIBLE);
-            bottomSheetDialog.dismiss();
-        }
-    });
-}
+        Button botao = view1.findViewById(R.id.btnRemoverImg);
 
-    private void cadastroDadosPostagem(String idUsuarioShared, String nomeProd, String precoProd, String linkProd, String paisOrigemProd, String cidadeOrigemProd, String estadoOrigemProd, String paisDestinoProd, String cidadeDestinoProd, String estadoDestinoProd, String caixa) {
-
-
-        String Host = "criarPostagem.php";
-        Ion.with(this)
-                .load(BASE_URL + Host)
-                .setBodyParameter("id_cliente", idUsuarioShared)
-                .setBodyParameter("nomeProduto", nomeProd)
-                .setBodyParameter("preco", precoProd)
-                .setBodyParameter("link", linkProd)
-                .setBodyParameter("paisOrigem", paisOrigemProd)
-                .setBodyParameter("cidadeOrigem", cidadeOrigemProd)
-                .setBodyParameter("ufOrigem", estadoOrigemProd)
-                .setBodyParameter("paisDestino", paisDestinoProd)
-                .setBodyParameter("cidadeDestino", cidadeDestinoProd)
-                .setBodyParameter("ufDestino", estadoDestinoProd)
-                .setBodyParameter("caixa", caixa)
-                .asJsonObject()
-                .setCallback(new FutureCallback<JsonObject>() {
-                    @Override
-                    public void onCompleted(Exception e, JsonObject result) {
-                        if (e != null) {
-                            // Ocorreu um erro de conexão ou outra exceção
-                            Toast.makeText(activityCriarPost.this, "Erro ao verificar senha. Verifique sua conexão com a internet.", Toast.LENGTH_SHORT).show();
-                            Log.d("errogay", e.toString());
-                        } else {
-                            Log.d("erro", result.toString());
-                            // Verifique se o resultado é válido
-                            if (result != null && result.has("status")) {
-                                String status = result.get("status").getAsString();
-                                Log.d("status", status);
-                                if ("true".equals(status)) {
-//                                    AlertDialog.Builder fazerLogin = new AlertDialog.Builder(activityCriarPost.this);
-//                                    fazerLogin.setTitle("Sucesso!");
-//                                    fazerLogin.setMessage("Post Realizado");
-//                                    fazerLogin.create().show();
-                                    Toast.makeText(activityCriarPost.this, "Deu Certo.", Toast.LENGTH_SHORT).show();
-
-                                } else if ("false".equals(status)) {
-
-
-                                } else {
-                                    // Resposta inválida do servidor
-                                    Toast.makeText(activityCriarPost.this, "Erro desconhecido ao verificar e-mail.1", Toast.LENGTH_SHORT).show();
-                                }
-                            } else {
-                                // Resposta inválida do servidor
-                                Toast.makeText(activityCriarPost.this, "Erro desconhecido ao verificar e-mail.", Toast.LENGTH_SHORT).show();
-                            }
-                        }
-                    }
-
-                });
+        botao.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                uri = null;
+                fotoProduto.setBackgroundResource(R.drawable.bg_tracos);
+                txtUpload.setVisibility(View.VISIBLE);
+                ic_imgUpload.setVisibility(View.VISIBLE);
+                bottomSheetDialog.dismiss();
+            }
+        });
     }
 
     private void cadastroDadosPostagemPadrao() {
@@ -359,7 +309,7 @@ private void BSLremoveImg() {
                         if (e != null) {
                             Log.d("errogay", e.toString());
                             // Ocorreu um erro de conexão ou outra exceção
-                            Toast.makeText(activityCriarPost.this, "Erro ao verificar senha. Verifique sua conexão com a internet.", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(activityCriarPost.this, R.string.erro_conexao, Toast.LENGTH_SHORT).show();
                         } else {
                             // Verifique se o resultado é válido
                             if (result != null && result.has("status")) {
@@ -368,22 +318,22 @@ private void BSLremoveImg() {
                                 if ("ok".equals(status)) {
 
                                     AlertDialog.Builder fazerLogin = new AlertDialog.Builder(activityCriarPost.this);
-                                    fazerLogin.setTitle("Sucesso!");
-                                    fazerLogin.setMessage("Cadastro realizado com Sucesso!\nFaça Login para continuar!");
+                                    fazerLogin.setTitle(R.string.titulo_dialog_posts);
+                                    fazerLogin.setMessage(R.string.corpo_dialog_posts);
                                     fazerLogin.setCancelable(true);
                                     fazerLogin.create().show();
                                     // O e-mail existe no banco de dados
 
                                 } else if ("false".equals(status)) {
-                                    Toast.makeText(activityCriarPost.this, "VIsh.", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(activityCriarPost.this, R.string.erro_pedido, Toast.LENGTH_SHORT).show();
 
                                 } else {
                                     // Resposta inválida do servidor
-                                    Toast.makeText(activityCriarPost.this, "Erro desconhecido ao verificar e-mail.", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(activityCriarPost.this, R.string.erro_desconhecido, Toast.LENGTH_SHORT).show();
                                 }
                             } else {
                                 // Resposta inválida do servidor
-                                Toast.makeText(activityCriarPost.this, "Erro desconhecido ao verificar e-mail.", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(activityCriarPost.this, R.string.erro_desconhecido, Toast.LENGTH_SHORT).show();
                             }
                         }
                     }

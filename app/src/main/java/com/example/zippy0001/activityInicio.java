@@ -76,6 +76,7 @@ public class activityInicio extends AppCompatActivity implements NavigationView.
         super.onCreate(savedInstanceState);
         setContentView(activity_home);
 
+
         Toolbar toolbar = findViewById(R.id.Toolbar);
         setSupportActionBar(toolbar);
         Objects.requireNonNull(getSupportActionBar()).setDisplayShowTitleEnabled(false);
@@ -273,7 +274,7 @@ public class activityInicio extends AppCompatActivity implements NavigationView.
                                     String dataNasc = dadosArray.get(3).getAsString();
                                     String fotoPerfil = dadosArray.get(4).getAsString();
 
-                                    Log.d("teste3", "o status é:" + status);
+                                    Log.d("teste3", "o status é:" + Id_usuario);
 
                                     SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
                                     SharedPreferences.Editor editor = sharedPreferences.edit();
