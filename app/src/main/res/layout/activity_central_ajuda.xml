@@ -1,0 +1,440 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_app"
+    tools:context=".activityCentralAjuda">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/barraSuperiorLayoutCA"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/PrimaryColor"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/btnVoltarCA"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="15dp"
+                android:backgroundTint="@android:color/transparent"
+                android:contentDescription="@string/cd_voltarPedidos"
+                android:padding="15dp"
+                android:src="@drawable/ic_seta_voltar_constrast_big" />
+
+            <TextView
+                style="@style/TextColor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/fonte_padrao"
+                android:text="@string/central_de_ajuda_config"
+                android:textSize="@dimen/Subtitulo_Size" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tituloAjuda"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/fonte_padrao"
+            android:text="@string/titulo_ajuda"
+            android:textColor="@color/TextColorContrast"
+            android:textSize="@dimen/Subtitulo_Size"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/barraSuperiorLayoutCA" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/FAQ1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="30dp"
+            android:backgroundTint="#fff"
+            app:cardCornerRadius="14dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tituloAjuda">
+
+            <LinearLayout
+                android:id="@+id/LayoutCardFAQ1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <RelativeLayout
+                    android:id="@+id/btnCardFAQ1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:foreground="?selectableItemBackground">
+
+
+                    <TextView
+                        style="@style/TextAppearance.AppCompat.Medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="40dp"
+                        android:elevation="10dp"
+                        android:fontFamily="@font/fonte_padrao"
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:text="@string/FAQ_1"
+                        android:textColor="#37258D"
+                        android:textSize="@dimen/Small_Size" />
+
+                    <ImageView
+                        android:id="@+id/ic_seta_FAQ1"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="20dp"
+                        android:src="@drawable/ic_seta_baixo" />
+                </RelativeLayout>
+
+                <net.cachapa.expandablelayout.ExpandableLayout
+                    android:id="@+id/card_expandido_FAQ1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:el_duration="500"
+                    app:el_expanded="false">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clipToPadding="false"
+                        android:elevation="4dp"
+                        android:gravity="center"
+                        android:paddingHorizontal="15dp"
+                        android:text="@string/Resposta_FAQ1"
+                        android:textColor="#37258D" />
+
+                </net.cachapa.expandablelayout.ExpandableLayout>
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/FAQ2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="30dp"
+            android:backgroundTint="#fff"
+            app:cardCornerRadius="14dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/FAQ1">
+
+            <LinearLayout
+                android:id="@+id/LayoutFAQ2"
+                android:layout_width="match_parent"
+
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <RelativeLayout
+                    android:id="@+id/btnCardFAQ2"
+                    android:layout_width="match_parent"
+
+                    android:layout_height="match_parent"
+                    android:foreground="?selectableItemBackground">
+
+
+                    <TextView
+                        style="@style/TextAppearance.AppCompat.Medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="40dp"
+                        android:elevation="10dp"
+                        android:fontFamily="@font/fonte_padrao"
+                        android:gravity="center"
+
+                        android:padding="10dp"
+                        android:text="@string/FAQ2"
+                        android:textColor="#37258D"
+                        android:textSize="@dimen/Small_Size" />
+
+                    <ImageView
+                        android:id="@+id/ic_seta_FAQ2"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="20dp"
+                        android:src="@drawable/ic_seta_baixo" />
+                </RelativeLayout>
+
+                <net.cachapa.expandablelayout.ExpandableLayout
+                    android:id="@+id/card_expandido_FAQ2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:el_duration="500"
+                    app:el_expanded="false">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clipToPadding="false"
+                        android:elevation="4dp"
+                        android:gravity="center"
+                        android:paddingHorizontal="15dp"
+                        android:text="@string/Resposta_FAQ2"
+                        android:textColor="#37258D" />
+
+                </net.cachapa.expandablelayout.ExpandableLayout>
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/FAQ3"
+            android:layout_width="match_parent"
+
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="30dp"
+            android:backgroundTint="#fff"
+            app:cardCornerRadius="14dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/FAQ2">
+
+            <LinearLayout
+                android:id="@+id/LayoutFAQ3"
+                android:layout_width="match_parent"
+
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <RelativeLayout
+                    android:id="@+id/btnCardFAQ3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+
+                    android:foreground="?selectableItemBackground">
+
+
+                    <TextView
+                        style="@style/TextAppearance.AppCompat.Medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="40dp"
+                        android:elevation="10dp"
+                        android:fontFamily="@font/fonte_padrao"
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:text="@string/FAQ3"
+                        android:textColor="#37258D"
+                        android:textSize="@dimen/Small_Size" />
+
+                    <ImageView
+                        android:id="@+id/ic_seta_FAQ3"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="20dp"
+                        android:src="@drawable/ic_seta_baixo" />
+                </RelativeLayout>
+
+                <net.cachapa.expandablelayout.ExpandableLayout
+                    android:id="@+id/card_expandido_FAQ3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:el_duration="500"
+                    app:el_expanded="false">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clipToPadding="false"
+                        android:elevation="4dp"
+                        android:gravity="center"
+                        android:paddingHorizontal="15dp"
+                        android:text='@string/Resposta_FAQ3'
+                        android:textColor="#37258D" />
+
+                </net.cachapa.expandablelayout.ExpandableLayout>
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/FAQ4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="30dp"
+            android:backgroundTint="#fff"
+            app:cardCornerRadius="14dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/FAQ3">
+
+            <LinearLayout
+                android:id="@+id/LayoutFAQ4"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <RelativeLayout
+                    android:id="@+id/btnCardFAQ4"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+
+                    android:foreground="?selectableItemBackground">
+
+
+                    <TextView
+                        style="@style/TextAppearance.AppCompat.Medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginEnd="40dp"
+                        android:elevation="10dp"
+                        android:fontFamily="@font/fonte_padrao"
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:text="@string/FAQ4"
+                        android:textColor="#37258D"
+                        android:textSize="@dimen/Small_Size" />
+
+                    <ImageView
+                        android:id="@+id/ic_seta_FAQ4"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="20dp"
+                        android:src="@drawable/ic_seta_baixo" />
+                </RelativeLayout>
+
+                <net.cachapa.expandablelayout.ExpandableLayout
+                    android:id="@+id/card_expandido_FAQ4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:el_duration="500"
+                    app:el_expanded="false">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clipToPadding="false"
+                        android:elevation="4dp"
+                        android:gravity="center"
+                        android:paddingHorizontal="15dp"
+                        android:text="@string/Resposta_FAQ1"
+                        android:textColor="#37258D" />
+
+                </net.cachapa.expandablelayout.ExpandableLayout>
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/FAQ5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="50dp"
+            android:backgroundTint="#fff"
+            app:cardCornerRadius="14dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/FAQ4">
+
+            <LinearLayout
+                android:id="@+id/LayoutFAQ5"
+                android:layout_width="match_parent"
+
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <RelativeLayout
+                    android:id="@+id/btnCardFAQ5"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+
+                    android:foreground="?selectableItemBackground">
+
+
+                    <TextView
+                        style="@style/TextAppearance.AppCompat.Medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="40dp"
+                        android:elevation="10dp"
+                        android:fontFamily="@font/fonte_padrao"
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:text="@string/FAQ5"
+                        android:textColor="#37258D"
+                        android:textSize="@dimen/Small_Size" />
+
+                    <ImageView
+                        android:id="@+id/ic_seta_FAQ5"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="20dp"
+                        android:src="@drawable/ic_seta_baixo" />
+                </RelativeLayout>
+
+                <net.cachapa.expandablelayout.ExpandableLayout
+                    android:id="@+id/card_expandido_FAQ5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:el_duration="500"
+                    app:el_expanded="false">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clipToPadding="false"
+                        android:elevation="4dp"
+                        android:gravity="center"
+                        android:paddingHorizontal="15dp"
+                        android:text="@string/Resposta_FAQ5"
+                        android:textColor="#37258D" />
+
+                </net.cachapa.expandablelayout.ExpandableLayout>
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
