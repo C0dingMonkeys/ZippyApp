@@ -34,4 +34,13 @@
         <item name="cornerSizeTopLeft">15dp</item>
         <item name="cornerSizeTopRight">15dp</item>
     </style>
+
+    <style name="ToolbarTheme" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="actionMenuTextColor">@color/TextColorContrast</item>
+
+    </style>`
+
+    <style name="TemaCustomMenu" parent="@android:style/TextAppearance.Widget.IconMenu.Item">
+
+    </style>
 </resources>

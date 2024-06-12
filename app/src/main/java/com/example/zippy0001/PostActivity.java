@@ -8,13 +8,13 @@ import android.widget.TextView;
 
 import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.zippy0001.classes.AdaptadorPostagem;
 import com.example.zippy0001.classes.PostagemGetterSetter;
+import com.example.zippy0001.classes.DetalhesPedidosInterface;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonIOException;
 import com.google.gson.JsonObject;
@@ -24,7 +24,7 @@ import com.koushikdutta.ion.Ion;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PostActivity extends AppCompatActivity {
+public class PostActivity extends AppCompatActivity implements DetalhesPedidosInterface {
     List<PostagemGetterSetter> postagemGetterSetterList;
     private static String HOST = "http://zippyinternacional.com/Android/";
     public static final String EXTRA_ORIGEM = "origem";
@@ -92,6 +92,8 @@ public class PostActivity extends AppCompatActivity {
 
                                     JsonObject avaliacoesObject = result.get(i).getAsJsonObject();
 
+                                    String IdPedido = avaliacoesObject.get("idPedido").getAsString();
+                                    String Destinatario = avaliacoesObject.get("idClienteDest").getAsString();
                                     String NomeProduto = avaliacoesObject.get("nomeProduto").getAsString();
                                     String LinkProduto = avaliacoesObject.get("linkProduto").getAsString();
                                     String PrecoProduto = avaliacoesObject.get("precoProduto").getAsString();
@@ -101,13 +103,13 @@ public class PostActivity extends AppCompatActivity {
                                     String ImgProduto = avaliacoesObject.get("imgProduto").getAsString();
                                     String ImgCompleta = HOST + "uploads/produtos/" + ImgProduto;
 
-                                    Log.d("testeRV", NomeProduto + "," + LinkProduto + "," + PrecoProduto + "," + PaisDestino + "," + CidadeDestino + "," + CaixaProduto + "," + ImgCompleta);
-                                    PostagemGetterSetter postagemGetterSetter = new PostagemGetterSetter(NomeProduto, PrecoProduto, PaisDestino, CidadeDestino, CaixaProduto, ImgCompleta);
+                                    Log.d("testeRV", IdPedido + " " + Destinatario +" "+ NomeProduto + "," + LinkProduto + "," + PrecoProduto + "," + PaisDestino + "," + CidadeDestino + "," + CaixaProduto + "," + ImgCompleta);
+                                    PostagemGetterSetter postagemGetterSetter = new PostagemGetterSetter(IdPedido, Destinatario, NomeProduto, PrecoProduto, PaisDestino, CidadeDestino, CaixaProduto, ImgCompleta,LinkProduto);
                                     postagemGetterSetterList.add(postagemGetterSetter);
                                     GridLayoutManager gridLayoutManager = new GridLayoutManager(PostActivity.this, 2, GridLayoutManager.VERTICAL, false);
                                     LinearLayoutManager linearLayoutManager = new LinearLayoutManager(PostActivity.this, RecyclerView.VERTICAL, false);
                                     PostagemRV.setLayoutManager(linearLayoutManager);
-                                    adaptadorPostagem = new AdaptadorPostagem(PostActivity.this, postagemGetterSetterList);
+                                    adaptadorPostagem = new AdaptadorPostagem(PostActivity.this, postagemGetterSetterList, PostActivity.this);
                                     PostagemRV.setAdapter(adaptadorPostagem);
                                     adaptadorPostagem.notifyDataSetChanged();
 
@@ -131,5 +133,30 @@ public class PostActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    public void onItemClick(int position) {
+        Intent intent = new Intent(PostActivity.this, activityDetalhesPost.class);
+        String origem = getIntent().getStringExtra(EXTRA_ORIGEM);
+
+        Log.d("testeDEtalhes", "oi"+postagemGetterSetterList.get(position).getIdPedido()+
+                postagemGetterSetterList.get(position).getIdClienteDest()+
+                postagemGetterSetterList.get(position).getLinkProduto()+
+                postagemGetterSetterList.get(position).getCaixaProduto()+
+                postagemGetterSetterList.get(position));
+
+        intent.putExtra("idPedido", postagemGetterSetterList.get(position).getIdPedido());
+        intent.putExtra("idClienteDest", postagemGetterSetterList.get(position).getIdClienteDest());
+        intent.putExtra("NomePedido", postagemGetterSetterList.get(position).getNomeProduto());
+        intent.putExtra("ValorPedido", postagemGetterSetterList.get(position).getPrecoProduto());
+        intent.putExtra("CaixaPedido", postagemGetterSetterList.get(position).getCaixaProduto());
+        intent.putExtra("LinkPedido", postagemGetterSetterList.get(position).getLinkProduto());
+        intent.putExtra("PaisOrigem", origem);
+        intent.putExtra("PaisDestino", postagemGetterSetterList.get(position).getPaisDestino());
+        intent.putExtra("CidadeDestino", postagemGetterSetterList.get(position).getCidadeDestino());
+        intent.putExtra("ImgProduto", postagemGetterSetterList.get(position).getImgProduto());
+
+        startActivity(intent);
     }
 }

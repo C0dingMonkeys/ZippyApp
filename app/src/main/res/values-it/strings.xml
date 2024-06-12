@@ -29,11 +29,11 @@
     <string name="navigation_drawer_open">Apri il cassetto</string>
     <string name="navigation_drawer_close">Chiudere il cassetto</string>
     <string name="title_activity_config">ConfigActivity</string>
-    <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">Primo frammento</string>
-    <string name="second_fragment_label">Secondo frammento</string>
-    <string name="next">Prossimo</string>
-    <string name="previous">Precedente</string>
+    <string name="ucrop_crop">Cortar</string>
+    <string name="ucrop_label_edit_photo">Editar Foto</string>
+    <string name="ucrop_menu_crop">Cortar</string>
+    <string name="ucrop_rotate">Girar</string>
+    <string name="ucrop_scale">Aumentar</string>
 
     <string name="lorem_ipsum">Il cliente è molto importante, il cliente sarà seguito dal cliente. Per l\'insalata di cioccolato. Maurizio
         vita, il dolore a volte è travolgente, il dolore delle risate deve essere letto, lascia che sia molto immobile
@@ -69,8 +69,8 @@
         membri È ora di bere la terra e non la terra. In un mazzo non c\'è Fino alla CNN
         gratis o ora il risultato, chi è il nisl eleifend Domani dovremo bere da un giusto lutto
         vestibolo Fusce ha detto al libero chi è stato il più grande, il dignista della carriera della sua vita.</string>
-    <string name="fale_conosco_card">Parla con uno dei nostri affiliati nel MONDO</string>
-    <string name="entrar_em_contato_card">Mettiti in contatto</string>
+    <string name="faq_card_home">Possui alguma dúvida? Consulte nosso FAQ</string>
+    <string name="btn_faq_card_home">Clique aqui!</string>
     <string name="faça_solicitação">Cerchi qualcosa di specifico\?\nFai la tua richiesta!</string>
     <string name="fazer_post">Crea post</string>
     <string name="content_Descripton">LOGO</string>
@@ -103,7 +103,7 @@
     <string name="denunciar_config">Segnala utente</string>
     <string name="meus_pagamentos_config">I miei pagamenti</string>
     <string name="meu_perfil_titulo">Il mio profilo</string>
-    <string name="ola_luiz_teste">Ciao Luiz</string>
+    <string name="ola_teste">Olá Usuário</string>
     <string name="email_teste_perfil">*****5342\@gmail.com</string>
     <string name="btn_pedidos_perfil">Richieste</string>
     <string name="btn_solicitacoes_perfil">Richieste</string>
@@ -121,6 +121,7 @@
     <string name="lbl_insiraEmail">Accedi o registrati qui sotto:</string>
     <string name="titulo_editar_perfil">Modifica Profilo</string>
     <string name="titulo_editar_conta">Modifica account</string>
+    <string name="titulo_criar_post">Criar Postagem</string>
     <string name="lbl_editarNome">Nome:</string>
     <string name="lbl_editarSobrenome">Cognome:</string>
     <string name="lbl_editarEmail">E-mail:</string>
@@ -142,5 +143,86 @@
     <string name="title_activity_editar_conta">attivitàModificaConta</string>
     <string name="lbl_senhaEdit">********</string>
     <string name="dataEdit_error">Inserisci una data valida</string>
+    <string name="subtitulo_criar_post">Insira as informações sobre o que você deseja</string>
+    <string name="lbl_nomePost">Nome do Produto: *</string>
+    <string name="lbl_valorPost">Valor do Produto*</string>
+    <string name="lbl_linkPost">Link de referencia: *</string>
+    <string name="lbl_addImg">Adicione uma foto do produto</string>
+    <string name="lbl_paisOrigemPost">País de Origem: *</string>
+    <string name="lbl_cidadePost">Cidade: *</string>
+    <string name="lbl_estadoPost">Estado: *</string>
+    <string name="lbl_paisDestinoPost">País de Destino: *</string>
+    <string name="lbl_cidadeDestinoPost">Cidade: *</string>
+    <string name="lbl_estadoDestinoPost">Estado: *</string>
+    <string name="lbl_checkCaixa">Deseja o produto com Caixa?</string>
+    <string name="hint_nomePost">Macbook Pro 14\"</string>
+    <string name="hint_linkPost">apple.com/shop/produto</string>
+    <string name="hint_precoPost">$3200</string>
+    <string name="hint_PaisOrigemPost">Estados Unidos</string>
+    <string name="hint_cidadeOrigemPost">Nova York</string>
+    <string name="hint_estadoOrigemPost">NY</string>
+    <string name="hint_PaisDestinoPost">Brasil</string>
+    <string name="hint_cidadeDestinoPost">São Paulo</string>
+    <string name="hint_estadoDestinoPost">SP</string>
+    <string name="text_uploadImg">Insira uma imagem</string>
+    <string name="subtitulo_selecionar_destino">Nos conte onde você está\n e para onde vai..</string>
+    <string name="titulo_selecionar_destino">Richieste</string>
+    <string name="lbl_erroPosts">Nenhum Pedido Encuntrado!</string>
+    <string name="titulo_Pedidos">Pedidos Disponiveis</string>
+    <string name="cd_voltarPedidos">Botão voltar tela anterior</string>
+    <string name="cd_face_pedidos">Imagem carinha triste</string>
+    <string name="cd_setaAvancar">Seta indicando avançar</string>
+    <string name="btn_remove_img">Remover Imagem</string>
+    <string name="warning_caixa_original">Caixa Original pode ocasionar em taxas alfadegárias.</string>
+    <string name="FAQ_1">E se não entregarem meu pedido?</string>
+    <string name="Resposta_FAQ1">Caso não haja a entrega do seu pedido, primeiro entraremos em contato com o viajante, caso não haja nehuma possibilidade de entrega, reembolsaremos o valor que você pagou e cancelaremos o processo de entrega.</string>
+    <string name="FAQ2">E se não confirmarem o recebimento?</string>
+    <string name="Resposta_FAQ2">Caso o comprador não confirme o recebimento, nós entraremos em contato com ele, porém, antes disso, você terá que ter confirmado a entrega e com a foto do produto entregue. Então, poderemos ver a situação e você receberá seu pagamento.</string>
+    <string name="FAQ3">Como posso denunciar um usuario?</string>
+    <string name="Resposta_FAQ3">Caso queira denunciar um usuário, na página inicial, terá um texto escrito Suporte, após clicar lá, terá a opção de Denunciar usuário, siga os passsos que são pedidos e conseguirá denunciar um usuário.</string>
+    <string name="FAQ5">E s eo viajante não puder entregar meu pedido mais?</string>
+    <string name="Resposta_FAQ5">Caso o viajante não puder entregar o seu produto, ele entrará em contato conosco e após isso entraremos em contato com você para que receba seu reembolso</string>
+    <string name="FAQ4">E se a alfandega impedir a chegada do meu produto?</string>
+    <string name="titulo_ajuda">Perguntas frequentes</string>
+
+    <!--ALERT DIALOGS-->
+    <string name="titulo_alert_dialog_login">Sucesso!</string>
+    <string name="corpo_alert_dialog_login">Cadastro realizado com Sucesso! \nFaça Login para continuar!</string>
+    <string name="titulo_dialog_posts">Sucesso!</string>
+    <string name="corpo_dialog_posts">Pedido criado com sucesso!</string>
+    <string name="btn_fazer_login">Fazer Login</string>
+
+    <string name="titulo_erro_dialog_identidade">Aviso!</string>
+    <string name="corpo_erro_dialog_identidade">"Não é possivel alterar sua identidade\nCaso haja um erro, entre em contato com nosso suporte</string>
+
+    <string name="corpo_dialog_recuperar_senha">Email de recuperação enviado com sucesso!\nFaça Login para continuar!</string>
+    <string name="btn_voltar_dialog">Voltar</string>
+    <!--FIM ALERT DIALOGS-->
+    <!--    TRATAMENTO DE ERRO -->
+    <string name="erro_nome">Por favor, insira o seu nome completo</string>
+    <string name="erro_sobrenome">Por favor, insira seu Sobrenome</string>
+    <string name="erro_telefone">Por favor, insira seu telefone</string>
+    <string name="erro_dtaNasc">Por favor, insira sua data de nascimento</string>
+    <string name="erro_conexao">Erro ao verificar senha. Verifique sua conexão com a internet.</string>
+    <string name="erro_desconhecido">Erro desconhecido. Tente novamente mais tarde</string>
+    <string name="erro_pedido">Erro ao criar pedido. Tente novamente mais tarde.</string>
+    <string name="erro_inserir_senha">Por favor, insira a sua senha</string>
+    <string name="erro_senhas_diferentes">Senhas não conferem</string>
+    <string name="erro_insira_senha">Por favor, insira a sua senha</string>
+    <string name="erro_tamanho_senha">A senha precisa de no mininmo 8 caracteres</string>
+    <string name="erro_email_cadastrado">Este Email já está cadastrado!</string>
+    <string name="erro_insira_email">Por favor, insira o seu email</string>
+    <string name="erro_insira_identidade">Por favor, insira a sua identidade</string>
+    <string name="erro_email_invalido">Email inválido</string>
+    <string name="erro_sem_internet">Sem conexão com a internet!</string>
+    <string name="erro_enviar_email">Erro ao Enviar o Email</string>
+    <string name="erro_nao_email_cadastrado">Email não cadastrado</string>
+    <string name="erro_pais_vazio">Insira um País</string>
+    <!--   FIM TRATAMENTO DE ERRO -->
+
+<!--    RESPOSTAS-->
+    <string name="sucesso">Sucesso!</string>
+<!--   FIM RESPOSTAS-->
+
 
 </resources>

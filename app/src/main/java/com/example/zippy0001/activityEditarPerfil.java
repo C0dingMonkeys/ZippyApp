@@ -4,18 +4,14 @@ import static com.example.zippy0001.PerfilFragment.EXTRA_BACK_PERFIL;
 
 import android.Manifest;
 import android.app.Activity;
-import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Bitmap;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -29,7 +25,6 @@ import androidx.appcompat.widget.AppCompatButton;
 import androidx.core.app.ActivityCompat;
 
 import com.example.zippy0001.classes.FileModel;
-import com.example.zippy0001.classes.FileUtils;
 import com.example.zippy0001.classes.HttpService;
 import com.example.zippy0001.classes.RetrofitBuilder;
 import com.github.drjacky.imagepicker.ImagePicker;
@@ -287,14 +282,14 @@ public class activityEditarPerfil extends AppCompatActivity {
 
 
         if (resultCode != RESULT_CANCELED) {
-                if (requestCode == 101 && resultCode == Activity.RESULT_OK) {
-                    uri = data.getData();
-                    EditarFoto.setImageURI(uri);
-                    uploadFiletoServer(idUsuario);
-                    loadingDialog.iniciarAlertDialog();
-                } else {
-                    Toast.makeText(getApplicationContext(), "sem img", Toast.LENGTH_SHORT).show();
-                }
+            if (requestCode == 101 && resultCode == Activity.RESULT_OK) {
+                uri = data.getData();
+                EditarFoto.setImageURI(uri);
+                uploadFiletoServer(idUsuario);
+                loadingDialog.iniciarAlertDialog();
+            } else {
+                Toast.makeText(getApplicationContext(), "sem img", Toast.LENGTH_SHORT).show();
+            }
 
 //            switch (requestCode) {
 //                case 0:
@@ -319,6 +314,11 @@ public class activityEditarPerfil extends AppCompatActivity {
     }
 
     public void requirePermission() {
+        if (Build.VERSION.SDK_INT >= 33) {
+            ActivityCompat.requestPermissions(activityEditarPerfil.this, new String[]{Manifest.permission.CAMERA, Manifest.permission.READ_MEDIA_IMAGES}, 1);
+            ActivityCompat.requestPermissions(activityEditarPerfil.this, new String[]{Manifest.permission.READ_MEDIA_IMAGES}, 1);
+        } else
+            ActivityCompat.requestPermissions(activityEditarPerfil.this, new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
         ActivityCompat.requestPermissions(activityEditarPerfil.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
     }
 
@@ -331,12 +331,12 @@ public class activityEditarPerfil extends AppCompatActivity {
         HttpService service = RetrofitBuilder.getClient().create(HttpService.class);
 
         retrofit2.Call<FileModel> call = service.callUploadApi(filePart, userId);
-                call.enqueue(new Callback<FileModel>() {
-                    @Override
-                    public void onResponse(retrofit2.Call<FileModel> call, retrofit2.Response<FileModel> response) {
-                        FileModel fileModel = response.body();
+        call.enqueue(new Callback<FileModel>() {
+            @Override
+            public void onResponse(retrofit2.Call<FileModel> call, retrofit2.Response<FileModel> response) {
+                FileModel fileModel = response.body();
 
-                        Toast.makeText(activityEditarPerfil.this, fileModel.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(activityEditarPerfil.this, fileModel.getMessage(), Toast.LENGTH_SHORT).show();
 
                 SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -347,7 +347,6 @@ public class activityEditarPerfil extends AppCompatActivity {
 
                 Picasso.get().load(BASE_URL_IMAGEM + fotoPerfillink).networkPolicy(NetworkPolicy.NO_CACHE).memoryPolicy(MemoryPolicy.NO_CACHE).into(EditarFoto);
                 loadingDialog.fecharAlertDialog();
-
 
 
             }

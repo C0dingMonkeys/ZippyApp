@@ -21,6 +21,7 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
+import com.example.zippy0001.classes.Usuario;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 import com.google.gson.JsonArray;
@@ -48,9 +49,11 @@ public class activityInicio extends AppCompatActivity implements NavigationView.
         SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
         String idUsuarioShared = sharedPreferences.getString("id_usuario", "");
         String emailShared = sharedPreferences.getString("email", "");
+        String nomeUsuario = sharedPreferences.getString("nomeCliente", "");
         recuperarDadosTBUSUARIO(emailShared);
         recuperarDadosTBCLIENTE(idUsuarioShared);
         Log.d("idTeste", idUsuarioShared);
+        Usuario usuario = new Usuario(idUsuarioShared, nomeUsuario);
 
 
     }
@@ -108,6 +111,7 @@ public class activityInicio extends AppCompatActivity implements NavigationView.
                 return true;
             } else if (itemId == R.id.bottom_profile) {
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new PerfilFragment()).commit();
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
 
                 return true;
             } else if (itemId == R.id.bottom_chat) {
@@ -298,5 +302,7 @@ public class activityInicio extends AppCompatActivity implements NavigationView.
 
 
     }
+
+
 
 }

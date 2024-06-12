@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_app"
+    tools:context=".activityCentralAjuda">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/barraSuperiorLayoutDetalhes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/PrimaryColor"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/btnVoltarDetalhes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="15dp"
+                android:backgroundTint="@android:color/transparent"
+                android:contentDescription="@string/cd_voltarPedidos"
+                android:padding="15dp"
+                android:src="@drawable/ic_seta_voltar_constrast_big" />
+
+            <TextView
+                style="@style/TextColor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/fonte_padrao"
+                android:text="NomePedido"
+                android:textSize="@dimen/Subtitulo_Size" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/imgPedidoDetalhes"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginVertical="20dp"
+            android:background="#d9d9d9"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/barraSuperiorLayoutDetalhes">
+
+        </ImageView>
+
+        <LinearLayout
+            android:id="@+id/detalhesPedido"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical"
+            android:layout_marginBottom="50dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imgPedidoDetalhes">
+
+            <TextView
+                android:id="@+id/detalhesNome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/bg_contorno_pedido"
+                android:fontFamily="@font/fonte_padrao"
+                android:gravity="center"
+                android:text="Macbook 14  8gb ram"
+                android:textSize="@dimen/Grande_size" />
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_gravity="start"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/bg_contorno_pedido"
+                    android:fontFamily="@font/fonte_padrao"
+                    android:text="Valor Estimado"
+                    android:textSize="@dimen/Normal_Size" />
+
+                <TextView
+                    android:id="@+id/detalhesValor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_gravity="end|bottom"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/bg_contorno_pedido"
+                    android:fontFamily="@font/fonte_padrao"
+                    android:text="CAIXA"
+                    android:textSize="@dimen/Normal_Size" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_gravity="start"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/bg_contorno_pedido"
+                    android:fontFamily="@font/fonte_padrao"
+                    android:text="Tipo de Caixa:"
+                    android:textSize="@dimen/Normal_Size" />
+
+                <TextView
+                    android:id="@+id/detalhesCaixaTipo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_gravity="end|bottom"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/bg_contorno_pedido"
+                    android:fontFamily="@font/fonte_padrao"
+                    android:text="CAIXA"
+                    android:textSize="@dimen/Normal_Size" />
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_gravity="start"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/bg_contorno_pedido"
+                    android:fontFamily="@font/fonte_padrao"
+                    android:text="Link Referência:"
+                    android:textSize="@dimen/Normal_Size" />
+
+                <TextView
+                    android:id="@+id/detalhesLinkRef"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_gravity="end|bottom"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/bg_contorno_pedido"
+                    android:fontFamily="@font/fonte_padrao"
+                    android:text="CAIXA"
+                    android:textSize="@dimen/Normal_Size" />
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_gravity="start"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/bg_contorno_pedido"
+                    android:fontFamily="@font/fonte_padrao"
+                    android:text="Pais de Origem:"
+                    android:textSize="@dimen/Normal_Size" />
+
+                <TextView
+                    android:id="@+id/detalhesPaisOrigem"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_gravity="end|bottom"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/bg_contorno_pedido"
+                    android:fontFamily="@font/fonte_padrao"
+                    android:text="CAIXA"
+                    android:textSize="@dimen/Normal_Size" />
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_gravity="start"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/bg_contorno_pedido"
+                    android:fontFamily="@font/fonte_padrao"
+                    android:text="Pais de Destino:"
+                    android:textSize="@dimen/Normal_Size" />
+
+                <TextView
+                    android:id="@+id/detalhesPaisDestino"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_gravity="end|bottom"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/bg_contorno_pedido"
+                    android:fontFamily="@font/fonte_padrao"
+                    android:text="CAIXA"
+                    android:textSize="@dimen/Normal_Size" />
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_gravity="start"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/bg_contorno_pedido"
+                    android:fontFamily="@font/fonte_padrao"
+                    android:text="Cidade de Destino:    "
+                    android:textSize="@dimen/Normal_Size" />
+
+                <TextView
+                    android:id="@+id/detalhesCidadeDestino"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_gravity="end|bottom"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/bg_contorno_pedido"
+                    android:fontFamily="@font/fonte_padrao"
+                    android:text="CAIXA"
+                    android:textSize="@dimen/Normal_Size" />
+
+            </RelativeLayout>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnIniciarChat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="25dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/bg_btn_perfil"
+                android:fontFamily="@font/fonte_padrao"
+                android:padding="20dp"
+                android:text="Chat"
+                android:textColor="@color/TextColor"
+                android:textSize="@dimen/Normal_Size"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/layoutDestinoChegada" />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

@@ -222,9 +222,13 @@
     <string name="erro_pais_vazio">Insira um País</string>
     <!--   FIM TRATAMENTO DE ERRO -->
 
-<!--    RESPOSTAS-->
+    <!--    RESPOSTAS-->
     <string name="sucesso">Sucesso!</string>
-<!--   FIM RESPOSTAS-->
+    <string name="titulo_chats">Chats</string>
+    <string name="titulo_denunciar_usuario">Denunciar Usuário</string>
+    <string name="subtitulo_denuncia">Nos conte o motivo da Denúncia...</string>
+    <string name="menuItem_denunciar_usuario">Denunciar Usuário</string>
+    <!--   FIM RESPOSTAS-->
 
 
 </resources>

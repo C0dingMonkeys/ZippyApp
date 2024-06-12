@@ -165,6 +165,7 @@ public class activityCriarPost extends AppCompatActivity {
 
 
     public void requirePermission() {
+        ActivityCompat.requestPermissions(activityCriarPost.this, new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE} , 1);
         ActivityCompat.requestPermissions(activityCriarPost.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
     }
 

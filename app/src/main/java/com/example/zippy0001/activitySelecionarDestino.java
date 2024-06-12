@@ -26,8 +26,8 @@ public class activitySelecionarDestino extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_selecionar_destino);
 
-        txtPaisDestino = findViewById(R.id.txtDestinoOrigem);
-        txtPaisOrigem = findViewById(R.id.txtDestinoChegada);
+        txtPaisOrigem = findViewById(R.id.txtDestinoOrigem);
+        txtPaisDestino= findViewById(R.id.txtDestinoChegada);
 
         lytPaisDestino = findViewById(R.id.layoutDestinoChegada);
         lytPaisOrigem = findViewById(R.id.layoutDestinoOrigem);
