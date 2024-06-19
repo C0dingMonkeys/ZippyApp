@@ -33,7 +33,7 @@ public class PerfilFragment extends Fragment {
     public static final String SHARED_PREFS = "sharedPrefs";
 
     private CircleImageView Foto;
-    String BASE_URL_IMAGEM = "https://zippyinternacional.com/Android/img/";
+    String BASE_URL_IMAGEM = "https://zippyinternacional.com/uploads/";
 
     public static final String EXTRA_BACK_PERFIL = "voltar_perfil";
 
@@ -102,8 +102,9 @@ public class PerfilFragment extends Fragment {
         Foto = view.findViewById(R.id.imgFotoPerfil);
         Picasso.get().load(BASE_URL_IMAGEM+fotoPerfil).into(Foto);
 
-        AppCompatButton editarPerfil;
+        AppCompatButton editarPerfil, meusPedidos;
         editarPerfil = view.findViewById(R.id.btnEditarPerfil_perfil);
+        meusPedidos = view.findViewById(R.id.btnMeusPedidos_perfil);
 
         editarPerfil.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -112,6 +113,11 @@ public class PerfilFragment extends Fragment {
                 intent.putExtra(EXTRA_BACK_PERFIL, "PerfilFragment");
                 startActivity(intent);
             }
+        });
+
+        meusPedidos.setOnClickListener(v -> {
+            Intent intent = new Intent(getContext(), activityMeusPedidos.class);
+            startActivity(intent);
         });
     }
 }

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="20dp"
+    android:background="@drawable/bg_contorno_pedido"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:theme="@style/Base.Theme.AppCompat.DayNight.NoActionBar">
+
+    <TextView
+        android:id="@+id/statusPedido"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:fontFamily="@font/fonte_padrao"
+        android:text="STATUS"
+        android:textSize="@dimen/Normal_Size" />
+
+    <View
+        android:id="@+id/divisor_layout"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginBottom="5dp"
+        android:background="@color/black" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        android:weightSum="3">
+
+        <ImageView
+            android:id="@+id/fotoMeusPedidos"
+            android:layout_width="0dp"
+            android:layout_height="120dp"
+            android:scaleType="centerCrop"
+            android:layout_weight="1"
+            android:src="@drawable/ic_launcher_foreground" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/numeroMeusPedidos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/fonte_padrao"
+                android:text="Numero Pedido:"
+                android:textSize="@dimen/micro_size" />
+
+            <TextView
+                android:id="@+id/nomeMeusPedidos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/fonte_padrao"
+
+                android:text="Nome:"
+                android:textSize="@dimen/micro_size" />
+
+            <TextView
+                android:id="@+id/destinoMeusPedidos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/fonte_padrao"
+
+                android:text="Destino:"
+                android:textSize="@dimen/micro_size" />
+
+            <TextView
+                android:id="@+id/dataMeusPedidos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/fonte_padrao"
+                android:text="Data:"
+                android:textSize="@dimen/micro_size" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnConfirmarPedido"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:background="@drawable/bg_btn_perfil"
+        android:fontFamily="@font/fonte_padrao"
+        android:paddingHorizontal="10dp"
+        android:text="Confirmar Entrega!"
+        android:textColor="@color/white"
+        android:textSize="@dimen/micro_size" />
+
+</LinearLayout>

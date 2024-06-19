@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activityCadastrarCartao">
+
+    <RelativeLayout
+        android:id="@+id/barraSuperiorCadastroCC"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/PrimaryColor"
+        android:gravity="center_vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btnVoltarPagamento"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_marginEnd="15dp"
+            android:backgroundTint="@android:color/transparent"
+            android:padding="15dp"
+            android:src="@drawable/ic_seta_voltar_constrast_big" />
+
+        <TextView
+            android:id="@+id/txtNomeDestinatario"
+            style="@style/TextColor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@id/btnVoltarPagamento"
+            android:fontFamily="@font/fonte_padrao"
+            android:text="Cartão de Crédito "
+            android:textSize="@dimen/Subtitulo_Size" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/barraSuperiorCadastroCC">
+
+        <RelativeLayout
+            android:id="@+id/addCartaoLayout"
+            android:layout_width="match_parent"
+            android:background="@drawable/bg_contorno_reto"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start">
+            <ImageView
+                android:id="@+id/imgAddCartao"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_margin="5dp"
+                android:src="@drawable/ic_pix"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_marginStart="10dp"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@+id/imgAddCartao"
+                android:layout_centerVertical="true"
+                android:text="Adicionar Cartão"
+                android:fontFamily="@font/fonte_padrao"
+                android:textSize="@dimen/Small_Size"/>
+        </RelativeLayout>
+        <ListView
+            android:id="@+id/listaCartoes"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

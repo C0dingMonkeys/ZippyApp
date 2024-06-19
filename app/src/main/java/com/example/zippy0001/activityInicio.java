@@ -30,6 +30,10 @@ import com.koushikdutta.async.future.FutureCallback;
 import com.koushikdutta.ion.Ion;
 import com.squareup.picasso.Picasso;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 import java.util.Objects;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -38,7 +42,7 @@ public class activityInicio extends AppCompatActivity implements NavigationView.
 
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle toggle;
-    String BASE_URL_IMAGEM = "https://zippyinternacional.com/Android/img/";
+    String BASE_URL_IMAGEM = "https://zippyinternacional.com/uploads/";
     String URL_RECUPERAR_DADOS_USUARIO = "https://zippyinternacional.com/Android/selectUsuario.php";
     String URL_RECUPERAR_DADOS_CLIENTE = "https://zippyinternacional.com/Android/selectCliente.php";
     public static final String SHARED_PREFS = "sharedPrefs";
@@ -277,15 +281,20 @@ public class activityInicio extends AppCompatActivity implements NavigationView.
                                     String status = dadosArray.get(2).getAsString();
                                     String dataNasc = dadosArray.get(3).getAsString();
                                     String fotoPerfil = dadosArray.get(4).getAsString();
+                                    SimpleDateFormat sqlDateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+                                    Date dataConvertida = sqlDateFormat.parse(dataNasc);
+                                    SimpleDateFormat appDateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
+                                    String dataFormatada = appDateFormat.format(dataConvertida);
 
-                                    Log.d("teste3", "o status é:" + Id_usuario);
+
+                                    Log.d("teste3", "o status é:" + dataFormatada);
 
                                     SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
                                     SharedPreferences.Editor editor = sharedPreferences.edit();
                                     editor.putString("email", email);
                                     editor.putString("id_usuario", Id_usuario);
                                     editor.putString("statusUsuario", status);
-                                    editor.putString("dataNascUsuario", dataNasc);
+                                    editor.putString("dataNascUsuario", dataFormatada);
                                     editor.putString("fotoPerfilUsuario", fotoPerfil);
                                     editor.apply();
                                     Picasso.get().load(BASE_URL_IMAGEM + fotoPerfil).into(Foto);
@@ -296,6 +305,8 @@ public class activityInicio extends AppCompatActivity implements NavigationView.
 
                         } catch (JsonIOException ex) {
                             ex.printStackTrace();
+                        } catch (ParseException ex) {
+                            throw new RuntimeException(ex);
                         }
                     }
                 });

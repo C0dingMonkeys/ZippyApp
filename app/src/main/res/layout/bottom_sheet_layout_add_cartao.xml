@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.google.android.material.bottomsheet.BottomSheetDragHandleView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/lblTituloBottomSheet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:fontFamily="@font/fonte_padrao"
+        android:text=""
+        android:textSize="@dimen/Subtitulo_Size" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/TextLayoutCartaoNome"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nome do titular"
+        android:layout_margin="10dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/TextEditCartaoNome"
+            android:layout_width="match_parent"
+            android:fontFamily="@font/fonte_padrao"
+
+            android:layout_height="wrap_content"
+            android:background="@drawable/text_field_background"
+            android:singleLine="true" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/TextLayoutCartaoNum"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Numero do Cartão"
+        android:layout_margin="10dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/TextEditCartaoNum"
+            android:layout_width="match_parent"
+            android:fontFamily="@font/fonte_padrao"
+
+            android:layout_height="wrap_content"
+            android:background="@drawable/text_field_background"
+            android:singleLine="true" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:singleLine="true"
+        android:weightSum="3">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/TextLayoutCartaoValidade"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Validade"
+            android:layout_margin="10dp"
+            android:layout_weight="2">
+
+            <com.vicmikhailau.maskededittext.MaskedEditText
+                android:id="@+id/TextEditCartaoValidade"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/text_field_background"
+                android:contentDescription="@string/speakableText_dataNascismento"
+                android:fontFamily="@font/fonte_padrao"
+                android:inputType="number"
+                android:singleLine="true"
+                android:textColor="@color/black"
+                app:mask="##/##"
+                tools:ignore="EditableContentDescCheck" />
+
+            <!--        <com.google.android.material.textfield.TextInputEditText-->
+            <!--            android:layout_width="match_parent"-->
+            <!--            android:layout_height="wrap_content"-->
+            <!--            android:singleLine="true"-->
+            <!--            android:maxLength="5"-->
+            <!--            android:id="@+id/TextEditCartaoValidade"/>-->
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/TextLayoutCartaoCVV"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:hint="CVV"
+            android:layout_weight="1">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/TextEditCartaoCVV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/text_field_background"
+                android:maxLength="3"
+                android:fontFamily="@font/fonte_padrao"
+                android:singleLine="true" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+    </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnSalvarCartao"
+        style="@style/TextColor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/bg_btn_perfil"
+        android:fontFamily="@font/fonte_padrao"
+        android:text="@string/lbl_salvar"
+        android:textSize="@dimen/Normal_Size" />
+
+</LinearLayout>

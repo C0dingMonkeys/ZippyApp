@@ -122,7 +122,7 @@
         </RelativeLayout>
         <!-- BOTÃO DE CADASTRAR / INSERIR -->
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btnInserir"
+            android:id="@+id/btnVerDetalhes"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/bg_btn_perfil"

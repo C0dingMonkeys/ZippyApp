@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_app"
+    android:theme="@style/Theme.Material3.DayNight.NoActionBar"
+    tools:context=".activityPagamento">
+
+    <RelativeLayout
+        android:id="@+id/barraSuperiorPagamento"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/PrimaryColor"
+        android:gravity="center_vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btnVoltarPagamento"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_marginEnd="15dp"
+            android:backgroundTint="@android:color/transparent"
+            android:padding="15dp"
+            android:src="@drawable/ic_seta_voltar_constrast_big" />
+
+        <TextView
+            android:id="@+id/txtNomeDestinatario"
+            style="@style/TextColor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@id/btnVoltarPagamento"
+            android:fontFamily="@font/fonte_padrao"
+            android:text="Pagamento"
+            android:textSize="@dimen/Subtitulo_Size" />
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/layoutConfirmarPagamento"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/barraSuperiorPagamento">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/barraSuperiorPagamento">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:paddingHorizontal="20dp">
+
+                <TextView
+                    android:id="@+id/tituloDetalhesPedido"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="10dp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/fonte_padrao"
+                    android:text="Detalhes do Pedido"
+                    android:textSize="@dimen/Small_Size" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/imgProdutoPagamento"
+                        android:layout_width="100dp"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/ic_launcher_foreground" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginBottom="0dp"
+                        android:layout_toEndOf="@id/imgProdutoPagamento"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/txtNumeroPedidoPagamento"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:text="Pedido: 3"
+                            android:textSize="@dimen/micro_size" />
+
+                        <TextView
+                            android:id="@+id/txtNomePedidoPagamento"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:fontFamily="@font/fonte_padrao"
+                            android:text="Nome"
+                            android:textSize="@dimen/micro_size" />
+
+                        <TextView
+                            android:id="@+id/txtPaisDestinoPagamento"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:fontFamily="@font/fonte_padrao"
+                            android:text="Pais Destino"
+                            android:textSize="@dimen/micro_size" />
+
+                        <TextView
+                            android:id="@+id/txtCidadeDestinoPagamento"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:fontFamily="@font/fonte_padrao"
+                            android:text="Cidade Destino"
+
+                            android:textSize="@dimen/micro_size" />
+
+                        <TextView
+                            android:id="@+id/txtTipoCaixaPagamento"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:fontFamily="@font/fonte_padrao"
+                            android:text="Tipo de Caixa"
+                            android:textSize="@dimen/micro_size" />
+                    </LinearLayout>
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tituloMetodoPagamento"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="10dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/fonte_padrao"
+                    android:text="Método de Pagamento"
+                    android:textSize="@dimen/Small_Size" />
+
+                <RelativeLayout
+                    android:id="@+id/layoutMetodoPagamento"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:paddingHorizontal="10dp">
+
+                    <ImageView
+                        android:id="@+id/imgMetodoPagamento"
+                        android:layout_width="50dp"
+                        android:layout_height="30dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/bg_contorno_reto"
+                        android:padding="4dp"
+                        android:src="@drawable/ic_pix" />
+
+                    <TextView
+                        android:id="@+id/txtMetodoPagamento"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="10dp"
+                        android:layout_toEndOf="@+id/imgMetodoPagamento"
+                        android:fontFamily="@font/fonte_padrao"
+                        android:text="Pix"
+                        android:textSize="@dimen/Small_Size" />
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="10dp"
+                        android:src="@drawable/ic_seta_contrast" />
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tituloResumoPagamento"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="10dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/fonte_padrao"
+                    android:text="Resumo"
+                    android:textSize="@dimen/Small_Size" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="20dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginBottom="10dp"
+                        android:fontFamily="@font/fonte_padrao"
+                        android:text="Subtotal"
+                        android:textSize="@dimen/micro_size" />
+
+                    <TextView
+                        android:id="@+id/txtSubtotalPagamento"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginBottom="10dp"
+                        android:fontFamily="@font/fonte_padrao"
+                        android:text="Subtotal"
+                        android:textSize="@dimen/micro_size" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="20dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginBottom="10dp"
+                        android:fontFamily="@font/fonte_padrao"
+                        android:text="Porcentagem Viajante"
+                        android:textSize="@dimen/micro_size" />
+
+                    <TextView
+                        android:id="@+id/txtPorcentagemViajante"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:fontFamily="@font/fonte_padrao"
+                        android:text="10%"
+                        android:textSize="@dimen/micro_size" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="20dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginBottom="10dp"
+                        android:fontFamily="@font/fonte_padrao"
+                        android:text="Porcetagem Zippy"
+                        android:textSize="@dimen/micro_size" />
+
+                    <TextView
+                        android:id="@+id/txtPorcentagemZippy"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginBottom="10dp"
+                        android:fontFamily="@font/fonte_padrao"
+                        android:text="5%"
+                        android:textSize="@dimen/micro_size" />
+
+
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/layoutConfirmarPagamento"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:maxHeight="100dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <View
+            android:id="@+id/divisor_layout"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="5dp"
+            android:background="@color/black" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/fonte_padrao"
+                android:text="Total"
+                android:textSize="@dimen/Medio_size" />
+
+            <TextView
+                android:id="@+id/txtTotalPagamento"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/fonte_padrao"
+                android:text="$1000"
+                android:textSize="@dimen/Small_Size" />
+
+
+        </RelativeLayout>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnPagamento"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginVertical="10dp"
+            android:background="@drawable/bg_btn_perfil"
+            android:fontFamily="@font/fonte_padrao"
+            android:text="Pagar Agora!"
+            android:textColor="@color/white"
+            android:textSize="@dimen/Small_Size" />
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

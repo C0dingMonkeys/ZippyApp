@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.google.android.material.bottomsheet.BottomSheetDragHandleView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/lblTituloBottomSheet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:fontFamily="@font/fonte_padrao"
+        android:text=""
+        android:textSize="@dimen/Subtitulo_Size" />
+
+    <RadioGroup
+        android:id="@+id/rgPagamento"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:id="@+id/rbPix"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:layout_marginStart="20dp"
+            android:text="Pix"
+            android:padding="4dp"
+            android:textSize="@dimen/Normal_Size"/>
+
+        <RadioButton
+            android:id="@+id/rbCartaoCredito"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:text="Cartao Credito pai"
+            android:padding="4dp"
+            android:textSize="@dimen/Normal_Size"/>
+
+    </RadioGroup>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnSalvarMetodo"
+        style="@style/TextColor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/bg_btn_perfil"
+        android:fontFamily="@font/fonte_padrao"
+        android:text="@string/lbl_salvar"
+        android:textSize="@dimen/Normal_Size" />
+
+</LinearLayout>

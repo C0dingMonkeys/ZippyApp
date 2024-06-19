@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -55,6 +56,7 @@ public class AdaptadorPostagem extends RecyclerView.Adapter<AdaptadorPostagem.Ho
     class HolderPostagem extends RecyclerView.ViewHolder {
         TextView NomeProduto, PrecoProduto, PaisDestino, CaixaProduto;
         ImageView ImgProduto;
+        Button verDetalhes;
         CardView cardImg;
 
         public HolderPostagem(@NonNull View itemView, DetalhesPedidosInterface detalhesPedidosInterface) {
@@ -65,8 +67,9 @@ public class AdaptadorPostagem extends RecyclerView.Adapter<AdaptadorPostagem.Ho
             PaisDestino = itemView.findViewById(R.id.txtPaisDestino);
             CaixaProduto = itemView.findViewById(R.id.txtCaixaTipo);
             ImgProduto = itemView.findViewById(R.id.imgPedido_rv);
+            verDetalhes = itemView.findViewById(R.id.btnVerDetalhes);
 
-            itemView.setOnClickListener(new View.OnClickListener() {
+            verDetalhes.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     if (detalhesPedidosInterface != null){

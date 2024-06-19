@@ -25,14 +25,15 @@ public class AdaptadorChats extends RecyclerView.Adapter<AdaptadorChats.ViewHold
     Context context;
     String usuario;
     ArrayList<Usuario> listaUsuarios;
-    String idChat;
+    String idChat, idPedido;
 
 
-    public AdaptadorChats(Context contexto, String usuario, ArrayList<Usuario> listaUsuarios, String idChat) {
+    public AdaptadorChats(Context contexto, String usuario, ArrayList<Usuario> listaUsuarios, String idChat, String idPedido) {
         this.context = contexto;
         this.usuario = usuario;
         this.listaUsuarios = listaUsuarios;
         this.idChat = idChat;
+        this.idPedido = idPedido;
     }
 
     @NonNull
@@ -54,7 +55,7 @@ public class AdaptadorChats extends RecyclerView.Adapter<AdaptadorChats.ViewHold
                     Intent intent = new Intent(v.getContext(), activityChatEspecifico.class);
                     intent.putExtra("usuario", usuario);
                     intent.putExtra("usuarioDestino", listaUsuarios.get(i));
-
+                    intent.putExtra("idPedido", idPedido);
                     intent.putExtra("idChat", idChat);
                     context.startActivity(intent);
 

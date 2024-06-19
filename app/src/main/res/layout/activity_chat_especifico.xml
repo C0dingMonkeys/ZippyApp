@@ -7,7 +7,6 @@
     tools:context=".activityChatEspecifico">
 
 
-        
     <RelativeLayout
         android:id="@+id/barraSuperiorNomeChat"
         android:layout_width="match_parent"
@@ -21,20 +20,20 @@
         <androidx.appcompat.widget.AppCompatImageButton
             android:id="@+id/btnVoltarChat"
             android:layout_width="wrap_content"
-            android:layout_alignParentStart="true"
-            android:padding="15dp"
-            android:layout_marginEnd="15dp"
             android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_marginEnd="15dp"
             android:backgroundTint="@android:color/transparent"
+            android:padding="15dp"
             android:src="@drawable/ic_seta_voltar_constrast_big" />
 
         <TextView
             android:id="@+id/txtNomeDestinatario"
             style="@style/TextColor"
             android:layout_width="wrap_content"
-            android:layout_toEndOf="@id/btnVoltarChat"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
+            android:layout_toEndOf="@id/btnVoltarChat"
             android:fontFamily="@font/fonte_padrao"
             android:text="user"
             android:textSize="@dimen/Subtitulo_Size" />
@@ -46,79 +45,255 @@
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:background="@color/PrimaryColor"
-            app:title=""
             android:theme="@style/ToolbarTheme"
             app:menu="@menu/denunciar_menu"
-            />
+            app:title="" />
 
     </RelativeLayout>
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardDetalhesPedido"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#fff"
+        app:layout_constraintBottom_toTopOf="@id/layout_rvChat"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/barraSuperiorNomeChat">
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/barraSuperiorNomeChat">
+            app:layout_constraintTop_toTopOf="parent">
 
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rvMensagens"
+            <RelativeLayout
+                android:id="@+id/btnAbrirDetalhes"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginBottom="8dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/tituloPedido"
+                    style="@style/TextAppearance.AppCompat.Medium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:elevation="10dp"
+                    android:fontFamily="@font/fonte_padrao"
+                    android:foreground="?selectableItemBackground"
+                    android:gravity="start"
+                    android:paddingStart="10dp"
+                    android:paddingTop="10dp"
+                    android:text="Nome Pedido"
+                    android:textColor="#37258D" />
+
+                <TextView
+                    android:id="@+id/txtVerDetalhes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tituloPedido"
+                    android:fontFamily="@font/fonte_padrao"
+                    android:paddingStart="10dp"
+                    android:text="ver detalhes"
+                    android:textSize="@dimen/Mini_Size" />
+
+                <ImageView
+                    android:id="@+id/ic_seta"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="20dp"
+                    android:src="@drawable/ic_seta_baixo" />
+            </RelativeLayout>
+
+            <net.cachapa.expandablelayout.ExpandableLayout
+                android:id="@+id/layout_detalhesPedidos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:el_duration="500"
+                app:el_expanded="false">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:id="@+id/layoutPrecoProduto"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/PrecoProduto"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="10dp"
+
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="@font/fonte_padrao"
+                            android:text="Preço:" />
+
+                        <TextView
+                            android:id="@+id/txtValorFinal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_toEndOf="@id/PrecoProduto"
+                            android:background="@drawable/bg_edittext"
+                            android:backgroundTint="@color/BackgroundColor"
+                            android:fontFamily="@font/fonte_padrao"
+                            android:padding="10dp"
+                            android:text="$"
+                            android:textColor="@color/white" />
+
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/StatusProduto"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="@font/fonte_padrao"
+                            android:text="Status do Pedido:" />
+
+                        <TextView
+                            android:id="@+id/txtStatusPedido"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_toEndOf="@id/StatusProduto"
+                            android:background="@drawable/bg_edittext"
+
+                            android:backgroundTint="@color/PrimaryColor"
+                            android:fontFamily="@font/fonte_padrao"
+                            android:padding="10dp"
+                            android:text="Pendente"
+                            android:textColor="@color/white" />
+                    </RelativeLayout>
+                </LinearLayout>
+
+            </net.cachapa.expandablelayout.ExpandableLayout>
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout"
+        android:id="@+id/layout_rvChat"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="0dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toTopOf="@id/layout_enviarMensagem"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cardDetalhesPedido">
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvMensagens"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_enviarMensagem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
+        <View
+            android:id="@+id/divisor_layout"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginBottom="5dp"
+            android:background="@color/black"
+            app:layout_constraintBottom_toTopOf="@+id/btn_pagar_chat"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="5dp"
+            app:layout_constraintTop_toBottomOf="@+id/divisor_layout"
+            android:fontFamily="@font/fonte_padrao"
+            android:text='Para definir um valor final digite\n"combinado:[valor]"'
+            android:textSize="@dimen/micro_size"
+            app:layout_constraintBottom_toTopOf="@id/etTexto"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
         <EditText
             android:id="@+id/etTexto"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="10dp"
             android:layout_marginTop="8dp"
-            android:background="@drawable/text_field_background"
-            android:padding="10dp"
-            android:layout_marginBottom="8dp"
             android:layout_marginEnd="8dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/text_field_background"
             android:hint="Texto"
+            android:padding="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/btnEnviar"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_pagar_chat"
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:visibility="gone"
+            android:background="@drawable/bg_small_btn"
+            android:backgroundTint="@color/PrimaryColor"
+            android:fontFamily="@font/fonte_padrao"
+            android:padding="0dp"
+            android:text="Pagar"
+            android:textColor="@color/white"
+            android:textSize="@dimen/Mini_Size"
+            app:layout_constraintBottom_toTopOf="@+id/btnEnviar"
+            app:layout_constraintEnd_toEndOf="parent" />
 
 
         <ImageButton
             android:id="@+id/btnEnviar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginBottom="10dp"
             android:layout_marginTop="8dp"
-            android:padding="10dp"
             android:layout_marginEnd="8dp"
             android:background="@drawable/bg_border_image_view"
+            android:padding="10dp"
             android:src="@drawable/ic_enviar_chat"
-            android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

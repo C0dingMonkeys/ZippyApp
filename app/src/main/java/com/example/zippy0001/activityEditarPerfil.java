@@ -53,7 +53,7 @@ public class activityEditarPerfil extends AppCompatActivity {
     private RelativeLayout editarNome, editarTelefone, editarIdentidade;
     public static final String EXTRA_TRIGGER_PERFIL = "perfil_trigger";
     public static final String SHARED_PREFS = "sharedPrefs";
-    String BASE_URL_IMAGEM = "https://zippyinternacional.com/Android/img/";
+    String BASE_URL_IMAGEM = "https://zippyinternacional.com/uploads/";
 
     private Uri uri;
     private LoadingDialog loadingDialog;

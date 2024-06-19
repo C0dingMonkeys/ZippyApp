@@ -15,9 +15,15 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewTreeObserver;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,6 +35,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+
 import com.example.zippy0001.classes.AdaptadorMensagens;
 import com.example.zippy0001.classes.Mensagens;
 import com.example.zippy0001.classes.Usuario;
@@ -38,69 +45,91 @@ import com.google.gson.JsonObject;
 import com.koushikdutta.async.future.FutureCallback;
 import com.koushikdutta.ion.Ion;
 
+import net.cachapa.expandablelayout.ExpandableLayout;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 
 public class activityChatEspecifico extends AppCompatActivity {
-    String usuario;
-    Usuario usuarioDestino;
-    String nomeRemetente;
-    String nomeDestinatario;
     final Handler handler = new Handler();
     final int intervalo = 5000;
     private boolean telaAtiva = true;
-
-
-    ArrayList<Mensagens> listaMensajes = new ArrayList<Mensagens>();
-
     private String URL_ENVIAR_MENSAGEM = "https://zippyinternacional.com/Android/chat/inserirMensagem.php";
+    private String URL_RECUPERAR_STATUS = "https://zippyinternacional.com/Android/recuperarStatus.php";
     private String URL_OBTER_MSG = "https://zippyinternacional.com/Android/chat/obterMensagens.php";
+
+    Usuario usuarioDestino;
+    String usuario, nomeRemetente, nomeDestinatario, idRemetente;
+    EditText etTexto;
+    TextView nomeSuperior, lblVerDetalhes, txtPrecoPedido, txtStatusPedido;
+
+    ArrayList<Mensagens> listaMensagens = new ArrayList<Mensagens>();
 
     RecyclerView rvMensagens;
 
-    EditText etTexto;
-    TextView nomeSuperior;
-
+    ExpandableLayout DetalhesPedido;
+    RelativeLayout btnAbrirDetalhes;
     ImageButton btnEnviar, btnVoltar;
-    String idChat = "";
+    Button btnPagar;
+    ImageView setaDetalhes;
+
+    Toolbar toolbar;
 
     Runnable loopMensagens = new Runnable() {
         @Override
         public void run() {
             if (telaAtiva) {
                 obterMensagens();
+                obterStatus();
                 handler.postDelayed(this, intervalo);
             }
         }
     };
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat_especifico);
 
-        Toolbar toolbar = findViewById(R.id.menu_denuncia);
+        usuario = getIntent().getStringExtra("usuario");
+        usuarioDestino = (Usuario) getIntent().getExtras().getSerializable("usuarioDestino");
+
+        Log.d("testeUserRAIZ", "destinatario:" + usuarioDestino.getUsuario());
+
+        toolbar = findViewById(R.id.menu_denuncia);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
-        usuario = getIntent().getStringExtra("usuario");
-        usuarioDestino = (Usuario) getIntent().getExtras().getSerializable("usuarioDestino");
-        Log.d("testeUserRAIZ", "destinatario:" + usuarioDestino.getUsuario());
-
-        String idPedido = getIntent().getStringExtra("idPedido");
-        //obterMensagens();
         rvMensagens = findViewById(R.id.rvMensagens);
         rvMensagens.setLayoutManager(new GridLayoutManager(getApplicationContext(), 1));
 
         etTexto = findViewById(R.id.etTexto);
         nomeSuperior = findViewById(R.id.txtNomeDestinatario);
-        nomeSuperior.setText(usuarioDestino.getNome());
+        txtPrecoPedido = findViewById(R.id.txtValorFinal);
 
+
+        DetalhesPedido = findViewById(R.id.layout_detalhesPedidos);
+        btnAbrirDetalhes = findViewById(R.id.btnAbrirDetalhes);
+        lblVerDetalhes = findViewById(R.id.txtVerDetalhes);
+
+
+        setaDetalhes = findViewById(R.id.ic_seta);
         btnEnviar = findViewById(R.id.btnEnviar);
         btnVoltar = findViewById(R.id.btnVoltarChat);
+        btnPagar = findViewById(R.id.btn_pagar_chat);
+
+        nomeSuperior.setText(usuarioDestino.getNome());
 
 
+
+        btnAbrirDetalhes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                abrirDetalhes();
+            }
+        });
 
         btnEnviar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -111,6 +140,7 @@ public class activityChatEspecifico extends AppCompatActivity {
                     enviarMensagem();
                     fecharTeclado();
                     etTexto.setText("");
+
                 }
             }
         });
@@ -121,10 +151,57 @@ public class activityChatEspecifico extends AppCompatActivity {
             }
         });
 
+        btnPagar.setOnClickListener(v -> {
+            String idPedido = getIntent().getStringExtra("idPedido");
+            String precoCombinado = txtPrecoPedido.getText().toString().substring(1);
+
+            if (precoCombinado.isEmpty()) {
+                Toast.makeText(activityChatEspecifico.this,"Combine um valor antes.", Toast.LENGTH_SHORT).show();
+            }
+            else {
+                Intent intent = new Intent(this, activityPagamento.class);
+                intent.putExtra("valor_pedido", precoCombinado);
+                intent.putExtra("id_pedido", idPedido);
+                startActivity(intent);
+            }
+        });
+
         btnVoltar.setOnClickListener(v -> {
             finish();
         });
     }
+
+    private void processarMensagem(String mensagem) {
+        String valor = extrairValorMensagem(mensagem);
+        if (valor != null) {
+            txtPrecoPedido.setText("$"+valor);
+        }
+    }
+
+    private String extrairValorMensagem(String mensagem) {
+        if (mensagem.startsWith("combinado:")) {
+            return mensagem.split(":")[1];
+        }
+        return null;
+    }
+
+    private void abrirDetalhes() {
+        final Animation rotateUp = AnimationUtils.loadAnimation(this, R.anim.rotate_up);
+        final Animation rotateDown = AnimationUtils.loadAnimation(this, R.anim.rotate_down);
+
+        if (DetalhesPedido.isExpanded()) {
+            DetalhesPedido.collapse();
+            setaDetalhes.startAnimation(rotateUp);
+            lblVerDetalhes.setVisibility(View.VISIBLE);
+
+        } else {
+            lblVerDetalhes.setVisibility(View.GONE);
+            DetalhesPedido.expand();
+            setaDetalhes.startAnimation(rotateDown);
+
+        }
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -138,11 +215,6 @@ public class activityChatEspecifico extends AppCompatActivity {
         return true;
     }
 
-    private void DenunciarTela() {
-        Intent intent = new Intent(activityChatEspecifico.this, activityDenunciarUsuario.class);
-        intent.putExtra("id_denunciado", usuarioDestino);
-        startActivity(intent);
-    }
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == R.id.btn_denunciar) {
@@ -154,8 +226,7 @@ public class activityChatEspecifico extends AppCompatActivity {
     }
 
     private void obterMensagens() {
-        listaMensajes.clear();
-
+        listaMensagens.clear();
         String idChat = getIntent().getStringExtra("idChat");
         HashSet<Mensagens> conjuntoMensagens = new HashSet<>();
         SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
@@ -187,15 +258,14 @@ public class activityChatEspecifico extends AppCompatActivity {
                                     String msg = objectMsg.get("MENSAGEM").getAsString();
                                     String remetente = objectMsg.get("REMETENTE").getAsString();
                                     String destinatario = objectMsg.get("DESTINATARIO").getAsString();
-
                                     Mensagens mensagens = new Mensagens(
                                             idMsg,
                                             msg,
                                             remetente,
                                             destinatario);
 
-                                    if (!listaMensajes.contains(idMsg)) {
-                                        listaMensajes.add(mensagens);
+                                    if (!listaMensagens.contains(idMsg)) {
+                                        listaMensagens.add(mensagens);
                                     }
 
 
@@ -211,7 +281,7 @@ public class activityChatEspecifico extends AppCompatActivity {
                                     if (nome_dest.equals(nomeCliente)) {
                                         nomeRemetente = nome_dest;
                                         nomeDestinatario = nome_rem;
-                                    }else {
+                                    } else {
                                         nomeRemetente = nome_rem;
                                         nomeDestinatario = nome_dest;
                                     }
@@ -221,8 +291,75 @@ public class activityChatEspecifico extends AppCompatActivity {
                                 LinearLayoutManager linearLayoutManager = new LinearLayoutManager(activityChatEspecifico.this, RecyclerView.VERTICAL, false);
                                 linearLayoutManager.setStackFromEnd(true);
                                 rvMensagens.setLayoutManager(linearLayoutManager);
-                                AdaptadorMensagens adaptadorMensagens = new AdaptadorMensagens(activityChatEspecifico.this, usuario, listaMensajes, nomeRemetente, nomeDestinatario);
+                                AdaptadorMensagens adaptadorMensagens = new AdaptadorMensagens(activityChatEspecifico.this, usuario, listaMensagens, nomeRemetente, nomeDestinatario);
                                 rvMensagens.setAdapter(adaptadorMensagens);
+                                rvMensagens.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+                                    @Override
+                                    public void onGlobalLayout() {
+
+                                        final int itemCount = adaptadorMensagens.getItemCount();
+
+                                        for (int i = 0; i < itemCount; i++) {
+                                            TextView rvMensagem = rvMensagens.getChildAt(i).findViewById(R.id.tvMensagem);
+
+
+                                            String precoCombinado = rvMensagem.getText().toString();
+                                            processarMensagem(precoCombinado);
+
+                                        }
+                                        rvMensagens.getViewTreeObserver().removeGlobalOnLayoutListener(this);
+                                    }
+                                });
+                            }
+
+                        } catch (JsonIOException ex) {
+                            ex.printStackTrace();
+                        }
+                    }
+                });
+    }
+
+    private void obterStatus() {
+        txtStatusPedido = findViewById(R.id.txtStatusPedido);
+        String idPedido = getIntent().getStringExtra("idPedido");
+        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
+        String idUsuario = sharedPreferences.getString("id_usuario", "");
+        Log.d("testeIdPedido", idPedido);
+
+
+        Ion.with(this)
+                .load(URL_RECUPERAR_STATUS)
+                .setBodyParameter("idPedido", idPedido)
+                .asJsonObject()
+                .setCallback(new FutureCallback<JsonObject>() {
+                    @Override
+                    public void onCompleted(Exception e, JsonObject result) {
+                        try {
+                            if (e != null) {
+                                // Ocorreu um erro de conexão ou outra exceção
+                                Toast.makeText(activityChatEspecifico.this, e.toString(), Toast.LENGTH_SHORT).show();
+                            } else {
+                                // Verifique se o resultado é válido
+                                if (result != null && result.has("status")) {
+                                    String status = result.get("status").getAsString();
+                                    idRemetente = result.get("remetente").getAsString();
+                                    if ("pago".equals(status)) {
+                                        txtStatusPedido.setText("PAGO");
+                                        Log.d("statusPedido", "PAGO");
+                                    } else if ("pendente".equals(status)) {
+                                        txtStatusPedido.setText("PENDENTE");
+                                        Log.d("statusPedido", "PENDENTE");
+                                    }
+                                    if (idRemetente.equals(idUsuario)){
+                                        btnPagar.setVisibility(View.VISIBLE);
+                                    }
+                                    else {
+                                        btnPagar.setVisibility(View.GONE);
+                                    }
+                                } else {
+                                    // Resposta inválida do servidor
+                                    Toast.makeText(activityChatEspecifico.this, R.string.erro_desconhecido, Toast.LENGTH_SHORT).show();
+                                }
                             }
 
                         } catch (JsonIOException ex) {
@@ -259,8 +396,6 @@ public class activityChatEspecifico extends AppCompatActivity {
                                     if ("ok".equals(status)) {
 
                                         Log.d("statusmsg", "okk");
-
-
                                     } else if ("erro".equals(status)) {
                                         Log.d("erroChat", "ERRROOOO");
 
@@ -288,6 +423,15 @@ public class activityChatEspecifico extends AppCompatActivity {
             InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
             imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
         }
+    }
+
+    private void DenunciarTela() {
+        String idPedido = getIntent().getStringExtra("idPedido");
+
+        Intent intent = new Intent(activityChatEspecifico.this, activityDenunciarUsuario.class);
+        intent.putExtra("id_denunciado", usuarioDestino);
+        intent.putExtra("id_pedido", idPedido);
+        startActivity(intent);
     }
 
     @Override

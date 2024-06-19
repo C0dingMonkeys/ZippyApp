@@ -22,6 +22,20 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".pagamentoPix"
+            android:exported="false" />
+        <activity
+            android:name=".activityCadastrarCartao"
+            android:configChanges="orientation|screenSize|layoutDirection"
+            android:exported="true"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".activityMeusPedidos"
+            android:exported="false" />
+        <activity
+            android:name=".activityPagamento"
+            android:exported="true" />
+        <activity
             android:name=".activityDenunciarUsuario"
             android:exported="false" />
         <activity

@@ -66,7 +66,6 @@ public class AdaptadorMensagens extends RecyclerView.Adapter<AdaptadorMensagens.
         }
     }
 
-
     @Override
     public int getItemCount() {
         return listaMensagens.size();

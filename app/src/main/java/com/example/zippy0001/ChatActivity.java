@@ -26,7 +26,7 @@ import java.util.ArrayList;
 public class ChatActivity extends AppCompatActivity {
     ArrayList<Usuario> listaUsuarios = new ArrayList<Usuario>();
     RecyclerView rvChats;
-    String idChat;
+    String idChat, idPedido;
     private String URL_OBTER_CHATS = "https://zippyinternacional.com/Android/chat/buscarChats.php";
     Usuario usuario;
 
@@ -110,9 +110,12 @@ public class ChatActivity extends AppCompatActivity {
 
                                     listaUsuarios.add(usuarioDestinatario);
                                     idChat = objectChats.get("ID_CHAT").getAsString();
+                                    idPedido = objectChats.get("ID_PEDIDO").getAsString();
+
                                 }
-                                AdaptadorChats adaptador = new AdaptadorChats(ChatActivity.this, idUsuarioShared, listaUsuarios, idChat);
+                                AdaptadorChats adaptador = new AdaptadorChats(ChatActivity.this, idUsuarioShared, listaUsuarios, idChat, idPedido);
                                 rvChats.setAdapter(adaptador);
+
 
                             }
 
